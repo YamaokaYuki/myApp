@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>function１</key>
+	<string>タスクが完了するとコメントが表示されるよ</string>
+	<key>function2</key>
+	<string>タスク完了の日時が設定できるよ</string>
+	<key>function３</key>
+	<string>カラー選択ボタンで色の変更ができるよ</string>
+</dict>
+</plist>

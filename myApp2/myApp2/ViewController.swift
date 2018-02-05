@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import FontAwesome_swift
+import Instructions
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
+    var functionAlerts:[String] = []
     
     //表示する個数の設定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,10 +43,50 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        readPlist()
+        print(functionAlerts)
+        // ユーザーが使用した回数を保存
+        let myDefault = UserDefaults.standard
+        let c = myDefault.integer(forKey: "count")
+        myDefault.set(c + 1, forKey: "count")
         
-      
+        print(c)
         
+        let r = Int(arc4random()) % functionAlerts.count
+        
+//        for functionAlert in functionAlerts{
+//            print(functionAlert)
+//        }
 
+        
+        //機能アラートを作成
+        let alert = UIAlertController(title: "こんな機能があるよ", message:functionAlerts[r], preferredStyle: .alert)
+        
+        //アラートにOKボタンを追加
+        //handler:OKボタンが押された時に行いたい処理を指定する場所
+        //nilをセットすると、何も動作しない
+        alert.addAction(UIAlertAction(title: "OK",style: .default, handler: {Aaction in
+            print("OK押されました")
+            
+        }))
+        
+        //アラートを表示
+        present(alert, animated: true, completion: nil)
+        
+        
+    }
+    
+    func readPlist() {
+        //ファイルのパスを取得
+        let filePath = Bundle.main.path(forResource: "functionAlert", ofType: "plist")
+        
+        //ファイルの内容を読み込んでディクショナリー型に代入
+        let dic = NSDictionary(contentsOfFile: filePath!)
+        
+        //TableViewで扱いやすい形（エリア名の入ってる配列）を作成
+        for(_,value) in dic!{
+            functionAlerts.append(value as! String)
+        }
         
     }
     
