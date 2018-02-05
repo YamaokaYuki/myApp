@@ -9,6 +9,9 @@
 import UIKit
 import CoreData //CoreData使う時絶対に必要
 
+//titleのグローバル変数を作る
+var title:[String] = [""]
+
 class secondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate{
     
     @IBOutlet weak var newTableView: UITableView!
@@ -19,11 +22,10 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     var memos:[String] = [""]
     
-    var titles:[String] = [""]
     
     //titleのグローバル変数を作る
+   
     
-    var globalVariableTitle:String = ""
     //そのグローバル変数を作った後にtitleを保存してあげる
     
  
@@ -34,10 +36,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         read()
         
-        titleRead()
-        
-      
-
+       
         // newTextFieldにプレスフォルダーを設定
         newTextField.placeholder = "新規登録"
         
@@ -98,66 +97,66 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         let viewContext = appD.persistentContainer.viewContext
         
         //データを取得するエンティティの指定
-        //<>の中はモデルファイルで指定したエンティティ名
-        let query: NSFetchRequest<ToDo> = ToDo.fetchRequest()
-        
+//        <>の中はモデルファイルで指定したエンティティ名
+       let query:NSFetchRequest<ToDo> = ToDo.fetchRequest()
+
         do {
             //データの一括取得
             let fetchResults = try viewContext.fetch(query)
             //取得したデータを、デバックエリアにループで表示
             print(fetchResults.count)
-            
+
             for result: AnyObject in fetchResults{
                 let memo :String = result.value(forKey: "memo") as! String
-                
+
                 print("memo:\(memo)")
-                
+
                 memos.append(memo)
             }
             memos.append("")
         } catch  {
-            
+
         }
         
     }
     
     
     
-    func titleRead(){
-        
-        //配列の初期化
-        
-        titles = []
-        
-        //AppDelegateを使う準備をしておく
-        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
-        
-        //エンティティを操作するためのオブジェクトを作成
-        let viewContext = appD.persistentContainer.viewContext
-        
-        //データを取得するエンティティの指定
-        //<>の中はモデルファイルで指定したエンティティ名
-        let query: NSFetchRequest<ToDo> = ToDo.fetchRequest()
-        
-        do {
-            //データの一括取得
-            let fetchResults = try viewContext.fetch(query)
-            //取得したデータを、デバックエリアにループで表示
-            print(fetchResults.count)
-            
-//            for result: AnyObject in fetchResults{
-//                let title :String = result.value(forKey: "title") as! String
+//    func titleRead(){
 //
-//                print("title:\(title)")
+//        //配列の初期化
 //
-//                titles.append(title)
-//            }
-            titles.append("")
-        } catch  {
-            
-        }
-        
-    }
+//        titles = []
+//
+//        //AppDelegateを使う準備をしておく
+//        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
+//
+//        //エンティティを操作するためのオブジェクトを作成
+//        let viewContext = appD.persistentContainer.viewContext
+//
+//        //データを取得するエンティティの指定
+//        //<>の中はモデルファイルで指定したエンティティ名
+//        let query: NSFetchRequest<ToDo> = ToDo.fetchRequest()
+//
+//        do {
+//            //データの一括取得
+//            let fetchResults = try viewContext.fetch(query)
+//            //取得したデータを、デバックエリアにループで表示
+//            print(fetchResults.count)
+//
+////            for result: AnyObject in fetchResults{
+////                let title :String = result.value(forKey: "title") as! String
+////
+////                print("title:\(title)")
+////
+////                titles.append(title)
+////            }
+//            titles.append("")
+//        } catch  {
+//
+//        }
+//
+//    }
     
 
 
@@ -167,8 +166,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         read()
         return memos.count
         
-        titleRead()
-        return titles.count
+      
  
     }
     
@@ -176,44 +174,43 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "newCell", for: indexPath) as! NewCustumCell
         cell.tableView = newTableView
         cell.newTextFieldCell.text = memos[indexPath.row]
-        cell.test()
         
         return cell
     }
     
-    func saveTitle() {
-        //AppDelegateを使う準備をしておく
-        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
-        
-        //エンティティを操作するためのオブジェクトを作成
-        let viewContext = appD.persistentContainer.viewContext
-        
-        //ToDoエンティティオブジェクトを作成
-        //forEntityNameは、モデルファイルで決めたエンティティ名（大文字小文字合わせる）
-        let ToDo = NSEntityDescription.entity(forEntityName: "ToDo", in: viewContext)
-        
-        //ToDoエンティティにレコード（行）を挿入するためのオブジェクトを作成
-        let newRecord = NSManagedObject(entity: ToDo!, insertInto: viewContext)
-        
-        //レコードオブジェクトに値のセット
-        newRecord.setValue(newTextField.text, forKey: "title")
-        
-        //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
-        do {
-            //レコード（行）の即時保存
-            
-            try viewContext.save()
-        } catch  {
-            print("DBへの保存に失敗しました")
-        }
-        
-        //CoreDataからデータを読み込む処理
-        titleRead()
-        
-        
-        
-        
-    }
+//    func saveTitle() {
+//        //AppDelegateを使う準備をしておく
+//        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
+//
+//        //エンティティを操作するためのオブジェクトを作成
+//        let viewContext = appD.persistentContainer.viewContext
+//
+//        //ToDoエンティティオブジェクトを作成
+//        //forEntityNameは、モデルファイルで決めたエンティティ名（大文字小文字合わせる）
+//        let ToDo = NSEntityDescription.entity(forEntityName: "ToDo", in: viewContext)
+//
+//        //ToDoエンティティにレコード（行）を挿入するためのオブジェクトを作成
+//        let newRecord = NSManagedObject(entity: ToDo!, insertInto: viewContext)
+//
+//        //レコードオブジェクトに値のセット
+//        newRecord.setValue(newTextField.text, forKey: "title")
+//
+//        //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
+//        do {
+//            //レコード（行）の即時保存
+//
+//            try viewContext.save()
+//        } catch  {
+//            print("DBへの保存に失敗しました")
+//        }
+//
+//        //CoreDataからデータを読み込む処理
+//        titleRead()
+//
+//
+//
+//
+//    }
     
     
     

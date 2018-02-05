@@ -56,6 +56,7 @@ class NewCustumCell: UITableViewCell,UITextFieldDelegate {
         
         //ここにtitleのグローバル変数を書いてあげてmemoとtitleを紐づけてあげる
         
+        
         //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
         do {
             //レコード（行）の即時保存

@@ -16,10 +16,10 @@ extension ToDo {
         return NSFetchRequest<ToDo>(entityName: "ToDo")
     }
 
-    @NSManaged public var memo: String?
-    @NSManaged public var title: String?
-    @NSManaged public var saveDate: NSDate?
-    @NSManaged public var priority: String?
     @NSManaged public var dueDate: NSDate?
+    @NSManaged public var memo: String?
+    @NSManaged public var priority: String?
+    @NSManaged public var saveDate: NSDate?
+    @NSManaged public var title: String?
 
 }

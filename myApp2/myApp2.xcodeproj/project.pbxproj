@@ -19,6 +19,10 @@
 		6987FBEB2021582400650394 /* CustumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6987FBEA2021582400650394 /* CustumCell.swift */; };
 		69B94881202618EB00F18EF8 /* ToDo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 69B9487F202618EB00F18EF8 /* ToDo.xcdatamodeld */; };
 		69CD90A020256D60009B313C /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CD909F20256D60009B313C /* secondViewController.swift */; };
+		69F88FB92027FCD200345339 /* ToDo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F88FB82027FCD200345339 /* ToDo+CoreDataClass.swift */; };
+		69F88FBB2027FCD600345339 /* ToDo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F88FBA2027FCD600345339 /* ToDo+CoreDataProperties.swift */; };
+		69F88FBD2027FDE300345339 /* Memo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F88FBC2027FDE300345339 /* Memo+CoreDataProperties.swift */; };
+		69F88FBF2027FDE800345339 /* Memo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F88FBE2027FDE800345339 /* Memo+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,10 @@
 		6987FBEA2021582400650394 /* CustumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustumCell.swift; sourceTree = "<group>"; };
 		69B94880202618EB00F18EF8 /* ToDo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDo.xcdatamodel; sourceTree = "<group>"; };
 		69CD909F20256D60009B313C /* secondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
+		69F88FB82027FCD200345339 /* ToDo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ToDo+CoreDataClass.swift"; path = "/Users/yamaokayuki/Documents/ios20171211/myApp/myApp2/myApp2/ToDo+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		69F88FBA2027FCD600345339 /* ToDo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ToDo+CoreDataProperties.swift"; path = "/Users/yamaokayuki/Documents/ios20171211/myApp/myApp2/myApp2/ToDo+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		69F88FBC2027FDE300345339 /* Memo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Memo+CoreDataProperties.swift"; path = "/Users/yamaokayuki/Documents/ios20171211/myApp/myApp2/myApp2/Memo+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		69F88FBE2027FDE800345339 /* Memo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Memo+CoreDataClass.swift"; path = "/Users/yamaokayuki/Documents/ios20171211/myApp/myApp2/myApp2/Memo+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		810EED72ADCC89AA5A1B8D1C /* Pods_myApp2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myApp2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92020F40FEA473BCBAF44DD0 /* Pods-myApp2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myApp2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myApp2/Pods-myApp2.debug.xcconfig"; sourceTree = "<group>"; };
 		AD13553DDD30DFA024DF8BCF /* Pods-myApp2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myApp2.release.xcconfig"; path = "Pods/Target Support Files/Pods-myApp2/Pods-myApp2.release.xcconfig"; sourceTree = "<group>"; };
@@ -73,6 +81,10 @@
 		6987FBD7202153AE00650394 /* myApp2 */ = {
 			isa = PBXGroup;
 			children = (
+				69F88FBE2027FDE800345339 /* Memo+CoreDataClass.swift */,
+				69F88FBC2027FDE300345339 /* Memo+CoreDataProperties.swift */,
+				69F88FB82027FCD200345339 /* ToDo+CoreDataClass.swift */,
+				69F88FBA2027FCD600345339 /* ToDo+CoreDataProperties.swift */,
 				6987FBD8202153AE00650394 /* AppDelegate.swift */,
 				6987FBDA202153AE00650394 /* ViewController.swift */,
 				6987FBDC202153AE00650394 /* Main.storyboard */,
@@ -241,8 +253,12 @@
 				69CD90A020256D60009B313C /* secondViewController.swift in Sources */,
 				6987FBDB202153AE00650394 /* ViewController.swift in Sources */,
 				6987FBD9202153AE00650394 /* AppDelegate.swift in Sources */,
+				69F88FBD2027FDE300345339 /* Memo+CoreDataProperties.swift in Sources */,
 				6987FBEB2021582400650394 /* CustumCell.swift in Sources */,
+				69F88FBF2027FDE800345339 /* Memo+CoreDataClass.swift in Sources */,
 				69B94881202618EB00F18EF8 /* ToDo.xcdatamodeld in Sources */,
+				69F88FB92027FCD200345339 /* ToDo+CoreDataClass.swift in Sources */,
+				69F88FBB2027FCD600345339 /* ToDo+CoreDataProperties.swift in Sources */,
 				694E5A6620259FB10025F85F /* setViewController.swift in Sources */,
 				694E5A6A2025F35C0025F85F /* NewCustumCell.swift in Sources */,
 			);

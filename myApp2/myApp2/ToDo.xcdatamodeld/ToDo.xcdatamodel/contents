@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Memo" representedClassName=".Memo" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="ToDo" representedClassName=".ToDo" syncable="YES">
         <attribute name="dueDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="memo" optional="YES" attributeType="String" syncable="YES"/>
@@ -9,5 +13,6 @@
     </entity>
     <elements>
         <element name="ToDo" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Memo" positionX="-54" positionY="27" width="128" height="75"/>
     </elements>
 </model>
