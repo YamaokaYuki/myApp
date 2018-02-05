@@ -10,7 +10,7 @@ import UIKit
 import CoreData //CoreData使う時絶対に必要
 
 //titleのグローバル変数を作る
-var title:[String] = [""]
+var titles:[String] = [""]
 
 class secondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate{
     
@@ -23,8 +23,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     var memos:[String] = [""]
     
     
-    //titleのグローバル変数を作る
-   
     
     //そのグローバル変数を作った後にtitleを保存してあげる
     
@@ -122,41 +120,41 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     
     
-//    func titleRead(){
+    func titleRead(){
+
+        //配列の初期化
+
+        titles = []
+
+        //AppDelegateを使う準備をしておく
+        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
+
+        //エンティティを操作するためのオブジェクトを作成
+        let viewContext = appD.persistentContainer.viewContext
+
+        //データを取得するエンティティの指定
+        //<>の中はモデルファイルで指定したエンティティ名
+        let query: NSFetchRequest<ToDo> = ToDo.fetchRequest()
+
+        do {
+            //データの一括取得
+            let fetchResults = try viewContext.fetch(query)
+            //取得したデータを、デバックエリアにループで表示
+            print("titleRead",fetchResults.count)
+
+//            for result: AnyObject in fetchResults{
+//                let title :String = result.value(forKey: "title") as! String
 //
-//        //配列の初期化
+//                print("title:\(title)")
 //
-//        titles = []
-//
-//        //AppDelegateを使う準備をしておく
-//        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
-//
-//        //エンティティを操作するためのオブジェクトを作成
-//        let viewContext = appD.persistentContainer.viewContext
-//
-//        //データを取得するエンティティの指定
-//        //<>の中はモデルファイルで指定したエンティティ名
-//        let query: NSFetchRequest<ToDo> = ToDo.fetchRequest()
-//
-//        do {
-//            //データの一括取得
-//            let fetchResults = try viewContext.fetch(query)
-//            //取得したデータを、デバックエリアにループで表示
-//            print(fetchResults.count)
-//
-////            for result: AnyObject in fetchResults{
-////                let title :String = result.value(forKey: "title") as! String
-////
-////                print("title:\(title)")
-////
-////                titles.append(title)
-////            }
-//            titles.append("")
-//        } catch  {
-//
-//        }
-//
-//    }
+//                titles.append(title)
+//            }
+            titles.append("")
+        } catch  {
+
+        }
+
+    }
     
 
 
@@ -178,41 +176,46 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         return cell
     }
     
-//    func saveTitle() {
-//        //AppDelegateを使う準備をしておく
-//        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
-//
-//        //エンティティを操作するためのオブジェクトを作成
-//        let viewContext = appD.persistentContainer.viewContext
-//
-//        //ToDoエンティティオブジェクトを作成
-//        //forEntityNameは、モデルファイルで決めたエンティティ名（大文字小文字合わせる）
-//        let ToDo = NSEntityDescription.entity(forEntityName: "ToDo", in: viewContext)
-//
-//        //ToDoエンティティにレコード（行）を挿入するためのオブジェクトを作成
-//        let newRecord = NSManagedObject(entity: ToDo!, insertInto: viewContext)
-//
-//        //レコードオブジェクトに値のセット
-//        newRecord.setValue(newTextField.text, forKey: "title")
-//
-//        //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
-//        do {
-//            //レコード（行）の即時保存
-//
-//            try viewContext.save()
-//        } catch  {
-//            print("DBへの保存に失敗しました")
-//        }
-//
-//        //CoreDataからデータを読み込む処理
+    func saveTitle() {
+        //AppDelegateを使う準備をしておく
+        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
+
+        //エンティティを操作するためのオブジェクトを作成
+        let viewContext = appD.persistentContainer.viewContext
+
+        //ToDoエンティティオブジェクトを作成
+        //forEntityNameは、モデルファイルで決めたエンティティ名（大文字小文字合わせる）
+        let ToDo = NSEntityDescription.entity(forEntityName: "ToDo", in: viewContext)
+
+        //ToDoエンティティにレコード（行）を挿入するためのオブジェクトを作成
+        let newRecord = NSManagedObject(entity: ToDo!, insertInto: viewContext)
+
+        //レコードオブジェクトに値のセット
+        newRecord.setValue(newTextField.text, forKey: "title")
+
+        //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
+        do {
+            //レコード（行）の即時保存
+
+            try viewContext.save()
+        } catch  {
+            print("DBへの保存に失敗しました")
+        }
+        
+
+        //CoreDataからデータを読み込む処理
 //        titleRead()
-//
-//
-//
-//
-//    }
+
+
+
+
+    }
     
-    
+    //title完了ボタンを押した時に発動
+    @IBAction func titleCompleteBtn(_ sender: UIButton) {
+        
+        
+    }
     
     //koteiSwitchスイッチの状態が変わった時に発動
     @IBAction func koteiSwitch(_ sender: UISwitch) {
