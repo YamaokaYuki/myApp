@@ -9,10 +9,8 @@
 import UIKit
 
 class CustumCell: UITableViewCell {
+ 
+    @IBOutlet weak var toDoTitle: UILabel!
     
-    @IBOutlet weak var title: UILabel!
     
-    @IBOutlet weak var subtitle: UILabel!
-    
-    @IBOutlet weak var myTextField: UITextField!
 }

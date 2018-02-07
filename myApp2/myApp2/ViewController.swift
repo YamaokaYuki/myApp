@@ -9,41 +9,29 @@
 import UIKit
 import FontAwesome_swift
 import Instructions
+import CoreData
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     var functionAlerts:[String] = []
+    var titles:[String] = []
+    @IBOutlet weak var toDoListTableView: UITableView!
+    @IBOutlet weak var addListButton: UIButton!
     
-    //表示する個数の設定
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
     
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        //セルオブジェクトの作成
-        let cell:CustumCell = tableView.dequeueReusableCell(withIdentifier: "cell", for:indexPath) as! CustumCell
-        
-        //各プロパティに値を設定
-        
-        
-        cell.myTextField.text = ""
-        
-        //背景色の設定
-        cell.backgroundColor = UIColor.orange
-        
-        //作成したcellオブジェクトを戻り値として返す
-        return cell
-        
+    override func viewWillAppear(_ animated: Bool) {
+        readTitle()
+        toDoListTableView.reloadData()
     }
     
     
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         readPlist()
+        readTitle()
+        
         print(functionAlerts)
         // ユーザーが使用した回数を保存
         let myDefault = UserDefaults.standard
@@ -57,6 +45,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 //        for functionAlert in functionAlerts{
 //            print(functionAlert)
 //        }
+        
+        //addListButtonにfontawesome適用
+//        addListButton.font = UIFont.fontAwesome(ofSize: 20)
+//        addListButton.text = String.fontAwesomeIcon(name: .coffee)
 
         
         //機能アラートを作成
@@ -71,7 +63,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }))
         
         //アラートを表示
-        present(alert, animated: true, completion: nil)
+        //present(alert, animated: true, completion: nil)
         
         
     }
@@ -92,6 +84,60 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //myTextFieldリターンキーが押された時にキーボードが下がる
     @IBAction func tapReturn(_ sender: UITextField) {
+    }
+    
+    func readTitle(){
+        
+        titles = []
+        //AppDelegateを使う準備をしておく
+        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
+        
+        //エンティティを操作するためのオブジェクトを作成
+        let viewContext = appD.persistentContainer.viewContext
+        
+        //データを取得するエンティティの指定
+        //<>の中はモデルファイルで指定したエンティティ名
+        let query: NSFetchRequest<ToDo> = ToDo.fetchRequest()
+        
+        do {
+            //データの一括取得
+            let fetchResults = try viewContext.fetch(query)
+            //取得したデータを、デバックエリアにループで表示
+            print("titleRead",fetchResults.count)
+            for result in fetchResults {
+                let title:String = result.title!
+                titles.append(title)
+            }
+        } catch  {
+        }
+    }
+    
+    //表示する個数の設定
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return titles.count
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //セルオブジェクトの作成
+        let cell:CustumCell = tableView.dequeueReusableCell(withIdentifier: "cell", for:indexPath) as! CustumCell
+        //各プロパティに値を設定
+        cell.toDoTitle.text = titles[indexPath.row]
+        //背景色の設定
+//        cell.backgroundColor = UIColor.orange
+        //作成したcellオブジェクトを戻り値として返す
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected:\(indexPath.row)")
+        // 選択したタイトルが取得できる
+        print(titles[indexPath.row])
+        
+        // ページ遷移
+
+    
     }
     
     

@@ -9,83 +9,100 @@
 import UIKit
 import CoreData //CoreData使う時絶対に必要
 
-//titleのグローバル変数を作る
-var titles:[String] = [""]
-
 class secondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate{
     
     @IBOutlet weak var newTableView: UITableView!
     @IBOutlet weak var newTextField: UITextField!
     @IBOutlet weak var dateTapSwitch: UISwitch!
     @IBOutlet weak var koteiSwitch: UISwitch!
+    @IBOutlet weak var dateTextField: UITextField!
     
+    let myDefault = UserDefaults.standard
     
     var memos:[String] = [""]
+    var memoTitle:String!
     
     
-    
-    //そのグローバル変数を作った後にtitleを保存してあげる
-    
- 
-    
+    //画面が表示された時、設定値を反映させる
+    override func viewWillAppear(_ animated: Bool){
+        // はじめの状態をfalseにしておく.
+        dateTapSwitch.isOn = false
+        koteiSwitch.isOn = false
+        
+        //保存されてる値が存在した時
+        if myDefault.object(forKey: "dateSwitchFlag") != nil{
+            dateTapSwitch.isOn = myDefault.object(forKey: "dateSwitchFlag") as! Bool
+        }
+        
+        //保存されてる値が存在した時
+        if myDefault.object(forKey: "koteiSwitchFlag") != nil{
+            koteiSwitch.isOn = myDefault.object(forKey: "koteiSwitchFlag")as! Bool
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        read()
-        
-       
         // newTextFieldにプレスフォルダーを設定
         newTextField.placeholder = "新規登録"
-        
-        
-        //日付の表示・非表示を表す変数を用意
-        
-        //UserDefaultから値を取り出す
-        
-        var myDefault = UserDefaults.standard
-        myDefault.object(forKey: "imageSwitchFlag")
-        
-        //日付の表示/非表示を表す変数を用意
-        var imageSwitchFlag = true
-        
-        
-        // SwitchをOnに設定しない.
-        dateTapSwitch.isOn = false
-        //保存されてる値が存在した時
-        if myDefault.object(forKey: "imageSwitchFlag") != nil{
-            imageSwitchFlag = myDefault.object(forKey: "imageSwitchFlag")as! Bool
-            dateTapSwitch.isOn = imageSwitchFlag
+        if newTextField.text == "" {
+            newTableView.isHidden = true
+        }else{
+            newTableView.isHidden = false
         }
         
-        
-        
-        //固定の表示・非表示を表す変数を用意
-        
-        //UserDefaultから値を取り出す
-        
-        var myDefaultKotei = UserDefaults.standard
-        myDefaultKotei.object(forKey: "koteiSwitchFlag")
-        
-        //固定の表示/非表示を表す変数を用意
-        var koteiSwitchFlag = true
-        
-        
-        // SwitchをOnに設定しない.
-        dateTapSwitch.isOn = false
-        //保存されてる値が存在した時
-        if myDefaultKotei.object(forKey: "koteiSwitchFlag") != nil{
-            koteiSwitchFlag = myDefault.object(forKey: "koteiSwitchFlag")as! Bool
-            koteiSwitch.isOn = imageSwitchFlag
-        }
-
-
+        readMemoData()
+        createDatePicker()
     }
     
-    func read(){
+    
+    func createDatePicker(){
+        
+        //dateTextFieldに現在日時を設定
+        // 日時をラベルに表示する
+        let now = Date()
+        let formatter = DateFormatter()
+        formatter.timeStyle = .full
+        formatter.dateStyle = .full
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "ydMMMHHmm", options: 0, locale: Locale(identifier: "ja_JP"))
+
+        self.dateTextField.text = "\(formatter.string(from: now))"
+        
+        //baseViewの設定-------------------------------
+        let datePicker:UIDatePicker = UIDatePicker()
+        datePicker.addTarget(self, action: #selector(self.showDateSelected(sender:)), for: .valueChanged)
+        datePicker.datePickerMode = UIDatePickerMode.dateAndTime
+        // ②日本の日付表示形式にする
+        datePicker.locale = NSLocale(localeIdentifier: "ja_JP") as Locale
+        
+        dateTextField.inputView = datePicker
+        
+        // UIToolBarの設定
+        var toolBar:UIToolbar!
+        toolBar = UIToolbar(frame: CGRect(
+            x:0,
+            y:self.view.bounds.height/6,
+            width:self.view.bounds.width,
+            height:35
+        ))
+        toolBar.layer.position = CGPoint(x: 10, y: 100)
+        toolBar.barStyle = .blackTranslucent
+        toolBar.tintColor = UIColor.white
+        toolBar.backgroundColor = UIColor.black
+        
+        let toolBarBtn = UIBarButtonItem(title: "完了", style: .plain, target: self, action: #selector(self.closeBaseView(sender:)))
+        
+        let flexibleItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        
+        toolBar.items = [flexibleItem,toolBarBtn]
+        
+        dateTextField.inputAccessoryView = toolBar
+    }
+    
+    // coreDataの読み込み memoにappendしてる
+    func readMemoData(){
         
         //配列の初期化
-        
         memos = []
         
         //AppDelegateを使う準備をしておく
@@ -96,7 +113,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         //データを取得するエンティティの指定
 //        <>の中はモデルファイルで指定したエンティティ名
-       let query:NSFetchRequest<ToDo> = ToDo.fetchRequest()
+       let query:NSFetchRequest<Memo> = Memo.fetchRequest()
 
         do {
             //データの一括取得
@@ -105,7 +122,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             print(fetchResults.count)
 
             for result: AnyObject in fetchResults{
-                let memo :String = result.value(forKey: "memo") as! String
+                let memo :String = result.value(forKey: "content") as! String
 
                 print("memo:\(memo)")
 
@@ -113,59 +130,13 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             }
             memos.append("")
         } catch  {
-
         }
-        
     }
     
-    
-    
-    func titleRead(){
-
-        //配列の初期化
-
-        titles = []
-
-        //AppDelegateを使う準備をしておく
-        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
-
-        //エンティティを操作するためのオブジェクトを作成
-        let viewContext = appD.persistentContainer.viewContext
-
-        //データを取得するエンティティの指定
-        //<>の中はモデルファイルで指定したエンティティ名
-        let query: NSFetchRequest<ToDo> = ToDo.fetchRequest()
-
-        do {
-            //データの一括取得
-            let fetchResults = try viewContext.fetch(query)
-            //取得したデータを、デバックエリアにループで表示
-            print("titleRead",fetchResults.count)
-
-//            for result: AnyObject in fetchResults{
-//                let title :String = result.value(forKey: "title") as! String
-//
-//                print("title:\(title)")
-//
-//                titles.append(title)
-//            }
-            titles.append("")
-        } catch  {
-
-        }
-
-    }
-    
-
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         //行数の決定
-        read()
+        readMemoData()
         return memos.count
-        
-      
- 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -177,112 +148,103 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     func saveTitle() {
-        //AppDelegateを使う準備をしておく
-        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
+        if newTextField.text != "" {
+            //AppDelegateを使う準備をしておく
+            let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
+            
+            //エンティティを操作するためのオブジェクトを作成
+            let viewContext = appD.persistentContainer.viewContext
+            
+            //ToDoエンティティオブジェクトを作成
+            //forEntityNameは、モデルファイルで決めたエンティティ名（大文字小文字合わせる）
+            let ToDo = NSEntityDescription.entity(forEntityName: "ToDo", in: viewContext)
+            
+            //ToDoエンティティにレコード（行）を挿入するためのオブジェクトを作成
+            let newRecord = NSManagedObject(entity: ToDo!, insertInto: viewContext)
+            
+            //レコードオブジェクトに値のセット
+            newRecord.setValue(newTextField.text, forKey: "title")
+            
+            //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
+            do {
+                //レコード（行）の即時保存
+                try viewContext.save()
+            } catch  {
+                print("DBへの保存に失敗しました")
+            }
+            //CoreDataからデータを読み込む処理
+            //        titleRead()
 
-        //エンティティを操作するためのオブジェクトを作成
-        let viewContext = appD.persistentContainer.viewContext
-
-        //ToDoエンティティオブジェクトを作成
-        //forEntityNameは、モデルファイルで決めたエンティティ名（大文字小文字合わせる）
-        let ToDo = NSEntityDescription.entity(forEntityName: "ToDo", in: viewContext)
-
-        //ToDoエンティティにレコード（行）を挿入するためのオブジェクトを作成
-        let newRecord = NSManagedObject(entity: ToDo!, insertInto: viewContext)
-
-        //レコードオブジェクトに値のセット
-        newRecord.setValue(newTextField.text, forKey: "title")
-
-        //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
-        do {
-            //レコード（行）の即時保存
-
-            try viewContext.save()
-        } catch  {
-            print("DBへの保存に失敗しました")
         }
-        
-
-        //CoreDataからデータを読み込む処理
-//        titleRead()
-
-
-
-
     }
     
     //title完了ボタンを押した時に発動
     @IBAction func titleCompleteBtn(_ sender: UIButton) {
-        
-        
+        saveTitle()
+        newTableView.isHidden = false
     }
     
     //koteiSwitchスイッチの状態が変わった時に発動
     @IBAction func koteiSwitch(_ sender: UISwitch) {
-        
-  
-        //UseDefaultを操作するためのオブジェクトを作成
-        
-        var myDefaultKotei = UserDefaults.standard
-        
         //スイッチの状態を保存
         //set(保存したい値、forKey:保存した値を取り出す時に指定する名前)
-        
-        myDefaultKotei.set(sender.isOn,forKey: "koteiSwitchFlag")
-        
-        //即保存させる（これがないと、値が保存されていない時があります）
-        
-        myDefaultKotei.synchronize()
-        
-        
-    }
-    
-    
-    
-    //dateTapSwitchスイッチがの状態が変わった時に発動
-    @IBAction func dateTapSwitch(_ sender: UISwitch) {
-     
-        
-        //UseDefaultを操作するためのオブジェクトを作成
-        
-        var myDefault = UserDefaults.standard
-        
-        //スイッチの状態を保存
-        //set(保存したい値、forKey:保存した値を取り出す時に指定する名前)
-        
-        myDefault.set(sender.isOn,forKey: "imageSwitchFlag")
+        myDefault.set(sender.isOn,forKey: "koteiSwitchFlag")
         
         //即保存させる（これがないと、値が保存されていない時があります）
-        
         myDefault.synchronize()
-        
     }
     
-    
-    
-    //画面が表示された時、設定値を反映させる
-    override func viewWillAppear(_ animated: Bool){
+    //    DatePickerで日付が選択されたとき、textFieldにyyyy/MM/ddの形で選択された日付を表示する
+    @objc func showDateSelected(sender:UIDatePicker){
+
+        //フォーマットの設定
+        print(sender.date)
+
+        let df = DateFormatter()
+        df.dateFormat = "yyyy年 MM月 dd日 HH : mm"
         
-        //UserDefaultから値を取り出す
-        
-        var myDefault = UserDefaults.standard
-        myDefault.object(forKey: "imageSwitchFlag")
-        
-        //指定日時の表示/非表示を表す変数を用意
-        var imageSwitchFlag = true
-        
-        
-        //保存されてる値が存在した時
-        if myDefault.object(forKey: "imageSwitchFlag") != nil{
-            imageSwitchFlag = myDefault.object(forKey: "imageSwitchFlag")as! Bool
-        }
-        print(imageSwitchFlag)
-        
-        //保存されているSwitchの状態で日時の表示/非表示を切り替える
-        
-        
+        //選択された日付を日付型から文字列に変換
+
+        let strSelectedDate = df.string(from: sender.date)
+
+        dateTextField.text = strSelectedDate
+
+        //日付のTextFieldに変換した文字列を表示
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "EEEEE", options: 0, locale: Locale(identifier: "ja_JP"))
+        print(formatter.string(from: Date())) // 日
+
     }
 
+
+    //baseViewのCloseボタンが押されたとき発動する
+
+    @objc func closeBaseView(sender: UIButton){
+        dateTextField.resignFirstResponder()
+    }
+    
+    @IBAction func dateSwitch(_ sender: UISwitch) {
+    
+        dateTextField.resignFirstResponder()
+        //isOn...Switchのオン/オフを表すプロパティ（Bool型）
+        if sender.isOn == true {
+            print("スイッチオン")
+            // dateTextFieldを出す
+            dateTextField.isHidden = false
+        }else {
+            print("スイッチオフ")
+            // dateTextFieldを消す
+            dateTextField.isHidden = true
+        }
+        
+        //スイッチの状態を保存
+        //set(保存したい値、forKey:保存した値を取り出す時に指定する名前)
+        myDefault.set(sender.isOn,forKey: "dateSwitchFlag")
+        //即保存させる（これがないと、値が保存されていない時があります）
+        myDefault.synchronize()
+    }
+    
     //newTextFieldリターンキーが押された時にキーボードが下がる
     @IBAction func newTextField(_ sender: UITextField) {
     }
