@@ -11,13 +11,14 @@ import FontAwesome_swift
 import Instructions
 import CoreData
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
     
     var functionAlerts:[String] = []
     var titles:[String] = []
+    var searchBar: UISearchBar!
     @IBOutlet weak var toDoListTableView: UITableView!
     @IBOutlet weak var addListButton: UIButton!
-    
+    @IBOutlet weak var setButton: UIBarButtonItem!
     
     override func viewWillAppear(_ animated: Bool) {
         readTitle()
@@ -31,6 +32,21 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         super.viewDidLoad()
         readPlist()
         readTitle()
+        setupSearchBar()
+        
+        setButton.image = UIImage.fontAwesomeIcon(
+            name: .cog,
+            textColor: UIColor.gray,
+            size: CGSize(width: 35, height: 35)
+        )
+        
+
+        
+//        let font = UIFont.fontAwesome(ofSize: 50)
+//        setButton.setTitleTextAttributes([NSAttributedStringKey.font: font], for: .normal)
+//        setButton.title =  String.fontAwesomeIcon(name: .addressBook)
+        
+        
         
         print(functionAlerts)
         // ユーザーが使用した回数を保存
@@ -66,6 +82,22 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //present(alert, animated: true, completion: nil)
         
         
+    }
+    
+    //サーチバー作成
+    private func setupSearchBar() {
+        if let navigationBarFrame = navigationController?.navigationBar.bounds {
+            let searchBar: UISearchBar = UISearchBar(frame: navigationBarFrame)
+            searchBar.delegate = self
+            searchBar.placeholder = "Search"
+//            searchBar.showsCancelButton = true
+            searchBar.autocapitalizationType = UITextAutocapitalizationType.none
+            searchBar.keyboardType = UIKeyboardType.default
+            navigationItem.titleView = searchBar
+            navigationItem.titleView?.frame = searchBar.frame
+            self.searchBar = searchBar
+            searchBar.becomeFirstResponder()
+        }
     }
     
     func readPlist() {

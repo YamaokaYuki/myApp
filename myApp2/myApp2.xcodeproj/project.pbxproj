@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		616B83DD3EA69BCAEE8FEFA2 /* Pods_myApp2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810EED72ADCC89AA5A1B8D1C /* Pods_myApp2.framework */; };
+		69440E36202A9F0F0009FF9D /* setButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 69440E35202A9F0F0009FF9D /* setButton.png */; };
 		694E5A6620259FB10025F85F /* setViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694E5A6520259FB10025F85F /* setViewController.swift */; };
 		694E5A6A2025F35C0025F85F /* NewCustumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694E5A692025F35C0025F85F /* NewCustumCell.swift */; };
 		6965E2F82026A2AD00F246F7 /* functionAlert.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6965E2F72026A2AD00F246F7 /* functionAlert.plist */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		69440E35202A9F0F0009FF9D /* setButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setButton.png; sourceTree = "<group>"; };
 		694E5A6520259FB10025F85F /* setViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setViewController.swift; sourceTree = "<group>"; };
 		694E5A692025F35C0025F85F /* NewCustumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCustumCell.swift; sourceTree = "<group>"; };
 		6965E2F72026A2AD00F246F7 /* functionAlert.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = functionAlert.plist; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		6987FBD7202153AE00650394 /* myApp2 */ = {
 			isa = PBXGroup;
 			children = (
+				69440E35202A9F0F0009FF9D /* setButton.png */,
 				69F88FBE2027FDE800345339 /* Memo+CoreDataClass.swift */,
 				69F88FBC2027FDE300345339 /* Memo+CoreDataProperties.swift */,
 				69F88FB82027FCD200345339 /* ToDo+CoreDataClass.swift */,
@@ -181,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6987FBE3202153AE00650394 /* LaunchScreen.storyboard in Resources */,
+				69440E36202A9F0F0009FF9D /* setButton.png in Resources */,
 				6987FBE0202153AE00650394 /* Assets.xcassets in Resources */,
 				6987FBDE202153AE00650394 /* Main.storyboard in Resources */,
 				6965E2F82026A2AD00F246F7 /* functionAlert.plist in Resources */,
