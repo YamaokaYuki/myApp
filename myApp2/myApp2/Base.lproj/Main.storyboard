@@ -13,7 +13,7 @@
         <!--ToDo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="myApp2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="myApp2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,7 +55,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="ToDo" id="K05-2T-AWb">
-                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="Item" width="9" springLoaded="YES" id="vhG-2j-M3q" customClass="FontAwesomeBarButtonItem" customModule="FontAwesome_swift">
+                        <barButtonItem key="leftBarButtonItem" title="Item" width="9" id="vhG-2j-M3q" customClass="FontAwesomeBarButtonItem" customModule="FontAwesome_swift">
                             <inset key="imageInsets" minX="3" minY="5" maxX="6" maxY="9"/>
                             <inset key="landscapeImageInsets" minX="4" minY="6" maxX="5" maxY="5"/>
                             <inset key="largeContentSizeImageInsets" minX="2" minY="4" maxX="8" maxY="5"/>
@@ -104,6 +104,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QDy-4B-rzG">
                                 <rect key="frame" x="312" y="176" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="commentSwitch:" destination="qyv-Nc-NgV" eventType="valueChanged" id="LAH-CI-Q7C"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="機能説明表示アラート" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6V9-Zf-svb">
                                 <rect key="frame" x="16" y="104" width="223" height="45"/>
@@ -122,12 +125,19 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AQx-N2-403">
                                 <rect key="frame" x="312" y="111" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="functionAlertSwitch:" destination="qyv-Nc-NgV" eventType="valueChanged" id="hoq-Yo-jND"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Zps-BA-FeV"/>
                     </view>
                     <navigationItem key="navigationItem" id="Nx0-6y-sub"/>
+                    <connections>
+                        <outlet property="commentSwitch" destination="QDy-4B-rzG" id="srD-N3-PGU"/>
+                        <outlet property="functionAlertSwitch" destination="AQx-N2-403" id="djJ-9d-C7i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DvE-1y-c5Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

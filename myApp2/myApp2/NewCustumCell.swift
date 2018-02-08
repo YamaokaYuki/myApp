@@ -46,13 +46,13 @@ class NewCustumCell: UITableViewCell,UITextFieldDelegate {
         
         //ToDoエンティティオブジェクトを作成
         //forEntityNameは、モデルファイルで決めたエンティティ名（大文字小文字合わせる）
-        let ToDo = NSEntityDescription.entity(forEntityName: "ToDo", in: viewContext)
+        let Memo = NSEntityDescription.entity(forEntityName: "Memo", in: viewContext)
         
         //ToDoエンティティにレコード（行）を挿入するためのオブジェクトを作成
-        let newRecord = NSManagedObject(entity: ToDo!, insertInto: viewContext)
+        let newRecord = NSManagedObject(entity: Memo!, insertInto: viewContext)
         
         //レコードオブジェクトに値のセット
-        newRecord.setValue(newTextFieldCell.text, forKey: "memo")
+        newRecord.setValue(newTextFieldCell.text, forKey: "content")
         
         //ここにtitleのグローバル変数を書いてあげてmemoとtitleを紐づけてあげる
         

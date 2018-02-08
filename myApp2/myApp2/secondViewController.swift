@@ -180,8 +180,14 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     //title完了ボタンを押した時に発動
     @IBAction func titleCompleteBtn(_ sender: UIButton) {
-        saveTitle()
-        newTableView.isHidden = false
+        
+        if newTextField.text != "" {
+            saveTitle()
+            newTableView.isHidden = false
+        }else{
+            newTableView.isHidden = true
+        }
+        
     }
     
     //koteiSwitchスイッチの状態が変わった時に発動
