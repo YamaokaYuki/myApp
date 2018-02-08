@@ -39,7 +39,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             textColor: UIColor.gray,
             size: CGSize(width: 35, height: 35)
         )
-        
 
         
 //        let font = UIFont.fontAwesome(ofSize: 50)

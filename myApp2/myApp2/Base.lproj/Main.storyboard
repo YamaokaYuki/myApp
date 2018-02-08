@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--ToDo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="myApp2" customModuleProvider="target" sceneMemberID="viewController">
@@ -54,11 +54,23 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="K05-2T-AWb">
-                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="Item" id="vhG-2j-M3q"/>
+                    <navigationItem key="navigationItem" title="ToDo" id="K05-2T-AWb">
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="Item" width="9" springLoaded="YES" id="vhG-2j-M3q" customClass="FontAwesomeBarButtonItem" customModule="FontAwesome_swift">
+                            <inset key="imageInsets" minX="3" minY="5" maxX="6" maxY="9"/>
+                            <inset key="landscapeImageInsets" minX="4" minY="6" maxX="5" maxY="5"/>
+                            <inset key="largeContentSizeImageInsets" minX="2" minY="4" maxX="8" maxY="5"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="size">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <segue destination="qyv-Nc-NgV" kind="show" identifier="setViewController" id="mxh-jw-AgY"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="d3t-bh-Ppy">
                             <connections>
-                                <segue destination="1U6-xh-emM" kind="show" id="zaV-0s-SuY"/>
+                                <segue destination="1U6-xh-emM" kind="show" id="ddW-iQ-MiY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -84,7 +96,7 @@
         <!--Set View Controller-->
         <scene sceneID="rpr-ll-Lox">
             <objects>
-                <viewController id="qyv-Nc-NgV" customClass="setViewController" customModule="myApp2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qyv-Nc-NgV" customClass="setViewController" customModule="myApp2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fsI-NY-bfM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,6 +127,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Zps-BA-FeV"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Nx0-6y-sub"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DvE-1y-c5Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
