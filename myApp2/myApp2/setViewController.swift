@@ -30,6 +30,8 @@ class setViewController: UIViewController {
         super.viewDidLoad()
         
         
+        
+        
         //画像の表示・非表示を表す変数を用意
         
         //UserDefaultから値を取り出す

@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ToDo-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="myApp2" sceneMemberID="viewController">
@@ -50,15 +50,13 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="ToDo" id="K05-2T-AWb">
-                        <barButtonItem key="leftBarButtonItem" title="Item" width="9" id="vhG-2j-M3q" customClass="FontAwesomeBarButtonItem" customModule="FontAwesome_swift">
-                            <inset key="imageInsets" minX="3" minY="5" maxX="6" maxY="9"/>
-                            <inset key="landscapeImageInsets" minX="4" minY="6" maxX="5" maxY="5"/>
-                            <inset key="largeContentSizeImageInsets" minX="2" minY="4" maxX="8" maxY="5"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="K05-2T-AWb">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="vhG-2j-M3q" customClass="FontAwesomeBarButtonItem" customModule="FontAwesome_swift">
+                            <inset key="largeContentSizeImageInsets" minX="1" minY="1" maxX="1" maxY="1"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="size">
                                     <real key="value" value="2"/>
@@ -68,9 +66,9 @@
                                 <segue destination="qyv-Nc-NgV" kind="show" identifier="setViewController" id="mxh-jw-AgY"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="d3t-bh-Ppy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="b8w-tK-bGm">
                             <connections>
-                                <segue destination="1U6-xh-emM" kind="show" id="ddW-iQ-MiY"/>
+                                <segue destination="1U6-xh-emM" kind="show" id="fef-rz-Ppe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -133,7 +131,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Zps-BA-FeV"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Nx0-6y-sub"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="Nx0-6y-sub"/>
                     <connections>
                         <outlet property="commentSwitch" destination="QDy-4B-rzG" id="srD-N3-PGU"/>
                         <outlet property="functionAlertSwitch" destination="AQx-N2-403" id="djJ-9d-C7i"/>
@@ -157,9 +155,6 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="newTextField:" destination="1U6-xh-emM" eventType="editingDidEndOnExit" id="d3d-HQ-Y6x"/>
-                                </connections>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ugO-3X-fqk">
                                 <rect key="frame" x="281" y="516" width="49" height="31"/>
@@ -250,6 +245,11 @@
                                     <outlet property="delegate" destination="1U6-xh-emM" id="fUb-HD-hPY"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Emb-YF-E3D">
+                                <rect key="frame" x="320" y="26" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="保存"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xBC-Wv-Xru"/>

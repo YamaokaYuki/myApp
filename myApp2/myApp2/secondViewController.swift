@@ -9,6 +9,8 @@
 import UIKit
 import CoreData //CoreData使う時絶対に必要
 
+var titleId:Int64!
+
 class secondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate{
     
     @IBOutlet weak var newTableView: UITableView!
@@ -17,11 +19,13 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     @IBOutlet weak var koteiSwitch: UISwitch!
     @IBOutlet weak var dateTextField: UITextField!
     
+    
     let myDefault = UserDefaults.standard
     
-    var memos:[String] = [""]
+    var memos:[String] = []
     var memoTitle:String!
-    
+    var tmpText:String!
+    var titleTag = 0
     
     //画面が表示された時、設定値を反映させる
     override func viewWillAppear(_ animated: Bool){
@@ -38,11 +42,17 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         if myDefault.object(forKey: "koteiSwitchFlag") != nil{
             koteiSwitch.isOn = myDefault.object(forKey: "koteiSwitchFlag")as! Bool
         }
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+       
+        newTextField.delegate = self
+        newTextField.tag = titleTag
         // newTextFieldにプレスフォルダーを設定
         newTextField.placeholder = "新規登録"
         if newTextField.text == "" {
@@ -51,11 +61,33 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             newTableView.isHidden = false
         }
         
-        readMemoData()
+        // readMemoData()
         createDatePicker()
+        
+        
+        // BarButtonItem保存を作成する.
+        let saveBtn = UIBarButtonItem(title: "保存", style: .plain, target: self, action: nil)
+        // NavigationBarの表示する.
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationItem.setRightBarButton(saveBtn, animated: true)
+        
+        
+        // BarButtonItemキャンセルを作成する.
+        
+        let cancelBtn = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action: nil)
+        // NavigationBarの表示する.
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationItem.setLeftBarButton(cancelBtn, animated: true)
+        cancelBtn.addTarget(self, action: #selector(secondViewController.back(_:)), for: .touchUpInside)
+        view.addSubview(cancelBtn)
     }
     
+    @objc func back(_ sender: UIButton) {// selectorで呼び出す場合Swift4からは「@objc」をつける。
+        self.dismiss(animated: true, completion: nil)
+    }
+
     
+    //日時表示欄
     func createDatePicker(){
         
         //dateTextFieldに現在日時を設定
@@ -99,53 +131,74 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         dateTextField.inputAccessoryView = toolBar
     }
     
-    // coreDataの読み込み memoにappendしてる
-    func readMemoData(){
-        
-        //配列の初期化
-        memos = []
-        
-        //AppDelegateを使う準備をしておく
-        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
-        
-        //エンティティを操作するためのオブジェクトを作成
-        let viewContext = appD.persistentContainer.viewContext
-        
-        //データを取得するエンティティの指定
-//        <>の中はモデルファイルで指定したエンティティ名
-       let query:NSFetchRequest<Memo> = Memo.fetchRequest()
-
-        do {
-            //データの一括取得
-            let fetchResults = try viewContext.fetch(query)
-            //取得したデータを、デバックエリアにループで表示
-            print(fetchResults.count)
-
-            for result: AnyObject in fetchResults{
-                let memo :String = result.value(forKey: "content") as! String
-
-                print("memo:\(memo)")
-
-                memos.append(memo)
-            }
-            memos.append("")
-        } catch  {
-        }
-    }
+//    // coreDataの読み込み memoにappendしてる
+//    func readMemoData(){
+//        print(#function)
+//        //配列の初期化
+//        memos = []
+//
+//        //AppDelegateを使う準備をしておく
+//        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
+//
+//        //エンティティを操作するためのオブジェクトを作成
+//        let viewContext = appD.persistentContainer.viewContext
+//
+//        //データを取得するエンティティの指定
+////        <>の中はモデルファイルで指定したエンティティ名
+//       let query:NSFetchRequest<Memo> = Memo.fetchRequest()
+//
+////        //===== 絞り込み =====
+//        let r_idPredicate = NSPredicate(format: "titleId = %d",titleId)
+//        query.predicate = r_idPredicate
+//
+//
+//        do {
+//            //データの一括取得
+//            let fetchResults = try viewContext.fetch(query)
+//            //取得したデータを、デバックエリアにループで表示
+//            print(fetchResults.count)
+//
+//            for result: AnyObject in fetchResults{
+//                let memo :String = result.value(forKey: "content") as! String
+//
+//                print("content:\(memo)")
+//
+//                let memoTitle :Int64 = result.value(forKey: "titleId") as! Int64
+//
+//                print("title:\(memoTitle)")
+//
+//                memos.append(memo)
+//            }
+//            memos.append("")
+//        } catch  {
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //行数の決定
-        readMemoData()
-        return memos.count
+        // readMemoData()
+        return memos.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newCell", for: indexPath) as! NewCustumCell
         cell.tableView = newTableView
-        cell.newTextFieldCell.text = memos[indexPath.row]
-        
+        //セルの中にあるnewTextFieldCellとviewControllerを一体化
+        cell.newTextFieldCell.delegate = self
+        cell.newTextFieldCell.tag = indexPath.row + 1
+        if indexPath.row == memos.count {
+            cell.newTextFieldCell.text = ""
+            
+            if memos.count != 0 {
+                cell.newTextFieldCell.becomeFirstResponder()
+            }
+            
+        }else {
+            cell.newTextFieldCell.text = memos[indexPath.row]
+        }
         return cell
     }
+
     
     func saveTitle() {
         if newTextField.text != "" {
@@ -164,6 +217,10 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             //レコードオブジェクトに値のセット
             newRecord.setValue(newTextField.text, forKey: "title")
+//            newRecord.setValue(newTextField.text, forKey: "saveDate")
+//            newRecord.setValue(newTextField.text, forKey: "priority")
+//            newRecord.setValue(newTextField.text, forKey: "id")
+//            newRecord.setValue(newTextField.text, forKey: "dueDate")
             
             //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
             do {
@@ -182,10 +239,12 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     @IBAction func titleCompleteBtn(_ sender: UIButton) {
         
         if newTextField.text != "" {
-            saveTitle()
             newTableView.isHidden = false
+            tmpText = newTextField.text
+            newTextField.resignFirstResponder()
         }else{
-            newTableView.isHidden = true
+            newTextField.text = tmpText
+//            newTableView.isHidden = true
         }
         
     }
@@ -204,7 +263,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     @objc func showDateSelected(sender:UIDatePicker){
 
         //フォーマットの設定
-        print(sender.date)
 
         let df = DateFormatter()
         df.dateFormat = "yyyy年 MM月 dd日 HH : mm"
@@ -219,12 +277,12 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
 
         let formatter = DateFormatter()
         formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "EEEEE", options: 0, locale: Locale(identifier: "ja_JP"))
-        print(formatter.string(from: Date())) // 日
+        //print(formatter.string(from: Date())) // 日
 
     }
 
 
-    //baseViewのCloseボタンが押されたとき発動する
+    //datepickerのCloseボタンが押されたとき発動する
 
     @objc func closeBaseView(sender: UIButton){
         dateTextField.resignFirstResponder()
@@ -252,8 +310,45 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     //newTextFieldリターンキーが押された時にキーボードが下がる
-    @IBAction func newTextField(_ sender: UITextField) {
+//    @IBAction func newTextField(_ sender: UITextField) {
+//    }
+    
+    //textFieldのリターンキーが押された時に発動
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
+        if textField.tag != titleTag && textField.text != "" {
+            print("in not title")
+            if memos.count + 1 == textField.tag {
+                self.memos.append(textField.text!)
+            }else{
+                print(textField.tag)
+                self.memos[textField.tag - 1] = textField.text!
+            }
+            newTableView.reloadData()
+        }
+        
+        if textField.text == ""{
+            newTableView.reloadData()
+        }
+        
+        
+        return true
     }
+
+    
+    
+    //titleが空だった時に前に記入したものを復活させる
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        //詳細メモが空のままフォーカスが外れた時に復活
+        if textField.text == ""{
+            newTableView.reloadData()
+        }
+        if textField.tag == titleTag && textField.text == "" {
+            newTextField.text = tmpText
+        }
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

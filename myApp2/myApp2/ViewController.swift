@@ -25,12 +25,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         toDoListTableView.reloadData()
     }
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        readPlist()
+//        readPlist()
         readTitle()
         setupSearchBar()
         
@@ -47,15 +44,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         
         
-        print(functionAlerts)
-        // ユーザーが使用した回数を保存
-        let myDefault = UserDefaults.standard
-        let c = myDefault.integer(forKey: "count")
-        myDefault.set(c + 1, forKey: "count")
+//        print(functionAlerts)
+        // ユーザーが使用した回数を保存（アラート用）
+//        let myDefault = UserDefaults.standard
+//        let c = myDefault.integer(forKey: "count")
+//        myDefault.set(c + 1, forKey: "count")
+//
+//        print(c)
         
-        print(c)
-        
-        let r = Int(arc4random()) % functionAlerts.count
+//        let r = Int(arc4random()) % functionAlerts.count
         
 //        for functionAlert in functionAlerts{
 //            print(functionAlert)
@@ -67,15 +64,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
         
         //機能アラートを作成
-        let alert = UIAlertController(title: "こんな機能があるよ", message:functionAlerts[r], preferredStyle: .alert)
-        
-        //アラートにOKボタンを追加
-        //handler:OKボタンが押された時に行いたい処理を指定する場所
-        //nilをセットすると、何も動作しない
-        alert.addAction(UIAlertAction(title: "OK",style: .default, handler: {Aaction in
-            print("OK押されました")
-            
-        }))
+////        let alert = UIAlertController(title: "こんな機能があるよ", message:functionAlerts[r], preferredStyle: .alert)
+//
+//        //アラートにOKボタンを追加
+//        //handler:OKボタンが押された時に行いたい処理を指定する場所
+//        //nilをセットすると、何も動作しない
+//        alert.addAction(UIAlertAction(title: "OK",style: .default, handler: {Aaction in
+//            print("OK押されました")
+//
+//        }))
         
         //アラートを表示
         //present(alert, animated: true, completion: nil)
@@ -95,9 +92,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             navigationItem.titleView = searchBar
             navigationItem.titleView?.frame = searchBar.frame
             self.searchBar = searchBar
-            searchBar.becomeFirstResponder()
         }
     }
+    
+    //サーチバーのキーボードを画面遷移のタイミングで下げる
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        searchBar.resignFirstResponder()
+    }
+    
     
     func readPlist() {
         //ファイルのパスを取得

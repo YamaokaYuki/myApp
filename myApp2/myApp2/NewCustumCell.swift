@@ -22,20 +22,9 @@ class NewCustumCell: UITableViewCell,UITextFieldDelegate {
         // Initialization code
         symbol.font = UIFont.fontAwesome(ofSize: 20)
         symbol.text = String.fontAwesome(code: "fa-plus").map { $0.rawValue }
-        newTextFieldCell.delegate = self
-
+//        newTextFieldCell.delegate = self
     }
     
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        print(textField.text)
-        save()
-        tableView.reloadData()
-        
-        return true
-        
-    }
     
     func save() {
         //AppDelegateを使う準備をしておく
@@ -52,7 +41,10 @@ class NewCustumCell: UITableViewCell,UITextFieldDelegate {
         let newRecord = NSManagedObject(entity: Memo!, insertInto: viewContext)
         
         //レコードオブジェクトに値のセット
+        
         newRecord.setValue(newTextFieldCell.text, forKey: "content")
+        newRecord.setValue(titleId, forKey: "titleId")
+        
         
         //ここにtitleのグローバル変数を書いてあげてmemoとtitleを紐づけてあげる
         
@@ -67,9 +59,6 @@ class NewCustumCell: UITableViewCell,UITextFieldDelegate {
         }
     }
     
-    func test() {
-        print("in custom cell")
-    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
