@@ -17,7 +17,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var titles:[String] = []
     var searchBar: UISearchBar!
     @IBOutlet weak var toDoListTableView: UITableView!
-    @IBOutlet weak var addListButton: UIButton!
+    @IBOutlet weak var addListBtn: UIBarButtonItem!
     @IBOutlet weak var setButton: UIBarButtonItem!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,6 +30,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 //        readPlist()
         readTitle()
         setupSearchBar()
+        
+        
+        
         
         setButton.image = UIImage.fontAwesomeIcon(
             name: .cog,

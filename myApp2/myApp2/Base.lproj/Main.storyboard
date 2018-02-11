@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="myApp2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cancel" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="myApp2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,7 +54,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="K05-2T-AWb">
+                    <navigationItem key="navigationItem" id="K05-2T-AWb">
+                        <barButtonItem key="backBarButtonItem" title="戻る" id="Jxd-He-T6n"/>
                         <barButtonItem key="leftBarButtonItem" title="Item" id="vhG-2j-M3q" customClass="FontAwesomeBarButtonItem" customModule="FontAwesome_swift">
                             <inset key="largeContentSizeImageInsets" minX="1" minY="1" maxX="1" maxY="1"/>
                             <userDefinedRuntimeAttributes>
@@ -68,12 +69,13 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="b8w-tK-bGm">
                             <connections>
-                                <segue destination="1U6-xh-emM" kind="show" id="fef-rz-Ppe"/>
+                                <segue destination="1U6-xh-emM" kind="show" identifier="secondViewController" id="9Nx-BR-5eK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addListBtn" destination="b8w-tK-bGm" id="Uif-Kw-mcQ"/>
                         <outlet property="searchDisplayController" destination="d2y-5A-gMD" id="PiK-Mu-K8C"/>
                         <outlet property="setButton" destination="vhG-2j-M3q" id="ye2-Fz-5xB"/>
                         <outlet property="toDoListTableView" destination="Tap-jm-Y1u" id="5GT-om-I0C"/>
@@ -91,7 +93,7 @@
             </objects>
             <point key="canvasLocation" x="260" y="89.505247376311857"/>
         </scene>
-        <!--Set View Controller-->
+        <!--設定-->
         <scene sceneID="rpr-ll-Lox">
             <objects>
                 <viewController id="qyv-Nc-NgV" customClass="setViewController" customModule="myApp2" sceneMemberID="viewController">
@@ -131,7 +133,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Zps-BA-FeV"/>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="Nx0-6y-sub"/>
+                    <navigationItem key="navigationItem" title="設定" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="Nx0-6y-sub"/>
                     <connections>
                         <outlet property="commentSwitch" destination="QDy-4B-rzG" id="srD-N3-PGU"/>
                         <outlet property="functionAlertSwitch" destination="AQx-N2-403" id="djJ-9d-C7i"/>
@@ -149,7 +151,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hWm-X9-fA2">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="hWm-X9-fA2">
                                 <rect key="frame" x="38" y="81" width="298" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -184,14 +186,6 @@
                                     <action selector="koteiSwitch:" destination="1U6-xh-emM" eventType="valueChanged" id="u8K-tc-HXd"/>
                                 </connections>
                             </switch>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRY-6Z-UxG">
-                                <rect key="frame" x="254" y="118" width="103" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="title完了ボタン"/>
-                                <connections>
-                                    <action selector="titleCompleteBtn:" destination="1U6-xh-emM" eventType="touchUpInside" id="UGP-p0-Khy"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="colorPicker設置" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEn-qD-qPe">
                                 <rect key="frame" x="68" y="146" width="268" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -245,10 +239,13 @@
                                     <outlet property="delegate" destination="1U6-xh-emM" id="fUb-HD-hPY"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Emb-YF-E3D">
-                                <rect key="frame" x="320" y="26" width="31" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRY-6Z-UxG">
+                                <rect key="frame" x="289" y="108" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="保存"/>
+                                <state key="normal" title="完了"/>
+                                <connections>
+                                    <action selector="titleCompleteBtn:" destination="1U6-xh-emM" eventType="touchUpInside" id="UGP-p0-Khy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

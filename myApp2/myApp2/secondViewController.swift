@@ -26,6 +26,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     var memoTitle:String!
     var tmpText:String!
     var titleTag = 0
+    var cells:[NewCustumCell] = []
     
     //画面が表示された時、設定値を反映させる
     override func viewWillAppear(_ animated: Bool){
@@ -65,26 +66,40 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         createDatePicker()
         
         
-        // BarButtonItem保存を作成する.
-        let saveBtn = UIBarButtonItem(title: "保存", style: .plain, target: self, action: nil)
+//        // BarButtonItem保存を作成する.
+        let saveBtn = UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(self.saveButton(sender:)))
         // NavigationBarの表示する.
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.setRightBarButton(saveBtn, animated: true)
-        
-        
-        // BarButtonItemキャンセルを作成する.
-        
-        let cancelBtn = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action: nil)
+//
+//
+//        // BarButtonItemキャンセルを作成する.
+//
+        let cancelBtn = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action:#selector(self.backButton(sender:)))
         // NavigationBarの表示する.
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.setLeftBarButton(cancelBtn, animated: true)
-        cancelBtn.addTarget(self, action: #selector(secondViewController.back(_:)), for: .touchUpInside)
-        view.addSubview(cancelBtn)
+
     }
     
-    @objc func back(_ sender: UIButton) {// selectorで呼び出す場合Swift4からは「@objc」をつける。
-        self.dismiss(animated: true, completion: nil)
+    
+    @objc func backButton(sender: UIBarButtonItem){
+        _ = navigationController?.popViewController(animated: true)
     }
+    
+    @objc func saveButton(sender: UIBarButtonItem){
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    
+    
+//    
+//    @objc override func target(forAction action: Selector, withSender sender: ?) -> Any? {
+//        let storyboard: UIStoryboard = self.storyboard!
+//        let nextView = storyboard.instantiateViewController(withIdentifier: "cancel") as! ViewController
+//        self.present(nextView, animated: true, completion: nil)
+//    }
+//   
 
     
     //日時表示欄
@@ -317,7 +332,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 
         if textField.tag != titleTag && textField.text != "" {
-            print("in not title")
             if memos.count + 1 == textField.tag {
                 self.memos.append(textField.text!)
             }else{
@@ -336,17 +350,29 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
 
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print(textField.text)
+        return true
+    }
+    
     
     //titleが空だった時に前に記入したものを復活させる
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         //詳細メモが空のままフォーカスが外れた時に復活
-        if textField.text == ""{
+        if textField.tag != titleTag && textField.text == "" {
             newTableView.reloadData()
         }
+        //titleTagの復活
         if textField.tag == titleTag && textField.text == "" {
             newTextField.text = tmpText
         }
+        
+//        if textField.tag != titleTag && textField.text != "" {
+//            print(textField.tag)
+//            self.memos.append(textField.text!)
+//        }
+        
     }
     
     
