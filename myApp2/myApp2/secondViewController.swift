@@ -22,10 +22,10 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     let myDefault = UserDefaults.standard
     
-    var memos:[String] = []
+    var memos:[String] = ["aaa","bbb","ccc"]
     var memoTitle:String!
     var tmpText:String!
-    var titleTag = 0
+    var titleTag = -1
     var cells:[NewCustumCell] = []
     
     //画面が表示された時、設定値を反映させる
@@ -48,14 +48,12 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-       
+        newTableView.delegate = self
         newTextField.delegate = self
         newTextField.tag = titleTag
         // newTextFieldにプレスフォルダーを設定
         newTextField.placeholder = "新規登録"
+        newTextField.text = "title1"
         if newTextField.text == "" {
             newTableView.isHidden = true
         }else{
@@ -88,20 +86,10 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     @objc func saveButton(sender: UIBarButtonItem){
-        _ = navigationController?.popViewController(animated: true)
+        print(self.memos)
+//        _ = navigationController?.popViewController(animated: true)
     }
-    
-    
-    
-//    
-//    @objc override func target(forAction action: Selector, withSender sender: ?) -> Any? {
-//        let storyboard: UIStoryboard = self.storyboard!
-//        let nextView = storyboard.instantiateViewController(withIdentifier: "cancel") as! ViewController
-//        self.present(nextView, animated: true, completion: nil)
-//    }
-//   
 
-    
     //日時表示欄
     func createDatePicker(){
         
@@ -196,11 +184,14 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("cell num",indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: "newCell", for: indexPath) as! NewCustumCell
         cell.tableView = newTableView
         //セルの中にあるnewTextFieldCellとviewControllerを一体化
         cell.newTextFieldCell.delegate = self
-        cell.newTextFieldCell.tag = indexPath.row + 1
+
+        cell.newTextFieldCell.tag = indexPath.row
+        print(indexPath.row)
         if indexPath.row == memos.count {
             cell.newTextFieldCell.text = ""
             
@@ -211,6 +202,15 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         }else {
             cell.newTextFieldCell.text = memos[indexPath.row]
         }
+        // ここがうまくいけば、いけるはず
+//        if cells[indexPath.row] {
+//            cells[indexPath.row] = cell
+//        }else {
+//            cells.append(cell)
+//        }
+//        print(cells.count)
+        
+        cells.append(cell)
         return cell
     }
 
@@ -330,49 +330,88 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     //textFieldのリターンキーが押された時に発動
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-
+        print("return")
+        // タイトルのテキストフィールドではなく、テキストフィールドが空ではないとき
         if textField.tag != titleTag && textField.text != "" {
-            if memos.count + 1 == textField.tag {
-                self.memos.append(textField.text!)
+            
+            // cellのtagとmemos.countが一致　→ 新規の詳細メモ
+            if memos.count == textField.tag {
+                 self.memos.append(textField.text!)
             }else{
-                print(textField.tag)
-                self.memos[textField.tag - 1] = textField.text!
+                // 更新
+                self.memos[textField.tag] = textField.text!
             }
+
+            cells = []
             newTableView.reloadData()
         }
-        
-        if textField.text == ""{
+
+        // 詳細メモが空のとき、復活
+        if textField.text == "" && textField.tag != titleTag  {
+            cells = []
             newTableView.reloadData()
         }
-        
-        
         return true
     }
 
-    
+    //テキストフィールドの入力中に発動
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        print(textField.text)
+        
+        // 詳細メモ　かつ　テキストフィールドが空でない場合
+        if textField.tag != titleTag && textField.text != "" {
+            // 全てのcellとmemosの比較をして、更新
+            for n in 0...cells.count - 1 {
+                print("cell count",cells.count)
+                print("memos count",memos.count)
+                // cells[n]が空だったら、むし
+                if cells[n].newTextFieldCell.text != "" {
+                    // 新規のメモの作成中に他のセルに移動した時、保存されていないので、空でない場合は、memosに保存
+                    if cells.count == memos.count + 1 && cells[cells.count - 1].newTextFieldCell.text! != ""{
+                        memos.append(cells[cells.count - 1].newTextFieldCell.text!)
+                    }else{
+                        // cellsのデータをそのまま、memosへ更新
+                        memos[n] = cells[n].newTextFieldCell.text!
+                    }
+                }
+            }
+        }
         return true
     }
     
-    
-    //titleが空だった時に前に記入したものを復活させる
+    // テキストフィールドから離れた時に発動
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         //詳細メモが空のままフォーカスが外れた時に復活
         if textField.tag != titleTag && textField.text == "" {
             newTableView.reloadData()
         }
-        //titleTagの復活
+
+        //titleが空だった時に前に記入したものを復活させる
         if textField.tag == titleTag && textField.text == "" {
             newTextField.text = tmpText
         }
         
 //        if textField.tag != titleTag && textField.text != "" {
-//            print(textField.tag)
-//            self.memos.append(textField.text!)
+//            for n in 0...cells.count - 1 {
+//                if cells[n].newTextFieldCell.text != "" {
+//                    if cells.count == memos.count + 1 && cells[cells.count - 1].newTextFieldCell.text! != ""{
+//                        memos.append(cells[cells.count - 1].newTextFieldCell.text!)
+//                    }else{
+//                        memos[n] = cells[n].newTextFieldCell.text!
+//                    }
+//                }
+//            }
 //        }
         
+    }
+    
+    // Override to support editing the table view.
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            self.memos.remove(at: indexPath.row)
+            newTableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
     
@@ -393,3 +432,10 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     */
 
 }
+
+
+//セルを配列に入れている、そのセルの配列とmemosの差を見て更新するように作っている
+//セルの配列を作っているのはfunc tableView186です。セルを作っているところ
+//しかし、そのデータが多くなったときはスクロールする必要があって、そうすると表示されているものしかセルを作らない
+//その時memosとセルの配列の番号が合わなくなる
+

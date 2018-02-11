@@ -228,6 +228,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.0"/>
                                         <connections>
                                             <outlet property="newTextFieldCell" destination="79G-Y9-tgx" id="viJ-S9-atT"/>
                                             <outlet property="symbol" destination="ORk-3l-D2X" id="8Jw-7M-xjq"/>

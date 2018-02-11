@@ -59,6 +59,17 @@ class NewCustumCell: UITableViewCell,UITextFieldDelegate {
         }
     }
     
+    func isSet() -> Bool {
+        if newTextFieldCell.text != "" {
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    
+
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
