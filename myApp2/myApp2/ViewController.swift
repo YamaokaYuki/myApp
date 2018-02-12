@@ -177,6 +177,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+//            self.memos.remove(at: indexPath.row)
+            toDoListTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -33,7 +33,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         // はじめの状態をfalseにしておく.
         dateTapSwitch.isOn = false
         koteiSwitch.isOn = false
-        
+
         //保存されてる値が存在した時
         if myDefault.object(forKey: "dateSwitchFlag") != nil{
             dateTapSwitch.isOn = myDefault.object(forKey: "dateSwitchFlag") as! Bool
@@ -87,7 +87,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     @objc func saveButton(sender: UIBarButtonItem){
         print(self.memos)
-//        _ = navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
 
     //日時表示欄
@@ -336,7 +336,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             // cellのtagとmemos.countが一致　→ 新規の詳細メモ
             if memos.count == textField.tag {
-                 self.memos.append(textField.text!)
+//                 self.memos.append(textField.text!)
             }else{
                 // 更新
                 self.memos[textField.tag] = textField.text!
@@ -358,23 +358,23 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         // 詳細メモ　かつ　テキストフィールドが空でない場合
-        if textField.tag != titleTag && textField.text != "" {
-            // 全てのcellとmemosの比較をして、更新
-            for n in 0...cells.count - 1 {
-                print("cell count",cells.count)
-                print("memos count",memos.count)
-                // cells[n]が空だったら、むし
-                if cells[n].newTextFieldCell.text != "" {
-                    // 新規のメモの作成中に他のセルに移動した時、保存されていないので、空でない場合は、memosに保存
-                    if cells.count == memos.count + 1 && cells[cells.count - 1].newTextFieldCell.text! != ""{
-                        memos.append(cells[cells.count - 1].newTextFieldCell.text!)
-                    }else{
-                        // cellsのデータをそのまま、memosへ更新
-                        memos[n] = cells[n].newTextFieldCell.text!
-                    }
-                }
-            }
-        }
+//        if textField.tag != titleTag && textField.text != "" {
+//            // 全てのcellとmemosの比較をして、更新
+//            for n in 0...cells.count - 1 {
+//                print("cell count",cells.count)
+//                print("memos count",memos.count)
+//                // cells[n]が空だったら、むし
+//                if cells[n].newTextFieldCell.text != "" {
+//                    // 新規のメモの作成中に他のセルに移動した時、保存されていないので、空でない場合は、memosに保存
+//                    if cells.count == memos.count + 1 && cells[cells.count - 1].newTextFieldCell.text! != ""{
+//                        memos.append(cells[cells.count - 1].newTextFieldCell.text!)
+//                    }else{
+//                        // cellsのデータをそのまま、memosへ更新
+//                        memos[n] = cells[n].newTextFieldCell.text!
+//                    }
+//                }
+//            }
+//        }
         return true
     }
     
@@ -391,7 +391,13 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             newTextField.text = tmpText
         }
         
-//        if textField.tag != titleTag && textField.text != "" {
+        if textField.tag != titleTag && textField.text != "" {
+            
+            if textField.tag == memos.count{
+                memos.append(textField.text!)
+            }else{
+                memos[textField.tag] = textField.text!
+            }
 //            for n in 0...cells.count - 1 {
 //                if cells[n].newTextFieldCell.text != "" {
 //                    if cells.count == memos.count + 1 && cells[cells.count - 1].newTextFieldCell.text! != ""{
@@ -401,9 +407,12 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
 //                    }
 //                }
 //            }
-//        }
+        }
         
     }
+    
+    //セルがふえたら、memosにアペンドしてあげる
+    //セルが編集されたらそのセル番号を編集してあげる
     
     // Override to support editing the table view.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
