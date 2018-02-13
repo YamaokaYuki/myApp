@@ -1,4 +1,4 @@
-//
+///
 //  secondViewController.swift
 //  myApp2
 //
@@ -395,12 +395,18 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             //詳細メモが空のままフォーカスが外れた時に復活
-            
-            
-            textFieldDidEndEditing(<#T##textField: UITextField##UITextField#>)
-            newTableView.reloadData()
+
+            let cell:NewCustumCell = tableView.cellForRow(at: indexPath) as! NewCustumCell
+
+
+
+            if cell.newTextFieldCell.text != ""{
+            textFieldDidEndEditing(cell.newTextFieldCell as UITextField)
             self.memos.remove(at: indexPath.row)
             newTableView.deleteRows(at: [indexPath], with: .fade)
+
+
+            }
         }
     }
     
@@ -411,16 +417,8 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
 
 
