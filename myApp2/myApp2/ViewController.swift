@@ -39,11 +39,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             textColor: UIColor.gray,
             size: CGSize(width: 35, height: 35)
         )
-
-        
-//        let font = UIFont.fontAwesome(ofSize: 50)
-//        setButton.setTitleTextAttributes([NSAttributedStringKey.font: font], for: .normal)
-//        setButton.title =  String.fontAwesomeIcon(name: .addressBook)
         
         
         
@@ -83,13 +78,27 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     }
     
-    //サーチバー作成
+//    func readPlist() {
+//        //ファイルのパスを取得
+//        let filePath = Bundle.main.path(forResource: "functionAlert", ofType: "plist")
+//
+//        //ファイルの内容を読み込んでディクショナリー型に代入
+//        let dic = NSDictionary(contentsOfFile: filePath!)
+//
+//        //TableViewで扱いやすい形（エリア名の入ってる配列）を作成
+//        for(_,value) in dic!{
+//            functionAlerts.append(value as! String)
+//        }
+//
+//    }
+    
+    //<サーチバー作成>
     private func setupSearchBar() {
         if let navigationBarFrame = navigationController?.navigationBar.bounds {
             let searchBar: UISearchBar = UISearchBar(frame: navigationBarFrame)
             searchBar.delegate = self
             searchBar.placeholder = "Search"
-//            searchBar.showsCancelButton = true
+            //searchBar.showsCancelButton = true
             searchBar.autocapitalizationType = UITextAutocapitalizationType.none
             searchBar.keyboardType = UIKeyboardType.default
             navigationItem.titleView = searchBar
@@ -105,24 +114,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    func readPlist() {
-        //ファイルのパスを取得
-        let filePath = Bundle.main.path(forResource: "functionAlert", ofType: "plist")
-        
-        //ファイルの内容を読み込んでディクショナリー型に代入
-        let dic = NSDictionary(contentsOfFile: filePath!)
-        
-        //TableViewで扱いやすい形（エリア名の入ってる配列）を作成
-        for(_,value) in dic!{
-            functionAlerts.append(value as! String)
-        }
-        
-    }
+  
     
     //myTextFieldリターンキーが押された時にキーボードが下がる
-    @IBAction func tapReturn(_ sender: UITextField) {
-    }
+//    @IBAction func tapReturn(_ sender: UITextField) {
+//    }
     
+    
+    //＜タイトルを読むための関数＞
     func readTitle(){
         
         titles = []
@@ -177,13 +176,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-//            self.memos.remove(at: indexPath.row)
-            toDoListTableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
+//    //セルの削除
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            // Delete the row from the data source
+////            self.memos.remove(at: indexPath.row)
+//            toDoListTableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//    }
     
     
     override func didReceiveMemoryWarning() {

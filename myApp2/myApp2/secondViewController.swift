@@ -22,11 +22,12 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     let myDefault = UserDefaults.standard
     
-    var memos:[String] = ["aaa","bbb","ccc"]
+    var memos:[String] = []
     var memoTitle:String!
     var tmpText:String!
     var titleTag = -1
     var cells:[NewCustumCell] = []
+    var saveBtn:UIBarButtonItem!
     
     //画面が表示された時、設定値を反映させる
     override func viewWillAppear(_ animated: Bool){
@@ -53,7 +54,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         newTextField.tag = titleTag
         // newTextFieldにプレスフォルダーを設定
         newTextField.placeholder = "新規登録"
-        newTextField.text = "title1"
         if newTextField.text == "" {
             newTableView.isHidden = true
         }else{
@@ -64,30 +64,36 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         createDatePicker()
         
         
-//        // BarButtonItem保存を作成する.
-        let saveBtn = UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(self.saveButton(sender:)))
+        // BarButtonItem保存を作成する.
+        saveBtn = UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(self.saveButton(sender:)))
         // NavigationBarの表示する.
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.setRightBarButton(saveBtn, animated: true)
-//
-//
-//        // BarButtonItemキャンセルを作成する.
-//
+        saveBtn.isEnabled = false
+        if newTextField.text == "" {
+            saveBtn.isEnabled = false
+        }else{
+            saveBtn.isEnabled = true
+        }
+        
+       // BarButtonItemキャンセルを作成する.
         let cancelBtn = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action:#selector(self.backButton(sender:)))
         // NavigationBarの表示する.
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.setLeftBarButton(cancelBtn, animated: true)
 
-    }
+    }//viewDidLoad終わり
     
-    
+    // BarButtonItemキャンセルの前画面に戻す処理.
     @objc func backButton(sender: UIBarButtonItem){
         _ = navigationController?.popViewController(animated: true)
     }
-    
+    // BarButtonItem保存の前画面に戻す処理.
     @objc func saveButton(sender: UIBarButtonItem){
         print(self.memos)
         _ = navigationController?.popViewController(animated: true)
+        
+        saveTitle()
     }
 
     //日時表示欄
@@ -202,13 +208,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         }else {
             cell.newTextFieldCell.text = memos[indexPath.row]
         }
-        // ここがうまくいけば、いけるはず
-//        if cells[indexPath.row] {
-//            cells[indexPath.row] = cell
-//        }else {
-//            cells.append(cell)
-//        }
-//        print(cells.count)
+ 
         
         cells.append(cell)
         return cell
@@ -324,9 +324,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         myDefault.synchronize()
     }
     
-    //newTextFieldリターンキーが押された時にキーボードが下がる
-//    @IBAction func newTextField(_ sender: UITextField) {
-//    }
+
     
     //textFieldのリターンキーが押された時に発動
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -357,24 +355,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     //テキストフィールドの入力中に発動
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        // 詳細メモ　かつ　テキストフィールドが空でない場合
-//        if textField.tag != titleTag && textField.text != "" {
-//            // 全てのcellとmemosの比較をして、更新
-//            for n in 0...cells.count - 1 {
-//                print("cell count",cells.count)
-//                print("memos count",memos.count)
-//                // cells[n]が空だったら、むし
-//                if cells[n].newTextFieldCell.text != "" {
-//                    // 新規のメモの作成中に他のセルに移動した時、保存されていないので、空でない場合は、memosに保存
-//                    if cells.count == memos.count + 1 && cells[cells.count - 1].newTextFieldCell.text! != ""{
-//                        memos.append(cells[cells.count - 1].newTextFieldCell.text!)
-//                    }else{
-//                        // cellsのデータをそのまま、memosへ更新
-//                        memos[n] = cells[n].newTextFieldCell.text!
-//                    }
-//                }
-//            }
-//        }
         return true
     }
     
@@ -398,26 +378,27 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             }else{
                 memos[textField.tag] = textField.text!
             }
-//            for n in 0...cells.count - 1 {
-//                if cells[n].newTextFieldCell.text != "" {
-//                    if cells.count == memos.count + 1 && cells[cells.count - 1].newTextFieldCell.text! != ""{
-//                        memos.append(cells[cells.count - 1].newTextFieldCell.text!)
-//                    }else{
-//                        memos[n] = cells[n].newTextFieldCell.text!
-//                    }
-//                }
-//            }
+        }
+        
+        //saveBtn有効にする
+        if newTextField.text == "" {
+            saveBtn.isEnabled = false
+        }else{
+            saveBtn.isEnabled = true
         }
         
     }
     
-    //セルがふえたら、memosにアペンドしてあげる
-    //セルが編集されたらそのセル番号を編集してあげる
     
+    //<削除ボタン作成>
     // Override to support editing the table view.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            //詳細メモが空のままフォーカスが外れた時に復活
+            
+            
+            textFieldDidEndEditing(<#T##textField: UITextField##UITextField#>)
+            newTableView.reloadData()
             self.memos.remove(at: indexPath.row)
             newTableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -442,9 +423,4 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
 
 }
 
-
-//セルを配列に入れている、そのセルの配列とmemosの差を見て更新するように作っている
-//セルの配列を作っているのはfunc tableView186です。セルを作っているところ
-//しかし、そのデータが多くなったときはスクロールする必要があって、そうすると表示されているものしかセルを作らない
-//その時memosとセルの配列の番号が合わなくなる
 
