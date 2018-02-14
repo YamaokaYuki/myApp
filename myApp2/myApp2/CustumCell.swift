@@ -12,5 +12,6 @@ class CustumCell: UITableViewCell {
  
     @IBOutlet weak var toDoTitle: UILabel!
     
+    @IBOutlet weak var countdownLabel: UILabel!
     
 }

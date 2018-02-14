@@ -206,6 +206,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             }
             
         }else {
+            //ここを変えるかも
             cell.newTextFieldCell.text = memos[indexPath.row]
         }
  
@@ -336,9 +337,11 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             if memos.count == textField.tag {
 //                 self.memos.append(textField.text!)
             }else{
-                // 更新
+                // 更新（ここが問題）
                 self.memos[textField.tag] = textField.text!
             }
+            
+            //memosとtitleタグの番号があってない　表示用の配列を別で作る
 
             cells = []
             newTableView.reloadData()
@@ -396,19 +399,43 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         if editingStyle == .delete {
             //詳細メモが空のままフォーカスが外れた時に復活
 
-            let cell:NewCustumCell = tableView.cellForRow(at: indexPath) as! NewCustumCell
+//            let cell:NewCustumCell = tableView.cellForRow(at: indexPath) as! NewCustumCell
 
-
-
-            if cell.newTextFieldCell.text != ""{
-            textFieldDidEndEditing(cell.newTextFieldCell as UITextField)
             self.memos.remove(at: indexPath.row)
             newTableView.deleteRows(at: [indexPath], with: .fade)
 
-
-            }
+//            if cell.newTextFieldCell.text != ""{
+//            textFieldDidEndEditing(cell.newTextFieldCell as UITextField)
+//            self.memos.remove(at: indexPath.row)
+//            newTableView.deleteRows(at: [indexPath], with: .fade)
+//
+//
+//            }
         }
     }
+    
+    
+    //行を編集するための関数（メモがからの時は削除ボタンを出なくする）
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
+        print(indexPath.row)
+        
+        if tableView.cellForRow(at: indexPath) != nil {
+            let cell:NewCustumCell = tableView.cellForRow(at: indexPath) as! NewCustumCell
+            
+            
+            
+            if cell.newTextFieldCell.text == "" || cell.newTextFieldCell.isEditing == true{
+                return false
+            }else{
+                return true
+            }
+            
+        }
+        
+        return false
+    }
+    
     
     
     override func didReceiveMemoryWarning() {

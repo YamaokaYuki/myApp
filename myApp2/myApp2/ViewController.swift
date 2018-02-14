@@ -176,14 +176,52 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     }
     
-//    //セルの削除
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            // Delete the row from the data source
-////            self.memos.remove(at: indexPath.row)
-//            toDoListTableView.deleteRows(at: [indexPath], with: .fade)
-//        }
-//    }
+    //セルの削除
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            self.titles.remove(at: indexPath.row)
+            toDoListTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+        //AppDelegateを使う準備をしておく
+        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
+        
+        //エンティティを操作するためのオブジェクトを作成
+        let viewContext = appD.persistentContainer.viewContext
+        
+        //データを取得するエンティティの指定
+        //<>の中はモデルファイルで指定したエンティティ名
+        let query: NSFetchRequest<ToDo> = ToDo.fetchRequest()
+        
+        do {
+            //削除したいデータの一括取得
+            let fetchResults = try viewContext.fetch(query)
+
+            //取得したデータを、削除指示
+            
+            for result: AnyObject in fetchResults{
+                print(type(of: result))
+                let record = result as! NSManagedObject//1行分のデータ
+                print(record.value(forKey: "title"))
+                print(type(of: record.objectID))//使い方調べるobjectIDが使えたらtitleIdがいらない
+                print("a")
+                print(indexPath.row)
+                if record.value(forKey: "title") as! String == titles[indexPath.row] {
+                    viewContext.delete(record)
+                }
+                
+            }
+
+            
+            //削除した状態を保存
+            try viewContext.save()
+            
+        } catch  {
+            
+        }
+        
+    }
     
     
     override func didReceiveMemoryWarning() {
