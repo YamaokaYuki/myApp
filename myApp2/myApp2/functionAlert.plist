@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>function１</key>
-	<string>タスクが完了するとコメントが表示されるよ</string>
+	<string>よく頑張ったね！</string>
 	<key>function2</key>
-	<string>タスク完了の日時が設定できるよ</string>
+	<string>君ならまだまだできる！</string>
 	<key>function３</key>
-	<string>カラー選択ボタンで色の変更ができるよ</string>
+	<string>やったね！</string>
 </dict>
 </plist>

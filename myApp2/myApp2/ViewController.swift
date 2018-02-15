@@ -27,7 +27,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        readPlist()
+        readPlist()
         readTitle()
         setupSearchBar()
         
@@ -56,9 +56,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 //            print(functionAlert)
 //        }
         
-        //addListButtonにfontawesome適用
-//        addListButton.font = UIFont.fontAwesome(ofSize: 20)
-//        addListButton.text = String.fontAwesomeIcon(name: .coffee)
+
 
         
         //機能アラートを作成
@@ -78,19 +76,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     }
     
-//    func readPlist() {
-//        //ファイルのパスを取得
-//        let filePath = Bundle.main.path(forResource: "functionAlert", ofType: "plist")
-//
-//        //ファイルの内容を読み込んでディクショナリー型に代入
-//        let dic = NSDictionary(contentsOfFile: filePath!)
-//
-//        //TableViewで扱いやすい形（エリア名の入ってる配列）を作成
-//        for(_,value) in dic!{
-//            functionAlerts.append(value as! String)
-//        }
-//
-//    }
+    func readPlist() {
+        //ファイルのパスを取得
+        let filePath = Bundle.main.path(forResource: "functionAlert", ofType: "plist")
+
+        //ファイルの内容を読み込んでディクショナリー型に代入
+        let dic = NSDictionary(contentsOfFile: filePath!)
+
+        //TableViewで扱いやすい形（エリア名の入ってる配列）を作成
+        for(_,value) in dic!{
+            functionAlerts.append(value as! String)
+        }
+
+    }
     
     //<サーチバー作成>
     private func setupSearchBar() {
@@ -176,51 +174,73 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     }
     
-    //セルの削除
+    //<セルの削除>
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            self.titles.remove(at: indexPath.row)
-            toDoListTableView.deleteRows(at: [indexPath], with: .fade)
-        }
-        
-        //AppDelegateを使う準備をしておく
-        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
-        
-        //エンティティを操作するためのオブジェクトを作成
-        let viewContext = appD.persistentContainer.viewContext
-        
-        //データを取得するエンティティの指定
-        //<>の中はモデルファイルで指定したエンティティ名
-        let query: NSFetchRequest<ToDo> = ToDo.fetchRequest()
-        
-        do {
-            //削除したいデータの一括取得
-            let fetchResults = try viewContext.fetch(query)
-
-            //取得したデータを、削除指示
             
-            for result: AnyObject in fetchResults{
-                print(type(of: result))
-                let record = result as! NSManagedObject//1行分のデータ
-                print(record.value(forKey: "title"))
-                print(type(of: record.objectID))//使い方調べるobjectIDが使えたらtitleIdがいらない
-                print("a")
-                print(indexPath.row)
-                if record.value(forKey: "title") as! String == titles[indexPath.row] {
-                    viewContext.delete(record)
+            //AppDelegateを使う準備をしておく
+            let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
+            
+            //エンティティを操作するためのオブジェクトを作成
+            let viewContext = appD.persistentContainer.viewContext
+            
+            //データを取得するエンティティの指定
+            //<>の中はモデルファイルで指定したエンティティ名
+            let query: NSFetchRequest<ToDo> = ToDo.fetchRequest()
+            
+            do {
+                //削除したいデータの一括取得
+                let fetchResults = try viewContext.fetch(query)
+                
+                //取得したデータを、削除指示
+                
+                for result: AnyObject in fetchResults{
+                    print(type(of: result))
+                    let record = result as! NSManagedObject//1行分のデータ
+                    print(record.value(forKey: "title"))
+                    print(type(of: record.objectID))//使い方調べるobjectIDが使えたらtitleIdがいらない
+                    print("a")
+                    print(indexPath.row)
+                    if record.value(forKey: "title") as! String == titles[indexPath.row] {
+                        viewContext.delete(record)
+                        
+                        self.titles.remove(at: indexPath.row)
+                        toDoListTableView.deleteRows(at: [indexPath], with: .fade)
+                    }
+                    
                 }
                 
+                
+                //削除した状態を保存
+                try viewContext.save()
+                
+            } catch  {
+                
             }
-
-            
-            //削除した状態を保存
-            try viewContext.save()
-            
-        } catch  {
             
         }
         
+        
+        
+        
+//        //<削除後コメント>
+//        let r = Int(arc4random()) % functionAlerts.count
+//        print(functionAlerts[r])
+//
+//        //機能アラートを作成
+//        let alert = UIAlertController(title: "褒めの言葉", message:functionAlerts[r], preferredStyle: .alert)
+//
+//        //アラートにOKボタンを追加
+//        //handler:OKボタンが押された時に行いたい処理を指定する場所
+//        //nilをセットすると、何も動作しない
+//        alert.addAction(UIAlertAction(title: "OK",style: .default, handler: {Aaction in
+//            print("OK押されました")
+//
+//        }))
+//
+//        //アラートを表示
+//        present(alert, animated: true, completion: nil)
+
     }
     
     
