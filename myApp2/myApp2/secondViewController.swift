@@ -23,6 +23,32 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     let myDefault = UserDefaults.standard
     
     var memos:[String] = []
+    
+//    ===============================================
+//                      サンプルコード
+//    ===============================================
+    
+//    var memos:[[String:Any]] = [
+//        ["title":String(),
+//         "DeleteKey":Int()
+//         ],
+//        [
+//            "title":"sample",
+//            "DeleteKey":1
+//        ],
+//        [
+//            "title":"sample1",
+//            "DeleteKey":2
+//        ],
+//    ]
+//    -------------使い方-------------------
+//                var title = String()//title
+//                var DeleteKey = String() //Deletekey : deleteするために使用する
+                //memos配列に追加するためのデータ型指定
+//                var memo = ["title":title, "DeleteKey":DeleteKey]
+//                memos.append(memo)//memos配列に入力されたデータを追加する
+    
+    
     var memoTitle:String!
     var tmpText:String!
     var titleTag = -1
@@ -206,11 +232,9 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             }
             
         }else {
-            //ここを変えるかも
             cell.newTextFieldCell.text = memos[indexPath.row]
         }
  
-        
         cells.append(cell)
         return cell
     }
@@ -337,8 +361,12 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             if memos.count == textField.tag {
 //                 self.memos.append(textField.text!)
             }else{
-                // 更新（ここが問題）
+                //TODO: 更新（ここでとまらないようにする！）
                 self.memos[textField.tag] = textField.text!
+                
+                
+                
+                
             }
             
             //memosとtitleタグの番号があってない　表示用の配列を別で作る
@@ -403,16 +431,26 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
 
             self.memos.remove(at: indexPath.row)
             newTableView.deleteRows(at: [indexPath], with: .fade)
-
-//            if cell.newTextFieldCell.text != ""{
-//            textFieldDidEndEditing(cell.newTextFieldCell as UITextField)
-//            self.memos.remove(at: indexPath.row)
-//            newTableView.deleteRows(at: [indexPath], with: .fade)
-//
-//
-//            }
+            
+           //ここにタイトルタグ-1の関数を書く
+            
+            
         }
     }
+    
+    //テキストフィールドタグをマイナスするための関数
+//    func tagMinus(){
+//
+//        //タイトルタグをmemosに合わせるためにタイトルタグを-1してあげる
+//        //もしタイトルタグ番号が消えたものより大きかったらタイトルタグを-1にする
+//
+////        if  {
+////            titleTag -1
+////        }
+//
+//
+//
+//    }
     
     
     //行を編集するための関数（メモがからの時は削除ボタンを出なくする）

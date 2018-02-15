@@ -204,11 +204,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     if record.value(forKey: "title") as! String == titles[indexPath.row] {
                         viewContext.delete(record)
                         
-                        self.titles.remove(at: indexPath.row)
-                        toDoListTableView.deleteRows(at: [indexPath], with: .fade)
+                       
                     }
                     
                 }
+                
+                self.titles.remove(at: indexPath.row)
+                toDoListTableView.deleteRows(at: [indexPath], with: .fade)
+                
+                
                 
                 
                 //削除した状態を保存
@@ -223,23 +227,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         
         
-//        //<削除後コメント>
-//        let r = Int(arc4random()) % functionAlerts.count
-//        print(functionAlerts[r])
-//
-//        //機能アラートを作成
-//        let alert = UIAlertController(title: "褒めの言葉", message:functionAlerts[r], preferredStyle: .alert)
-//
-//        //アラートにOKボタンを追加
-//        //handler:OKボタンが押された時に行いたい処理を指定する場所
-//        //nilをセットすると、何も動作しない
-//        alert.addAction(UIAlertAction(title: "OK",style: .default, handler: {Aaction in
-//            print("OK押されました")
-//
-//        }))
-//
-//        //アラートを表示
-//        present(alert, animated: true, completion: nil)
+        //<削除後コメント>
+        let r = Int(arc4random()) % functionAlerts.count
+        print(functionAlerts[r])
+
+        //機能アラートを作成
+        let alert = UIAlertController(title: "褒めの言葉", message:functionAlerts[r], preferredStyle: .alert)
+
+        //アラートにOKボタンを追加
+        //handler:OKボタンが押された時に行いたい処理を指定する場所
+        //nilをセットすると、何も動作しない
+        alert.addAction(UIAlertAction(title: "OK",style: .default, handler: {Aaction in
+            print("OK押されました")
+
+        }))
+
+        //アラートを表示
+        present(alert, animated: true, completion: nil)
 
     }
     
