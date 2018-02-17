@@ -54,6 +54,7 @@
                                         <connections>
                                             <outlet property="countdownLabel" destination="T5z-6R-UgW" id="zMl-JU-cQy"/>
                                             <outlet property="toDoTitle" destination="jb1-Zq-YdG" id="pN1-nO-MOD"/>
+                                            <segue destination="WUd-sA-tGi" kind="show" identifier="editMemoViewController" id="0Sl-Fw-bWB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -106,29 +107,21 @@
             </objects>
             <point key="canvasLocation" x="260" y="89.505247376311857"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Memo View Controller-->
         <scene sceneID="7eL-sA-LQ5">
             <objects>
-                <viewController id="WUd-sA-tGi" sceneMemberID="viewController">
+                <viewController id="WUd-sA-tGi" customClass="editMemoViewController" customModule="myApp2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w25-ke-IiQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="y98-Ui-AbE">
-                                <rect key="frame" x="38" y="45" width="298" height="30"/>
+                                <rect key="frame" x="38" y="84" width="298" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETF-lt-Jhs">
-                                <rect key="frame" x="297" y="71" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="完了"/>
-                                <connections>
-                                    <action selector="titleCompleteBtn:" destination="1U6-xh-emM" eventType="touchUpInside" id="gx6-Oa-nPK"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cba-KX-ngG">
                                 <rect key="frame" x="0.0" y="194" width="375" height="234"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -170,21 +163,21 @@
                                 </connections>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bhi-Ur-Z0C">
-                                <rect key="frame" x="23" y="613" width="312" height="30"/>
+                                <rect key="frame" x="30" y="577" width="312" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="日時指定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hlb-Xd-zYr">
-                                <rect key="frame" x="37" y="569" width="70" height="21"/>
+                                <rect key="frame" x="37" y="544" width="70" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dXn-oy-UYZ">
-                                <rect key="frame" x="300" y="568" width="49" height="31"/>
+                                <rect key="frame" x="300" y="534" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="dateSwitch:" destination="1U6-xh-emM" eventType="valueChanged" id="heu-kW-Zle"/>
@@ -194,6 +187,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="RbT-J7-yby"/>
                     </view>
+                    <connections>
+                        <outlet property="dateTextField" destination="Bhi-Ur-Z0C" id="zCd-KZ-koO"/>
+                        <outlet property="editDateSwitch" destination="dXn-oy-UYZ" id="nbt-FM-7R8"/>
+                        <outlet property="editTableView" destination="cba-KX-ngG" id="t7z-TU-tNc"/>
+                        <outlet property="editTitleTextField" destination="y98-Ui-AbE" id="fXX-3H-Fyi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sjb-vP-Kg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -208,33 +207,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QDy-4B-rzG">
-                                <rect key="frame" x="312" y="176" width="49" height="31"/>
+                                <rect key="frame" x="312" y="113" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="commentSwitch:" destination="qyv-Nc-NgV" eventType="valueChanged" id="LAH-CI-Q7C"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="機能説明表示アラート" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6V9-Zf-svb">
-                                <rect key="frame" x="16" y="104" width="223" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="リスト削除後コメント表示" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGJ-JM-Qwu">
-                                <rect key="frame" x="16" y="178" width="268" height="27"/>
+                                <rect key="frame" x="16" y="114" width="268" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AQx-N2-403">
-                                <rect key="frame" x="312" y="111" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="functionAlertSwitch:" destination="qyv-Nc-NgV" eventType="valueChanged" id="hoq-Yo-jND"/>
-                                </connections>
-                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Zps-BA-FeV"/>
@@ -242,7 +227,6 @@
                     <navigationItem key="navigationItem" title="設定" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="Nx0-6y-sub"/>
                     <connections>
                         <outlet property="commentSwitch" destination="QDy-4B-rzG" id="srD-N3-PGU"/>
-                        <outlet property="functionAlertSwitch" destination="AQx-N2-403" id="djJ-9d-C7i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DvE-1y-c5Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -271,13 +255,6 @@
                                     <action selector="dateSwitch:" destination="1U6-xh-emM" eventType="valueChanged" id="xBp-ri-qOX"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="固定する" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O33-IF-qkX">
-                                <rect key="frame" x="16" y="471" width="175" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="日時指定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Le-se-3kY">
                                 <rect key="frame" x="16" y="521" width="70" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -285,13 +262,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sul-A4-y42">
-                                <rect key="frame" x="281" y="471" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="koteiSwitch:" destination="1U6-xh-emM" eventType="valueChanged" id="u8K-tc-HXd"/>
-                                </connections>
-                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="colorPicker設置" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEn-qD-qPe">
                                 <rect key="frame" x="68" y="146" width="268" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -347,7 +317,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRY-6Z-UxG">
-                                <rect key="frame" x="289" y="108" width="31" height="30"/>
+                                <rect key="frame" x="289" y="142" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="完了"/>
                                 <connections>
@@ -361,7 +331,6 @@
                     <connections>
                         <outlet property="dateTapSwitch" destination="ugO-3X-fqk" id="ven-4Y-pG1"/>
                         <outlet property="dateTextField" destination="tkT-E1-4TA" id="kJb-s4-9Wz"/>
-                        <outlet property="koteiSwitch" destination="Sul-A4-y42" id="cdf-M5-DN3"/>
                         <outlet property="newTableView" destination="byh-MB-xW3" id="O2y-9A-Apw"/>
                         <outlet property="newTextField" destination="hWm-X9-fA2" id="S08-zo-89K"/>
                     </connections>

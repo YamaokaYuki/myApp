@@ -16,7 +16,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     @IBOutlet weak var newTableView: UITableView!
     @IBOutlet weak var newTextField: UITextField!
     @IBOutlet weak var dateTapSwitch: UISwitch!
-    @IBOutlet weak var koteiSwitch: UISwitch!
     @IBOutlet weak var dateTextField: UITextField!
     
     
@@ -36,18 +35,11 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     override func viewWillAppear(_ animated: Bool){
         // はじめの状態をfalseにしておく.
         dateTapSwitch.isOn = false
-        koteiSwitch.isOn = false
 
         //保存されてる値が存在した時
         if myDefault.object(forKey: "dateSwitchFlag") != nil{
             dateTapSwitch.isOn = myDefault.object(forKey: "dateSwitchFlag") as! Bool
         }
-        
-        //保存されてる値が存在した時
-        if myDefault.object(forKey: "koteiSwitchFlag") != nil{
-            koteiSwitch.isOn = myDefault.object(forKey: "koteiSwitchFlag")as! Bool
-        }
-        
     }
     
     override func viewDidLoad() {
@@ -266,15 +258,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         
     }
     
-    //koteiSwitchスイッチの状態が変わった時に発動
-    @IBAction func koteiSwitch(_ sender: UISwitch) {
-        //スイッチの状態を保存
-        //set(保存したい値、forKey:保存した値を取り出す時に指定する名前)
-        myDefault.set(sender.isOn,forKey: "koteiSwitchFlag")
-        
-        //即保存させる（これがないと、値が保存されていない時があります）
-        myDefault.synchronize()
-    }
     
     //    DatePickerで日付が選択されたとき、textFieldにyyyy/MM/ddの形で選択された日付を表示する
     @objc func showDateSelected(sender:UIDatePicker){
@@ -330,7 +313,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     //textFieldのリターンキーが押された時に発動
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("return")
         // タイトルのテキストフィールドではなく、テキストフィールドが空ではないとき
         if textField.tag != titleTag && textField.text != "" {
            
@@ -338,19 +320,12 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             // cellのtagとmemos.countが一致　→ 新規の詳細メモ
             if memos.count == textField.tag {
 //                 self.memos.append(textField.text!)
-                print("上")
             }else{
-                print("下")
                 //TODO: 更新（ここでとまらないようにする！）
                 //memosの番号を変えないようにする
                 self.memos[textField.tag] = textField.text!
             }
             
-            print("=======================================")
-            print("textField.tag")
-            print(textField.tag)
-            print("memos")
-            print(memos)
             
             //memosとtitleタグの番号があってない　表示用の配列を別で作る
 
@@ -358,8 +333,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             newTableView.reloadData()
         }
 
-        print("タイトルタグ")
-        print(titleTag)
+       
         // 詳細メモが空のとき、復活
         if textField.text == "" && textField.tag != titleTag  {
 
@@ -448,8 +422,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         if tableView.cellForRow(at: indexPath) != nil {
             let cell:NewCustumCell = tableView.cellForRow(at: indexPath) as! NewCustumCell
-            
-            
             
             if cell.newTextFieldCell.text == "" || cell.newTextFieldCell.isEditing == true{
                 return false
