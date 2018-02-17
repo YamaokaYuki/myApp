@@ -192,7 +192,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         cell.newTextFieldCell.delegate = self
 
         cell.newTextFieldCell.tag = indexPath.row
-        print(indexPath.row)
+//        print(indexPath.row)
         if indexPath.row == memos.count {
             cell.newTextFieldCell.text = ""
             
@@ -323,6 +323,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             }else{
                 //TODO: 更新（ここでとまらないようにする！）
                 //memosの番号を変えないようにする
+                print("era-",textField.tag)
                 self.memos[textField.tag] = textField.text!
             }
             
@@ -390,25 +391,37 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
 
 //            let cell:NewCustumCell = tableView.cellForRow(at: indexPath) as! NewCustumCell
 
+            //ここにタグ-1の関数を書く
+            
+            newTableView.reloadData()
             self.memos.remove(at: indexPath.row)
             newTableView.deleteRows(at: [indexPath], with: .fade)
             
-           //ここにタイトルタグ-1の関数を書く
-            tagMinus()
-            
+//            tagMinus(deleteNum: indexPath.row)
+
             
         }
     }
     
     //テキストフィールドタグをマイナスするための関数
-    func tagMinus(){
-
-        //タイトルタグをmemosに合わせるためにタイトルタグを-1してあげる
-        //もしタイトルタグ番号が消えたものより大きかったらタイトルタグを-1にする
-
-        if  memos.count != newTextField.tag{
-            newTextField.tag -= 1
+    func tagMinus(deleteNum: Int){
+        //タグをmemosに合わせるためにタグを-1してあげる
+        //もしタグ番号が消えたものより大きかったらタグを-1にする
+        // 0,1,2
+        // memos.count = 10
+        // deleteNum = 2
+        // 4,5,6,7,8,9,10
+        print("deletenum",deleteNum)
+        print("cells.count",cells.count)
+        for n in (deleteNum + 1)...cells.count - 1 {
+            print("nnnn",n)
+            cells[n].tag -= 1
+            newTableView.reloadData()
         }
+
+//        if  memos.count != newTextField.tag{
+//            newTextField.tag -= 1
+//        }
 
 
 
