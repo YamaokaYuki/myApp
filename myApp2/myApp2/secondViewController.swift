@@ -23,30 +23,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     let myDefault = UserDefaults.standard
     
     var memos:[String] = []
-    
-//    ===============================================
-//                      サンプルコード
-//    ===============================================
-    
-//    var memos:[[String:Any]] = [
-//        ["title":String(),
-//         "DeleteKey":Int()
-//         ],
-//        [
-//            "title":"sample",
-//            "DeleteKey":1
-//        ],
-//        [
-//            "title":"sample1",
-//            "DeleteKey":2
-//        ],
-//    ]
-//    -------------使い方-------------------
-//                var title = String()//title
-//                var DeleteKey = String() //Deletekey : deleteするために使用する
-                //memos配列に追加するためのデータ型指定
-//                var memo = ["title":title, "DeleteKey":DeleteKey]
-//                memos.append(memo)//memos配列に入力されたデータを追加する
+
     
     
     var memoTitle:String!
@@ -356,18 +333,24 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         print("return")
         // タイトルのテキストフィールドではなく、テキストフィールドが空ではないとき
         if textField.tag != titleTag && textField.text != "" {
+           
             
             // cellのtagとmemos.countが一致　→ 新規の詳細メモ
             if memos.count == textField.tag {
 //                 self.memos.append(textField.text!)
+                print("上")
             }else{
+                print("下")
                 //TODO: 更新（ここでとまらないようにする！）
+                //memosの番号を変えないようにする
                 self.memos[textField.tag] = textField.text!
-                
-                
-                
-                
             }
+            
+            print("=======================================")
+            print("textField.tag")
+            print(textField.tag)
+            print("memos")
+            print(memos)
             
             //memosとtitleタグの番号があってない　表示用の配列を別で作る
 
@@ -375,8 +358,12 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             newTableView.reloadData()
         }
 
+        print("タイトルタグ")
+        print(titleTag)
         // 詳細メモが空のとき、復活
         if textField.text == "" && textField.tag != titleTag  {
+
+//            print(titleTag)
             cells = []
             newTableView.reloadData()
         }
@@ -433,24 +420,25 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             newTableView.deleteRows(at: [indexPath], with: .fade)
             
            //ここにタイトルタグ-1の関数を書く
+            tagMinus()
             
             
         }
     }
     
     //テキストフィールドタグをマイナスするための関数
-//    func tagMinus(){
-//
-//        //タイトルタグをmemosに合わせるためにタイトルタグを-1してあげる
-//        //もしタイトルタグ番号が消えたものより大きかったらタイトルタグを-1にする
-//
-////        if  {
-////            titleTag -1
-////        }
-//
-//
-//
-//    }
+    func tagMinus(){
+
+        //タイトルタグをmemosに合わせるためにタイトルタグを-1してあげる
+        //もしタイトルタグ番号が消えたものより大きかったらタイトルタグを-1にする
+
+        if  memos.count != newTextField.tag{
+            newTextField.tag -= 1
+        }
+
+
+
+    }
     
     
     //行を編集するための関数（メモがからの時は削除ボタンを出なくする）
