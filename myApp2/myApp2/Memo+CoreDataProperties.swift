@@ -2,7 +2,7 @@
 //  Memo+CoreDataProperties.swift
 //  
 //
-//  Created by 山岡由季 on 2018/02/05.
+//  Created by 山岡由季 on 2018/02/19.
 //
 //
 
@@ -16,7 +16,8 @@ extension Memo {
         return NSFetchRequest<Memo>(entityName: "Memo")
     }
 
-    @NSManaged public var title: String?
     @NSManaged public var content: String?
+    @NSManaged public var orderNumber: Int64
+    @NSManaged public var titleId: Int64
 
 }

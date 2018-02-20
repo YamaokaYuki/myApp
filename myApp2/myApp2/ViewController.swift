@@ -16,6 +16,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var functionAlerts:[String] = []
     var titles:[String] = []
     var searchBar: UISearchBar!
+    var selectedRowIndex = -1  //何行目か保存されてないときを見分けるため-1を代入
     @IBOutlet weak var toDoListTableView: UITableView!
     @IBOutlet weak var addListBtn: UIBarButtonItem!
     @IBOutlet weak var setButton: UIBarButtonItem!
@@ -30,9 +31,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         readPlist()
         readTitle()
         setupSearchBar()
-        
-        
-        
         
         setButton.image = UIImage.fontAwesomeIcon(
             name: .cog,
@@ -78,27 +76,20 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-  
-    
-    //myTextFieldリターンキーが押された時にキーボードが下がる
-//    @IBAction func tapReturn(_ sender: UITextField) {
-//    }
-    
-    
     //＜タイトルを読むための関数＞
     func readTitle(){
-        
+
         titles = []
         //AppDelegateを使う準備をしておく
         let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
-        
+
         //エンティティを操作するためのオブジェクトを作成
         let viewContext = appD.persistentContainer.viewContext
-        
+
         //データを取得するエンティティの指定
         //<>の中はモデルファイルで指定したエンティティ名
         let query: NSFetchRequest<ToDo> = ToDo.fetchRequest()
-        
+
         do {
             //データの一括取得
             let fetchResults = try viewContext.fetch(query)
@@ -115,7 +106,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //表示する個数の設定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titles.count
-        
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -123,8 +114,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let cell:CustumCell = tableView.dequeueReusableCell(withIdentifier: "cell", for:indexPath) as! CustumCell
         //各プロパティに値を設定
         cell.toDoTitle.text = titles[indexPath.row]
-        //背景色の設定
-//        cell.backgroundColor = UIColor.orange
         //作成したcellオブジェクトを戻り値として返す
         return cell
         
@@ -135,10 +124,36 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         // 選択したタイトルが取得できる
         print(titles[indexPath.row])
         
-        // ページ遷移
-
+        //タップされた行の番号 indexPath.row
+        print("\(titles[indexPath.row])がタップされました")
+        
+        //選択された行番号をメンバ変数に保存（セグエを使って画面移動する時に発動するメソッドが違うもののため、そこで使えるようにする）
+        selectedRowIndex = indexPath.row
+        
+        //セグエの名前を指定して、画面遷移処理を発動（付ける名前はeditMemoViewController。ストーリーボード上でidentifierで指定）
+        performSegue(withIdentifier: "editMemoViewController", sender: nil)
     
     }
+    
+
+    
+    //セグエを使って画面遷移してる時発動
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //複数セグエがある場合、segue.identifierで判別可能
+        
+        //移動先の画面のインスタンスを取得
+        //segue.destination セグエが持っている、目的地（移動先の画面）
+        //as ダウンキャスト変換 広い範囲から限定したデータ型へ型変換するときに使用
+        //as! 型変換して、オプショナル型からデータを取り出す
+        let dvc:DetailViewController = segue.destination as! DetailViewController
+        //移動先の画面のプロパティに、選択された行番号を代入（これで、DetailViewControllerに選択された行番号が渡せる）
+        dvc.passedIndex = selectedRowIndex
+    }
+    
+    
+    
+    
     
     //<セルの削除>
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -177,9 +192,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 
                 self.titles.remove(at: indexPath.row)
                 toDoListTableView.deleteRows(at: [indexPath], with: .fade)
-                
-                
-                
                 
                 //削除した状態を保存
                 try viewContext.save()

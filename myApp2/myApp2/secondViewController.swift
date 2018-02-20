@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData //CoreData使う時絶対に必要
+import DatePickerDialog
 
 var titleId:Int64!
 
@@ -47,6 +48,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         newTableView.delegate = self
         newTextField.delegate = self
         newTextField.tag = titleTag
+        dateTextField.delegate = self
         // newTextFieldにプレスフォルダーを設定
         newTextField.placeholder = "新規登録"
         if newTextField.text == "" {
@@ -55,8 +57,11 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             newTableView.isHidden = false
         }
         
+        //dateTextFieldにプレスフォルダーを設定する
+         dateTextField.placeholder = "アラート時刻"
+        
         // readMemoData()
-        createDatePicker()
+        
         
         
         // BarButtonItem保存を作成する.
@@ -94,45 +99,20 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     //日時表示欄
     func createDatePicker(){
         
-        //dateTextFieldに現在日時を設定
-        // 日時をラベルに表示する
-        let now = Date()
-        let formatter = DateFormatter()
-        formatter.timeStyle = .full
-        formatter.dateStyle = .full
-        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "ydMMMHHmm", options: 0, locale: Locale(identifier: "ja_JP"))
-
-        self.dateTextField.text = "\(formatter.string(from: now))"
+        let datePicker = DatePickerDialog(
+            locale: Locale(identifier: "ja_JP"),
+            showCancelButton: true
+        )
         
-        //baseViewの設定-------------------------------
-        let datePicker:UIDatePicker = UIDatePicker()
-        datePicker.addTarget(self, action: #selector(self.showDateSelected(sender:)), for: .valueChanged)
-        datePicker.datePickerMode = UIDatePickerMode.dateAndTime
-        // ②日本の日付表示形式にする
-        datePicker.locale = NSLocale(localeIdentifier: "ja_JP") as Locale
-        
-        dateTextField.inputView = datePicker
-        
-        // UIToolBarの設定
-        var toolBar:UIToolbar!
-        toolBar = UIToolbar(frame: CGRect(
-            x:0,
-            y:self.view.bounds.height/6,
-            width:self.view.bounds.width,
-            height:35
-        ))
-        toolBar.layer.position = CGPoint(x: 10, y: 100)
-        toolBar.barStyle = .blackTranslucent
-        toolBar.tintColor = UIColor.white
-        toolBar.backgroundColor = UIColor.black
-        
-        let toolBarBtn = UIBarButtonItem(title: "完了", style: .plain, target: self, action: #selector(self.closeBaseView(sender:)))
-        
-        let flexibleItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        
-        toolBar.items = [flexibleItem,toolBarBtn]
-        
-        dateTextField.inputAccessoryView = toolBar
+        datePicker.show("期限", doneButtonTitle: "決定", cancelButtonTitle: "キャンセル", datePickerMode: .dateAndTime) {
+            (date) -> Void in
+            if let dt = date {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy年MM月dd日HH時mm分"
+                print(formatter.string(from: dt))
+                self.dateTextField.text = "\(formatter.string(from: dt))"
+            }
+        }
     }
     
 //    // coreDataの読み込み memoにappendしてる
@@ -224,12 +204,14 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             //ToDoエンティティにレコード（行）を挿入するためのオブジェクトを作成
             let newRecord = NSManagedObject(entity: ToDo!, insertInto: viewContext)
             
+            let uuid:String = NSUUID().uuidString
+            print(uuid)
+            
             //レコードオブジェクトに値のセット
             newRecord.setValue(newTextField.text, forKey: "title")
-//            newRecord.setValue(newTextField.text, forKey: "saveDate")
-//            newRecord.setValue(newTextField.text, forKey: "priority")
-//            newRecord.setValue(newTextField.text, forKey: "id")
-//            newRecord.setValue(newTextField.text, forKey: "dueDate")
+            newRecord.setValue(uuid, forKey: "id")
+            newRecord.setValue(Date(), forKey: "saveDate")
+
             
             //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
             do {
@@ -257,36 +239,8 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
         
     }
-    
-    
-    //    DatePickerで日付が選択されたとき、textFieldにyyyy/MM/ddの形で選択された日付を表示する
-    @objc func showDateSelected(sender:UIDatePicker){
-
-        //フォーマットの設定
-
-        let df = DateFormatter()
-        df.dateFormat = "yyyy年 MM月 dd日 HH : mm"
-        
-        //選択された日付を日付型から文字列に変換
-
-        let strSelectedDate = df.string(from: sender.date)
-
-        dateTextField.text = strSelectedDate
-
-        //日付のTextFieldに変換した文字列を表示
-
-        let formatter = DateFormatter()
-        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "EEEEE", options: 0, locale: Locale(identifier: "ja_JP"))
-        //print(formatter.string(from: Date())) // 日
-
-    }
 
 
-    //datepickerのCloseボタンが押されたとき発動する
-
-    @objc func closeBaseView(sender: UIButton){
-        dateTextField.resignFirstResponder()
-    }
     
     @IBAction func dateSwitch(_ sender: UISwitch) {
     
@@ -310,6 +264,12 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
 
+    func textFieldDidBeginEditing(_ TextField: UITextField) {
+        if TextField == self.dateTextField {
+            createDatePicker()
+        }
+    }
+    
     
     //textFieldのリターンキーが押された時に発動
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -321,9 +281,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             if memos.count == textField.tag {
 //                 self.memos.append(textField.text!)
             }else{
-                //TODO: 更新（ここでとまらないようにする！）
-                //memosの番号を変えないようにする
-                print("era-",textField.tag)
+            
                 self.memos[textField.tag] = textField.text!
             }
             
@@ -345,11 +303,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         return true
     }
 
-    //テキストフィールドの入力中に発動
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        return true
-    }
+
     
     // テキストフィールドから離れた時に発動
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -391,41 +345,14 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
 
 //            let cell:NewCustumCell = tableView.cellForRow(at: indexPath) as! NewCustumCell
 
-            //ここにタグ-1の関数を書く
             
             newTableView.reloadData()
             self.memos.remove(at: indexPath.row)
             newTableView.deleteRows(at: [indexPath], with: .fade)
             
-//            tagMinus(deleteNum: indexPath.row)
-
-            
         }
     }
     
-    //テキストフィールドタグをマイナスするための関数
-    func tagMinus(deleteNum: Int){
-        //タグをmemosに合わせるためにタグを-1してあげる
-        //もしタグ番号が消えたものより大きかったらタグを-1にする
-        // 0,1,2
-        // memos.count = 10
-        // deleteNum = 2
-        // 4,5,6,7,8,9,10
-        print("deletenum",deleteNum)
-        print("cells.count",cells.count)
-        for n in (deleteNum + 1)...cells.count - 1 {
-            print("nnnn",n)
-            cells[n].tag -= 1
-            newTableView.reloadData()
-        }
-
-//        if  memos.count != newTextField.tag{
-//            newTextField.tag -= 1
-//        }
-
-
-
-    }
     
     
     //行を編集するための関数（メモがからの時は削除ボタンを出なくする）
@@ -451,7 +378,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
