@@ -54,7 +54,6 @@
                                         <connections>
                                             <outlet property="countdownLabel" destination="T5z-6R-UgW" id="zMl-JU-cQy"/>
                                             <outlet property="toDoTitle" destination="jb1-Zq-YdG" id="pN1-nO-MOD"/>
-                                            <segue destination="WUd-sA-tGi" kind="show" identifier="editMemoViewController" id="0Sl-Fw-bWB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -93,6 +92,7 @@
                         <outlet property="searchDisplayController" destination="d2y-5A-gMD" id="PiK-Mu-K8C"/>
                         <outlet property="setButton" destination="vhG-2j-M3q" id="ye2-Fz-5xB"/>
                         <outlet property="toDoListTableView" destination="Tap-jm-Y1u" id="5GT-om-I0C"/>
+                        <segue destination="1U6-xh-emM" kind="show" identifier="editViewController" id="xAY-zb-Gz1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -106,97 +106,6 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="260" y="89.505247376311857"/>
-        </scene>
-        <!--Edit Memo View Controller-->
-        <scene sceneID="7eL-sA-LQ5">
-            <objects>
-                <viewController id="WUd-sA-tGi" customClass="editMemoViewController" customModule="myApp2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="w25-ke-IiQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="y98-Ui-AbE">
-                                <rect key="frame" x="38" y="84" width="298" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cba-KX-ngG">
-                                <rect key="frame" x="0.0" y="194" width="375" height="234"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newCell" id="NkE-c3-SvF" customClass="NewCustumCell" customModule="myApp2" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NkE-c3-SvF" id="Uyb-6X-7qK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aiU-GV-eET">
-                                                    <rect key="frame" x="35" y="6" width="304" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BV0-qb-Oxo">
-                                                    <rect key="frame" x="15" y="11" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.0"/>
-                                        <connections>
-                                            <outlet property="newTextFieldCell" destination="aiU-GV-eET" id="VHA-X6-g8N"/>
-                                            <outlet property="symbol" destination="BV0-qb-Oxo" id="v0x-78-cji"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="1U6-xh-emM" id="9bl-ra-3BT"/>
-                                    <outlet property="delegate" destination="1U6-xh-emM" id="nnO-gc-DOH"/>
-                                </connections>
-                            </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bhi-Ur-Z0C">
-                                <rect key="frame" x="30" y="577" width="312" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="日時指定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hlb-Xd-zYr">
-                                <rect key="frame" x="37" y="544" width="70" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dXn-oy-UYZ">
-                                <rect key="frame" x="300" y="534" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="dateSwitch:" destination="1U6-xh-emM" eventType="valueChanged" id="heu-kW-Zle"/>
-                                </connections>
-                            </switch>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="RbT-J7-yby"/>
-                    </view>
-                    <connections>
-                        <outlet property="dateTextField" destination="Bhi-Ur-Z0C" id="zCd-KZ-koO"/>
-                        <outlet property="editDateSwitch" destination="dXn-oy-UYZ" id="nbt-FM-7R8"/>
-                        <outlet property="editTableView" destination="cba-KX-ngG" id="t7z-TU-tNc"/>
-                        <outlet property="editTitleTextField" destination="y98-Ui-AbE" id="fXX-3H-Fyi"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sjb-vP-Kg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1102" y="88"/>
         </scene>
         <!--設定-->
         <scene sceneID="rpr-ll-Lox">
@@ -358,4 +267,7 @@
             <point key="canvasLocation" x="-470" y="90"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="xAY-zb-Gz1"/>
+    </inferredMetricsTieBreakers>
 </document>

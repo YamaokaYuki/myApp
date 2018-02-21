@@ -14,9 +14,10 @@ import CoreData
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
     
     var functionAlerts:[String] = []
-    var titles:[String] = []
+    var titles:[Dictionary<String,Any>] = []
     var searchBar: UISearchBar!
-    var selectedRowIndex = -1  //何行目か保存されてないときを見分けるため-1を代入
+    var selectedTitleId:String!
+    var selectedTitle:String!
     @IBOutlet weak var toDoListTableView: UITableView!
     @IBOutlet weak var addListBtn: UIBarButtonItem!
     @IBOutlet weak var setButton: UIBarButtonItem!
@@ -69,12 +70,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
     }
     
-    //サーチバーのキーボードを画面遷移のタイミングで下げる
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        searchBar.resignFirstResponder()
-    }
-    
     
     //＜タイトルを読むための関数＞
     func readTitle(){
@@ -94,14 +89,33 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             //データの一括取得
             let fetchResults = try viewContext.fetch(query)
             //取得したデータを、デバックエリアにループで表示
-            print("titleRead",fetchResults.count)
+//            print("titleRead",fetchResults.count)
             for result in fetchResults {
-                let title:String = result.title!
-                titles.append(title)
+                let titleData = [
+                    "title": result.title!,
+                    "id":result.id
+                    ]
+                titles.append(titleData)
             }
         } catch  {
         }
+        
+//
+//        let memodata: NSFetchRequest<Memo> = Memo.fetchRequest()
+//
+//        do {
+//            //データの一括取得
+//            let fetchResults = try viewContext.fetch(memodata)
+//            //取得したデータを、デバックエリアにループで表示
+//            for result in fetchResults {
+//                print(result.content)
+//            }
+//        } catch  {
+//        }
+
+        
     }
+
     
     //表示する個数の設定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -113,42 +127,43 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //セルオブジェクトの作成
         let cell:CustumCell = tableView.dequeueReusableCell(withIdentifier: "cell", for:indexPath) as! CustumCell
         //各プロパティに値を設定
-        cell.toDoTitle.text = titles[indexPath.row]
+        cell.toDoTitle.text = titles[indexPath.row]["title"] as? String
         //作成したcellオブジェクトを戻り値として返す
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected:\(indexPath.row)")
-        // 選択したタイトルが取得できる
-        print(titles[indexPath.row])
-        
-        //タップされた行の番号 indexPath.row
-        print("\(titles[indexPath.row])がタップされました")
-        
+
         //選択された行番号をメンバ変数に保存（セグエを使って画面移動する時に発動するメソッドが違うもののため、そこで使えるようにする）
-        selectedRowIndex = indexPath.row
-        
+        selectedTitleId = titles[indexPath.row]["id"] as! String
+        selectedTitle = titles[indexPath.row]["title"] as! String
+
         //セグエの名前を指定して、画面遷移処理を発動（付ける名前はeditMemoViewController。ストーリーボード上でidentifierで指定）
-        performSegue(withIdentifier: "editMemoViewController", sender: nil)
-    
+        performSegue(withIdentifier: "editViewController", sender: nil)
+
     }
     
 
     
     //セグエを使って画面遷移してる時発動
+    //サーチバーのキーボードを画面遷移のタイミングで下げる
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        searchBar.resignFirstResponder()
+
         //複数セグエがある場合、segue.identifierで判別可能
-        
+
         //移動先の画面のインスタンスを取得
         //segue.destination セグエが持っている、目的地（移動先の画面）
         //as ダウンキャスト変換 広い範囲から限定したデータ型へ型変換するときに使用
         //as! 型変換して、オプショナル型からデータを取り出す
-        let dvc:DetailViewController = segue.destination as! DetailViewController
-        //移動先の画面のプロパティに、選択された行番号を代入（これで、DetailViewControllerに選択された行番号が渡せる）
-        dvc.passedIndex = selectedRowIndex
+        if segue.identifier == "editViewController"{
+            let dvc:secondViewController = segue.destination as! secondViewController
+            //移動先の画面のプロパティに、選択された行番号を代入（これで、DetailViewControllerに選択された行番号が渡せる）
+            dvc.passedTitleId = selectedTitleId
+            dvc.passedTitle = selectedTitle
+        }
     }
     
     
@@ -176,16 +191,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 //取得したデータを、削除指示
                 
                 for result: AnyObject in fetchResults{
-                    print(type(of: result))
                     let record = result as! NSManagedObject//1行分のデータ
-                    print(record.value(forKey: "title"))
-                    print(type(of: record.objectID))//使い方調べるobjectIDが使えたらtitleIdがいらない
-                    print("a")
-                    print(indexPath.row)
-                    if record.value(forKey: "title") as! String == titles[indexPath.row] {
+                    if record.value(forKey: "title") as! String == titles[indexPath.row]["title"] as! String {
                         viewContext.delete(record)
-                        
-                       
                     }
                     
                 }
@@ -207,7 +215,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         //<削除後コメント>
         let r = Int(arc4random()) % functionAlerts.count
-        print(functionAlerts[r])
+//        print(functionAlerts[r])
 
         //機能アラートを作成
         let alert = UIAlertController(title: "褒めの言葉", message:functionAlerts[r], preferredStyle: .alert)
