@@ -71,7 +71,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         //dateTextFieldにプレスフォルダーを設定する
          dateTextField.placeholder = "アラート時刻"
         
-//
+
         
         
         
@@ -104,15 +104,16 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         print(self.memos)
         _ = navigationController?.popViewController(animated: true)
         
+        //ここで区別するidがある無し
+        if passedTitleId == ""{
         saveTitle()
-        allUpdate()
+        }else{
+        titleUpdate()
+        }
     }
 
-    //titleIdがあればアップデートするという処理を書く
-    //memosとTodoのアップデートをいれてあげる
-    func allUpdate(){
-
-        if passedTitleId != ""{
+    //titleのアップデート
+    func titleUpdate(){
         //AppDelegateを使う用意をしておく
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -120,10 +121,12 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         let viewContext = appDelegate.persistentContainer.viewContext
 
         //どのエンティティからdataを取得してくるか設定
+        //全部取得する
         let query:NSFetchRequest<ToDo> = ToDo.fetchRequest()
 
         //絞り込み検索（更新したいデータを取得する）
-        let  r_idPredicate = NSPredicate(format: "titleId = %@", passedTitleId)
+        //ここで取得したいデータをとるためのコードを書く
+        let  r_idPredicate = NSPredicate(format: "id = %@", passedTitleId)
             query.predicate = r_idPredicate
 
         do {
@@ -134,13 +137,12 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             for result: AnyObject in fetchResults {
 
                 //更新する準備（NSManagedObjectにダウンキャスト型変換)
+                //recordがひとつのセット
                 let record = result as! NSManagedObject
 
                 //更新したいデータのセット
                 record.setValue(newTextField.text, forKey: "title")
-                record.setValue(uuid, forKey: "id")
                 record.setValue(Date(), forKey: "saveDate")
-                //record.setValue(priorityNum, forKey: "priority")
                 record.setValue(dueDate, forKey: "dueDate")
 
                 do{
@@ -150,42 +152,95 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
                 } catch {
                      print("DBへの保存に失敗しました")
                 }
+            }
+        }catch{
+            
+        }
+    }
+    
+    
+    //Memoからタイトルのidと等しいレコードを削除
+    func memoDelete(){
+        
+        //AppDelegateを使う用意をしておく
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        //エンティティを操作するためのオブジェクトを作成
+        let viewContext = appDelegate.persistentContainer.viewContext
+        
+        //どのエンティティからdataを取得してくるか設定
+        //全部取得する
+        let query:NSFetchRequest<Memo> = Memo.fetchRequest()
+        
+        //絞り込み検索（更新したいデータを取得する）
+        //ここで取得したいデータをとるためのコードを書く
+        let  r_idPredicate = NSPredicate(format: "titleId = %@", passedTitleId)
+        query.predicate = r_idPredicate
+        
+        do {
+            //データを一括取得
+            let fetchResults = try viewContext.fetch(query)
+            
+            //データの取得
+            for result: AnyObject in fetchResults {
                 
-                //新規登録処理
+                //更新する準備（NSManagedObjectにダウンキャスト型変換)
+                //recordがひとつのセット
+                let record = result as! NSManagedObject
                 
-                //AppDelegateを使う準備をしておく
-                let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
+//                //ToDoエンティティにレコード（行）を挿入するためのオブジェクトを作成
+//                let memoData = NSManagedObject(entity: Memo!, insertInto: viewContext)
                 
-                //エンティティを操作するためのオブジェクトを作成
-                let viewContext = appD.persistentContainer.viewContext
-
-                for n in 0...memos.count - 1 {
-
-                    //どのエンティティからdataを取得してくるか設定
-                    let query:NSFetchRequest<Memo> = Memo.fetchRequest()
-         
+                
+                //削除したいデータのセット
+                //record.setValue(uuid, forKey: "titleId")
+                record.setValue(memos[n], forKey: "content")
+                
+                do{
+                    //レコード（行）の即時保存
+                    try viewContext.save()
                     
-                    //絞り込み検索（更新したいデータを取得する）
-                    let  r_idPredicate = NSPredicate(format: "titleId = %@", passedTitleId)
-                    query.predicate = r_idPredicate
-
-                    //レコードオブジェクトに値のセット
-                    memoData.setValue(uuid, forKey: "titleId")
-                    memoData.setValue(memos[n], forKey: "content")
-
-                    //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
-                    do {
-                        //レコード（行）の即時保存
-                        try viewContext.save()
-                    } catch  {
-                        print("DBへの保存に失敗しました")
-                    }
+                } catch {
+                    print("DBへの保存に失敗しました")
                 }
             }
-
+        }catch{
+            
+        }
     }
-    }
-    }
+                
+//                //新規登録処理
+//
+//                //AppDelegateを使う準備をしておく
+//                let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
+//
+//                //エンティティを操作するためのオブジェクトを作成
+//                let viewContext = appD.persistentContainer.viewContext
+//
+//                for n in 0...memos.count - 1 {
+//
+//                    //どのエンティティからdataを取得してくるか設定
+//                    let query:NSFetchRequest<Memo> = Memo.fetchRequest()
+//
+//
+//                    //絞り込み検索（更新したいデータを取得する）
+//                    let  r_idPredicate = NSPredicate(format: "titleId = %@", passedTitleId)
+//                    query.predicate = r_idPredicate
+//
+//                    //レコードオブジェクトに値のセット
+//                    memoData.setValue(uuid, forKey: "titleId")
+//                    memoData.setValue(memos[n], forKey: "content")
+//
+//                    //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
+//                    do {
+//                        //レコード（行）の即時保存
+//                        try viewContext.save()
+//                    } catch  {
+//                        print("DBへの保存に失敗しました")
+//                    }
+//                }
+//            }
+    
     
     //memoを全部消す、表示されているメモを新規登録する
     
