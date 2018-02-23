@@ -57,6 +57,10 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             readMemoData()
             print(passedTitle)
             newTextField.text = passedTitle
+            
+            let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            print(urls[urls.count-1] as URL)
+
         }
 
         
@@ -108,7 +112,16 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         if passedTitleId == ""{
         saveTitle()
         }else{
-        titleUpdate()
+            
+            //リターンキーが押されたとき及びカーソルが外れた時(キーボードが下がった時)に発動する処理をすべてのセルで行ってあげる処理
+            for n in 0...cells.count - 1{
+                cells[n].newTextFieldCell.becomeFirstResponder()
+            }
+            
+            
+            titleUpdate()
+            memoDelete()
+            memoEditCreate()
         }
     }
 
@@ -161,88 +174,82 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     //Memoからタイトルのidと等しいレコードを削除
     func memoDelete(){
-        
+
         //AppDelegateを使う用意をしておく
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        
+
         //エンティティを操作するためのオブジェクトを作成
         let viewContext = appDelegate.persistentContainer.viewContext
-        
+
         //どのエンティティからdataを取得してくるか設定
         //全部取得する
         let query:NSFetchRequest<Memo> = Memo.fetchRequest()
-        
+
         //絞り込み検索（更新したいデータを取得する）
         //ここで取得したいデータをとるためのコードを書く
         let  r_idPredicate = NSPredicate(format: "titleId = %@", passedTitleId)
         query.predicate = r_idPredicate
-        
+
         do {
             //データを一括取得
             let fetchResults = try viewContext.fetch(query)
-            
+
             //データの取得
             for result: AnyObject in fetchResults {
-                
+
                 //更新する準備（NSManagedObjectにダウンキャスト型変換)
                 //recordがひとつのセット
                 let record = result as! NSManagedObject
-                
-//                //ToDoエンティティにレコード（行）を挿入するためのオブジェクトを作成
-//                let memoData = NSManagedObject(entity: Memo!, insertInto: viewContext)
-                
-                
                 //削除したいデータのセット
-                //record.setValue(uuid, forKey: "titleId")
-                record.setValue(memos[n], forKey: "content")
-                
-                do{
+                //ここが問題
+                if record.value(forKey: "titleId") as! String == passedTitleId {
+                    viewContext.delete(record)
+                }
+
+            }
                     //レコード（行）の即時保存
                     try viewContext.save()
-                    
+
                 } catch {
                     print("DBへの保存に失敗しました")
-                }
-            }
-        }catch{
-            
         }
     }
-                
-//                //新規登録処理
-//
-//                //AppDelegateを使う準備をしておく
-//                let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
-//
-//                //エンティティを操作するためのオブジェクトを作成
-//                let viewContext = appD.persistentContainer.viewContext
-//
-//                for n in 0...memos.count - 1 {
-//
-//                    //どのエンティティからdataを取得してくるか設定
-//                    let query:NSFetchRequest<Memo> = Memo.fetchRequest()
-//
-//
-//                    //絞り込み検索（更新したいデータを取得する）
-//                    let  r_idPredicate = NSPredicate(format: "titleId = %@", passedTitleId)
-//                    query.predicate = r_idPredicate
-//
-//                    //レコードオブジェクトに値のセット
-//                    memoData.setValue(uuid, forKey: "titleId")
-//                    memoData.setValue(memos[n], forKey: "content")
-//
-//                    //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
-//                    do {
-//                        //レコード（行）の即時保存
-//                        try viewContext.save()
-//                    } catch  {
-//                        print("DBへの保存に失敗しました")
-//                    }
-//                }
-//            }
+    
+    func memoEditCreate(){
+        
+        //AppDelegateを使う準備をしておく
+        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
+        
+        //エンティティを操作するためのオブジェクトを作成
+        let viewContext = appD.persistentContainer.viewContext
+
+
+        for n in 0...memos.count - 1 {
+
+            //Memoエンティティオブジェクトを作成
+            //forEntityNameは、モデルファイルで決めたエンティティ名（大文字小文字合わせる）
+            let Memo = NSEntityDescription.entity(forEntityName: "Memo", in: viewContext)
+
+            //ToDoエンティティにレコード（行）を挿入するためのオブジェクトを作成
+            let memoData = NSManagedObject(entity: Memo!, insertInto: viewContext)
+
+            //レコードオブジェクトに値のセット
+            memoData.setValue(passedTitleId, forKey: "titleId")
+            memoData.setValue(memos[n], forKey: "content")
+
+            //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
+            do {
+                //レコード（行）の即時保存
+                try viewContext.save()
+            } catch  {
+                print("DBへの保存に失敗しました")
+            }
+        }
+
+    }//memoEditCreate
     
     
-    //memoを全部消す、表示されているメモを新規登録する
+
     
     
     
@@ -260,7 +267,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
                 self.dueDate = dt
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy年MM月dd日HH時mm分"
-                print(formatter.string(from: dt))
+//                print(formatter.string(from: dt))
                 self.dateTextField.text = "\(formatter.string(from: dt))"
             }
         }
@@ -290,18 +297,12 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             //データの一括取得
             let fetchResults = try viewContext.fetch(query)
             //取得したデータを、デバックエリアにループで表示
-            print("pkoj",fetchResults.count)
+
 
             for result: AnyObject in fetchResults{
                 
                 let memo :String = result.value(forKey: "content") as! String
-
-                print("content:\(memo)")
-
                 let memoTitle :String = result.value(forKey: "titleId") as! String
-
-                print("title:\(memoTitle)")
-
                 memos.append(memo)
             }
 //            memos.append("")
@@ -317,14 +318,12 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("cell num",indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: "newCell", for: indexPath) as! NewCustumCell
         cell.tableView = newTableView
         //セルの中にあるnewTextFieldCellとviewControllerを一体化
         cell.newTextFieldCell.delegate = self
 
         cell.newTextFieldCell.tag = indexPath.row
-//        print(indexPath.row)
         if indexPath.row == memos.count {
             cell.newTextFieldCell.text = ""
             
@@ -357,7 +356,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             let newRecord = NSManagedObject(entity: ToDo!, insertInto: viewContext)
             
             let uuid:String = NSUUID().uuidString
-            print(uuid)
             
             //レコードオブジェクトに値のセット
             newRecord.setValue(newTextField.text, forKey: "title")
@@ -530,9 +528,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     //行を編集するための関数（メモがからの時は削除ボタンを出なくする）
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        
-        print(indexPath.row)
-        
         if tableView.cellForRow(at: indexPath) != nil {
             let cell:NewCustumCell = tableView.cellForRow(at: indexPath) as! NewCustumCell
             
@@ -548,9 +543,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        print("disappear")
         passedTitleId = ""
-        print(passedTitleId)
     }
     
     

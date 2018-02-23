@@ -88,8 +88,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         do {
             //データの一括取得
             let fetchResults = try viewContext.fetch(query)
+            
             //取得したデータを、デバックエリアにループで表示
-//            print("titleRead",fetchResults.count)
             for result in fetchResults {
                 let titleData = [
                     "title": result.title!,
@@ -99,21 +99,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             }
         } catch  {
         }
-        
-//
-//        let memodata: NSFetchRequest<Memo> = Memo.fetchRequest()
-//
-//        do {
-//            //データの一括取得
-//            let fetchResults = try viewContext.fetch(memodata)
-//            //取得したデータを、デバックエリアにループで表示
-//            for result in fetchResults {
-//                print(result.content)
-//            }
-//        } catch  {
-//        }
-
-        
     }
 
     
