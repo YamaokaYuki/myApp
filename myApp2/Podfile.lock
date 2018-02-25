@@ -1,18 +1,21 @@
 PODS:
   - DatePickerDialog (2.0)
   - FontAwesome.swift (1.3.2)
+  - Hue (3.0.1)
   - Instructions (1.0.0)
 
 DEPENDENCIES:
   - DatePickerDialog
   - FontAwesome.swift
+  - Hue
   - Instructions (~> 1.0.0)
 
 SPEC CHECKSUMS:
   DatePickerDialog: 5e1c24d9fe6506cd45dbc573eed7b0a251b1c09d
   FontAwesome.swift: b4e4c8ccbbecb12f9b592bc533ff237af3706667
+  Hue: 93e852fa6211ab35922ad8c293f51c43d6c79eb2
   Instructions: 11b6744e572b8cab6f61e9445403cb95fcde68f1
 
-PODFILE CHECKSUM: 2615f29317bb54b6fe693f92fabb97251462c5e1
+PODFILE CHECKSUM: 54ffbc932c8116ec0a37bad7d41f12cb0fb73d6d
 
 COCOAPODS: 1.4.0

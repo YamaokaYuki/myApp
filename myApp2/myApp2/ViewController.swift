@@ -6,10 +6,13 @@
 //  Copyright © 2018年 山岡由季. All rights reserved.
 //
 
+//最初色がバラバラ
+
 import UIKit
 import FontAwesome_swift
 import Instructions
 import CoreData
+import Hue//色変える
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
     
@@ -21,6 +24,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var toDoListTableView: UITableView!
     @IBOutlet weak var addListBtn: UIBarButtonItem!
     @IBOutlet weak var setButton: UIBarButtonItem!
+    var priorityArray:[Int64] = []
+    let colorlist = [UIColor.white,UIColor(hex: "#bfe2ff"),UIColor(hex: "#85c8ff"),UIColor(hex: "#0084ff")]
+
     
     override func viewWillAppear(_ animated: Bool) {
         readTitle()
@@ -29,10 +35,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         readPlist()
         readTitle()
         setupSearchBar()
-        
+
         
         setButton.image = UIImage.fontAwesomeIcon(
             name: .cog,
@@ -42,19 +49,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     }// viewDidRoad終了
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        cell.contentView.backgroundColor = UIColor.yellow
-        
-        let colors = [UIColor.blue, UIColor.red, UIColor.green]
-        _ = colors[indexPath.row % 3]
-        
-//        //もしpriorityNumが3だったらセルを一番濃い色にする
-//        if priorityNum == 3{
-//            cell.contentView.backgroundColor = UIColor.yellow
-//        }
-        
-        
-    }
     
     func readPlist() {
         //ファイルのパスを取得
@@ -106,9 +100,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         do {
             //データの一括取得
             let fetchResults = try viewContext.fetch(query)
-            
-           
-            
+            var array:[Int64] = []
             //取得したデータを、デバックエリアにループで表示
             for result in fetchResults {
                 let titleData = [
@@ -116,12 +108,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     "id":result.id,
                     "priority":result.priority
                     ] as [String : Any]
-                
-                print(titleData)
-                
-         
                 titles.append(titleData)
+                
+                array.append(result.priority)
+                
             }
+            let orderedSet = NSOrderedSet(array: array)
+            priorityArray = orderedSet.array as! [Int64]
+            print(priorityArray)
+            
         } catch  {
         }
     }
@@ -138,6 +133,26 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let cell:CustumCell = tableView.dequeueReusableCell(withIdentifier: "cell", for:indexPath) as! CustumCell
         //各プロパティに値を設定
         cell.toDoTitle.text = titles[indexPath.row]["title"] as? String
+        
+        //priorityNumの番号によって色を変更する
+        //そのセルだけ
+        let priority:Int64 = titles[indexPath.row]["priority"] as! Int64
+        print("in cell",priorityArray)
+        
+        for n in 0...priorityArray.count - 1 {
+            if priority == n {
+                cell.contentView.backgroundColor = colorlist[n]
+            }
+        }
+
+//        if priority == 3 {
+//            cell.contentView.backgroundColor = UIColor(hex: "#0084ff")
+//        }else if priority == 2{
+//            cell.contentView.backgroundColor = UIColor(hex: "#85c8ff")
+//        }else if priority == 1 {
+//            cell.contentView.backgroundColor = UIColor(hex: "#bfe2ff")
+//        }
+    
         //作成したcellオブジェクトを戻り値として返す
         return cell
         
@@ -177,9 +192,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    
-    
-    
     //<セルの削除>
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -202,13 +214,35 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 
                 for result: AnyObject in fetchResults{
                     let record = result as! NSManagedObject//1行分のデータ
-                    if record.value(forKey: "title") as! String == titles[indexPath.row]["title"] as! String {
+                    if record.value(forKey: "id") as! String == titles[indexPath.row]["id"] as! String {
                         viewContext.delete(record)
                     }
                     
                 }
                 
                 self.titles.remove(at: indexPath.row)
+                
+                // 0から3のpriorityの種類？
+                //ここ直す
+//                for n in 0...3 {
+//                    //　すべてのタイトルのデータに対して0-3の種類があるかチェック
+//
+//                    var flag = false
+//                    for m in 0...titles.count - 1 {
+//                        if titles[m]["priority"] as! Int64 == n {
+//                            flag = true
+//                        }
+//                    }
+//                    
+//                    if flag == false {
+//                        // 色変える
+//
+////                        readTitle()
+////                        toDoListTableView.reloadData()
+//
+//                    }
+//                }
+                
                 toDoListTableView.deleteRows(at: [indexPath], with: .fade)
                 
                 //削除した状態を保存

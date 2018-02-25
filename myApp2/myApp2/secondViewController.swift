@@ -9,9 +9,7 @@
 import UIKit
 import CoreData //CoreData使う時絶対に必要
 import DatePickerDialog
-
-var titleId:Int64!
-var priorityNum:Int!
+import Hue
 
 class secondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate{
     
@@ -31,6 +29,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     var memos:[String] = []
     
+    var priorityNum:Int!
     var memoTitle:String!
     var tmpText:String!
     var titleTag = -1
@@ -161,6 +160,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
                 record.setValue(newTextField.text, forKey: "title")
                 record.setValue(Date(), forKey: "saveDate")
                 record.setValue(dueDate, forKey: "dueDate")
+                record.setValue(priorityNum, forKey: "priority")
 
                 do{
                     //レコード（行）の即時保存

@@ -9,6 +9,7 @@ target 'myApp2' do
 	pod 'FontAwesome.swift'
         pod 'Instructions', '~> 1.0.0'
 	pod 'DatePickerDialog'
+	pod 'Hue'
 
 	
 end
