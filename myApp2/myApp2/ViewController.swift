@@ -33,6 +33,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         readTitle()
         setupSearchBar()
         
+        
         setButton.image = UIImage.fontAwesomeIcon(
             name: .cog,
             textColor: UIColor.gray,
@@ -40,6 +41,20 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         )
         
     }// viewDidRoad終了
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        cell.contentView.backgroundColor = UIColor.yellow
+        
+        let colors = [UIColor.blue, UIColor.red, UIColor.green]
+        _ = colors[indexPath.row % 3]
+        
+//        //もしpriorityNumが3だったらセルを一番濃い色にする
+//        if priorityNum == 3{
+//            cell.contentView.backgroundColor = UIColor.yellow
+//        }
+        
+        
+    }
     
     func readPlist() {
         //ファイルのパスを取得
@@ -84,17 +99,27 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //データを取得するエンティティの指定
         //<>の中はモデルファイルで指定したエンティティ名
         let query: NSFetchRequest<ToDo> = ToDo.fetchRequest()
+        
+        let sortDescripter = NSSortDescriptor(key: "priority", ascending: false)//ascendind:true 昇順、false 降順です
+        query.sortDescriptors = [sortDescripter]
 
         do {
             //データの一括取得
             let fetchResults = try viewContext.fetch(query)
             
+           
+            
             //取得したデータを、デバックエリアにループで表示
             for result in fetchResults {
                 let titleData = [
                     "title": result.title!,
-                    "id":result.id
-                    ]
+                    "id":result.id,
+                    "priority":result.priority
+                    ] as [String : Any]
+                
+                print(titleData)
+                
+         
                 titles.append(titleData)
             }
         } catch  {

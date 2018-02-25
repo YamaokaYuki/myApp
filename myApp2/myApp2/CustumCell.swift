@@ -14,4 +14,13 @@ class CustumCell: UITableViewCell {
     
     @IBOutlet weak var countdownLabel: UILabel!
     
+    @IBOutlet weak var fontAwesomeLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+         fontAwesomeLabel.font = UIFont.fontAwesome(ofSize: 20)
+        fontAwesomeLabel.text = String.fontAwesome(code: "fa-check-circle").map { $0.rawValue }
+        
+    }
 }

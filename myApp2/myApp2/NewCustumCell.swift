@@ -22,7 +22,7 @@ class NewCustumCell: UITableViewCell,UITextFieldDelegate {
         // Initialization code
         symbol.font = UIFont.fontAwesome(ofSize: 20)
         symbol.text = String.fontAwesome(code: "fa-plus").map { $0.rawValue }
-//        newTextFieldCell.delegate = self
+
     }
     
     

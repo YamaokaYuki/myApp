@@ -11,6 +11,7 @@ import CoreData //CoreData使う時絶対に必要
 import DatePickerDialog
 
 var titleId:Int64!
+var priorityNum:Int!
 
 class secondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate{
     
@@ -18,12 +19,14 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     @IBOutlet weak var newTextField: UITextField!
     @IBOutlet weak var dateTapSwitch: UISwitch!
     @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var oneBtn: UIButton!
+    @IBOutlet weak var twoBtn: UIButton!
+    @IBOutlet weak var threeBtn: UIButton!
     
     var dueDate:Date!
     
     var passedTitleId = ""
     var passedTitle = ""
-    var priorityNum:Int!
     let myDefault = UserDefaults.standard
     
     var memos:[String] = []
@@ -51,6 +54,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         newTextField.delegate = self
         newTextField.tag = titleTag
         dateTextField.delegate = self
+        
 
         // タイトルと詳細メモに値をいれる
         if passedTitleId != "" {
@@ -217,35 +221,36 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     func memoEditCreate(){
         
-        //AppDelegateを使う準備をしておく
-        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
-        
-        //エンティティを操作するためのオブジェクトを作成
-        let viewContext = appD.persistentContainer.viewContext
+        if memos.count != 0 {
+            //AppDelegateを使う準備をしておく
+            let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
+            
+            //エンティティを操作するためのオブジェクトを作成
+            let viewContext = appD.persistentContainer.viewContext
+            
+            for n in 0...memos.count - 1 {
 
+                //Memoエンティティオブジェクトを作成
+                //forEntityNameは、モデルファイルで決めたエンティティ名（大文字小文字合わせる）
+                let Memo = NSEntityDescription.entity(forEntityName: "Memo", in: viewContext)
 
-        for n in 0...memos.count - 1 {
+                //ToDoエンティティにレコード（行）を挿入するためのオブジェクトを作成
+                let memoData = NSManagedObject(entity: Memo!, insertInto: viewContext)
 
-            //Memoエンティティオブジェクトを作成
-            //forEntityNameは、モデルファイルで決めたエンティティ名（大文字小文字合わせる）
-            let Memo = NSEntityDescription.entity(forEntityName: "Memo", in: viewContext)
+                //レコードオブジェクトに値のセット
+                memoData.setValue(passedTitleId, forKey: "titleId")
+                memoData.setValue(memos[n], forKey: "content")
 
-            //ToDoエンティティにレコード（行）を挿入するためのオブジェクトを作成
-            let memoData = NSManagedObject(entity: Memo!, insertInto: viewContext)
-
-            //レコードオブジェクトに値のセット
-            memoData.setValue(passedTitleId, forKey: "titleId")
-            memoData.setValue(memos[n], forKey: "content")
-
-            //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
-            do {
-                //レコード（行）の即時保存
-                try viewContext.save()
-            } catch  {
-                print("DBへの保存に失敗しました")
+                //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
+                do {
+                    //レコード（行）の即時保存
+                    try viewContext.save()
+                } catch  {
+                    print("DBへの保存に失敗しました")
+                }
             }
-        }
 
+        }
     }//memoEditCreate
     
     
@@ -341,6 +346,8 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
 
     
     func saveTitle() {
+        
+        
         if newTextField.text != "" {
             //AppDelegateを使う準備をしておく
             let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
@@ -361,7 +368,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             newRecord.setValue(newTextField.text, forKey: "title")
             newRecord.setValue(uuid, forKey: "id")
             newRecord.setValue(Date(), forKey: "saveDate")
-//            newRecord.setValue(priorityNum, forKey: "priority")
+            newRecord.setValue(priorityNum, forKey: "priority")
             newRecord.setValue(dueDate, forKey: "dueDate")
 
             
@@ -372,29 +379,33 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             } catch  {
                 print("DBへの保存に失敗しました")
             }
-            
-            for n in 0...memos.count - 1 {
                 
-                //Memoエンティティオブジェクトを作成
-                //forEntityNameは、モデルファイルで決めたエンティティ名（大文字小文字合わせる）
-                let Memo = NSEntityDescription.entity(forEntityName: "Memo", in: viewContext)
+            if memos.count != 0 {
                 
-                //ToDoエンティティにレコード（行）を挿入するためのオブジェクトを作成
-                let memoData = NSManagedObject(entity: Memo!, insertInto: viewContext)
-                
-                //レコードオブジェクトに値のセット
-                memoData.setValue(uuid, forKey: "titleId")
-                memoData.setValue(memos[n], forKey: "content")
-                
-                //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
-                do {
-                    //レコード（行）の即時保存
-                    try viewContext.save()
-                } catch  {
-                    print("DBへの保存に失敗しました")
+                for n in 0...memos.count - 1 {
+                    
+                    //Memoエンティティオブジェクトを作成
+                    //forEntityNameは、モデルファイルで決めたエンティティ名（大文字小文字合わせる）
+                    let Memo = NSEntityDescription.entity(forEntityName: "Memo", in: viewContext)
+                    
+                    //ToDoエンティティにレコード（行）を挿入するためのオブジェクトを作成
+                    let memoData = NSManagedObject(entity: Memo!, insertInto: viewContext)
+                    
+                    //レコードオブジェクトに値のセット
+                    memoData.setValue(uuid, forKey: "titleId")
+                    memoData.setValue(memos[n], forKey: "content")
+                    
+                    //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
+                    do {
+                        //レコード（行）の即時保存
+                        try viewContext.save()
+                    } catch  {
+                        print("DBへの保存に失敗しました")
+                    }
                 }
             }
         }
+
     }
     
     //title完了ボタンを押した時に発動
@@ -545,6 +556,22 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     override func viewWillDisappear(_ animated: Bool) {
         passedTitleId = ""
     }
+    
+    @IBAction func firstBtn(_ sender: UIButton) {
+        priorityNum = 3
+
+    }
+    
+    @IBAction func secondBtn(_ sender: UIButton) {
+        priorityNum = 2
+
+    }
+    
+    @IBAction func thirdBtn(_ sender: UIButton) {
+        priorityNum = 1
+
+    }
+    
     
     
     
