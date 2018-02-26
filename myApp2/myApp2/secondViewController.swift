@@ -10,6 +10,7 @@ import UIKit
 import CoreData //CoreData使う時絶対に必要
 import DatePickerDialog
 import Hue
+import UserNotifications//アラーム用
 
 class secondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate{
     
@@ -78,6 +79,11 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         //dateTextFieldにプレスフォルダーを設定する
          dateTextField.placeholder = "アラート時刻"
         
+        //期限通知の許可を出す
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+        }
+        
 
         
         
@@ -114,6 +120,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         //ここで区別するidがある無し
         if passedTitleId == ""{
         saveTitle()
+        setDueDate()
         }else{
             
             //リターンキーが押されたとき及びカーソルが外れた時(キーボードが下がった時)に発動する処理をすべてのセルで行ってあげる処理
@@ -417,7 +424,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             newTextField.resignFirstResponder()
         }else{
             newTextField.text = tmpText
-//            newTableView.isHidden = true
         }
         
     }
@@ -559,16 +565,66 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     @IBAction func firstBtn(_ sender: UIButton) {
         priorityNum = 3
-
     }
     
     @IBAction func secondBtn(_ sender: UIButton) {
         priorityNum = 2
-
     }
     
     @IBAction func thirdBtn(_ sender: UIButton) {
         priorityNum = 1
+    }
+    
+    
+//    期限アラーム作成
+    func setDueDate() {
+
+//        var settingDateTime = settingDatePicker.date
+
+        //文字列変換
+        var df = DateFormatter()
+        df.dateFormat = "yyyy/MM/dd hh:mm:00"
+        var strDate = df.string(from: self.dueDate)
+
+        // Notificatiのインスタンス生成
+        let content = UNMutableNotificationContent()
+
+        // タイトルを設定する
+        content.title = "指定時間になりました"
+
+        // 通知の本文です
+        content.body = "\(strDate)ですよ"
+
+        // デフォルトの音に設定します
+        content.sound = UNNotificationSound.default()
+
+        //着火時間の設定
+
+        var setDateComponents = Calendar.current.dateComponents(in: TimeZone.current, from: self.dueDate)
+        setDateComponents.second = 0
+
+        var dateComponents = DateComponents()
+        dateComponents.year = setDateComponents.year!
+        dateComponents.month = setDateComponents.month!
+        dateComponents.day = setDateComponents.day!
+
+        dateComponents.hour = setDateComponents.hour!
+        dateComponents.minute = setDateComponents.minute!
+        dateComponents.second = 0
+
+
+        let calendarTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        //
+        // Requestを生成する。idには通知IDを設定する
+        let request = UNNotificationRequest.init(identifier: "ID_SetDayAndTime", content: content, trigger: calendarTrigger)
+
+        // Noticationを発行する.
+        let center = UNUserNotificationCenter.current()
+        center.add(request) { (error) in
+            print(error ?? "\(setDateComponents.year!)年\(setDateComponents.month!)月\(setDateComponents.day!)日\(setDateComponents.hour!)時\(setDateComponents.minute!)分発動！")
+
+
+        }
 
     }
     
