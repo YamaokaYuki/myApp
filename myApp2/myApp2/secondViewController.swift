@@ -42,10 +42,10 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         // はじめの状態をfalseにしておく.
         dateTapSwitch.isOn = false
 
-        //保存されてる値が存在した時
-        if myDefault.object(forKey: "dateSwitchFlag") != nil{
-            dateTapSwitch.isOn = myDefault.object(forKey: "dateSwitchFlag") as! Bool
-        }
+//        保存されてる値が存在した時
+//        if myDefault.object(forKey: "dateSwitchFlag") != nil{
+//            dateTapSwitch.isOn = myDefault.object(forKey: "dateSwitchFlag") as! Bool
+//        }
     }
     
     override func viewDidLoad() {
@@ -67,7 +67,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
 
         }
 
-        
         // newTextFieldにプレスフォルダーを設定
         newTextField.placeholder = "新規登録"
         if newTextField.text == "" {
@@ -78,15 +77,16 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         //dateTextFieldにプレスフォルダーを設定する
          dateTextField.placeholder = "アラート時刻"
+        if dateTextField.text == "" {
+            dateTextField.isHidden = true
+        }else{
+            dateTextField.isHidden = false
+        }
         
         //期限通知の許可を出す
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
         }
-        
-
-        
-        
         
         // BarButtonItem保存を作成する.
         saveBtn = UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(self.saveButton(sender:)))
@@ -121,6 +121,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         if passedTitleId == ""{
         saveTitle()
         setDueDate()
+            
         }else{
             
             //リターンキーが押されたとき及びカーソルが外れた時(キーボードが下がった時)に発動する処理をすべてのセルで行ってあげる処理
@@ -128,10 +129,11 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
                 cells[n].newTextFieldCell.becomeFirstResponder()
             }
             
-            
             titleUpdate()
             memoDelete()
             memoEditCreate()
+            setDueDate()
+
         }
     }
 
@@ -315,6 +317,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
                 
                 let memo :String = result.value(forKey: "content") as! String
                 let memoTitle :String = result.value(forKey: "titleId") as! String
+                //ここにdueDate追加の処理を書いてあげる？
                 memos.append(memo)
             }
 //            memos.append("")
@@ -376,8 +379,10 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             newRecord.setValue(uuid, forKey: "id")
             newRecord.setValue(Date(), forKey: "saveDate")
             newRecord.setValue(priorityNum, forKey: "priority")
-            newRecord.setValue(dueDate, forKey: "dueDate")
-
+            
+            if dateTextField.text != ""{
+                newRecord.setValue(dueDate, forKey: "dueDate")
+            }
             
             //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
             do {
@@ -579,21 +584,19 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
 //    期限アラーム作成
     func setDueDate() {
 
-//        var settingDateTime = settingDatePicker.date
-
         //文字列変換
         var df = DateFormatter()
-        df.dateFormat = "yyyy/MM/dd hh:mm:00"
+        df.dateFormat = "yyyy/MM/dd hh:mm"
         var strDate = df.string(from: self.dueDate)
 
         // Notificatiのインスタンス生成
         let content = UNMutableNotificationContent()
 
         // タイトルを設定する
-        content.title = "指定時間になりました"
+        content.title = newTextField.text!
 
         // 通知の本文です
-        content.body = "\(strDate)ですよ"
+        content.body = "\(strDate)"
 
         // デフォルトの音に設定します
         content.sound = UNNotificationSound.default()
