@@ -39,6 +39,8 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         newTableView.delegate = self
         newTextField.delegate = self
         newTextField.tag = titleTag
@@ -89,6 +91,16 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         // NavigationBarの表示する.
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.setLeftBarButton(cancelBtn, animated: true)
+        
+        //ボタン丸角
+        oneBtn.layer.cornerRadius = 7.0;
+        oneBtn.clipsToBounds = false;
+        
+        twoBtn.layer.cornerRadius = 7.0;
+        twoBtn.clipsToBounds = true;
+        
+        threeBtn.layer.cornerRadius = 7.0;
+        threeBtn.clipsToBounds = true;
 
     }//viewDidLoad終わり
     
@@ -564,15 +576,33 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     @IBAction func firstBtn(_ sender: UIButton) {
         priorityNum = 3
+        
+        //ボタン枠線
+        oneBtn.layer.borderColor = UIColor.gray.cgColor
+        oneBtn.layer.borderWidth = 2.0;
+       
     }
     
     @IBAction func secondBtn(_ sender: UIButton) {
         priorityNum = 2
+        
+        //ボタン枠線
+        twoBtn.layer.borderColor = UIColor.gray.cgColor
+        twoBtn.layer.borderWidth = 2.0;
+        
+        
     }
     
     @IBAction func thirdBtn(_ sender: UIButton) {
         priorityNum = 1
+        
+        //ボタン枠線
+        threeBtn.layer.borderColor = UIColor.gray.cgColor
+        threeBtn.layer.borderWidth = 2.0;
     }
+    
+
+
     
     
 //    期限アラーム作成

@@ -19,7 +19,7 @@ class CustumCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
          fontAwesomeLabel.font = UIFont.fontAwesome(ofSize: 20)
-        fontAwesomeLabel.text = String.fontAwesome(code: "fas fa-check-circle").map { $0.rawValue }
+        fontAwesomeLabel.text = String.fontAwesome(code: "fa-chevron-right").map { $0.rawValue }
         
     }
 }
