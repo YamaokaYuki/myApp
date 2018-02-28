@@ -16,7 +16,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     @IBOutlet weak var newTableView: UITableView!
     @IBOutlet weak var newTextField: UITextField!
-    @IBOutlet weak var dateTapSwitch: UISwitch!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var oneBtn: UIButton!
     @IBOutlet weak var twoBtn: UIButton!
@@ -36,17 +35,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     var titleTag = -1
     var cells:[NewCustumCell] = []
     var saveBtn:UIBarButtonItem!
-    
-    //画面が表示された時、設定値を反映させる
-    override func viewWillAppear(_ animated: Bool){
-        // はじめの状態をfalseにしておく.
-        dateTapSwitch.isOn = false
 
-//        保存されてる値が存在した時
-//        if myDefault.object(forKey: "dateSwitchFlag") != nil{
-//            dateTapSwitch.isOn = myDefault.object(forKey: "dateSwitchFlag") as! Bool
-//        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,11 +66,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         //dateTextFieldにプレスフォルダーを設定する
          dateTextField.placeholder = "アラート時刻"
-        if dateTextField.text == "" {
-            dateTextField.isHidden = true
-        }else{
-            dateTextField.isHidden = false
-        }
         
         //期限通知の許可を出す
         let center = UNUserNotificationCenter.current()
@@ -326,6 +310,39 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
     }
     
+    
+    // 日時指定coreDataの読み込み
+    func readDate(){
+
+        //AppDelegateを使う準備をしておく
+        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
+
+        //エンティティを操作するためのオブジェクトを作成
+        let viewContext = appD.persistentContainer.viewContext
+
+        //データを取得するエンティティの指定
+        //        <>の中はモデルファイルで指定したエンティティ名
+        let query:NSFetchRequest<ToDo> = ToDo.fetchRequest()
+
+        //        //===== 絞り込み =====
+        let r_idPredicate = NSPredicate(format: "dueDate = %@", passedTitleId)
+        query.predicate = r_idPredicate
+
+        do {
+            //データの一括取得
+            let fetchResults = try viewContext.fetch(query)
+            //取得したデータを、デバックエリアにループで表示
+
+
+            for result: AnyObject in fetchResults{
+
+                let dueDate:String = result.value(forKey: "dueDate") as! String
+            }
+
+        } catch  {
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //行数の決定
         // readMemoData()
@@ -431,29 +448,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             newTextField.text = tmpText
         }
         
-    }
-
-
-    
-    @IBAction func dateSwitch(_ sender: UISwitch) {
-    
-        dateTextField.resignFirstResponder()
-        //isOn...Switchのオン/オフを表すプロパティ（Bool型）
-        if sender.isOn == true {
-            print("スイッチオン")
-            // dateTextFieldを出す
-            dateTextField.isHidden = false
-        }else {
-            print("スイッチオフ")
-            // dateTextFieldを消す
-            dateTextField.isHidden = true
-        }
-        
-        //スイッチの状態を保存
-        //set(保存したい値、forKey:保存した値を取り出す時に指定する名前)
-        myDefault.set(sender.isOn,forKey: "dateSwitchFlag")
-        //即保存させる（これがないと、値が保存されていない時があります）
-        myDefault.synchronize()
     }
     
 
@@ -583,50 +577,51 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
 //    期限アラーム作成
     func setDueDate() {
+        if dateTextField.text != "" {
+            //文字列変換
+            var df = DateFormatter()
+            df.dateFormat = "yyyy/MM/dd hh:mm"
+            var strDate = df.string(from: self.dueDate)
 
-        //文字列変換
-        var df = DateFormatter()
-        df.dateFormat = "yyyy/MM/dd hh:mm"
-        var strDate = df.string(from: self.dueDate)
+            // Notificatiのインスタンス生成
+            let content = UNMutableNotificationContent()
 
-        // Notificatiのインスタンス生成
-        let content = UNMutableNotificationContent()
+            // タイトルを設定する
+            content.title = newTextField.text!
 
-        // タイトルを設定する
-        content.title = newTextField.text!
+            // 通知の本文です
+            content.body = "\(strDate)"
 
-        // 通知の本文です
-        content.body = "\(strDate)"
+            // デフォルトの音に設定します
+            content.sound = UNNotificationSound.default()
 
-        // デフォルトの音に設定します
-        content.sound = UNNotificationSound.default()
+            //着火時間の設定
 
-        //着火時間の設定
+            var setDateComponents = Calendar.current.dateComponents(in: TimeZone.current, from: self.dueDate)
+            setDateComponents.second = 0
 
-        var setDateComponents = Calendar.current.dateComponents(in: TimeZone.current, from: self.dueDate)
-        setDateComponents.second = 0
+            var dateComponents = DateComponents()
+            dateComponents.year = setDateComponents.year!
+            dateComponents.month = setDateComponents.month!
+            dateComponents.day = setDateComponents.day!
 
-        var dateComponents = DateComponents()
-        dateComponents.year = setDateComponents.year!
-        dateComponents.month = setDateComponents.month!
-        dateComponents.day = setDateComponents.day!
-
-        dateComponents.hour = setDateComponents.hour!
-        dateComponents.minute = setDateComponents.minute!
-        dateComponents.second = 0
-
-
-        let calendarTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-        //
-        // Requestを生成する。idには通知IDを設定する
-        let request = UNNotificationRequest.init(identifier: "ID_SetDayAndTime", content: content, trigger: calendarTrigger)
-
-        // Noticationを発行する.
-        let center = UNUserNotificationCenter.current()
-        center.add(request) { (error) in
-            print(error ?? "\(setDateComponents.year!)年\(setDateComponents.month!)月\(setDateComponents.day!)日\(setDateComponents.hour!)時\(setDateComponents.minute!)分発動！")
+            dateComponents.hour = setDateComponents.hour!
+            dateComponents.minute = setDateComponents.minute!
+            dateComponents.second = 0
 
 
+            let calendarTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+            //
+            // Requestを生成する。idには通知IDを設定する
+            let request = UNNotificationRequest.init(identifier: "ID_SetDayAndTime", content: content, trigger: calendarTrigger)
+
+            // Noticationを発行する.
+            let center = UNUserNotificationCenter.current()
+            center.add(request) { (error) in
+                print(error ?? "\(setDateComponents.year!)年\(setDateComponents.month!)月\(setDateComponents.day!)日\(setDateComponents.hour!)時\(setDateComponents.minute!)分発動！")
+
+
+            }
         }
 
     }

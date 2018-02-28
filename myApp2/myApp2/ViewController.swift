@@ -47,6 +47,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             size: CGSize(width: 35, height: 35)
         )
         
+       
     }// viewDidRoad終了
     
     

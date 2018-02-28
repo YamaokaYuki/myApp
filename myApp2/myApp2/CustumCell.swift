@@ -7,12 +7,11 @@
 //
 
 import UIKit
+import FontAwesome_swift
 
 class CustumCell: UITableViewCell {
  
     @IBOutlet weak var toDoTitle: UILabel!
-    
-    @IBOutlet weak var countdownLabel: UILabel!
     
     @IBOutlet weak var fontAwesomeLabel: UILabel!
     
@@ -20,7 +19,7 @@ class CustumCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
          fontAwesomeLabel.font = UIFont.fontAwesome(ofSize: 20)
-        fontAwesomeLabel.text = String.fontAwesome(code: "fa-check-circle").map { $0.rawValue }
+        fontAwesomeLabel.text = String.fontAwesome(code: "fas fa-check-circle").map { $0.rawValue }
         
     }
 }
