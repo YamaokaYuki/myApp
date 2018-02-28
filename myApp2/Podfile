@@ -10,6 +10,8 @@ target 'myApp2' do
         pod 'Instructions', '~> 1.0.0'
 	pod 'DatePickerDialog'
 	pod 'Hue'
+	pod 'SCLAlertView'
+
 
 	
 end

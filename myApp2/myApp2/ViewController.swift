@@ -6,19 +6,16 @@
 //  Copyright © 2018年 山岡由季. All rights reserved.
 //
 
-//最初色がバラバラ
-
 import UIKit
 import FontAwesome_swift
 import Instructions
 import CoreData
 import Hue//色変える
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchResultsUpdating {
     
     var functionAlerts:[String] = []
     var titles:[Dictionary<String,Any>] = []
-    var searchBar: UISearchBar!
     var selectedTitleId:String!
     var selectedTitle:String!
     @IBOutlet weak var toDoListTableView: UITableView!
@@ -26,6 +23,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var setButton: UIBarButtonItem!
     var priorityArray:[Int64] = []
     let colorlist = [UIColor.white,UIColor(hex: "#bfe2ff"),UIColor(hex: "#85c8ff"),UIColor(hex: "#0084ff")]
+    
+    //検索バーに関わるもの
+//    let PPAP:[String] = []
+    var searchResults:[Dictionary<String,Any>] = []
+    var tableView: UITableView!
+    var searchController = UISearchController()
 
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +42,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         readPlist()
         readTitle()
         setupSearchBar()
-
         
         setButton.image = UIImage.fontAwesomeIcon(
             name: .cog,
@@ -68,15 +70,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //<サーチバー作成>
     private func setupSearchBar() {
         if let navigationBarFrame = navigationController?.navigationBar.bounds {
-            let searchBar: UISearchBar = UISearchBar(frame: navigationBarFrame)
-            searchBar.delegate = self
-            searchBar.placeholder = "Search"
-            //searchBar.showsCancelButton = true
-            searchBar.autocapitalizationType = UITextAutocapitalizationType.none
-            searchBar.keyboardType = UIKeyboardType.default
-            navigationItem.titleView = searchBar
-            navigationItem.titleView?.frame = searchBar.frame
-            self.searchBar = searchBar
+            searchController = UISearchController(searchResultsController: nil)
+            searchController.searchResultsUpdater = self
+            searchController.searchBar.sizeToFit()
+            searchController.dimsBackgroundDuringPresentation = false
+            searchController.hidesNavigationBarDuringPresentation = false
+            navigationItem.titleView = searchController.searchBar
         }
     }
     
@@ -117,6 +116,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             let orderedSet = NSOrderedSet(array: array)
             priorityArray = orderedSet.array as! [Int64]
             print(priorityArray)
+            self.toDoListTableView.reloadData()
             
         } catch  {
         }
@@ -125,7 +125,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //表示する個数の設定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titles.count
+//        return titles.count
+        
+        //検索バー
+        if searchController.isActive {
+            return searchResults.count
+        } else {
+            return titles.count
+        }
 
     }
     
@@ -155,7 +162,18 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
     
         //作成したcellオブジェクトを戻り値として返す
+//        return cell
+        
+        //検索バーに関わるもの
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
+        if searchController.isActive {
+            cell.toDoTitle!.text = "\(searchResults[indexPath.row]["title"]!)"
+        }else{
+            cell.toDoTitle!.text = "\(titles[indexPath.row]["title"]!)"
+        }
+        
         return cell
+        
         
     }
     
@@ -176,7 +194,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //サーチバーのキーボードを画面遷移のタイミングで下げる
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        searchBar.resignFirstResponder()
+        searchController.searchBar.resignFirstResponder()
 
         //複数セグエがある場合、segue.identifierで判別可能
 
@@ -276,6 +294,61 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //アラートを表示
         present(alert, animated: true, completion: nil)
 
+    }
+    
+    // 文字が入力される度に呼ばれる
+    func updateSearchResults(for searchController: UISearchController) {
+        self.searchResults = titles.filter{
+            // 大文字と小文字を区別せずに検索
+            ($0["title"] as! String).lowercased().contains(searchController.searchBar.text!.lowercased())
+        }
+        self.toDoListTableView.reloadData()
+    }
+    
+    
+    
+    @IBAction func priorityBtn(_ sender: UIButton) {
+        readTitle()
+    }
+    
+    @IBAction func timeBtn(_ sender: UIButton) {
+        titles = []
+        //AppDelegateを使う準備をしておく
+        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
+        
+        //エンティティを操作するためのオブジェクトを作成
+        let viewContext = appD.persistentContainer.viewContext
+        
+        //データを取得するエンティティの指定
+        //<>の中はモデルファイルで指定したエンティティ名
+        let query: NSFetchRequest<ToDo> = ToDo.fetchRequest()
+        
+        let sortDescripter = NSSortDescriptor(key: "dueDate", ascending: true)//ascendind:true 昇順、false 降順です
+        query.sortDescriptors = [sortDescripter]
+        
+        do {
+            //データの一括取得
+            let fetchResults = try viewContext.fetch(query)
+            var array:[Int64] = []
+            //取得したデータを、デバックエリアにループで表示
+            for result in fetchResults {
+                let titleData = [
+                    "title": result.title!,
+                    "id":result.id,
+                    "priority":result.priority
+                    ] as [String : Any]
+                titles.append(titleData)
+                
+                array.append(result.priority)
+                
+            }
+            let orderedSet = NSOrderedSet(array: array)
+            priorityArray = orderedSet.array as! [Int64]
+            print(priorityArray)
+            self.toDoListTableView.reloadData()
+            
+        } catch  {
+        }
     }
     
     
