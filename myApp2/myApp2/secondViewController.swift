@@ -11,6 +11,7 @@ import CoreData //CoreData使う時絶対に必要
 import DatePickerDialog
 import Hue
 import UserNotifications//アラーム用
+import SCLAlertView
 
 class secondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate{
     
@@ -31,22 +32,46 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     var passedTitleId = ""
     var passedTitle = ""
+    var todoData:Dictionary<String,Any>!
     let myDefault = UserDefaults.standard
     
     var memos:[String] = []
     
-    var priorityNum:Int!
+    var priorityNum:Int64!
     var memoTitle:String!
     var tmpText:String!
     var titleTag = -1
     var cells:[NewCustumCell] = []
     var saveBtn:UIBarButtonItem!
-
+    let colorDefault = UserDefaults.standard
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //------優先ボタン状態保存処理----------------
+      
+
+        if todoData != nil {
+            print(type(of: todoData["priority"]))
+            let num = (todoData["priority"]!) as! Int64
+            priorityNum = num
+
+            allGray()
+            if priorityNum == 0{
+                oneBtn.backgroundColor = oneBtnColor
+                twoBtn.backgroundColor = twoBtnColor
+                threeBtn.backgroundColor = threeBtnColor
+            }else if priorityNum == 1{
+                threeBtn.backgroundColor = threeBtnColor
+            }else if priorityNum == 2{
+                twoBtn.backgroundColor = twoBtnColor
+            }else if priorityNum == 3{
+                oneBtn.backgroundColor = oneBtnColor
+            }
+        }
         
+        //------優先ボタン状態保存処理 終了----------------
         newTableView.delegate = self
         newTextField.delegate = self
         newTextField.tag = titleTag
@@ -283,10 +308,15 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             (date) -> Void in
             if let dt = date {
                 self.dueDate = dt
+                let minDateString = "2014-12-01"
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy年MM月dd日HH時mm分"
+                var minDate = formatter.date(from: minDateString)
 //                print(formatter.string(from: dt))
                 self.dateTextField.text = "\(formatter.string(from: dt))"
+                
+//                self.dateTextField.text = minDate
+//                self.dateTextField.text = NSDate()
             }
         }
     }
@@ -585,53 +615,54 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     //------------------ボタン関数--------------------------
     @IBAction func firstBtn(_ sender: UIButton) {
-        
+        allGray()
         if priorityNum == 3{
-            changeColorBtn()
-        }else{
-            oneBtn.backgroundColor = oneBtnColor
-            twoBtn.backgroundColor = btnGray
-            threeBtn.backgroundColor = btnGray
+            resetColorBtn()
+        }else {
+            sender.backgroundColor = oneBtnColor
+            priorityNum = 3
         }
-        
-        priorityNum = 3
-       
     }
     
+
     @IBAction func secondBtn(_ sender: UIButton) {
         
+        
+        allGray()
         if priorityNum == 2{
-            changeColorBtn()
-        }else{
-            oneBtn.backgroundColor = btnGray
-            twoBtn.backgroundColor = twoBtnColor
-            threeBtn.backgroundColor = btnGray
+            resetColorBtn()
+        }else {
+            sender.backgroundColor = twoBtnColor
+            priorityNum = 2
         }
-        
-        priorityNum = 2
-        
     }
     
     @IBAction func thirdBtn(_ sender: UIButton) {
+
         
-        if priorityNum == 1{
-            changeColorBtn()
-        }else{
-            oneBtn.backgroundColor = btnGray
-            twoBtn.backgroundColor = btnGray
-            threeBtn.backgroundColor = threeBtnColor
+        allGray()
+        if priorityNum == 1 {
+            resetColorBtn()
+        }else {
+            sender.backgroundColor = threeBtnColor
+            priorityNum = 1
         }
-        
-        priorityNum = 1
     }
     
-    func changeColorBtn(){
+    func resetColorBtn(){
         
         priorityNum = 0
         
         oneBtn.backgroundColor = oneBtnColor
         twoBtn.backgroundColor = twoBtnColor
         threeBtn.backgroundColor = threeBtnColor
+    }
+    
+    
+    func allGray(){
+        oneBtn.backgroundColor = btnGray
+        twoBtn.backgroundColor = btnGray
+        threeBtn.backgroundColor = btnGray
     }
     
     //----------------ボタン関数 終了---------------------------------

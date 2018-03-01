@@ -25,11 +25,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var priorityArray:[Int64] = []
     let colorlist = [UIColor.white,UIColor(hex: "#bfe2ff"),UIColor(hex: "#85c8ff"),UIColor(hex: "#0084ff")]
     
+    
+    var selectedNum:Int!
+    
     //検索バーに関わるもの
 //    let PPAP:[String] = []
     var searchResults:[Dictionary<String,Any>] = []
     var tableView: UITableView!
     var searchController = UISearchController()
+    
 
     
     override func viewWillAppear(_ animated: Bool) {
@@ -185,6 +189,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         selectedTitleId = titles[indexPath.row]["id"] as! String
         selectedTitle = titles[indexPath.row]["title"] as! String
 
+        selectedNum = indexPath.row
+        
         //セグエの名前を指定して、画面遷移処理を発動（付ける名前はeditMemoViewController。ストーリーボード上でidentifierで指定）
         performSegue(withIdentifier: "editViewController", sender: nil)
 
@@ -209,6 +215,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             //移動先の画面のプロパティに、選択された行番号を代入（これで、DetailViewControllerに選択された行番号が渡せる）
             dvc.passedTitleId = selectedTitleId
             dvc.passedTitle = selectedTitle
+            dvc.todoData = titles[selectedNum]
         }
     }
     
