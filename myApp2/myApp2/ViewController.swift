@@ -159,13 +159,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             }
         }
 
-        if priority == 3 {
-            cell.contentView.backgroundColor = UIColor(hex: "#0084ff")
-        }else if priority == 2{
-            cell.contentView.backgroundColor = UIColor(hex: "#85c8ff")
-        }else if priority == 1 {
-            cell.contentView.backgroundColor = UIColor(hex: "#bfe2ff")
-        }
+//        if priority == 3 {
+//            cell.contentView.backgroundColor = UIColor(hex: "#0084ff")
+//        }else if priority == 2{
+//            cell.contentView.backgroundColor = UIColor(hex: "#85c8ff")
+//        }else if priority == 1 {
+//            cell.contentView.backgroundColor = UIColor(hex: "#bfe2ff")
+//        }
     
         //作成したcellオブジェクトを戻り値として返す
 //        return cell
