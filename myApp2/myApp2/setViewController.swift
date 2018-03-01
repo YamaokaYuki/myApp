@@ -14,8 +14,6 @@ class setViewController: UIViewController {
         commentSwitch.isOn = false
         
         //保存されてる値が存在した時
-        
-        //保存されてる値が存在した時
         if myDefault.object(forKey: "commentSwitchFlag") != nil{
             commentSwitch.isOn = myDefault.object(forKey: "commentSwitchFlag")as! Bool
         }

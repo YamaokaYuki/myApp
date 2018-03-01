@@ -21,6 +21,12 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     @IBOutlet weak var twoBtn: UIButton!
     @IBOutlet weak var threeBtn: UIButton!
     
+    // okayu 色作成
+    let oneBtnColor:UIColor = UIColor(hue: 206/359, saturation: 1, brightness: 1, alpha: 1)
+    let twoBtnColor:UIColor = UIColor(hue: 207/359, saturation: 0.48, brightness: 1, alpha: 1)
+    let threeBtnColor:UIColor = UIColor(hue: 207/359, saturation: 0.24, brightness: 1, alpha: 1)
+    let btnGray:UIColor = UIColor(hue: 206/359, saturation: 0, brightness: 0.8, alpha: 1)
+    
     var dueDate:Date!
     
     var passedTitleId = ""
@@ -95,13 +101,15 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         //ボタン丸角
         oneBtn.layer.cornerRadius = 7.0;
         oneBtn.clipsToBounds = false;
+//        oneBtn.backgroundColor = btnGray  // okayu 色の初期化
         
         twoBtn.layer.cornerRadius = 7.0;
         twoBtn.clipsToBounds = true;
+//        twoBtn.backgroundColor = btnGray  // okayu 色の初期化
         
         threeBtn.layer.cornerRadius = 7.0;
         threeBtn.clipsToBounds = true;
-
+//        threeBtn.backgroundColor = btnGray  // okayu 色の初期化
     }//viewDidLoad終わり
     
     // BarButtonItemキャンセルの前画面に戻す処理.
@@ -574,32 +582,59 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         passedTitleId = ""
     }
     
+    
+    //------------------ボタン関数--------------------------
     @IBAction func firstBtn(_ sender: UIButton) {
-        priorityNum = 3
         
-        //ボタン枠線
-        oneBtn.layer.borderColor = UIColor.gray.cgColor
-        oneBtn.layer.borderWidth = 2.0;
+        if priorityNum == 3{
+            changeColorBtn()
+        }else{
+            oneBtn.backgroundColor = oneBtnColor
+            twoBtn.backgroundColor = btnGray
+            threeBtn.backgroundColor = btnGray
+        }
+        
+        priorityNum = 3
        
     }
     
     @IBAction func secondBtn(_ sender: UIButton) {
+        
+        if priorityNum == 2{
+            changeColorBtn()
+        }else{
+            oneBtn.backgroundColor = btnGray
+            twoBtn.backgroundColor = twoBtnColor
+            threeBtn.backgroundColor = btnGray
+        }
+        
         priorityNum = 2
-        
-        //ボタン枠線
-        twoBtn.layer.borderColor = UIColor.gray.cgColor
-        twoBtn.layer.borderWidth = 2.0;
-        
         
     }
     
     @IBAction func thirdBtn(_ sender: UIButton) {
-        priorityNum = 1
         
-        //ボタン枠線
-        threeBtn.layer.borderColor = UIColor.gray.cgColor
-        threeBtn.layer.borderWidth = 2.0;
+        if priorityNum == 1{
+            changeColorBtn()
+        }else{
+            oneBtn.backgroundColor = btnGray
+            twoBtn.backgroundColor = btnGray
+            threeBtn.backgroundColor = threeBtnColor
+        }
+        
+        priorityNum = 1
     }
+    
+    func changeColorBtn(){
+        
+        priorityNum = 0
+        
+        oneBtn.backgroundColor = oneBtnColor
+        twoBtn.backgroundColor = twoBtnColor
+        threeBtn.backgroundColor = threeBtnColor
+    }
+    
+    //----------------ボタン関数 終了---------------------------------
     
 
 

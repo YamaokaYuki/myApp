@@ -12,6 +12,7 @@ import Instructions
 import CoreData
 import Hue//色変える
 
+
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchResultsUpdating {
     
     var functionAlerts:[String] = []
@@ -47,7 +48,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             name: .cog,
             textColor: UIColor.gray,
             size: CGSize(width: 35, height: 35)
-        )
+            )
+        
         
        
     }// viewDidRoad終了
