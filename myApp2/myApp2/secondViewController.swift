@@ -10,8 +10,7 @@ import UIKit
 import CoreData //CoreData使う時絶対に必要
 import DatePickerDialog
 import Hue
-import UserNotifications//アラーム用
-import SCLAlertView
+import UserNotifications//期日アラーム用
 
 class secondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate{
     
@@ -46,9 +45,10 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     let colorDefault = UserDefaults.standard
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         //------優先ボタン状態保存処理----------------
       
 
@@ -81,6 +81,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         // タイトルと詳細メモに値をいれる
         if passedTitleId != "" {
             readMemoData()
+            readDate()
             print(passedTitle)
             newTextField.text = passedTitle
             
@@ -126,15 +127,12 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         //ボタン丸角
         oneBtn.layer.cornerRadius = 7.0;
         oneBtn.clipsToBounds = false;
-//        oneBtn.backgroundColor = btnGray  // okayu 色の初期化
         
         twoBtn.layer.cornerRadius = 7.0;
         twoBtn.clipsToBounds = true;
-//        twoBtn.backgroundColor = btnGray  // okayu 色の初期化
         
         threeBtn.layer.cornerRadius = 7.0;
         threeBtn.clipsToBounds = true;
-//        threeBtn.backgroundColor = btnGray  // okayu 色の初期化
     }//viewDidLoad終わり
     
     // BarButtonItemキャンセルの前画面に戻す処理.
@@ -308,10 +306,8 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             (date) -> Void in
             if let dt = date {
                 self.dueDate = dt
-                let minDateString = "2014-12-01"
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy年MM月dd日HH時mm分"
-                var minDate = formatter.date(from: minDateString)
 //                print(formatter.string(from: dt))
                 self.dateTextField.text = "\(formatter.string(from: dt))"
                 
@@ -375,7 +371,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         let query:NSFetchRequest<ToDo> = ToDo.fetchRequest()
 
         //        //===== 絞り込み =====
-        let r_idPredicate = NSPredicate(format: "dueDate = %@", passedTitleId)
+        let r_idPredicate = NSPredicate(format: "dueDate = %@", todoData)
         query.predicate = r_idPredicate
 
         do {

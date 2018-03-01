@@ -11,6 +11,7 @@ import FontAwesome_swift
 import Instructions
 import CoreData
 import Hue//色変える
+import SCLAlertView//褒めるポップアップ用
 
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchResultsUpdating {
@@ -33,8 +34,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var searchResults:[Dictionary<String,Any>] = []
     var tableView: UITableView!
     var searchController = UISearchController()
-    
-
+    let sclAlert:SCLAlertView = SCLAlertView()
     
     override func viewWillAppear(_ animated: Bool) {
         readTitle()
@@ -282,26 +282,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             
         }
         
-        
-        
-        
         //<削除後コメント>
         let r = Int(arc4random()) % functionAlerts.count
-//        print(functionAlerts[r])
-
-        //機能アラートを作成
-        let alert = UIAlertController(title: "褒めの言葉", message:functionAlerts[r], preferredStyle: .alert)
-
-        //アラートにOKボタンを追加
-        //handler:OKボタンが押された時に行いたい処理を指定する場所
-        //nilをセットすると、何も動作しない
-        alert.addAction(UIAlertAction(title: "OK",style: .default, handler: {Aaction in
-            print("OK押されました")
-
-        }))
-
-        //アラートを表示
-        present(alert, animated: true, completion: nil)
+        //褒めるポップアップを表示
+        SCLAlertView().showSuccess(functionAlerts[r], subTitle:"" )
 
     }
     
