@@ -112,7 +112,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 let titleData = [
                     "title": result.title!,
                     "id":result.id,
-                    "priority":result.priority
+                    "priority":result.priority,
+                    "dueDate":result.dueDate
                     ] as [String : Any]
                 titles.append(titleData)
                 
@@ -159,13 +160,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             }
         }
 
-//        if priority == 3 {
-//            cell.contentView.backgroundColor = UIColor(hex: "#0084ff")
-//        }else if priority == 2{
-//            cell.contentView.backgroundColor = UIColor(hex: "#85c8ff")
-//        }else if priority == 1 {
-//            cell.contentView.backgroundColor = UIColor(hex: "#bfe2ff")
-//        }
+        if priority == 3 {
+            cell.contentView.backgroundColor = UIColor(hex: "#0084ff")
+        }else if priority == 2{
+            cell.contentView.backgroundColor = UIColor(hex: "#85c8ff")
+        }else if priority == 1 {
+            cell.contentView.backgroundColor = UIColor(hex: "#bfe2ff")
+        }
     
         //作成したcellオブジェクトを戻り値として返す
 //        return cell
@@ -252,24 +253,33 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 
                 // 0から3のpriorityの種類？
                 //ここ直す
-//                for n in 0...3 {
-//                    //　すべてのタイトルのデータに対して0-3の種類があるかチェック
-//
-//                    var flag = false
-//                    for m in 0...titles.count - 1 {
-//                        if titles[m]["priority"] as! Int64 == n {
-//                            flag = true
-//                        }
-//                    }
+                for n in 0...3 {
+                    //　すべてのタイトルのデータに対して0-3の種類があるかチェック
+
+                    var flag = false
+                    for m in 0...titles.count - 1 {
+                        if titles[m]["priority"] as! Int64 == n {
+                            flag = true
+                        }
+                    }
+                    
+                    if flag == false {
+                        // 色変える
+
+//                        readTitle()
+//                        toDoListTableView.reloadData()
+
+                    }
+                }
+                
+                //もし　コアデータの中にpriorityNum3がなかったらpriorityNum2のものを3に変える
+//                if {
 //                    
-//                    if flag == false {
-//                        // 色変える
-//
-////                        readTitle()
-////                        toDoListTableView.reloadData()
-//
-//                    }
-//                }
+//                }else if{//もし、コアデータの中にPriorityNum2がなかったらpriorityNum1のものを2に変える
+//                
+//            }
+
+                
                 
                 toDoListTableView.deleteRows(at: [indexPath], with: .fade)
                 

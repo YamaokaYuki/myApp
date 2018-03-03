@@ -2,11 +2,107 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>function１</key>
+	<key>1</key>
 	<string>よく頑張ったね！</string>
-	<key>function2</key>
+	<key>2</key>
 	<string>君ならまだまだできる！</string>
-	<key>function３</key>
+	<key>3</key>
 	<string>やったね！</string>
+	<key>4</key>
+	<string>ようやった！（名古屋）</string>
+	<key>5</key>
+	<string>おつかれ！</string>
+	<key>6</key>
+	<string>ウタイミソーチー（沖縄）</string>
+	<key>7</key>
+	<string>がんばっぺ！(茨城)</string>
+	<key>8</key>
+	<string>Good job!</string>
+	<key>9</key>
+	<string>やるやん！</string>
+	<key>10</key>
+	<string>私の歩みは遅いが歩んだ道を引き返すことはない。</string>
+	<key>11</key>
+	<string>速度を上げるばかりが人生ではない。</string>
+	<key>12</key>
+	<string>急がずに、だが休まずに。</string>
+	<key>13</key>
+	<string>追い求める勇気があれば、すべての夢はかなう。</string>
+	<key>14</key>
+	<string>ちゃんとやれよ！</string>
+	<key>15</key>
+	<string>頑張れよ言われた時、「お前もな！」と返すのが一番いい。</string>
+	<key>16</key>
+	<string>成長は往々にして苦痛を伴う過程である。</string>
+	<key>17</key>
+	<string>失敗は回り道。行き止まりの道ではない。</string>
+	<key>18</key>
+	<string>未来は今日始まる。明日始まるのではない。</string>
+	<key>19</key>
+	<string>幸せかどうかは、自分次第である。</string>
+	<key>20</key>
+	<string>コミュニケーションで最も大事なことは、言葉にされないことに耳を傾けることだ。</string>
+	<key>21</key>
+	<string>平和は微笑みから始まります。</string>
+	<key>22</key>
+	<string>いつでも肝に銘じておきなさい。成功への決意が何よりも重要だということを。</string>
+	<key>23</key>
+	<string>困難の中に機会がある。</string>
+	<key>24</key>
+	<string>準備をしておこう。チャンスはいつか訪れるものだ。</string>
+	<key>25</key>
+	<string>この世で重要なことのほとんどは、全く希望がないように見えたときでも挑戦し続けた人々によって成し遂げられてきた。</string>
+	<key>26</key>
+	<string>計画のない目標は、ただの願い事にすぎない。</string>
+	<key>27</key>
+	<string>疑いは知のはじまりである。」
+疑いは知のはじまりである。
+</string>
+	<key>28</key>
+	<string>簡単に諦める者に勝利は無い。勝者は決して諦めない。</string>
+	<key>29</key>
+	<string>あなたの時間は限られている。だから他人の人生を生きたりして無駄に過ごしてはいけない。</string>
+	<key>30</key>
+	<string>ハングリーであれ。愚か者であれ。</string>
+	<key>31</key>
+	<string>あたしツンデレな奴って嫌いなの！・・・あんたは別だけど。</string>
+	<key>32</key>
+	<string>気楽に行こうよ！　気楽にね</string>
+	<key>33</key>
+	<string>何事も楽しんでね！</string>
+	<key>34</key>
+	<string>応援しています。</string>
+	<key>35</key>
+	<string>You can do it!</string>
+	<key>36</key>
+	<string>Go for it!</string>
+	<key>37</key>
+	<string>Just do it!</string>
+	<key>38</key>
+	<string>You made it!</string>
+	<key>39</key>
+	<string>Nothing can stop you.</string>
+	<key>40</key>
+	<string>The sky is the limit.</string>
+	<key>41</key>
+	<string>体調に気をつけてね！</string>
+	<key>42</key>
+	<string>力や知性ではなく、地道な努力こそが能力を解き放つ鍵である</string>
+	<key>43</key>
+	<string>世界一になるには世界一の努力が必要だ</string>
+	<key>44</key>
+	<string>よくできました！</string>
+	<key>45</key>
+	<string>いい感じ！</string>
+	<key>46</key>
+	<string>次に進もう！</string>
+	<key>47</key>
+	<string>君ならできると信じてたよ！</string>
+	<key>48</key>
+	<string>一旦休憩しよう！</string>
+	<key>49</key>
+	<string>なまら最高！！！！</string>
+	<key>50</key>
+	<string>こじゃんと尊敬！</string>
 </dict>
 </plist>

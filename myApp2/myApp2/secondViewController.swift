@@ -69,6 +69,18 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             }else if priorityNum == 3{
                 oneBtn.backgroundColor = oneBtnColor
             }
+            
+            //dueDateを表示し保存するためのコード
+            //dueDateをDate型として指定する
+            let dueDate = todoData["dueDate"] as! Date
+            //dueDateを表示するためにdate型からstring型に直してあげるのがdateformatter
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy年MM月dd日HH時mm分"
+            print(formatter.string(from: dueDate))
+            self.dateTextField.text = "\(formatter.string(from: dueDate))"
+            //編集がされなかったときのために予め保存されている物を残しておく
+            self.dueDate = dueDate
+            
         }
         
         //------優先ボタン状態保存処理 終了----------------
@@ -81,7 +93,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         // タイトルと詳細メモに値をいれる
         if passedTitleId != "" {
             readMemoData()
-            readDate()
+//            readDate()
             print(passedTitle)
             newTextField.text = passedTitle
             
@@ -91,7 +103,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
 
         // newTextFieldにプレスフォルダーを設定
-        newTextField.placeholder = "新規登録"
+        newTextField.placeholder = "タイトル入力"
         if newTextField.text == "" {
             newTableView.isHidden = true
         }else{
@@ -297,12 +309,13 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     //日時表示欄
     func createDatePicker(){
         
-        let datePicker = DatePickerDialog(
+        let datePickerDialog = DatePickerDialog(
             locale: Locale(identifier: "ja_JP"),
             showCancelButton: true
         )
-        
-        datePicker.show("期限", doneButtonTitle: "決定", cancelButtonTitle: "キャンセル", datePickerMode: .dateAndTime) {
+        datePickerDialog.datePicker.minimumDate = Date()
+
+        datePickerDialog.show("期限", doneButtonTitle: "決定", cancelButtonTitle: "キャンセル", minimumDate: Date(), datePickerMode: .dateAndTime) {
             (date) -> Void in
             if let dt = date {
                 self.dueDate = dt
@@ -311,10 +324,11 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
 //                print(formatter.string(from: dt))
                 self.dateTextField.text = "\(formatter.string(from: dt))"
                 
-//                self.dateTextField.text = minDate
-//                self.dateTextField.text = NSDate()
+                
             }
         }
+        
+        
     }
     
     // coreDataの読み込み memoにappendしてる
@@ -352,39 +366,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             }
 //            memos.append("")
             newTableView.reloadData()
-        } catch  {
-        }
-    }
-    
-    
-    // 日時指定coreDataの読み込み
-    func readDate(){
-
-        //AppDelegateを使う準備をしておく
-        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
-
-        //エンティティを操作するためのオブジェクトを作成
-        let viewContext = appD.persistentContainer.viewContext
-
-        //データを取得するエンティティの指定
-        //        <>の中はモデルファイルで指定したエンティティ名
-        let query:NSFetchRequest<ToDo> = ToDo.fetchRequest()
-
-        //        //===== 絞り込み =====
-        let r_idPredicate = NSPredicate(format: "dueDate = %@", todoData)
-        query.predicate = r_idPredicate
-
-        do {
-            //データの一括取得
-            let fetchResults = try viewContext.fetch(query)
-            //取得したデータを、デバックエリアにループで表示
-
-
-            for result: AnyObject in fetchResults{
-
-                let dueDate:String = result.value(forKey: "dueDate") as! String
-            }
-
         } catch  {
         }
     }
