@@ -36,7 +36,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     var memos:[String] = []
     
-    var priorityNum:Int64!
+    var priorityNum:Int!
     var memoTitle:String!
     var tmpText:String!
     var titleTag = -1
@@ -54,8 +54,8 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
 
         if todoData != nil {
             print(type(of: todoData["priority"]))
-            let num = (todoData["priority"]!) as! Int64
-            priorityNum = num
+            let num = (todoData["priority"]!) as! Int16
+            priorityNum = Int(num)
 
             allGray()
             if priorityNum == 0{

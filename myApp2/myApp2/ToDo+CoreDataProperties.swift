@@ -2,7 +2,7 @@
 //  ToDo+CoreDataProperties.swift
 //  
 //
-//  Created by 山岡由季 on 2018/02/25.
+//  Created by 山岡由季 on 2018/03/03.
 //
 //
 
@@ -18,7 +18,7 @@ extension ToDo {
 
     @NSManaged public var dueDate: NSDate?
     @NSManaged public var id: String?
-    @NSManaged public var priority: Int64
+    @NSManaged public var priority: Int16
     @NSManaged public var saveDate: NSDate?
     @NSManaged public var title: String?
 

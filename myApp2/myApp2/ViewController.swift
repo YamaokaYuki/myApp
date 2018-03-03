@@ -23,7 +23,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var toDoListTableView: UITableView!
     @IBOutlet weak var addListBtn: UIBarButtonItem!
     @IBOutlet weak var setButton: UIBarButtonItem!
-    var priorityArray:[Int64] = []
+    var priorityArray:[Int] = []
     let colorlist = [UIColor.white,UIColor(hex: "#bfe2ff"),UIColor(hex: "#85c8ff"),UIColor(hex: "#0084ff")]
     
     
@@ -106,7 +106,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         do {
             //データの一括取得
             let fetchResults = try viewContext.fetch(query)
-            var array:[Int64] = []
+            var array:[Int] = []
             //取得したデータを、デバックエリアにループで表示
             for result in fetchResults {
                 let titleData = [
@@ -117,11 +117,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     ] as [String : Any]
                 titles.append(titleData)
                 
-                array.append(result.priority)
+                array.append(Int(result.priority))
                 
             }
             let orderedSet = NSOrderedSet(array: array)
-            priorityArray = orderedSet.array as! [Int64]
+            priorityArray = orderedSet.array as! [Int]
             print(priorityArray)
             self.toDoListTableView.reloadData()
             
@@ -151,22 +151,22 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         //priorityNumの番号によって色を変更する
         //そのセルだけ
-        let priority:Int64 = titles[indexPath.row]["priority"] as! Int64
+        let priority:Int = Int(titles[indexPath.row]["priority"] as! Int16)
         print("in cell",priorityArray)
         
         for n in 0...priorityArray.count - 1 {
-            if priority == n {
-                cell.contentView.backgroundColor = colorlist[n]
+            if priority == priorityArray[n] {
+                cell.contentView.backgroundColor = colorlist[priority]
             }
         }
 
-        if priority == 3 {
-            cell.contentView.backgroundColor = UIColor(hex: "#0084ff")
-        }else if priority == 2{
-            cell.contentView.backgroundColor = UIColor(hex: "#85c8ff")
-        }else if priority == 1 {
-            cell.contentView.backgroundColor = UIColor(hex: "#bfe2ff")
-        }
+//        if priority == 3 {
+//            cell.contentView.backgroundColor = UIColor(hex: "#0084ff")
+//        }else if priority == 2{
+//            cell.contentView.backgroundColor = UIColor(hex: "#85c8ff")
+//        }else if priority == 1 {
+//            cell.contentView.backgroundColor = UIColor(hex: "#bfe2ff")
+//        }
     
         //作成したcellオブジェクトを戻り値として返す
 //        return cell
@@ -224,6 +224,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //<セルの削除>
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            print(indexPath.row)
+            let titleData = titles[indexPath.row] as! Dictionary<String,Any>
+            self.titles.remove(at: indexPath.row)
+            toDoListTableView.deleteRows(at: [indexPath], with: .fade)
             
             //AppDelegateを使う準備をしておく
             let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
@@ -243,45 +247,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 
                 for result: AnyObject in fetchResults{
                     let record = result as! NSManagedObject//1行分のデータ
-                    if record.value(forKey: "id") as! String == titles[indexPath.row]["id"] as! String {
+                    if record.value(forKey: "id") as! String == titleData["id"] as! String {
                         viewContext.delete(record)
                     }
-                    
                 }
-                
-                self.titles.remove(at: indexPath.row)
-                
-                // 0から3のpriorityの種類？
-                //ここ直す
-                for n in 0...3 {
-                    //　すべてのタイトルのデータに対して0-3の種類があるかチェック
-
-                    var flag = false
-                    for m in 0...titles.count - 1 {
-                        if titles[m]["priority"] as! Int64 == n {
-                            flag = true
-                        }
-                    }
-                    
-                    if flag == false {
-                        // 色変える
-
-//                        readTitle()
-//                        toDoListTableView.reloadData()
-
-                    }
-                }
-                
-                //もし　コアデータの中にpriorityNum3がなかったらpriorityNum2のものを3に変える
-//                if {
-//                    
-//                }else if{//もし、コアデータの中にPriorityNum2がなかったらpriorityNum1のものを2に変える
-//                
-//            }
-
-                
-                
-                toDoListTableView.deleteRows(at: [indexPath], with: .fade)
                 
                 //削除した状態を保存
                 try viewContext.save()
@@ -290,12 +259,35 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 
             }
             
+            // 0から3のpriorityの種類？
+            //ここ直す
+            for n in 0...3 {
+                //　すべてのタイトルのデータに対して0-3の種類があるかチェック
+                var flag:Bool = false
+                for m in 0...titles.count - 1 {
+                    if Int(titles[m]["priority"] as! Int16) == n {
+                        flag = true
+                    }
+                }
+                print(flag)
+                
+                if flag == false {
+                    // 色変える
+                    print("change color")
+                    readTitle()
+                    print(titles)
+                    toDoListTableView.reloadData()
+                    break
+                }
+                
+            }
+            
         }
         
         //<削除後コメント>
         let r = Int(arc4random()) % functionAlerts.count
         //褒めるポップアップを表示
-        SCLAlertView().showSuccess(functionAlerts[r], subTitle:"" )
+        SCLAlertView().showSuccess("おつかれさま！",subTitle:functionAlerts[r] )
 
     }
     
@@ -332,7 +324,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         do {
             //データの一括取得
             let fetchResults = try viewContext.fetch(query)
-            var array:[Int64] = []
+            var array:[Int] = []
             //取得したデータを、デバックエリアにループで表示
             for result in fetchResults {
                 let titleData = [
@@ -342,11 +334,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     ] as [String : Any]
                 titles.append(titleData)
                 
-                array.append(result.priority)
+                array.append(Int(result.priority))
                 
             }
             let orderedSet = NSOrderedSet(array: array)
-            priorityArray = orderedSet.array as! [Int64]
+            priorityArray = orderedSet.array as! [Int]
             print(priorityArray)
             self.toDoListTableView.reloadData()
             
