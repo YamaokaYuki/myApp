@@ -158,8 +158,8 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     @objc private func textFieldDidChange(notification: NSNotification) {
         let textFieldString = notification.object as! UITextField
         if let text = textFieldString.text {
-            if text.characters.count > 20 {
-                newTextField.text = text.substring(to: text.index(text.startIndex, offsetBy: 3))
+            if text.characters.count > 15 {
+                newTextField.text = text.substring(to: text.index(text.startIndex, offsetBy: 15))
             }
         }
     }

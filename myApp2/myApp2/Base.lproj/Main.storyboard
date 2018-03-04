@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tap-jm-Y1u">
-                                <rect key="frame" x="0.0" y="84" width="375" height="490"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -47,16 +47,26 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHo-vI-jx9">
+                                                    <rect key="frame" x="15" y="12" width="42" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZHo-vI-jx9" secondAttribute="trailing" constant="20" symbolic="YES" id="4Sf-Iw-NNx"/>
                                                 <constraint firstAttribute="trailing" secondItem="jb1-Zq-YdG" secondAttribute="trailing" constant="10" id="5L0-Ph-jPN"/>
+                                                <constraint firstItem="jb1-Zq-YdG" firstAttribute="leading" secondItem="jqe-iu-fqM" secondAttribute="leading" constant="10" id="DI1-Lp-2hz"/>
                                                 <constraint firstAttribute="bottom" secondItem="jb1-Zq-YdG" secondAttribute="bottom" constant="10" id="S0B-hH-kb5"/>
-                                                <constraint firstItem="jb1-Zq-YdG" firstAttribute="leading" secondItem="jqe-iu-fqM" secondAttribute="leading" constant="10" id="kSz-90-zI0"/>
+                                                <constraint firstItem="ZHo-vI-jx9" firstAttribute="centerY" secondItem="jb1-Zq-YdG" secondAttribute="centerY" id="VzK-D3-QzW"/>
+                                                <constraint firstItem="ZHo-vI-jx9" firstAttribute="leading" secondItem="jqe-iu-fqM" secondAttribute="leading" constant="15" id="k36-t1-84w"/>
                                                 <constraint firstItem="jb1-Zq-YdG" firstAttribute="top" secondItem="jqe-iu-fqM" secondAttribute="top" constant="10" id="z68-nl-8Ey"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="fontAwesomeLabel" destination="ZHo-vI-jx9" id="geS-GS-pVX"/>
                                             <outlet property="toDoTitle" destination="jb1-Zq-YdG" id="pN1-nO-MOD"/>
                                         </connections>
                                     </tableViewCell>
@@ -67,14 +77,16 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCS-IC-C07">
-                                <rect key="frame" x="16" y="582" width="46" height="30"/>
+                                <rect key="frame" x="16" y="579" width="52" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="期日順"/>
                                 <connections>
                                     <action selector="timeBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J87-5F-Ld7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2X-Eo-ThO">
-                                <rect key="frame" x="297" y="582" width="62" height="30"/>
+                                <rect key="frame" x="289" y="579" width="70" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="色濃度順"/>
                                 <connections>
                                     <action selector="priorityBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9dr-sO-XGd"/>
@@ -88,6 +100,8 @@
                             <constraint firstItem="hCS-IC-C07" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="4BB-2t-3a8"/>
                             <constraint firstItem="Tap-jm-Y1u" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="R58-Zf-asd"/>
                             <constraint firstItem="hCS-IC-C07" firstAttribute="top" secondItem="Tap-jm-Y1u" secondAttribute="bottom" constant="8" symbolic="YES" id="TO5-le-vYW"/>
+                            <constraint firstItem="I2X-Eo-ThO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aae-ka-QKu"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hCS-IC-C07" secondAttribute="trailingMargin" id="jRs-pm-Xf2"/>
                             <constraint firstItem="Tap-jm-Y1u" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="o2p-Mh-ABf"/>
                             <constraint firstItem="hCS-IC-C07" firstAttribute="baseline" secondItem="I2X-Eo-ThO" secondAttribute="baseline" id="pKU-gL-CBo"/>
                             <constraint firstItem="Tap-jm-Y1u" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="pma-Ie-QkD"/>

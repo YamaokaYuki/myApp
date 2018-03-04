@@ -156,8 +156,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         cell.toDoTitle.text = titles[indexPath.row]["title"] as? String
         
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.firstLineHeadIndent = 20
-        paragraphStyle.headIndent = 20
+        paragraphStyle.firstLineHeadIndent = 25
+        paragraphStyle.headIndent = 25
         paragraphStyle.tailIndent = -20
         
         let attributedString = NSAttributedString(string: titles[indexPath.row]["title"] as! String /* long text */, attributes: [NSAttributedStringKey.paragraphStyle: paragraphStyle])
