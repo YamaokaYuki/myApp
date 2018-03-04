@@ -48,12 +48,12 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         //------優先ボタン状態保存処理----------------
       
 
         if todoData != nil {
-            print(type(of: todoData["priority"]))
+
             let num = (todoData["priority"]!) as! Int16
             priorityNum = Int(num)
 
@@ -72,14 +72,17 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             //dueDateを表示し保存するためのコード
             //dueDateをDate型として指定する
-            let dueDate = todoData["dueDate"] as! Date
-            //dueDateを表示するためにdate型からstring型に直してあげるのがdateformatter
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy年MM月dd日HH時mm分"
-            print(formatter.string(from: dueDate))
-            self.dateTextField.text = "\(formatter.string(from: dueDate))"
-            //編集がされなかったときのために予め保存されている物を残しておく
-            self.dueDate = dueDate
+            
+            
+            if dueDate != nil {
+                let dueDate = todoData["dueDate"] as! Date
+                //dueDateを表示するためにdate型からstring型に直してあげるのがdateformatter
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy年MM月dd日HH時mm分"
+                self.dateTextField.text = "\(formatter.string(from: dueDate))"
+                //編集がされなかったときのために予め保存されている物を残しておく
+                self.dueDate = dueDate
+            }
             
         }
         
@@ -94,7 +97,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         if passedTitleId != "" {
             readMemoData()
 //            readDate()
-            print(passedTitle)
+
             newTextField.text = passedTitle
             
             let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -153,7 +156,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     // BarButtonItem保存の前画面に戻す処理.
     @objc func saveButton(sender: UIBarButtonItem){
-        print(self.memos)
+
         _ = navigationController?.popViewController(animated: true)
         
         //ここで区別するidがある無し
@@ -207,7 +210,10 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
                 //更新したいデータのセット
                 record.setValue(newTextField.text, forKey: "title")
                 record.setValue(Date(), forKey: "saveDate")
-                record.setValue(dueDate, forKey: "dueDate")
+                
+                if dateTextField.text != "" {
+                    record.setValue(dueDate, forKey: "dueDate")
+                }
                 record.setValue(priorityNum, forKey: "priority")
 
                 do{
@@ -423,8 +429,8 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             newRecord.setValue(uuid, forKey: "id")
             newRecord.setValue(Date(), forKey: "saveDate")
             newRecord.setValue(priorityNum, forKey: "priority")
-            
-            if dateTextField.text != ""{
+
+            if dateTextField.text != "" {
                 newRecord.setValue(dueDate, forKey: "dueDate")
             }
             
@@ -437,9 +443,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             }
                 
             if memos.count != 0 {
-                
                 for n in 0...memos.count - 1 {
-                    
                     //Memoエンティティオブジェクトを作成
                     //forEntityNameは、モデルファイルで決めたエンティティ名（大文字小文字合わせる）
                     let Memo = NSEntityDescription.entity(forEntityName: "Memo", in: viewContext)
@@ -652,9 +656,9 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     func setDueDate() {
         if dateTextField.text != "" {
             //文字列変換
-            var df = DateFormatter()
+            let df = DateFormatter()
             df.dateFormat = "yyyy/MM/dd hh:mm"
-            var strDate = df.string(from: self.dueDate)
+            let strDate = df.string(from: self.dueDate)
 
             // Notificatiのインスタンス生成
             let content = UNMutableNotificationContent()

@@ -24,8 +24,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var addListBtn: UIBarButtonItem!
     @IBOutlet weak var setButton: UIBarButtonItem!
     var priorityArray:[Int] = []
-    let colorlist = [UIColor.white,UIColor(hex: "#bfe2ff"),UIColor(hex: "#85c8ff"),UIColor(hex: "#0084ff")]
-    
+
+    let colorlist = [UIColor(hex: "#0084ff"),UIColor(hex: "#85c8ff"),UIColor(hex: "#bfe2ff"),UIColor.white]
+
     
     var selectedNum:Int!
     
@@ -75,7 +76,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //<サーチバー作成>
     private func setupSearchBar() {
-        if let navigationBarFrame = navigationController?.navigationBar.bounds {
+        if (navigationController?.navigationBar.bounds) != nil {
             searchController = UISearchController(searchResultsController: nil)
             searchController.searchResultsUpdater = self
             searchController.searchBar.sizeToFit()
@@ -109,9 +110,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             var array:[Int] = []
             //取得したデータを、デバックエリアにループで表示
             for result in fetchResults {
+
                 let titleData = [
                     "title": result.title!,
-                    "id":result.id,
+                    "id":result.id!,
                     "priority":result.priority,
                     "dueDate":result.dueDate
                     ] as [String : Any]
@@ -156,7 +158,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         for n in 0...priorityArray.count - 1 {
             if priority == priorityArray[n] {
-                cell.contentView.backgroundColor = colorlist[priority]
+                cell.contentView.backgroundColor = colorlist[n]
             }
         }
 
@@ -225,7 +227,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             print(indexPath.row)
-            let titleData = titles[indexPath.row] as! Dictionary<String,Any>
+            let titleData = titles[indexPath.row]
             self.titles.remove(at: indexPath.row)
             toDoListTableView.deleteRows(at: [indexPath], with: .fade)
             
@@ -261,25 +263,26 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             
             // 0から3のpriorityの種類？
             //ここ直す
-            for n in 0...3 {
-                //　すべてのタイトルのデータに対して0-3の種類があるかチェック
-                var flag:Bool = false
-                for m in 0...titles.count - 1 {
-                    if Int(titles[m]["priority"] as! Int16) == n {
-                        flag = true
+            if titles.count != 0 {
+                for n in 0...3 {
+                    //　すべてのタイトルのデータに対して0-3の種類があるかチェック
+                    var flag:Bool = false
+                    for m in 0...titles.count - 1 {
+                        if Int(titles[m]["priority"] as! Int16) == n {
+                            flag = true
+                        }
+                    }
+                    print(flag)
+                    
+                    if flag == false {
+                        // 色変える
+                        print("change color")
+                        readTitle()
+                        print(titles)
+                        toDoListTableView.reloadData()
+                        break
                     }
                 }
-                print(flag)
-                
-                if flag == false {
-                    // 色変える
-                    print("change color")
-                    readTitle()
-                    print(titles)
-                    toDoListTableView.reloadData()
-                    break
-                }
-                
             }
             
         }
@@ -329,7 +332,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             for result in fetchResults {
                 let titleData = [
                     "title": result.title!,
-                    "id":result.id,
+                    "id":result.id!,
                     "priority":result.priority
                     ] as [String : Any]
                 titles.append(titleData)
@@ -339,7 +342,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             }
             let orderedSet = NSOrderedSet(array: array)
             priorityArray = orderedSet.array as! [Int]
-            print(priorityArray)
+
             self.toDoListTableView.reloadData()
             
         } catch  {
