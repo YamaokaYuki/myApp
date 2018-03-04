@@ -12,6 +12,7 @@ import Instructions
 import CoreData
 import Hue//色変える
 import SCLAlertView//褒めるポップアップ用
+import Cartography//オートレイアウト
 
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchResultsUpdating {
@@ -55,7 +56,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             size: CGSize(width: 35, height: 35)
             )
         
-        
+        toDoListTableView.separatorColor = UIColor.white
+        toDoListTableView.rowHeight = 70.0;
        
     }// viewDidRoad終了
     
@@ -129,6 +131,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             
         } catch  {
         }
+        
+        
     }
 
     
@@ -151,6 +155,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //各プロパティに値を設定
         cell.toDoTitle.text = titles[indexPath.row]["title"] as? String
         
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.firstLineHeadIndent = 20
+        paragraphStyle.headIndent = 20
+        paragraphStyle.tailIndent = -20
+        
+        let attributedString = NSAttributedString(string: titles[indexPath.row]["title"] as! String /* long text */, attributes: [NSAttributedStringKey.paragraphStyle: paragraphStyle])
+        cell.toDoTitle.attributedText = attributedString
+        
+        
         //priorityNumの番号によって色を変更する
         //そのセルだけ
         let priority:Int = Int(titles[indexPath.row]["priority"] as! Int16)
@@ -162,13 +175,16 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             }
         }
 
-//        if priority == 3 {
-//            cell.contentView.backgroundColor = UIColor(hex: "#0084ff")
-//        }else if priority == 2{
-//            cell.contentView.backgroundColor = UIColor(hex: "#85c8ff")
-//        }else if priority == 1 {
-//            cell.contentView.backgroundColor = UIColor(hex: "#bfe2ff")
-//        }
+        
+        if priority == 3 {
+            cell.contentView.backgroundColor = UIColor(hex: "#0084ff")
+        }else if priority == 2{
+            cell.contentView.backgroundColor = UIColor(hex: "#85c8ff")
+        }else if priority == 1 {
+            cell.contentView.backgroundColor = UIColor(hex: "#bfe2ff")
+        }else if priority == 0 {
+            cell.contentView.backgroundColor = UIColor.white
+        }
     
         //作成したcellオブジェクトを戻り値として返す
 //        return cell
@@ -262,7 +278,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             }
             
             // 0から3のpriorityの種類？
-            //ここ直す
             if titles.count != 0 {
                 for n in 0...3 {
                     //　すべてのタイトルのデータに対して0-3の種類があるかチェック

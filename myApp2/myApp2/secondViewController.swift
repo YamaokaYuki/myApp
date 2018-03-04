@@ -72,8 +72,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             //dueDateを表示し保存するためのコード
             //dueDateをDate型として指定する
-            
-            
             if dueDate != nil {
                 let dueDate = todoData["dueDate"] as! Date
                 //dueDateを表示するためにdate型からstring型に直してあげるのがdateformatter
@@ -96,7 +94,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         // タイトルと詳細メモに値をいれる
         if passedTitleId != "" {
             readMemoData()
-//            readDate()
 
             newTextField.text = passedTitle
             
@@ -148,7 +145,24 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         threeBtn.layer.cornerRadius = 7.0;
         threeBtn.clipsToBounds = true;
+        
+        //(1)文字数制限をかけるテキストフィールドを監視対象にする
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(textFieldDidChange),
+            name: NSNotification.Name.UITextFieldTextDidChange,
+            object: newTextField)
     }//viewDidLoad終わり
+    
+    //(2)テキストフィールドの入力イベントを監視し、変更があった場合に指定文字数(ここでは20文字)を超えた文字の入力をさせいない
+    @objc private func textFieldDidChange(notification: NSNotification) {
+        let textFieldString = notification.object as! UITextField
+        if let text = textFieldString.text {
+            if text.characters.count > 20 {
+                newTextField.text = text.substring(to: text.index(text.startIndex, offsetBy: 3))
+            }
+        }
+    }
     
     // BarButtonItemキャンセルの前画面に戻す処理.
     @objc func backButton(sender: UIBarButtonItem){
