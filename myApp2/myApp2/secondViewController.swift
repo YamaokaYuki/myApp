@@ -175,16 +175,23 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         //ここで区別するidがある無し
         if passedTitleId == ""{
-        saveTitle()
-        setDueDate()
+            
+        
+            for n in 0...cells.count - 1{
+//                cells[n].newTextFieldCell.becomeFirstResponder()
+                textFieldDidEndEditing(cells[n].newTextFieldCell)
+            }
+            
+            saveTitle()
+            setDueDate()
             
         }else{
             
             //リターンキーが押されたとき及びカーソルが外れた時(キーボードが下がった時)に発動する処理をすべてのセルで行ってあげる処理
             for n in 0...cells.count - 1{
-                cells[n].newTextFieldCell.becomeFirstResponder()
+//                cells[n].newTextFieldCell.becomeFirstResponder()
+                textFieldDidEndEditing(cells[n].newTextFieldCell)
             }
-            
             titleUpdate()
             memoDelete()
             memoEditCreate()
@@ -455,7 +462,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             } catch  {
                 print("DBへの保存に失敗しました")
             }
-                
+            print(#function,"メモのセーブ")
             if memos.count != 0 {
                 for n in 0...memos.count - 1 {
                     //Memoエンティティオブジェクトを作成
@@ -539,7 +546,8 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     // テキストフィールドから離れた時に発動
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
+        print(#function,"テキストフィールドから離れた時")
+
         //詳細メモが空のままフォーカスが外れた時に復活
         if textField.tag != titleTag && textField.text == "" {
             newTableView.reloadData()

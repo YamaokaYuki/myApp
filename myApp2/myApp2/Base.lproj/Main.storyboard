@@ -25,11 +25,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" editingAccessoryType="checkmark" id="c1b-BY-cyV" customClass="CustumCell" customModule="myApp2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="cell" id="c1b-BY-cyV" customClass="CustumCell" customModule="myApp2" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c1b-BY-cyV" id="jqe-iu-fqM">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="336" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="headTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jb1-Zq-YdG" propertyAccessControl="localizable">
@@ -65,6 +65,8 @@
                                                 <constraint firstItem="jb1-Zq-YdG" firstAttribute="top" secondItem="jqe-iu-fqM" secondAttribute="top" constant="10" id="z68-nl-8Ey"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="fontAwesomeLabel" destination="ZHo-vI-jx9" id="geS-GS-pVX"/>
                                             <outlet property="toDoTitle" destination="jb1-Zq-YdG" id="pN1-nO-MOD"/>
@@ -146,6 +148,7 @@
                         <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="5Dw-NC-tdP"/>
                     </connections>
                 </searchDisplayController>
+                <tapGestureRecognizer id="YJu-GG-hGs"/>
             </objects>
             <point key="canvasLocation" x="256.80000000000001" y="86.806596701649184"/>
         </scene>
