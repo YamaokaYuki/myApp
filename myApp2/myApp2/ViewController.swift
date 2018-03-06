@@ -301,11 +301,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             }
             
         }
-        
         //<削除後コメント>
+        if myDefault.bool(forKey: "commentSwitchFlag") == true{
         let r = Int(arc4random()) % functionAlerts.count
         //褒めるポップアップを表示
         SCLAlertView().showSuccess("おつかれさま！",subTitle:functionAlerts[r] )
+    }
 
     }
     

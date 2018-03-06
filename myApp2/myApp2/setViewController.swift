@@ -2,11 +2,13 @@
 
 import UIKit
 
+let myDefault = UserDefaults.standard
+
 class setViewController: UIViewController {
     
     @IBOutlet weak var commentSwitch: UISwitch!
     
-    let myDefault = UserDefaults.standard
+//    let myDefault = UserDefaults.standard
     
     //画面が表示された時、設定値を反映させる
     override func viewWillAppear(_ animated: Bool){
@@ -24,12 +26,9 @@ class setViewController: UIViewController {
         
         
         
-        
         //画像の表示・非表示を表す変数を用意
         
         //UserDefaultから値を取り出す
-        
-//        var myDefault = UserDefaults.standard
         myDefault.object(forKey: "commentSwitchFlag")
         
         //画像の表示/非表示を表す変数を用意
@@ -47,14 +46,11 @@ class setViewController: UIViewController {
         
         
     }
-    
-    
+
     
     
     @IBAction func commentSwitch(_ sender: UISwitch) {
         //UseDefaultを操作するためのオブジェクトを作成
-
-//        var myDefault = UserDefaults.standard
 
         //スイッチの状態を保存
         //set(保存したい値、forKey:保存した値を取り出す時に指定する名前)

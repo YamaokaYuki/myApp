@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import FontAwesome_swift
 
+
+
 class NewCustumCell: UITableViewCell,UITextFieldDelegate {
 
     @IBOutlet weak var newTextFieldCell: UITextField!
@@ -25,6 +27,7 @@ class NewCustumCell: UITableViewCell,UITextFieldDelegate {
         symbol.textColor = UIColor.lightGray
 
     }
+    
     
     
     func isSet() -> Bool {

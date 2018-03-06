@@ -43,6 +43,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     var cells:[NewCustumCell] = []
     var saveBtn:UIBarButtonItem!
     let colorDefault = UserDefaults.standard
+    var cellHeight:CGFloat = 0.0
     
     
     
@@ -154,6 +155,14 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             object: newTextField)
     }//viewDidLoad終わり
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        testNotificationForViewwillAppear()
+    }
+    
+    
     //(2)テキストフィールドの入力イベントを監視し、変更があった場合に指定文字数(ここでは20文字)を超えた文字の入力をさせいない
     @objc private func textFieldDidChange(notification: NSNotification) {
         let textFieldString = notification.object as! UITextField
@@ -162,6 +171,67 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
                 newTextField.text = text.substring(to: text.index(text.startIndex, offsetBy: 15))
             }
         }
+    }
+    
+    //    ==================================
+    //　　　　　　　MARK: キーボード観察
+    //    ==================================
+    func testNotificationForViewwillAppear() {
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(secondViewController.keyboardWillShow(_:)),
+                                               name: NSNotification.Name.UIKeyboardWillShow,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(secondViewController.keyboardWillHide(_:)) ,
+                                               name: NSNotification.Name.UIKeyboardWillHide,
+                                               object: nil)
+    }
+    
+    func testNotificationForViewwillDisAppear(){
+        NotificationCenter.default.removeObserver(self,
+                                                  name: .UIKeyboardWillShow,
+                                                  object: self.view.window)
+        NotificationCenter.default.removeObserver(self,
+                                                  name: .UIKeyboardDidHide,
+                                                  object: self.view.window)
+    }
+    
+    
+
+    
+    //TODO:やることリスト
+    //CusCatogoryTableの高さを取得する
+    //その高さとキーボードの高さの差
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        print(#function)
+        let info = notification.userInfo!
+        
+        let keyboardFrame = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        
+        let テーブルビューのY座標 = newTableView.frame.origin.y
+        let キーボードのY座標 = keyboardFrame.origin.y
+        
+        let セルの下側のY座標 = テーブルビューのY座標 + cellHeight
+        
+        let topKeyboard = newTableView.frame.origin.y - keyboardFrame.size.height
+        
+        // 重なり
+        let distance = セルの下側のY座標 - キーボードのY座標
+        
+        
+        //テーブルのscrollView内に余分な高さ(contentOffset)をセット
+        if distance >= 0 {
+            newTableView.contentOffset.y = distance
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        
+        print(#function)
+        newTableView.contentOffset.y = 0
+        
     }
     
     // BarButtonItemキャンセルの前画面に戻す処理.
@@ -178,7 +248,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             
         
             for n in 0...cells.count - 1{
-//                cells[n].newTextFieldCell.becomeFirstResponder()
                 textFieldDidEndEditing(cells[n].newTextFieldCell)
             }
             
@@ -507,6 +576,9 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         if TextField == self.dateTextField {
             createDatePicker()
         }
+        //スクロール
+        cellHeight = (TextField.superview?.frame.height)! * CGFloat(TextField.tag + 1)
+        print("セルの高さ")
     }
     
     
@@ -546,7 +618,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     // テキストフィールドから離れた時に発動
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print(#function,"テキストフィールドから離れた時")
 
         //詳細メモが空のままフォーカスが外れた時に復活
         if textField.tag != titleTag && textField.text == "" {
@@ -613,6 +684,8 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     override func viewWillDisappear(_ animated: Bool) {
         passedTitleId = ""
+        
+        testNotificationForViewwillDisAppear()
     }
     
     
