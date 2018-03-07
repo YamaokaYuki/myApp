@@ -16,20 +16,36 @@ class CustumCell: UITableViewCell {
     
     @IBOutlet weak var fontAwesomeLabel: UILabel!
     
+    @IBOutlet weak var checkBtn: UIButton!
+    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-         fontAwesomeLabel.font = UIFont.fontAwesome(ofSize: 20)
-        fontAwesomeLabel.text = String.fontAwesome(code: "fa-chevron-right").map { $0.rawValue }
-        fontAwesomeLabel.textColor = UIColor.lightGray
         
         self.toDoTitle.layer.borderColor = UIColor(hex: "#96ffe8").cgColor
         self.toDoTitle.layer.borderWidth = 3
         self.toDoTitle.layer.cornerRadius = 5
         self.toDoTitle.layer.masksToBounds = true
         
+        checkBtn.tintColor = UIColor.lightGray
+        
     }
     
+    @IBAction func checkChangeColor(_ sender: UIButton) {
+        print("push1")
+        if checkBtn.tintColor == UIColor.lightGray{
+            checkBtn.tintColor = UIColor.blue
+        }else if checkBtn.tintColor == UIColor.blue{
+            checkBtn.tintColor = UIColor.lightGray
+        }
+        print("sample")
+//        if sender.tintColor == UIColor.lightGray{
+//            sender.tintColor = UIColor.blue
+//        }else if sender.tintColor == UIColor.blue{
+//            sender.tintColor = UIColor.lightGray
+//        }
+//
+    }
     
     
     

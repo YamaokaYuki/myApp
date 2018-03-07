@@ -24,6 +24,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var toDoListTableView: UITableView!
     @IBOutlet weak var addListBtn: UIBarButtonItem!
     @IBOutlet weak var setButton: UIBarButtonItem!
+    
     var priorityArray:[Int] = []
 
     let colorlist = [UIColor(hex: "#0084ff"),UIColor(hex: "#85c8ff"),UIColor(hex: "#bfe2ff"),UIColor.white]
@@ -54,13 +55,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             name: .cog,
             textColor: UIColor.gray,
             size: CGSize(width: 35, height: 35)
-            )
+        )
         
         toDoListTableView.separatorColor = UIColor.white
         toDoListTableView.rowHeight = 70.0;
        
     }// viewDidRoad終了
-    
     
     func readPlist() {
         //ファイルのパスを取得
@@ -156,8 +156,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         cell.toDoTitle.text = titles[indexPath.row]["title"] as? String
         
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.firstLineHeadIndent = 25
-        paragraphStyle.headIndent = 25
+        paragraphStyle.firstLineHeadIndent = 35
+        paragraphStyle.headIndent = 35
         paragraphStyle.tailIndent = -20
         
         let attributedString = NSAttributedString(string: titles[indexPath.row]["title"] as! String /* long text */, attributes: [NSAttributedStringKey.paragraphStyle: paragraphStyle])
