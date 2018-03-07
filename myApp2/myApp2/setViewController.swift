@@ -13,7 +13,7 @@ class setViewController: UIViewController {
     //画面が表示された時、設定値を反映させる
     override func viewWillAppear(_ animated: Bool){
         // はじめの状態をtrueにしておく.
-        commentSwitch.isOn = false
+        commentSwitch.isOn = true
         
         //保存されてる値が存在した時
         if myDefault.object(forKey: "commentSwitchFlag") != nil{
@@ -24,18 +24,11 @@ class setViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        //画像の表示・非表示を表す変数を用意
-        
         //UserDefaultから値を取り出す
         myDefault.object(forKey: "commentSwitchFlag")
         
         //画像の表示/非表示を表す変数を用意
         var commentSwitchFlag = true
-
-        
-        //保存されてる値が存在した時
         
         //保存されてる値が存在した時
         if myDefault.object(forKey: "commentSwitchFlag") != nil{

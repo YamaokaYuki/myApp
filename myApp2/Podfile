@@ -11,8 +11,7 @@ target 'myApp2' do
 	pod 'DatePickerDialog'
 	pod 'Hue'
 	pod 'SCLAlertView'
-	pod 'Cartography'
-
+	pod 'IQKeyboardManagerSwift'
 
 	
 end

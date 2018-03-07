@@ -7,135 +7,142 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		033E20123508ACA1151479485BEC8D90 /* LayoutProxy+TypeErasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B412F0F0B02CBDAE98A27D77DD365A0E /* LayoutProxy+TypeErasure.swift */; };
-		03A95EB83E0A8E10F7E0B4DB551D5200 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856C6F75820B51D145C389F840475F73 /* DatePickerDialog.swift */; };
-		0739B8BF39538E41B6C747EDE71114F3 /* Constrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E3B52621DB10CE6B91C0051E2BE71A /* Constrain.swift */; };
-		078D75FC8795FA3EBD22377BC890520B /* Distribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3817742D3411D5772BD96A31CFC54A /* Distribute.swift */; };
-		0F2E8310657F6A3EBEBB5DB0CEEE7C38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */; };
-		135EB128936A1909CF73AEFF05727C3A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */; };
-		140DDA179963DD77DF05DF38496CD7E0 /* SkipViewDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A534C774DF4556619A5D4AC896813F6B /* SkipViewDisplayManager.swift */; };
-		171E18A3574BF3A1F419D641DE307C74 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A68AD7037FF7F86719774D6875D80A /* OverlayView.swift */; };
-		186429D6C5130E280309D151EB9C9ED9 /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D56DEEE7AB0AE266827666F75D20F5 /* FlowManager.swift */; };
-		1C92A98E34D0E29E787071F0B75401E5 /* Cartography-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8FF23C45E73ECB8E78B56D0BF56ABE /* Cartography-dummy.m */; };
-		20070C9501DA782A1D5EDCB4F75AEDE2 /* Hue-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 026E3ABD8960472A0194358A943CF162 /* Hue-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		207FF84C492167E6CCF48D18FE915DE7 /* CoachMarksController+Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FEEF019467F044348673C3A77F26FB /* CoachMarksController+Proxy.swift */; };
-		20984CE0DC9A89D9E056C5AFB4E91060 /* CoachMarkSkipDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A09E9D53C13AC0261EAD13249D0685 /* CoachMarkSkipDefaultView.swift */; };
-		21C47520EC33CD2347C6D351743E6919 /* CoachMarkInnerLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370F58506D90973B77BD68E090CCB0D /* CoachMarkInnerLayoutHelper.swift */; };
-		22C18133E55CC4E0633B633F3912F097 /* Cartography-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D5B189964170525A779DAA21009B1D2B /* Cartography-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24065029085002EAC70A3422A7D39EC1 /* FontAwesome.swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BD27DE0CB12AA690771E88F6B02BB79 /* FontAwesome.swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		26D9D26B1D4A7C48E1DFE6C4697A7EB3 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0915C532550E7667EB52593E4C0520CE /* Size.swift */; };
-		27BEB6D60B638B2F7E7086598B419CB3 /* LayoutGuideProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85226E9943245ABB153CA8EC2748862E /* LayoutGuideProxy.swift */; };
-		2AE0F58A0988D92438C1448C861A154C /* FontAwesomeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008F538B0AA3FB6D9E98330C831C903B /* FontAwesomeImageView.swift */; };
-		2DA4B9C356AB324AB526C892976C4CA0 /* Pods-myApp2-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DEFABEDA878F65BCB69B9C37A767C01F /* Pods-myApp2-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3264BF09E7BD78647433B981398A8D4F /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40BCE0BC739AA36F6E982BBFC50051E /* UIView+Layout.swift */; };
-		33E91E78F43301F168B42DB67C04CDC4 /* Coefficients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FC429AAB8079EC3C0C6448747323D8 /* Coefficients.swift */; };
-		370EA4B00C3E1F71C87314271179D06D /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7723276DA130A9864ED1C1A855BFDC85 /* Property.swift */; };
-		3E4466A8EF7C9DE29166E73B42BC240B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */; };
-		41FAD1CDCD9272883A6CF33FE8FF44E0 /* FontAwesomeSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE57E7F5383E849EF694F085BDC3816 /* FontAwesomeSegmentedControl.swift */; };
-		44279488206961A71665C70FD3BD9FCD /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475B45AB24EADC45B9DF99FD399E013D /* Point.swift */; };
-		445633379EA1CD0B1BF73BF3A2DC28EC /* CoachMarkArrowOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD7CE331315736DE8A8A5891FCB84E6 /* CoachMarkArrowOrientation.swift */; };
-		4BE730A21ABA156078F7FD73E4AF4F7C /* BlurringOverlayStyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA75A289D2A77F7B90EBDAC36637378B /* BlurringOverlayStyleManager.swift */; };
-		517354331702F525836ED4E675283B1A /* Instructions-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EE32C9F1180AF949F860A23423F834D /* Instructions-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		522BEF444AEAA78D1747B62ED49C688E /* FontAwesomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF67AD854E02AC146CA9B230683A130 /* FontAwesomeView.swift */; };
-		52C3E8081BB80AA34FEF1659F24533C2 /* ViewProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9C0317F66B15C70FD3C49ADC62F25 /* ViewProxy.swift */; };
-		541EB15CD327370200DCEA8EF2328A74 /* InstructionsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1F37B796F940A97F7C0FE3F4EA8CA3 /* InstructionsWindow.swift */; };
-		551EDA7C2AEF5DBDE54A1E04D3B66DEF /* ConstraintGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C86AF54B944EB64F7F22DEF5DB866 /* ConstraintGroup.swift */; };
-		589D19F8FC8F1E9D6360D950D26A7138 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D9CC07F4F9123A6F7A46091544E6D4 /* FontAwesome.swift */; };
-		58B00C7BCF27BE64587847CA77E9DD11 /* Align.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B72964A180AEFD91E94AF255AD383A /* Align.swift */; };
-		59BB7C15DE2EFEFDE268E3D2BE58B161 /* FontAwesome.swift.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04D9A16CA004030311052DF7DC1B5341 /* FontAwesome.swift.bundle */; };
-		5AD3E160E28F5EFC4D17A8668CA322BD /* FontAwesomeBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656C4B7A71D2FA9F6B342F031CF632C5 /* FontAwesomeBarButtonItem.swift */; };
-		5B251BE5879C055243066547C2D8857F /* CoachMarkBodyDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1396CECAF60045C9717980EE1183E78 /* CoachMarkBodyDefaultView.swift */; };
-		61EF4DFC1C6DF07C93D35021AC3FFBA0 /* CoachMarksControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DE57FE1A170944B185B809E65A3929 /* CoachMarksControllerDelegate.swift */; };
-		6303953B4072C1B9B5BE9038CD1A5858 /* LayoutProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D1BDCC9F8DC4D1E8A6CD79E9ABAFC1 /* LayoutProxy.swift */; };
-		63CE8D505F8959E7980485341DF99D0B /* CoachMarkSkipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6AC58DF5333ECFFF8768CD2EEE2C2D /* CoachMarkSkipView.swift */; };
-		64C1C1BBD53C2B17073E4473687A853A /* LayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55016BB59B7D4E107F4280D7E62B300 /* LayoutGuide.swift */; };
-		65D01C54FCF24BF6E6FBCD49F6E7CCB1 /* FontAwesomeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F62CAB95F250497DB942DC8DF2FEA8B /* FontAwesomeTabBarItem.swift */; };
-		662789E078DD9BC50449727C6CD89E24 /* CoachMarkArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5753879CCF35633905A503C9E484A69 /* CoachMarkArrowView.swift */; };
-		66D819B972BFA6AFA3FDCEB9F4BF9D36 /* SCLAlertView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B42D0026D2A8C9F8AB00C04118E7971 /* SCLAlertView-dummy.m */; };
-		677DB4D73E5558C681199DE19F7DF029 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */; };
-		684E126B8E890761BBB1A4EB590EA1F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27BE1AF8CEE8818CBCFD0010AE8BEE51 /* UIKit.framework */; };
-		69E39DC32B52B63BEECD2C27B8272E12 /* CoachMarkArrowDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237230AC7DF21B333F1C9215423E786 /* CoachMarkArrowDefaultView.swift */; };
-		6C6E2E731A3F93E064E4DBAC7E7F8C7D /* CoachMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D399C18FDF2D5D33A17E93D1FF5B99 /* CoachMark.swift */; };
-		6E8C93349450F8CD87EAD97251BC94A0 /* CoachMarkBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DAC8D4123F922183D1D8BACC7BA2D3 /* CoachMarkBodyView.swift */; };
-		6F4FE3B61F3F4136F1C403AD21C331D7 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBDAEEAAC1A20AA238F24C9AE8AB940 /* Context.swift */; };
-		70CBCB67007D356F14B8EC15118BA9E3 /* Hue-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AE038FE354D01835888314B5BBE82A /* Hue-dummy.m */; };
-		75A09744CB87DB237A3D3FA76FC9AB9A /* Edges.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE77AD96BFECF4A39A3B30907E9251A6 /* Edges.swift */; };
-		7654819548331A59AAB96E83F6E9353E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27BE1AF8CEE8818CBCFD0010AE8BEE51 /* UIKit.framework */; };
-		7BB056BB4AD65CB66380CBDD52CB0FD3 /* DatePickerDialog-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 233920B95B728D7AA9B425EABED0C7D7 /* DatePickerDialog-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7BBAA7D5001ABB0D1516ACAF7F51F4B5 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E58B5000B4A452C6167B7292B2560CB /* View.swift */; };
-		7D258D7C1D85184055D112B85752D53A /* OverlaySnapshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBABD3BA4F464F8351705EC029421EBD /* OverlaySnapshotView.swift */; };
-		807CF8617EE5EEFB64DD3DD68E5F17C4 /* CoachMarkPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B32CAE7057A0C1A821484190A340E /* CoachMarkPosition.swift */; };
-		83790D4473D3F8965A7705C0EE1ADFC6 /* UIColor+Hue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326544C260C60ACF5CB0850575C0D0D /* UIColor+Hue.swift */; };
-		869BF762B9D0699ABF4024F1DED0AD0E /* AutoresizingMaskLayoutProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ABCDEF8B2B4F2659618825900EE9A6 /* AutoresizingMaskLayoutProxy.swift */; };
-		8BEBE5C5B7683BF31CC3B364CB9F02BA /* SCLAlertView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 987AF3C6D93B3C881D52151E57EA026C /* SCLAlertView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		923CDC888551C506DB35780C8DF1A067 /* CoachMarksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6889DF2556F98407A7D133BB50FACE9 /* CoachMarksController.swift */; };
-		94C7D2A64168F83FDD3F1FDD86309462 /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFFB7A692755C469E18FAAA62E998B0 /* Edge.swift */; };
-		9C6E1370B7332CEA8408E407F24570B5 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A31D04D06C8956764FEDB6D4D8E4BF /* Expression.swift */; };
-		9DE7AC7E9424287CE00664C9EA68D2D2 /* LayoutSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEEE6AC9512FCF1CA9C83DE4AF25F21 /* LayoutSupport.swift */; };
-		9F0B23627A231F1261D1CFDCCDBDD648 /* OverlayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A29DBB6521AC90EC2A58C3D827625D /* OverlayManager.swift */; };
-		A369C0B46F844A5CDF1ED482C3869FA0 /* TranslucentOverlayStyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED2BCD4773624E650D10FB29B4C480E /* TranslucentOverlayStyleManager.swift */; };
-		A37DED66695DC9C57FD67849B88A3B7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */; };
-		A46392046A5B0726674C9FC4F6B173EF /* CoachMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0132C88534D8076C2DF33D6BFC8AF0 /* CoachMarkView.swift */; };
-		A61341A7FF0C11A4E497A34B56E2C0FA /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F063DD5BAF281B71AEFB23D877E5FDA /* DummyView.swift */; };
-		A9EA2C22B4276747CB82EAC1D0778ED0 /* Instructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B064DB85F77B0CFE6630835425042A8 /* Instructions.swift */; };
-		AC5CEA74552ADEC4638BA1C759165E58 /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD15A49F9DDFF1F7A012BE21965813 /* SCLAlertView.swift */; };
-		B4DBC3F172AFEA9A0F86A1428D235BAB /* Dimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F23098243CFCA9AF2C50E4D6FF23F /* Dimension.swift */; };
-		B4F73EC084EF2CE107909250D43CC6E7 /* InstructionsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F93A97B964DF41F2372ACA7A4289558 /* InstructionsRootView.swift */; };
-		B841F532944A48304D17238F98330F80 /* CoachMarksControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03811484DAB2A44CAF736580B0AF67B3 /* CoachMarksControllerDataSource.swift */; };
-		BA158509B4673EB6F8D0D12961169AB1 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719B13F388F1614073153BC446EB5190 /* Enum.swift */; };
-		BAA82517E186455BBE3B74D44E5EDD5D /* LayoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF428493562C4166D459E0711ABE122 /* LayoutItem.swift */; };
-		BF26BE0A2F690B05714DD954B703F78D /* CoachMarkViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01121314F812731D18EE73E1ED429A9 /* CoachMarkViewControllerDelegate.swift */; };
-		C07BB88516094D1FBB36934417E3A677 /* CoachMarkBodyHighlightArrowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E639B4AD1E77D35B16A821F23C995F /* CoachMarkBodyHighlightArrowDelegate.swift */; };
-		C18F1A7E45B07EC54503CCD0A2577D6F /* OverlayStyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E063F0001AA02B4C25A091EC046F326 /* OverlayStyleManager.swift */; };
-		C228934AD348C503A08494A224800B42 /* Pods-myApp2-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 63849019B64B4A82BE203961A7B3E338 /* Pods-myApp2-dummy.m */; };
-		C3079113A27F987B6889C2E9C05A10DD /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 96378182609835A57FC1867BA9581B80 /* FontAwesome.otf */; };
-		C4EDDFD00880AD17F1BB7D66948F1D21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */; };
-		C86ACB08BD2BF29C0F1C30855A276604 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E79A0C46049A0047CB3E287A38934EDB /* Images.xcassets */; };
-		C879A43B7C8CC16E986D40441C2F2878 /* FontAwesomeImageRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A1B83721628BA764CD06F70CA5C7FA /* FontAwesomeImageRepresentable.swift */; };
-		CBD91B03AC387775166237F805EABC3A /* FontAwesomeStateRequirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A990192956A1E767D956C091852098 /* FontAwesomeStateRequirement.swift */; };
-		D8123F6B62434995587E8ABE550975ED /* CoachMarkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79618CF84ECB80205A65CF9EF0E7E8D2 /* CoachMarkHelper.swift */; };
-		D9EE5D7A6E020ADA053C824322E33601 /* CoachMarkLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1C320934DAE1E07BB5906839176E80 /* CoachMarkLayoutHelper.swift */; };
-		DAC2CACA22AE100EB261D377EC6FBE3C /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C55C580E1FC5B6E9F442FE42A9553FEA /* CoreText.framework */; };
-		DB865D27C97A05DEA2296F5985BB3562 /* CoachMarkDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45B34EE14E075D4067D2712C1F50994 /* CoachMarkDisplayManager.swift */; };
-		DB9F3857E166A3EAC8EC5646023E7B8E /* Compound.swift in Sources */ = {isa = PBXBuildFile; fileRef = E676AA274B3BB67BA808A31E57EC1F97 /* Compound.swift */; };
-		DE45DAEE660ADE5C146EE7CF7259F35A /* DatePickerDialog-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DD877921B49702A73FF647CB157BCAF4 /* DatePickerDialog-dummy.m */; };
-		E2F636932DC549ECAC060149AE2925A8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDA1F767E17C43727355F4DFBBADAB8 /* Extensions.swift */; };
-		E32F02359A604D994CA16B52FA50C8A0 /* CoachMarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81B4B7BFC02B8C614A1E26E0669E30 /* CoachMarksViewController.swift */; };
-		E35ABB4DF79E32DBB8DEEDAE81A53F2E /* UIImage+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B735762837DA6945E9093CAAFE851B2 /* UIImage+Bundle.swift */; };
-		E47F1F609724B6051C953237AF25E6E8 /* Instructions-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 225C5E4A6210DA8BC3E4276B140AB569 /* Instructions-dummy.m */; };
-		E79C8C2851495884D91FEFFFC53FAB45 /* LayoutSupportProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA10D9FB739C2F0E0DC2EACC73E42D20 /* LayoutSupportProxy.swift */; };
-		ED4F5066B08DCF7D0EF8AEFA4FAD76C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */; };
-		F14347E3AC3A254F7A424CCB7FCF512B /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A7A7DF6EB7F775013D4411D08CC4F /* Priority.swift */; };
-		F374A73CBB605B1C3F2FE0AE89B7A9C4 /* CoachMarkBodyDefaultViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C275E6E3C78BFA8AD821A56EEB5DD9 /* CoachMarkBodyDefaultViewHelper.swift */; };
-		F435B4C2D5E6E7B34471B69DAC6D5E51 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27F629D0A613FDD79886541E00CE5B /* Constraint.swift */; };
-		F4D9E7D8F49216DDD343B8A64789C046 /* SCLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDFA0C5C5D0C2DED50082C250FAD15C /* SCLExtensions.swift */; };
-		F85030977A6D1BAC697812B41A5905C7 /* UIImage+Hue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167CBA0430B5A24907C31C9FCC405237 /* UIImage+Hue.swift */; };
-		FB64A64BD408EE7BBD70A4B048315C7D /* FontAwesomeTextRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7844A71F6A37413F3603C05E16E39BF /* FontAwesomeTextRepresentable.swift */; };
-		FD8C615CEC6F1EBDB63BF3240583D2F3 /* FontAwesome.swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06A39486A6563DB5E968366D0BBBD /* FontAwesome.swift-dummy.m */; };
-		FE16EA205F170B3FFC402D3C18DD0B2A /* MaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1190FD2D06521971C936B8B238CF2C18 /* MaskView.swift */; };
+		02A8CD406255AE081E99A62241BAC587 /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762DFE729B748D9D87D645AC2B2706BC /* IQToolbar.swift */; };
+		03A95EB83E0A8E10F7E0B4DB551D5200 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFABA4768E2772AAF101AFA015D7CB3 /* DatePickerDialog.swift */; };
+		063A3FBE885D654F13B46909D088A074 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF58CC92310C0395FBA5E5C639C12F03 /* Foundation.framework */; };
+		0F2E8310657F6A3EBEBB5DB0CEEE7C38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF58CC92310C0395FBA5E5C639C12F03 /* Foundation.framework */; };
+		135EB128936A1909CF73AEFF05727C3A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF58CC92310C0395FBA5E5C639C12F03 /* Foundation.framework */; };
+		140DDA179963DD77DF05DF38496CD7E0 /* SkipViewDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF39617AC75104661A07D958900CB02 /* SkipViewDisplayManager.swift */; };
+		171E18A3574BF3A1F419D641DE307C74 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2D60292CC92E3A7736A323194A3005 /* OverlayView.swift */; };
+		186429D6C5130E280309D151EB9C9ED9 /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F92CB8B81D5BC5B54865EEED50C43E /* FlowManager.swift */; };
+		1F0F49D029C4471F2AE3712D1FCB1D8A /* IQTitleBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1D5D629EFADEABAD9743133CF2C60 /* IQTitleBarButtonItem.swift */; };
+		20070C9501DA782A1D5EDCB4F75AEDE2 /* Hue-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 88CC224A682348AB2EC90C83FAA3CD85 /* Hue-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		207FF84C492167E6CCF48D18FE915DE7 /* CoachMarksController+Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98147DC78A101028D3F9F9EC3CDA279F /* CoachMarksController+Proxy.swift */; };
+		20984CE0DC9A89D9E056C5AFB4E91060 /* CoachMarkSkipDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290E5434D14C47CB05F48E2B60DAE37A /* CoachMarkSkipDefaultView.swift */; };
+		21C47520EC33CD2347C6D351743E6919 /* CoachMarkInnerLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C37F79B4B5935C468271ECBC1789E /* CoachMarkInnerLayoutHelper.swift */; };
+		2384AC373E752D55842F37DE4F2CE2A7 /* IQUIScrollView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1670DA34681D6B638FEF0DEE389B9C2E /* IQUIScrollView+Additions.swift */; };
+		24065029085002EAC70A3422A7D39EC1 /* FontAwesome.swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 60A5893F031A10D8C2212716EECC3126 /* FontAwesome.swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A2FE216328BFC23AF9D30EAEFAA2303 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 46B2BEEF35FE4FC3930DBCC8FD3D5E29 /* IQKeyboardManager.bundle */; };
+		2A329E9F33CB2B637B1450534D4D73D4 /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06D14D11BC358D59DC1893D10FC89DC /* SCLAlertView.swift */; };
+		2AE0F58A0988D92438C1448C861A154C /* FontAwesomeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC95B7E2C3F303402DCD49F94A5EE0B /* FontAwesomeImageView.swift */; };
+		3077B4186B916A8DB980BBB72DF7FFB9 /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4B1AD21CF8B1DBF3F766EC017DDCBB /* IQUIView+Hierarchy.swift */; };
+		3264BF09E7BD78647433B981398A8D4F /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E61FA610FDF06A913447935749225C /* UIView+Layout.swift */; };
+		41FAD1CDCD9272883A6CF33FE8FF44E0 /* FontAwesomeSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B54E5AF57CA4243AAE10F6FBF0AE1A /* FontAwesomeSegmentedControl.swift */; };
+		445633379EA1CD0B1BF73BF3A2DC28EC /* CoachMarkArrowOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31184806FB3FF41CA806EF94CC02ADCD /* CoachMarkArrowOrientation.swift */; };
+		4882783C5576C5D43CE79C03DE33C3DD /* IQKeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5FABB787C3CA81332B19AD6DB5532 /* IQKeyboardManager.swift */; };
+		4BE730A21ABA156078F7FD73E4AF4F7C /* BlurringOverlayStyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA77A22994C0C5069CE28EF5D20343E9 /* BlurringOverlayStyleManager.swift */; };
+		502885F116DE78AEAFDE711362F43176 /* SCLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB972712E5A04BB61E6259912D3BEE02 /* SCLExtensions.swift */; };
+		517354331702F525836ED4E675283B1A /* Instructions-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C000C59A82F15F64A8B63CC34D6E9C93 /* Instructions-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		522BEF444AEAA78D1747B62ED49C688E /* FontAwesomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2509BB8FCC72D6205DCA0D9A6017473E /* FontAwesomeView.swift */; };
+		541EB15CD327370200DCEA8EF2328A74 /* InstructionsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836E4817D58F824B681766A9EE9A9E78 /* InstructionsWindow.swift */; };
+		589D19F8FC8F1E9D6360D950D26A7138 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64A967086362C3D1D31D585CD81FF7C /* FontAwesome.swift */; };
+		59BB7C15DE2EFEFDE268E3D2BE58B161 /* FontAwesome.swift.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1E6510510C19CEBA118493DB9E0AD60D /* FontAwesome.swift.bundle */; };
+		5AD3E160E28F5EFC4D17A8668CA322BD /* FontAwesomeBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC77F158F438E61FB55C33C3E51F82A2 /* FontAwesomeBarButtonItem.swift */; };
+		5B251BE5879C055243066547C2D8857F /* CoachMarkBodyDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D78B8E52CDC42CF35FA497EC1827AF3 /* CoachMarkBodyDefaultView.swift */; };
+		61EF4DFC1C6DF07C93D35021AC3FFBA0 /* CoachMarksControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD75A5E4A40736EA40E85A45CF350F1 /* CoachMarksControllerDelegate.swift */; };
+		63CE8D505F8959E7980485341DF99D0B /* CoachMarkSkipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0026A12B8A15C737C7D213D99730BDE1 /* CoachMarkSkipView.swift */; };
+		64FFC1F647245F61C405AE7AC1DA9D31 /* IQUIWindow+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4818294CB6EF6F38D99222706F25F5B9 /* IQUIWindow+Hierarchy.swift */; };
+		65D01C54FCF24BF6E6FBCD49F6E7CCB1 /* FontAwesomeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD1F79A4E4F845A395ECE6AEC488F3E /* FontAwesomeTabBarItem.swift */; };
+		662789E078DD9BC50449727C6CD89E24 /* CoachMarkArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D4582C54643B870D8F3C99CCB5293 /* CoachMarkArrowView.swift */; };
+		677DB4D73E5558C681199DE19F7DF029 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF58CC92310C0395FBA5E5C639C12F03 /* Foundation.framework */; };
+		684E126B8E890761BBB1A4EB590EA1F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E2B04BC1935A86EB34129AA71C7D83 /* UIKit.framework */; };
+		69E39DC32B52B63BEECD2C27B8272E12 /* CoachMarkArrowDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1147A4E70F8A2518B82EE166CAEE8B7 /* CoachMarkArrowDefaultView.swift */; };
+		6C6E2E731A3F93E064E4DBAC7E7F8C7D /* CoachMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A46D57BE7687C1BC39D83BF84480A08 /* CoachMark.swift */; };
+		6E8C93349450F8CD87EAD97251BC94A0 /* CoachMarkBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B6863E4B469AF989D8880E8B88A6CC /* CoachMarkBodyView.swift */; };
+		70CBCB67007D356F14B8EC15118BA9E3 /* Hue-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5C7E4312EB34BAA9C46EC5C4649158 /* Hue-dummy.m */; };
+		7654819548331A59AAB96E83F6E9353E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E2B04BC1935A86EB34129AA71C7D83 /* UIKit.framework */; };
+		7BB056BB4AD65CB66380CBDD52CB0FD3 /* DatePickerDialog-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B77A7996D681DA3093684242D1457D1 /* DatePickerDialog-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7D258D7C1D85184055D112B85752D53A /* OverlaySnapshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE8C1D5F8BD5AC6BF0102CD6A5A27E3 /* OverlaySnapshotView.swift */; };
+		807CF8617EE5EEFB64DD3DD68E5F17C4 /* CoachMarkPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0835FC09F3A8C300FF10DAF4DF0C3C9 /* CoachMarkPosition.swift */; };
+		81A2F975614A9B94F265CD3BA816B0A4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75724AFC8DB229902C200CFD229B7576 /* QuartzCore.framework */; };
+		83790D4473D3F8965A7705C0EE1ADFC6 /* UIColor+Hue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CAF1960AF45CD51EC744FE6F243D23 /* UIColor+Hue.swift */; };
+		866952184CCB9236E8D567A97A7C3224 /* IQUIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8A0D860B3DA464F271F09571A231F5 /* IQUIViewController+Additions.swift */; };
+		87AD9D97F0F94C85720FC018235CD8A9 /* IQKeyboardManagerSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C058DD29120BD01E08C916CE2C63FAD /* IQKeyboardManagerSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88A25F661A4435D57041D21700515CC6 /* IQTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2C6648CF5295B12C839A62A00FB266 /* IQTextView.swift */; };
+		923CDC888551C506DB35780C8DF1A067 /* CoachMarksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728CBCB196CC7BB5B5670B40D52E4440 /* CoachMarksController.swift */; };
+		93AC098AF1027212568B1E1E05BAF952 /* SCLAlertView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D648E3C0EE91275F5F187D4D114B52A7 /* SCLAlertView-dummy.m */; };
+		9B9C1A095D68E3B91BD38F910C6F2E7F /* IQKeyboardManagerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9026476014BE8B45BABDDA1FAE932C13 /* IQKeyboardManagerConstants.swift */; };
+		9C178A996A6A0F14CF4B1F1D1BA4B2EB /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05662BC86960707CFC80ED46D305CEA4 /* IQUIView+IQKeyboardToolbar.swift */; };
+		9F0B23627A231F1261D1CFDCCDBDD648 /* OverlayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A1E1E5607A63C1B96CC16506B22120 /* OverlayManager.swift */; };
+		A25F717B5E0C4E6A6DE933B0BF0F6417 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF58CC92310C0395FBA5E5C639C12F03 /* Foundation.framework */; };
+		A369C0B46F844A5CDF1ED482C3869FA0 /* TranslucentOverlayStyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7687C5E1EC5D989CC820B0EFD86497 /* TranslucentOverlayStyleManager.swift */; };
+		A46392046A5B0726674C9FC4F6B173EF /* CoachMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA622634BDBD7E9D1FF8CF6EC0C83CB /* CoachMarkView.swift */; };
+		A61341A7FF0C11A4E497A34B56E2C0FA /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A5AA8239ED875BB43A5C05C3FC62ED /* DummyView.swift */; };
+		A9EA2C22B4276747CB82EAC1D0778ED0 /* Instructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DF590543DEEFA767E115562D0737BC /* Instructions.swift */; };
+		AE6E6F49F4AE8751F3033A0271E6D99B /* Pods-myApp2-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 63849019B64B4A82BE203961A7B3E338 /* Pods-myApp2-dummy.m */; };
+		B0EF72D8E2CB6594FEE4DB2600B32650 /* IQKeyboardManagerSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 721349452F7BC7F00D0B213C4B0560C0 /* IQKeyboardManagerSwift-dummy.m */; };
+		B1A7ADAE2CAEDA5D703CE5C6A6DA405B /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA5A280AAB132FCB4EB77A5DD527FC8 /* IQUITextFieldView+Additions.swift */; };
+		B4F73EC084EF2CE107909250D43CC6E7 /* InstructionsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55A280A9DEFBC8DA3A8D0FB50021E2D /* InstructionsRootView.swift */; };
+		B841F532944A48304D17238F98330F80 /* CoachMarksControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D2882DBDA9F59C09A9B0778E54E13 /* CoachMarksControllerDataSource.swift */; };
+		BA158509B4673EB6F8D0D12961169AB1 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20F493072B03AF79D12FAE06371C653 /* Enum.swift */; };
+		BB04209DDB72CD325AE09D2EC3EBC380 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E4EE262349108144307D042F49DE193 /* CoreGraphics.framework */; };
+		BC86BA3E19BD74C54386A6239BC6073A /* SCLAlertView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BE5163E210341C71A400058CD116A78 /* SCLAlertView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF26BE0A2F690B05714DD954B703F78D /* CoachMarkViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07AF82AE37556709DD3D9154EF22D90 /* CoachMarkViewControllerDelegate.swift */; };
+		C07BB88516094D1FBB36934417E3A677 /* CoachMarkBodyHighlightArrowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF850F5D791E01DAD884AE5FEFE8CF8 /* CoachMarkBodyHighlightArrowDelegate.swift */; };
+		C18F1A7E45B07EC54503CCD0A2577D6F /* OverlayStyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA8B6C3CC84FB083A1D2502C07A23B /* OverlayStyleManager.swift */; };
+		C3079113A27F987B6889C2E9C05A10DD /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8340BF7F2B0DCFEFCFEF4BA666440646 /* FontAwesome.otf */; };
+		C40F6D2FE20755C045864C23F73260C8 /* IQKeyboardReturnKeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112F06B286D9DBD8816510E2DF18702A /* IQKeyboardReturnKeyHandler.swift */; };
+		C4EDDFD00880AD17F1BB7D66948F1D21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF58CC92310C0395FBA5E5C639C12F03 /* Foundation.framework */; };
+		C86ACB08BD2BF29C0F1C30855A276604 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57D2614F883D499955E78D2E4AD8B2E5 /* Images.xcassets */; };
+		C879A43B7C8CC16E986D40441C2F2878 /* FontAwesomeImageRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85E66F75A3AA4065D66DCFF4BE75795 /* FontAwesomeImageRepresentable.swift */; };
+		CB29E86F679E9DDC5C5A1C89482701CA /* IQPreviousNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150B9B04FA5E1A3D192E357B03D132DD /* IQPreviousNextView.swift */; };
+		CBD91B03AC387775166237F805EABC3A /* FontAwesomeStateRequirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8411F4BAFFCBF27B0E935FA02747A7B3 /* FontAwesomeStateRequirement.swift */; };
+		CC93854C66A808596F5A3B58FDB49BF8 /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5BE2B5977F952E472A26BEE61A8BF5 /* IQNSArray+Sort.swift */; };
+		D8123F6B62434995587E8ABE550975ED /* CoachMarkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F592FD68BE005E5605C1BFA1E3D8C7AE /* CoachMarkHelper.swift */; };
+		D9EE5D7A6E020ADA053C824322E33601 /* CoachMarkLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A351B83BA9B89B22A6BDED9F30C35FE /* CoachMarkLayoutHelper.swift */; };
+		DAC2CACA22AE100EB261D377EC6FBE3C /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F59D694A9020F0959A3D1601E40BACC9 /* CoreText.framework */; };
+		DB865D27C97A05DEA2296F5985BB3562 /* CoachMarkDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E52A4301BDF79F79509947976EB200 /* CoachMarkDisplayManager.swift */; };
+		DE45DAEE660ADE5C146EE7CF7259F35A /* DatePickerDialog-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6216825655C62A0ECD74C7088A87EF /* DatePickerDialog-dummy.m */; };
+		DF01DCB21854764AEC542DC41EFE59EA /* Pods-myApp2-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DEFABEDA878F65BCB69B9C37A767C01F /* Pods-myApp2-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E32F02359A604D994CA16B52FA50C8A0 /* CoachMarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B14ABEAA07721EA88EA40F32DD84CB /* CoachMarksViewController.swift */; };
+		E35ABB4DF79E32DBB8DEEDAE81A53F2E /* UIImage+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96655B9C2FB89CA14B069EFD694ED966 /* UIImage+Bundle.swift */; };
+		E47F1F609724B6051C953237AF25E6E8 /* Instructions-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F7AA6BEED26C2895CE6616634A1E6A /* Instructions-dummy.m */; };
+		EBC3692C17F591515B72449307B35A1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF58CC92310C0395FBA5E5C639C12F03 /* Foundation.framework */; };
+		EC2CCB07B8CCEF669FAF345D29691030 /* IQKeyboardManagerConstantsInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7976C2DACB0260DE57B65B99C825D8 /* IQKeyboardManagerConstantsInternal.swift */; };
+		EE20C85515D53DE61D8435080677F58E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E2B04BC1935A86EB34129AA71C7D83 /* UIKit.framework */; };
+		F374A73CBB605B1C3F2FE0AE89B7A9C4 /* CoachMarkBodyDefaultViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A299F959D85C8586598571CC5A2D2B /* CoachMarkBodyDefaultViewHelper.swift */; };
+		F48DD4AF7C254B7A2F67A690AF8EF143 /* IQBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C59A40F88EA9A139AEC70600B9A378 /* IQBarButtonItem.swift */; };
+		F85030977A6D1BAC697812B41A5905C7 /* UIImage+Hue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13E6499896E8F2A590373D0E3237BB /* UIImage+Hue.swift */; };
+		FB64A64BD408EE7BBD70A4B048315C7D /* FontAwesomeTextRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF41F2E5D97BA6EE4CE2F42F0482DA2 /* FontAwesomeTextRepresentable.swift */; };
+		FD8C615CEC6F1EBDB63BF3240583D2F3 /* FontAwesome.swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE89A505D7D898FAB40A77B324BF145 /* FontAwesome.swift-dummy.m */; };
+		FE16EA205F170B3FFC402D3C18DD0B2A /* MaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2D875B31EA50D17A9FD3A3DB712BC1 /* MaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0691F6FDAB00FEBB6B8537640E8FC0C0 /* PBXContainerItemProxy */ = {
+		1F6759BECA67ABFD3A116DAF4A9E8B0B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6FFF9A0488BA9FA46CAC0F6F1BA0A397;
-			remoteInfo = Instructions;
+			remoteGlobalIDString = 119DF566994076B600582D90BB9B34F6;
+			remoteInfo = SCLAlertView;
 		};
-		23968B0A923646FC1BB519A5F129FA86 /* PBXContainerItemProxy */ = {
+		365E83F792DB452AB7E7CE75F10549F0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 184A1650DC0B648BD756068E60BF2C59;
 			remoteInfo = DatePickerDialog;
 		};
-		4C4ECFB54FF5166B04CDF088427AC07D /* PBXContainerItemProxy */ = {
+		38D56542BA82C613B727249876BFA1B1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 05B5E6B6BF53C2C31E616E4C5644E8BB;
-			remoteInfo = Cartography;
+			remoteGlobalIDString = C235F77E101E742652CCF98FFDFA5182;
+			remoteInfo = IQKeyboardManagerSwift;
+		};
+		8061C1BA17BB1182632D3320DF346FA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6FFF9A0488BA9FA46CAC0F6F1BA0A397;
+			remoteInfo = Instructions;
+		};
+		8F6072F1AF970D42EE6793886C881809 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2542602E50EDF091ADB18B4688DF34F;
+			remoteInfo = Hue;
 		};
 		A1E7ADA9414728070F39599079B02152 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -144,169 +151,147 @@
 			remoteGlobalIDString = 6991F49AED797519343B1F4591001691;
 			remoteInfo = "FontAwesome.swift-FontAwesome.swift";
 		};
-		BC2CEC3D4E171A49489A0BDB9C89E41D /* PBXContainerItemProxy */ = {
+		B28C226C1283C14D96681052372F2E5B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CD11672B6619C297B6AEE3DFB8213C59;
 			remoteInfo = FontAwesome.swift;
 		};
-		DA8B786EDFADB266F5BEF3AAFB58DC3F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F7829A96C2428F44204E752A2157A02A;
-			remoteInfo = SCLAlertView;
-		};
-		F09F0FD6D979922193F3E9457A4D17F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B2542602E50EDF091ADB18B4688DF34F;
-			remoteInfo = Hue;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		008F538B0AA3FB6D9E98330C831C903B /* FontAwesomeImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeImageView.swift; path = FontAwesome/FontAwesomeImageView.swift; sourceTree = "<group>"; };
-		026E3ABD8960472A0194358A943CF162 /* Hue-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Hue-umbrella.h"; sourceTree = "<group>"; };
-		037916E2128C28DC672CC85E8984F8A4 /* Hue.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Hue.modulemap; sourceTree = "<group>"; };
-		03811484DAB2A44CAF736580B0AF67B3 /* CoachMarksControllerDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarksControllerDataSource.swift; path = Sources/Instructions/Protocols/Public/CoachMarksControllerDataSource.swift; sourceTree = "<group>"; };
-		04D9A16CA004030311052DF7DC1B5341 /* FontAwesome.swift.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = FontAwesome.swift.bundle; path = "FontAwesome.swift-FontAwesome.swift.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0915C532550E7667EB52593E4C0520CE /* Size.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Size.swift; path = Cartography/Size.swift; sourceTree = "<group>"; };
-		0DA7623AF93636AE1346B38D7732187F /* Instructions.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Instructions.modulemap; sourceTree = "<group>"; };
-		0E3817742D3411D5772BD96A31CFC54A /* Distribute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Distribute.swift; path = Cartography/Distribute.swift; sourceTree = "<group>"; };
+		0026A12B8A15C737C7D213D99730BDE1 /* CoachMarkSkipView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkSkipView.swift; path = Sources/Instructions/Protocols/Public/CoachMarkSkipView.swift; sourceTree = "<group>"; };
+		029D4582C54643B870D8F3C99CCB5293 /* CoachMarkArrowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkArrowView.swift; path = Sources/Instructions/Protocols/Public/CoachMarkArrowView.swift; sourceTree = "<group>"; };
+		02E52A4301BDF79F79509947976EB200 /* CoachMarkDisplayManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkDisplayManager.swift; path = Sources/Instructions/Managers/Internal/CoachMarkDisplayManager.swift; sourceTree = "<group>"; };
+		03F5FABB787C3CA81332B19AD6DB5532 /* IQKeyboardManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardManager.swift; path = IQKeyboardManagerSwift/IQKeyboardManager.swift; sourceTree = "<group>"; };
+		0548A0B90E8C407CCB473F7E471334D1 /* Pods_myApp2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_myApp2.framework; path = "Pods-myApp2.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05662BC86960707CFC80ED46D305CEA4 /* IQUIView+IQKeyboardToolbar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIView+IQKeyboardToolbar.swift"; path = "IQKeyboardManagerSwift/IQToolbar/IQUIView+IQKeyboardToolbar.swift"; sourceTree = "<group>"; };
+		0A8A0D860B3DA464F271F09571A231F5 /* IQUIViewController+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIViewController+Additions.swift"; path = "IQKeyboardManagerSwift/Categories/IQUIViewController+Additions.swift"; sourceTree = "<group>"; };
+		0AF41F2E5D97BA6EE4CE2F42F0482DA2 /* FontAwesomeTextRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeTextRepresentable.swift; path = FontAwesome/FontAwesomeTextRepresentable.swift; sourceTree = "<group>"; };
+		0BE5163E210341C71A400058CD116A78 /* SCLAlertView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCLAlertView-umbrella.h"; sourceTree = "<group>"; };
+		0C5E9D57BB2C751E929757E91B833604 /* Instructions-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Instructions-prefix.pch"; sourceTree = "<group>"; };
+		0EE73BB267058A15C9EDC05546DDC0C3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F9232048EB2CA26873BE40D03534AB1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FF39617AC75104661A07D958900CB02 /* SkipViewDisplayManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkipViewDisplayManager.swift; path = Sources/Instructions/Managers/Internal/SkipViewDisplayManager.swift; sourceTree = "<group>"; };
 		100916DE6EC0FC9259054650A188606A /* Pods-myApp2-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-myApp2-acknowledgements.plist"; sourceTree = "<group>"; };
-		10BB73CF2945AC8BDD20122F62784B14 /* SCLAlertView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SCLAlertView.xcconfig; sourceTree = "<group>"; };
-		1190FD2D06521971C936B8B238CF2C18 /* MaskView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MaskView.swift; path = Sources/Instructions/Views/MaskView.swift; sourceTree = "<group>"; };
-		13A68AD7037FF7F86719774D6875D80A /* OverlayView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OverlayView.swift; path = Sources/Instructions/Views/OverlayView.swift; sourceTree = "<group>"; };
+		112F06B286D9DBD8816510E2DF18702A /* IQKeyboardReturnKeyHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardReturnKeyHandler.swift; path = IQKeyboardManagerSwift/IQKeyboardReturnKeyHandler.swift; sourceTree = "<group>"; };
+		124253EC9CDA6A2EE92F4FF4905E86B8 /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FontAwesome_swift.framework; path = FontAwesome.swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		150B9B04FA5E1A3D192E357B03D132DD /* IQPreviousNextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQPreviousNextView.swift; path = IQKeyboardManagerSwift/IQToolbar/IQPreviousNextView.swift; sourceTree = "<group>"; };
 		15151C44ABFA9A45A1DD41571A58DBAD /* Pods-myApp2-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-myApp2-acknowledgements.markdown"; sourceTree = "<group>"; };
-		167CBA0430B5A24907C31C9FCC405237 /* UIImage+Hue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Hue.swift"; path = "Source/iOS/UIImage+Hue.swift"; sourceTree = "<group>"; };
-		1E58B5000B4A452C6167B7292B2560CB /* View.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = View.swift; path = Cartography/View.swift; sourceTree = "<group>"; };
-		21C2FCA130FAD596F16A22DA149FB77B /* DatePickerDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DatePickerDialog.framework; path = DatePickerDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		225C5E4A6210DA8BC3E4276B140AB569 /* Instructions-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Instructions-dummy.m"; sourceTree = "<group>"; };
-		225C86AF54B944EB64F7F22DEF5DB866 /* ConstraintGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintGroup.swift; path = Cartography/ConstraintGroup.swift; sourceTree = "<group>"; };
-		22B06A39486A6563DB5E968366D0BBBD /* FontAwesome.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FontAwesome.swift-dummy.m"; sourceTree = "<group>"; };
-		233920B95B728D7AA9B425EABED0C7D7 /* DatePickerDialog-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DatePickerDialog-umbrella.h"; sourceTree = "<group>"; };
-		23480D7130ACE7C04001B3232E12726D /* Hue-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Hue-prefix.pch"; sourceTree = "<group>"; };
-		27BE1AF8CEE8818CBCFD0010AE8BEE51 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		293C2AD4C943A2C99C383B15354F6D93 /* SCLAlertView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCLAlertView-prefix.pch"; sourceTree = "<group>"; };
-		2BD27DE0CB12AA690771E88F6B02BB79 /* FontAwesome.swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome.swift-umbrella.h"; sourceTree = "<group>"; };
-		2E063F0001AA02B4C25A091EC046F326 /* OverlayStyleManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OverlayStyleManager.swift; path = Sources/Instructions/Managers/Internal/OverlayStyleManager/OverlayStyleManager.swift; sourceTree = "<group>"; };
-		2F93A97B964DF41F2372ACA7A4289558 /* InstructionsRootView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InstructionsRootView.swift; path = Sources/Instructions/Views/InstructionsRootView.swift; sourceTree = "<group>"; };
-		32ABCDEF8B2B4F2659618825900EE9A6 /* AutoresizingMaskLayoutProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AutoresizingMaskLayoutProxy.swift; path = Cartography/AutoresizingMaskLayoutProxy.swift; sourceTree = "<group>"; };
-		3678AE62CE57B5AA77B7B128B6213499 /* Instructions.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Instructions.xcconfig; sourceTree = "<group>"; };
-		38DAC8D4123F922183D1D8BACC7BA2D3 /* CoachMarkBodyView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkBodyView.swift; path = Sources/Instructions/Protocols/Public/CoachMarkBodyView.swift; sourceTree = "<group>"; };
-		39FEEF019467F044348673C3A77F26FB /* CoachMarksController+Proxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CoachMarksController+Proxy.swift"; path = "Sources/Instructions/Core/Public/Extensions/CoachMarksController+Proxy.swift"; sourceTree = "<group>"; };
-		3C8FF23C45E73ECB8E78B56D0BF56ABE /* Cartography-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cartography-dummy.m"; sourceTree = "<group>"; };
-		3CF67AD854E02AC146CA9B230683A130 /* FontAwesomeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeView.swift; path = FontAwesome/FontAwesomeView.swift; sourceTree = "<group>"; };
-		3F81B4B7BFC02B8C614A1E26E0669E30 /* CoachMarksViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarksViewController.swift; path = Sources/Instructions/Core/Internal/CoachMarksViewController.swift; sourceTree = "<group>"; };
-		4132AAFF20F1D0B9D96DCA956256A410 /* DatePickerDialog-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DatePickerDialog-prefix.pch"; sourceTree = "<group>"; };
-		41C275E6E3C78BFA8AD821A56EEB5DD9 /* CoachMarkBodyDefaultViewHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkBodyDefaultViewHelper.swift; path = Sources/Instructions/Helpers/Public/CoachMarkBodyDefaultViewHelper.swift; sourceTree = "<group>"; };
-		426D4AA4CC9DB11305231D7330D4E585 /* FontAwesome.swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FontAwesome.swift.xcconfig; sourceTree = "<group>"; };
-		42A1B83721628BA764CD06F70CA5C7FA /* FontAwesomeImageRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeImageRepresentable.swift; path = FontAwesome/FontAwesomeImageRepresentable.swift; sourceTree = "<group>"; };
-		475B45AB24EADC45B9DF99FD399E013D /* Point.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Point.swift; path = Cartography/Point.swift; sourceTree = "<group>"; };
-		49DE57FE1A170944B185B809E65A3929 /* CoachMarksControllerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarksControllerDelegate.swift; path = Sources/Instructions/Protocols/Public/CoachMarksControllerDelegate.swift; sourceTree = "<group>"; };
-		4B0132C88534D8076C2DF33D6BFC8AF0 /* CoachMarkView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkView.swift; path = Sources/Instructions/Views/CoachMarkView.swift; sourceTree = "<group>"; };
+		1670DA34681D6B638FEF0DEE389B9C2E /* IQUIScrollView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIScrollView+Additions.swift"; path = "IQKeyboardManagerSwift/Categories/IQUIScrollView+Additions.swift"; sourceTree = "<group>"; };
+		17A1E1E5607A63C1B96CC16506B22120 /* OverlayManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OverlayManager.swift; path = Sources/Instructions/Managers/Public/OverlayManager.swift; sourceTree = "<group>"; };
+		1DA5A280AAB132FCB4EB77A5DD527FC8 /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUITextFieldView+Additions.swift"; path = "IQKeyboardManagerSwift/Categories/IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
+		1E6510510C19CEBA118493DB9E0AD60D /* FontAwesome.swift.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = FontAwesome.swift.bundle; path = "FontAwesome.swift-FontAwesome.swift.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		20CAF1960AF45CD51EC744FE6F243D23 /* UIColor+Hue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Hue.swift"; path = "Source/iOS/UIColor+Hue.swift"; sourceTree = "<group>"; };
+		20F7AA6BEED26C2895CE6616634A1E6A /* Instructions-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Instructions-dummy.m"; sourceTree = "<group>"; };
+		2509BB8FCC72D6205DCA0D9A6017473E /* FontAwesomeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeView.swift; path = FontAwesome/FontAwesomeView.swift; sourceTree = "<group>"; };
+		279BC62F2DBE5428B7E78D3B09E13FED /* Hue.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Hue.xcconfig; sourceTree = "<group>"; };
+		27DBE7E01C26A50F9033FE837BABC769 /* Instructions.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Instructions.modulemap; sourceTree = "<group>"; };
+		28A299F959D85C8586598571CC5A2D2B /* CoachMarkBodyDefaultViewHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkBodyDefaultViewHelper.swift; path = Sources/Instructions/Helpers/Public/CoachMarkBodyDefaultViewHelper.swift; sourceTree = "<group>"; };
+		290E5434D14C47CB05F48E2B60DAE37A /* CoachMarkSkipDefaultView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkSkipDefaultView.swift; path = "Sources/Instructions/Extra/Default Views/CoachMarkSkipDefaultView.swift"; sourceTree = "<group>"; };
+		2A351B83BA9B89B22A6BDED9F30C35FE /* CoachMarkLayoutHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkLayoutHelper.swift; path = Sources/Instructions/Helpers/Internal/CoachMarkLayoutHelper.swift; sourceTree = "<group>"; };
+		2FFABA4768E2772AAF101AFA015D7CB3 /* DatePickerDialog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatePickerDialog.swift; path = Sources/DatePickerDialog.swift; sourceTree = "<group>"; };
+		31184806FB3FF41CA806EF94CC02ADCD /* CoachMarkArrowOrientation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkArrowOrientation.swift; path = Sources/Instructions/Helpers/Public/Enums/CoachMarkArrowOrientation.swift; sourceTree = "<group>"; };
+		31E61FA610FDF06A913447935749225C /* UIView+Layout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Layout.swift"; path = "Sources/Instructions/Helpers/Internal/Extensions/UIView+Layout.swift"; sourceTree = "<group>"; };
+		32E2B04BC1935A86EB34129AA71C7D83 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		3959AF4CE7A56C03AB9B6074151766EC /* SCLAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SCLAlertView.framework; path = SCLAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AD1F79A4E4F845A395ECE6AEC488F3E /* FontAwesomeTabBarItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeTabBarItem.swift; path = FontAwesome/FontAwesomeTabBarItem.swift; sourceTree = "<group>"; };
+		3C058DD29120BD01E08C916CE2C63FAD /* IQKeyboardManagerSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQKeyboardManagerSwift-umbrella.h"; sourceTree = "<group>"; };
+		3CAA8B6C3CC84FB083A1D2502C07A23B /* OverlayStyleManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OverlayStyleManager.swift; path = Sources/Instructions/Managers/Internal/OverlayStyleManager/OverlayStyleManager.swift; sourceTree = "<group>"; };
+		3FD45C8A248ACEAD3D70DB4818EEA1D4 /* DatePickerDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DatePickerDialog.framework; path = DatePickerDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41ABA3E243F78E68408B80D2EAC62C92 /* FontAwesome.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FontAwesome.swift.modulemap; sourceTree = "<group>"; };
+		467D2882DBDA9F59C09A9B0778E54E13 /* CoachMarksControllerDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarksControllerDataSource.swift; path = Sources/Instructions/Protocols/Public/CoachMarksControllerDataSource.swift; sourceTree = "<group>"; };
+		46B2BEEF35FE4FC3930DBCC8FD3D5E29 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = IQKeyboardManager.bundle; path = IQKeyboardManagerSwift/Resources/IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		4818294CB6EF6F38D99222706F25F5B9 /* IQUIWindow+Hierarchy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIWindow+Hierarchy.swift"; path = "IQKeyboardManagerSwift/Categories/IQUIWindow+Hierarchy.swift"; sourceTree = "<group>"; };
 		4B63AED8609B3DEB171BF3BC7998B221 /* Pods-myApp2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-myApp2.release.xcconfig"; sourceTree = "<group>"; };
-		4BFFB7A692755C469E18FAAA62E998B0 /* Edge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Edge.swift; path = Cartography/Edge.swift; sourceTree = "<group>"; };
-		4F063DD5BAF281B71AEFB23D877E5FDA /* DummyView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DummyView.swift; path = Sources/Instructions/Views/DummyView.swift; sourceTree = "<group>"; };
-		53D56DEEE7AB0AE266827666F75D20F5 /* FlowManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FlowManager.swift; path = Sources/Instructions/Managers/Public/FlowManager.swift; sourceTree = "<group>"; };
+		51F92CB8B81D5BC5B54865EEED50C43E /* FlowManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FlowManager.swift; path = Sources/Instructions/Managers/Public/FlowManager.swift; sourceTree = "<group>"; };
 		53EC34BA34F0C0EE42CCDB91C348A2BB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		54D1BDCC9F8DC4D1E8A6CD79E9ABAFC1 /* LayoutProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutProxy.swift; path = Cartography/LayoutProxy.swift; sourceTree = "<group>"; };
-		5B42D0026D2A8C9F8AB00C04118E7971 /* SCLAlertView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SCLAlertView-dummy.m"; sourceTree = "<group>"; };
-		5C6A7A7DF6EB7F775013D4411D08CC4F /* Priority.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Priority.swift; path = Cartography/Priority.swift; sourceTree = "<group>"; };
+		57D2614F883D499955E78D2E4AD8B2E5 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Sources/Instructions/Supporting Files/Images.xcassets"; sourceTree = "<group>"; };
+		60A5893F031A10D8C2212716EECC3126 /* FontAwesome.swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome.swift-umbrella.h"; sourceTree = "<group>"; };
 		63849019B64B4A82BE203961A7B3E338 /* Pods-myApp2-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-myApp2-dummy.m"; sourceTree = "<group>"; };
-		63E3E2B28EC8802352ECD7A488EB3883 /* SCLAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SCLAlertView.modulemap; sourceTree = "<group>"; };
-		656C4B7A71D2FA9F6B342F031CF632C5 /* FontAwesomeBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeBarButtonItem.swift; path = FontAwesome/FontAwesomeBarButtonItem.swift; sourceTree = "<group>"; };
-		6AD7CE331315736DE8A8A5891FCB84E6 /* CoachMarkArrowOrientation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkArrowOrientation.swift; path = Sources/Instructions/Helpers/Public/Enums/CoachMarkArrowOrientation.swift; sourceTree = "<group>"; };
-		6B735762837DA6945E9093CAAFE851B2 /* UIImage+Bundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Bundle.swift"; path = "Sources/Instructions/Helpers/Internal/Extensions/UIImage+Bundle.swift"; sourceTree = "<group>"; };
-		6F62CAB95F250497DB942DC8DF2FEA8B /* FontAwesomeTabBarItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeTabBarItem.swift; path = FontAwesome/FontAwesomeTabBarItem.swift; sourceTree = "<group>"; };
-		719B13F388F1614073153BC446EB5190 /* Enum.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Enum.swift; path = FontAwesome/Enum.swift; sourceTree = "<group>"; };
-		72FC429AAB8079EC3C0C6448747323D8 /* Coefficients.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Coefficients.swift; path = Cartography/Coefficients.swift; sourceTree = "<group>"; };
-		7326544C260C60ACF5CB0850575C0D0D /* UIColor+Hue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Hue.swift"; path = "Source/iOS/UIColor+Hue.swift"; sourceTree = "<group>"; };
-		74E639B4AD1E77D35B16A821F23C995F /* CoachMarkBodyHighlightArrowDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkBodyHighlightArrowDelegate.swift; path = Sources/Instructions/Protocols/Public/CoachMarkBodyHighlightArrowDelegate.swift; sourceTree = "<group>"; };
-		75E3B52621DB10CE6B91C0051E2BE71A /* Constrain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constrain.swift; path = Cartography/Constrain.swift; sourceTree = "<group>"; };
-		7723276DA130A9864ED1C1A855BFDC85 /* Property.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Property.swift; path = Cartography/Property.swift; sourceTree = "<group>"; };
-		775B32CAE7057A0C1A821484190A340E /* CoachMarkPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkPosition.swift; path = Sources/Instructions/Helpers/Internal/Enums/CoachMarkPosition.swift; sourceTree = "<group>"; };
-		78B72964A180AEFD91E94AF255AD383A /* Align.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Align.swift; path = Cartography/Align.swift; sourceTree = "<group>"; };
-		79618CF84ECB80205A65CF9EF0E7E8D2 /* CoachMarkHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkHelper.swift; path = Sources/Instructions/Helpers/Public/CoachMarkHelper.swift; sourceTree = "<group>"; };
-		7B064DB85F77B0CFE6630835425042A8 /* Instructions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Instructions.swift; path = Sources/Instructions/Instructions.swift; sourceTree = "<group>"; };
-		7BE57E7F5383E849EF694F085BDC3816 /* FontAwesomeSegmentedControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeSegmentedControl.swift; path = FontAwesome/FontAwesomeSegmentedControl.swift; sourceTree = "<group>"; };
-		7CEEE6AC9512FCF1CA9C83DE4AF25F21 /* LayoutSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutSupport.swift; path = Cartography/LayoutSupport.swift; sourceTree = "<group>"; };
-		8009031CD1529AC89F9398D4874BDD2D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		85226E9943245ABB153CA8EC2748862E /* LayoutGuideProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutGuideProxy.swift; path = Cartography/LayoutGuideProxy.swift; sourceTree = "<group>"; };
-		856C6F75820B51D145C389F840475F73 /* DatePickerDialog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatePickerDialog.swift; path = Sources/DatePickerDialog.swift; sourceTree = "<group>"; };
+		64B14ABEAA07721EA88EA40F32DD84CB /* CoachMarksViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarksViewController.swift; path = Sources/Instructions/Core/Internal/CoachMarksViewController.swift; sourceTree = "<group>"; };
+		69AEE9698F56F78F9026BD6178F6B740 /* Instructions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Instructions.framework; path = Instructions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A46D57BE7687C1BC39D83BF84480A08 /* CoachMark.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMark.swift; path = Sources/Instructions/Core/Public/CoachMark.swift; sourceTree = "<group>"; };
+		6B7687C5E1EC5D989CC820B0EFD86497 /* TranslucentOverlayStyleManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TranslucentOverlayStyleManager.swift; path = Sources/Instructions/Managers/Internal/OverlayStyleManager/TranslucentOverlayStyleManager.swift; sourceTree = "<group>"; };
+		6B77A7996D681DA3093684242D1457D1 /* DatePickerDialog-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DatePickerDialog-umbrella.h"; sourceTree = "<group>"; };
+		6D78B8E52CDC42CF35FA497EC1827AF3 /* CoachMarkBodyDefaultView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkBodyDefaultView.swift; path = "Sources/Instructions/Extra/Default Views/CoachMarkBodyDefaultView.swift"; sourceTree = "<group>"; };
+		6EA622634BDBD7E9D1FF8CF6EC0C83CB /* CoachMarkView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkView.swift; path = Sources/Instructions/Views/CoachMarkView.swift; sourceTree = "<group>"; };
+		721349452F7BC7F00D0B213C4B0560C0 /* IQKeyboardManagerSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IQKeyboardManagerSwift-dummy.m"; sourceTree = "<group>"; };
+		728CBCB196CC7BB5B5670B40D52E4440 /* CoachMarksController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarksController.swift; path = Sources/Instructions/Core/Public/CoachMarksController.swift; sourceTree = "<group>"; };
+		75724AFC8DB229902C200CFD229B7576 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		762DFE729B748D9D87D645AC2B2706BC /* IQToolbar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQToolbar.swift; path = IQKeyboardManagerSwift/IQToolbar/IQToolbar.swift; sourceTree = "<group>"; };
+		76963CACCCAF4E71BB800C76AC2A90EA /* SCLAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SCLAlertView.modulemap; sourceTree = "<group>"; };
+		776380A2F6FB0204FDEE84549C4963C7 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = IQKeyboardManagerSwift.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		782037AEA49042C48440D7725DF38FC8 /* ResourceBundle-FontAwesome.swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-FontAwesome.swift-Info.plist"; sourceTree = "<group>"; };
+		7A1B435377A1C316B99E8C91D16A7DD3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C72AB685FDED2D0AC0D3FB46276B78F /* IQKeyboardManagerSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQKeyboardManagerSwift-prefix.pch"; sourceTree = "<group>"; };
+		7E4EE262349108144307D042F49DE193 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		7E553CF633C6FC87296655D9B7376050 /* SCLAlertView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SCLAlertView.xcconfig; sourceTree = "<group>"; };
+		7EE8C1D5F8BD5AC6BF0102CD6A5A27E3 /* OverlaySnapshotView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OverlaySnapshotView.swift; path = Sources/Instructions/Views/OverlaySnapshotView.swift; sourceTree = "<group>"; };
+		819DBD2B3DDA16D86937E94994981F40 /* SCLAlertView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCLAlertView-prefix.pch"; sourceTree = "<group>"; };
+		8340BF7F2B0DCFEFCFEF4BA666440646 /* FontAwesome.otf */ = {isa = PBXFileReference; includeInIndex = 1; name = FontAwesome.otf; path = FontAwesome/FontAwesome.otf; sourceTree = "<group>"; };
+		836E4817D58F824B681766A9EE9A9E78 /* InstructionsWindow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InstructionsWindow.swift; path = Sources/Instructions/Views/InstructionsWindow.swift; sourceTree = "<group>"; };
+		8411F4BAFFCBF27B0E935FA02747A7B3 /* FontAwesomeStateRequirement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeStateRequirement.swift; path = FontAwesome/FontAwesomeStateRequirement.swift; sourceTree = "<group>"; };
+		87C59A40F88EA9A139AEC70600B9A378 /* IQBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQBarButtonItem.swift; path = IQKeyboardManagerSwift/IQToolbar/IQBarButtonItem.swift; sourceTree = "<group>"; };
+		881DB819594115EACFC814544618E03A /* Hue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Hue.framework; path = Hue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C41401E6909469A845870870D410C1 /* Pods-myApp2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-myApp2.debug.xcconfig"; sourceTree = "<group>"; };
-		88D4606A37B052322C4417245852C4C2 /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FontAwesome_swift.framework; path = FontAwesome.swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B1F37B796F940A97F7C0FE3F4EA8CA3 /* InstructionsWindow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InstructionsWindow.swift; path = Sources/Instructions/Views/InstructionsWindow.swift; sourceTree = "<group>"; };
-		8B343026DE11B2BB89741A7D4928284B /* Cartography.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cartography.xcconfig; sourceTree = "<group>"; };
-		8C6AC58DF5333ECFFF8768CD2EEE2C2D /* CoachMarkSkipView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkSkipView.swift; path = Sources/Instructions/Protocols/Public/CoachMarkSkipView.swift; sourceTree = "<group>"; };
-		8D52E61D4DF5D2371ADA87FB332D1397 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8E27F629D0A613FDD79886541E00CE5B /* Constraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = Cartography/Constraint.swift; sourceTree = "<group>"; };
-		8EBDAEEAAC1A20AA238F24C9AE8AB940 /* Context.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Context.swift; path = Cartography/Context.swift; sourceTree = "<group>"; };
-		8EE32C9F1180AF949F860A23423F834D /* Instructions-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Instructions-umbrella.h"; sourceTree = "<group>"; };
-		8FFD15A49F9DDFF1F7A012BE21965813 /* SCLAlertView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SCLAlertView.swift; path = SCLAlertView/SCLAlertView.swift; sourceTree = "<group>"; };
-		91A29DBB6521AC90EC2A58C3D827625D /* OverlayManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OverlayManager.swift; path = Sources/Instructions/Managers/Public/OverlayManager.swift; sourceTree = "<group>"; };
-		9370F58506D90973B77BD68E090CCB0D /* CoachMarkInnerLayoutHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkInnerLayoutHelper.swift; path = Sources/Instructions/Helpers/Internal/CoachMarkInnerLayoutHelper.swift; sourceTree = "<group>"; };
+		88CC224A682348AB2EC90C83FAA3CD85 /* Hue-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Hue-umbrella.h"; sourceTree = "<group>"; };
+		8CB39A2C92FC2BA051658C311258ED40 /* DatePickerDialog-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DatePickerDialog-prefix.pch"; sourceTree = "<group>"; };
+		9026476014BE8B45BABDDA1FAE932C13 /* IQKeyboardManagerConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardManagerConstants.swift; path = IQKeyboardManagerSwift/Constants/IQKeyboardManagerConstants.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		96378182609835A57FC1867BA9581B80 /* FontAwesome.otf */ = {isa = PBXFileReference; includeInIndex = 1; name = FontAwesome.otf; path = FontAwesome/FontAwesome.otf; sourceTree = "<group>"; };
-		987AF3C6D93B3C881D52151E57EA026C /* SCLAlertView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCLAlertView-umbrella.h"; sourceTree = "<group>"; };
-		9C1F23098243CFCA9AF2C50E4D6FF23F /* Dimension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Dimension.swift; path = Cartography/Dimension.swift; sourceTree = "<group>"; };
-		A08593129B26E223E5219F704DA5F916 /* FontAwesome.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FontAwesome.swift.modulemap; sourceTree = "<group>"; };
-		A237230AC7DF21B333F1C9215423E786 /* CoachMarkArrowDefaultView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkArrowDefaultView.swift; path = "Sources/Instructions/Extra/Default Views/CoachMarkArrowDefaultView.swift"; sourceTree = "<group>"; };
-		A534C774DF4556619A5D4AC896813F6B /* SkipViewDisplayManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkipViewDisplayManager.swift; path = Sources/Instructions/Managers/Internal/SkipViewDisplayManager.swift; sourceTree = "<group>"; };
-		A68BACB765D0DD5FA9F887A627BE1543 /* Instructions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Instructions.framework; path = Instructions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A98B305DE6BA7FFF542952568366196C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ABCC51B66276F15624C5D7199955281C /* DatePickerDialog.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DatePickerDialog.xcconfig; sourceTree = "<group>"; };
-		ABF428493562C4166D459E0711ABE122 /* LayoutItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutItem.swift; path = Cartography/LayoutItem.swift; sourceTree = "<group>"; };
-		B0C2269A49A68FBCF294BAD9B9EDC25F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B1396CECAF60045C9717980EE1183E78 /* CoachMarkBodyDefaultView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkBodyDefaultView.swift; path = "Sources/Instructions/Extra/Default Views/CoachMarkBodyDefaultView.swift"; sourceTree = "<group>"; };
-		B3F7FAD0082C4DC5B59ED1A7A5776E0C /* SCLAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SCLAlertView.framework; path = SCLAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B412F0F0B02CBDAE98A27D77DD365A0E /* LayoutProxy+TypeErasure.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "LayoutProxy+TypeErasure.swift"; path = "Cartography/LayoutProxy+TypeErasure.swift"; sourceTree = "<group>"; };
-		B5753879CCF35633905A503C9E484A69 /* CoachMarkArrowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkArrowView.swift; path = Sources/Instructions/Protocols/Public/CoachMarkArrowView.swift; sourceTree = "<group>"; };
-		B5D0430E2CCC57B285C38DADC8AF0D97 /* Pods_myApp2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_myApp2.framework; path = "Pods-myApp2.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BAA4EEA6D62EAD8DE5D7731ED3668999 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF15EF1FFBD8BA0EA97AD58498C21573 /* ResourceBundle-FontAwesome.swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-FontAwesome.swift-Info.plist"; sourceTree = "<group>"; };
-		C4D9CC07F4F9123A6F7A46091544E6D4 /* FontAwesome.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesome.swift; path = FontAwesome/FontAwesome.swift; sourceTree = "<group>"; };
-		C55C580E1FC5B6E9F442FE42A9553FEA /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
-		C64CB227FCCA6309925BF8BA57E20BB6 /* Instructions-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Instructions-prefix.pch"; sourceTree = "<group>"; };
-		C6D399C18FDF2D5D33A17E93D1FF5B99 /* CoachMark.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMark.swift; path = Sources/Instructions/Core/Public/CoachMark.swift; sourceTree = "<group>"; };
-		C7C837E149BCEA46962BD8B221BA9CD0 /* Cartography.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Cartography.framework; path = Cartography.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CAC83AF2B26FA5105E9CB3C116CF0F8C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CF1C320934DAE1E07BB5906839176E80 /* CoachMarkLayoutHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkLayoutHelper.swift; path = Sources/Instructions/Helpers/Internal/CoachMarkLayoutHelper.swift; sourceTree = "<group>"; };
-		D01121314F812731D18EE73E1ED429A9 /* CoachMarkViewControllerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkViewControllerDelegate.swift; path = Sources/Instructions/Protocols/Internal/CoachMarkViewControllerDelegate.swift; sourceTree = "<group>"; };
-		D026FE9C071CDE11BE5F979047B17594 /* FontAwesome.swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome.swift-prefix.pch"; sourceTree = "<group>"; };
-		D3AE038FE354D01835888314B5BBE82A /* Hue-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Hue-dummy.m"; sourceTree = "<group>"; };
-		D55016BB59B7D4E107F4280D7E62B300 /* LayoutGuide.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutGuide.swift; path = Cartography/LayoutGuide.swift; sourceTree = "<group>"; };
-		D5A31D04D06C8956764FEDB6D4D8E4BF /* Expression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Expression.swift; path = Cartography/Expression.swift; sourceTree = "<group>"; };
-		D5B189964170525A779DAA21009B1D2B /* Cartography-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cartography-umbrella.h"; sourceTree = "<group>"; };
-		D711EA2E5C7F021B8836BA9E255851C2 /* Hue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Hue.framework; path = Hue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9F034C83097A049013B95534F6A8EEF /* Hue.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Hue.xcconfig; sourceTree = "<group>"; };
-		DA75A289D2A77F7B90EBDAC36637378B /* BlurringOverlayStyleManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlurringOverlayStyleManager.swift; path = Sources/Instructions/Managers/Internal/OverlayStyleManager/BlurringOverlayStyleManager.swift; sourceTree = "<group>"; };
-		DBABD3BA4F464F8351705EC029421EBD /* OverlaySnapshotView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OverlaySnapshotView.swift; path = Sources/Instructions/Views/OverlaySnapshotView.swift; sourceTree = "<group>"; };
+		94C17ED15DE703ED46637F6B703D660C /* Instructions.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Instructions.xcconfig; sourceTree = "<group>"; };
+		96655B9C2FB89CA14B069EFD694ED966 /* UIImage+Bundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Bundle.swift"; path = "Sources/Instructions/Helpers/Internal/Extensions/UIImage+Bundle.swift"; sourceTree = "<group>"; };
+		98147DC78A101028D3F9F9EC3CDA279F /* CoachMarksController+Proxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CoachMarksController+Proxy.swift"; path = "Sources/Instructions/Core/Public/Extensions/CoachMarksController+Proxy.swift"; sourceTree = "<group>"; };
+		9B2D60292CC92E3A7736A323194A3005 /* OverlayView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OverlayView.swift; path = Sources/Instructions/Views/OverlayView.swift; sourceTree = "<group>"; };
+		A0835FC09F3A8C300FF10DAF4DF0C3C9 /* CoachMarkPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkPosition.swift; path = Sources/Instructions/Helpers/Internal/Enums/CoachMarkPosition.swift; sourceTree = "<group>"; };
+		A1147A4E70F8A2518B82EE166CAEE8B7 /* CoachMarkArrowDefaultView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkArrowDefaultView.swift; path = "Sources/Instructions/Extra/Default Views/CoachMarkArrowDefaultView.swift"; sourceTree = "<group>"; };
+		A20F493072B03AF79D12FAE06371C653 /* Enum.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Enum.swift; path = FontAwesome/Enum.swift; sourceTree = "<group>"; };
+		A55A280A9DEFBC8DA3A8D0FB50021E2D /* InstructionsRootView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InstructionsRootView.swift; path = Sources/Instructions/Views/InstructionsRootView.swift; sourceTree = "<group>"; };
+		AA2C6648CF5295B12C839A62A00FB266 /* IQTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQTextView.swift; path = IQKeyboardManagerSwift/IQTextView/IQTextView.swift; sourceTree = "<group>"; };
+		AA77A22994C0C5069CE28EF5D20343E9 /* BlurringOverlayStyleManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlurringOverlayStyleManager.swift; path = Sources/Instructions/Managers/Internal/OverlayStyleManager/BlurringOverlayStyleManager.swift; sourceTree = "<group>"; };
+		AEF850F5D791E01DAD884AE5FEFE8CF8 /* CoachMarkBodyHighlightArrowDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkBodyHighlightArrowDelegate.swift; path = Sources/Instructions/Protocols/Public/CoachMarkBodyHighlightArrowDelegate.swift; sourceTree = "<group>"; };
+		B06D14D11BC358D59DC1893D10FC89DC /* SCLAlertView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SCLAlertView.swift; path = SCLAlertView/SCLAlertView.swift; sourceTree = "<group>"; };
+		B3B54E5AF57CA4243AAE10F6FBF0AE1A /* FontAwesomeSegmentedControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeSegmentedControl.swift; path = FontAwesome/FontAwesomeSegmentedControl.swift; sourceTree = "<group>"; };
+		BA039EF130032BC668AA4DA3705E8267 /* Hue-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Hue-prefix.pch"; sourceTree = "<group>"; };
+		BA2D875B31EA50D17A9FD3A3DB712BC1 /* MaskView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MaskView.swift; path = Sources/Instructions/Views/MaskView.swift; sourceTree = "<group>"; };
+		BCE89A505D7D898FAB40A77B324BF145 /* FontAwesome.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FontAwesome.swift-dummy.m"; sourceTree = "<group>"; };
+		BF5BE2B5977F952E472A26BEE61A8BF5 /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQNSArray+Sort.swift"; path = "IQKeyboardManagerSwift/Categories/IQNSArray+Sort.swift"; sourceTree = "<group>"; };
+		C000C59A82F15F64A8B63CC34D6E9C93 /* Instructions-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Instructions-umbrella.h"; sourceTree = "<group>"; };
+		C11A97A6C01532154BBFC9DB689F19C7 /* DatePickerDialog.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DatePickerDialog.xcconfig; sourceTree = "<group>"; };
+		C60C37F79B4B5935C468271ECBC1789E /* CoachMarkInnerLayoutHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkInnerLayoutHelper.swift; path = Sources/Instructions/Helpers/Internal/CoachMarkInnerLayoutHelper.swift; sourceTree = "<group>"; };
+		C85E66F75A3AA4065D66DCFF4BE75795 /* FontAwesomeImageRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeImageRepresentable.swift; path = FontAwesome/FontAwesomeImageRepresentable.swift; sourceTree = "<group>"; };
+		CA4B1AD21CF8B1DBF3F766EC017DDCBB /* IQUIView+Hierarchy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIView+Hierarchy.swift"; path = "IQKeyboardManagerSwift/Categories/IQUIView+Hierarchy.swift"; sourceTree = "<group>"; };
+		CDC95B7E2C3F303402DCD49F94A5EE0B /* FontAwesomeImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeImageView.swift; path = FontAwesome/FontAwesomeImageView.swift; sourceTree = "<group>"; };
+		CE35B54C71E8D61E12D500A5F15B160D /* Hue.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Hue.modulemap; sourceTree = "<group>"; };
+		D3338DAF1E7A71C8EB4D8D85E3860180 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D648E3C0EE91275F5F187D4D114B52A7 /* SCLAlertView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SCLAlertView-dummy.m"; sourceTree = "<group>"; };
+		D84AC268335F792F0DFD78C831DE1CE6 /* FontAwesome.swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FontAwesome.swift.xcconfig; sourceTree = "<group>"; };
+		DB5C7E4312EB34BAA9C46EC5C4649158 /* Hue-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Hue-dummy.m"; sourceTree = "<group>"; };
+		DBD75A5E4A40736EA40E85A45CF350F1 /* CoachMarksControllerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarksControllerDelegate.swift; path = Sources/Instructions/Protocols/Public/CoachMarksControllerDelegate.swift; sourceTree = "<group>"; };
+		DC13E6499896E8F2A590373D0E3237BB /* UIImage+Hue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Hue.swift"; path = "Source/iOS/UIImage+Hue.swift"; sourceTree = "<group>"; };
 		DD6DF3AB8785A82D02EC3AF2AB0D3924 /* Pods-myApp2.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-myApp2.modulemap"; sourceTree = "<group>"; };
-		DD877921B49702A73FF647CB157BCAF4 /* DatePickerDialog-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DatePickerDialog-dummy.m"; sourceTree = "<group>"; };
 		DEFABEDA878F65BCB69B9C37A767C01F /* Pods-myApp2-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-myApp2-umbrella.h"; sourceTree = "<group>"; };
-		E18DCE0E833DF63FB2FE0CBE8F034752 /* Cartography.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Cartography.modulemap; sourceTree = "<group>"; };
-		E40BCE0BC739AA36F6E982BBFC50051E /* UIView+Layout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Layout.swift"; path = "Sources/Instructions/Helpers/Internal/Extensions/UIView+Layout.swift"; sourceTree = "<group>"; };
-		E45B34EE14E075D4067D2712C1F50994 /* CoachMarkDisplayManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkDisplayManager.swift; path = Sources/Instructions/Managers/Internal/CoachMarkDisplayManager.swift; sourceTree = "<group>"; };
-		E5D9C0317F66B15C70FD3C49ADC62F25 /* ViewProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewProxy.swift; path = Cartography/ViewProxy.swift; sourceTree = "<group>"; };
-		E676AA274B3BB67BA808A31E57EC1F97 /* Compound.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Compound.swift; path = Cartography/Compound.swift; sourceTree = "<group>"; };
-		E6889DF2556F98407A7D133BB50FACE9 /* CoachMarksController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarksController.swift; path = Sources/Instructions/Core/Public/CoachMarksController.swift; sourceTree = "<group>"; };
-		E7844A71F6A37413F3603C05E16E39BF /* FontAwesomeTextRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeTextRepresentable.swift; path = FontAwesome/FontAwesomeTextRepresentable.swift; sourceTree = "<group>"; };
-		E79A0C46049A0047CB3E287A38934EDB /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Sources/Instructions/Supporting Files/Images.xcassets"; sourceTree = "<group>"; };
-		EEBA603A8C144AD7066F536B1FE837CC /* DatePickerDialog.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DatePickerDialog.modulemap; sourceTree = "<group>"; };
-		EED2BCD4773624E650D10FB29B4C480E /* TranslucentOverlayStyleManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TranslucentOverlayStyleManager.swift; path = Sources/Instructions/Managers/Internal/OverlayStyleManager/TranslucentOverlayStyleManager.swift; sourceTree = "<group>"; };
-		F0A09E9D53C13AC0261EAD13249D0685 /* CoachMarkSkipDefaultView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkSkipDefaultView.swift; path = "Sources/Instructions/Extra/Default Views/CoachMarkSkipDefaultView.swift"; sourceTree = "<group>"; };
-		F2A990192956A1E767D956C091852098 /* FontAwesomeStateRequirement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeStateRequirement.swift; path = FontAwesome/FontAwesomeStateRequirement.swift; sourceTree = "<group>"; };
-		F715690E3910D539CFF718A7E83A513E /* Cartography-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cartography-prefix.pch"; sourceTree = "<group>"; };
-		FA10D9FB739C2F0E0DC2EACC73E42D20 /* LayoutSupportProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutSupportProxy.swift; path = Cartography/LayoutSupportProxy.swift; sourceTree = "<group>"; };
+		DFDD0C2DA4BB66B9A73604E42564ADBB /* DatePickerDialog.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DatePickerDialog.modulemap; sourceTree = "<group>"; };
+		E07AF82AE37556709DD3D9154EF22D90 /* CoachMarkViewControllerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkViewControllerDelegate.swift; path = Sources/Instructions/Protocols/Internal/CoachMarkViewControllerDelegate.swift; sourceTree = "<group>"; };
+		E144C428F025709FA314873642036EE0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1CD6989174E141EB8B8C47B7F4FEFEC /* FontAwesome.swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome.swift-prefix.pch"; sourceTree = "<group>"; };
+		E846D5D18A82D76EF13953EDDF992A81 /* IQKeyboardManagerSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IQKeyboardManagerSwift.xcconfig; sourceTree = "<group>"; };
+		E9B6863E4B469AF989D8880E8B88A6CC /* CoachMarkBodyView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkBodyView.swift; path = Sources/Instructions/Protocols/Public/CoachMarkBodyView.swift; sourceTree = "<group>"; };
+		EB7D2B6D8BBB583DDA7A718302C30E64 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF7976C2DACB0260DE57B65B99C825D8 /* IQKeyboardManagerConstantsInternal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardManagerConstantsInternal.swift; path = IQKeyboardManagerSwift/Constants/IQKeyboardManagerConstantsInternal.swift; sourceTree = "<group>"; };
+		F3A5AA8239ED875BB43A5C05C3FC62ED /* DummyView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DummyView.swift; path = Sources/Instructions/Views/DummyView.swift; sourceTree = "<group>"; };
+		F592FD68BE005E5605C1BFA1E3D8C7AE /* CoachMarkHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoachMarkHelper.swift; path = Sources/Instructions/Helpers/Public/CoachMarkHelper.swift; sourceTree = "<group>"; };
+		F59D694A9020F0959A3D1601E40BACC9 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		F64A967086362C3D1D31D585CD81FF7C /* FontAwesome.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesome.swift; path = FontAwesome/FontAwesome.swift; sourceTree = "<group>"; };
+		F6DF590543DEEFA767E115562D0737BC /* Instructions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Instructions.swift; path = Sources/Instructions/Instructions.swift; sourceTree = "<group>"; };
 		FAC51820A50F76DFAC96B7BB423D5190 /* Pods-myApp2-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-myApp2-resources.sh"; sourceTree = "<group>"; };
-		FBDA1F767E17C43727355F4DFBBADAB8 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Cartography/Extensions.swift; sourceTree = "<group>"; };
-		FE77AD96BFECF4A39A3B30907E9251A6 /* Edges.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Edges.swift; path = Cartography/Edges.swift; sourceTree = "<group>"; };
-		FFDFA0C5C5D0C2DED50082C250FAD15C /* SCLExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SCLExtensions.swift; path = SCLAlertView/SCLExtensions.swift; sourceTree = "<group>"; };
+		FB972712E5A04BB61E6259912D3BEE02 /* SCLExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SCLExtensions.swift; path = SCLAlertView/SCLExtensions.swift; sourceTree = "<group>"; };
+		FC6216825655C62A0ECD74C7088A87EF /* DatePickerDialog-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DatePickerDialog-dummy.m"; sourceTree = "<group>"; };
+		FC77F158F438E61FB55C33C3E51F82A2 /* FontAwesomeBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeBarButtonItem.swift; path = FontAwesome/FontAwesomeBarButtonItem.swift; sourceTree = "<group>"; };
+		FE061EAA66DB0DCF3098B298823F8610 /* IQKeyboardManagerSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IQKeyboardManagerSwift.modulemap; sourceTree = "<group>"; };
+		FF58CC92310C0395FBA5E5C639C12F03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		FFC1D5D629EFADEABAD9743133CF2C60 /* IQTitleBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQTitleBarButtonItem.swift; path = IQKeyboardManagerSwift/IQToolbar/IQTitleBarButtonItem.swift; sourceTree = "<group>"; };
 		FFF6A330D6799A727F788575A2120934 /* Pods-myApp2-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-myApp2-frameworks.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -338,19 +323,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		66F11910B4682C55BD5811F333E55F89 /* Frameworks */ = {
+		7F803C16E342B84027E37A192971039E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A37DED66695DC9C57FD67849B88A3B7C /* Foundation.framework in Frameworks */,
+				063A3FBE885D654F13B46909D088A074 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8D7B50762F1BAFDA3BF5E557E2D57677 /* Frameworks */ = {
+		81A5C814ACEB86CB06CD6C51383982FE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E4466A8EF7C9DE29166E73B42BC240B /* Foundation.framework in Frameworks */,
+				BB04209DDB72CD325AE09D2EC3EBC380 /* CoreGraphics.framework in Frameworks */,
+				A25F717B5E0C4E6A6DE933B0BF0F6417 /* Foundation.framework in Frameworks */,
+				81A2F975614A9B94F265CD3BA816B0A4 /* QuartzCore.framework in Frameworks */,
+				EE20C85515D53DE61D8435080677F58E /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90C3282C49D15B34B60E5CA6D29308BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBC3692C17F591515B72449307B35A1E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,14 +354,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC0400FCA6C921EC54A535CB85F7917B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ED4F5066B08DCF7D0EF8AEFA4FAD76C7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,62 +368,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00EF18C50BF553B3E73E19AB4D8544F9 /* Cartography */ = {
+		1B5FFDA884DB6DD382D041309FE1A14F /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				78B72964A180AEFD91E94AF255AD383A /* Align.swift */,
-				32ABCDEF8B2B4F2659618825900EE9A6 /* AutoresizingMaskLayoutProxy.swift */,
-				72FC429AAB8079EC3C0C6448747323D8 /* Coefficients.swift */,
-				E676AA274B3BB67BA808A31E57EC1F97 /* Compound.swift */,
-				75E3B52621DB10CE6B91C0051E2BE71A /* Constrain.swift */,
-				8E27F629D0A613FDD79886541E00CE5B /* Constraint.swift */,
-				225C86AF54B944EB64F7F22DEF5DB866 /* ConstraintGroup.swift */,
-				8EBDAEEAAC1A20AA238F24C9AE8AB940 /* Context.swift */,
-				9C1F23098243CFCA9AF2C50E4D6FF23F /* Dimension.swift */,
-				0E3817742D3411D5772BD96A31CFC54A /* Distribute.swift */,
-				4BFFB7A692755C469E18FAAA62E998B0 /* Edge.swift */,
-				FE77AD96BFECF4A39A3B30907E9251A6 /* Edges.swift */,
-				D5A31D04D06C8956764FEDB6D4D8E4BF /* Expression.swift */,
-				FBDA1F767E17C43727355F4DFBBADAB8 /* Extensions.swift */,
-				D55016BB59B7D4E107F4280D7E62B300 /* LayoutGuide.swift */,
-				85226E9943245ABB153CA8EC2748862E /* LayoutGuideProxy.swift */,
-				ABF428493562C4166D459E0711ABE122 /* LayoutItem.swift */,
-				54D1BDCC9F8DC4D1E8A6CD79E9ABAFC1 /* LayoutProxy.swift */,
-				B412F0F0B02CBDAE98A27D77DD365A0E /* LayoutProxy+TypeErasure.swift */,
-				7CEEE6AC9512FCF1CA9C83DE4AF25F21 /* LayoutSupport.swift */,
-				FA10D9FB739C2F0E0DC2EACC73E42D20 /* LayoutSupportProxy.swift */,
-				475B45AB24EADC45B9DF99FD399E013D /* Point.swift */,
-				5C6A7A7DF6EB7F775013D4411D08CC4F /* Priority.swift */,
-				7723276DA130A9864ED1C1A855BFDC85 /* Property.swift */,
-				0915C532550E7667EB52593E4C0520CE /* Size.swift */,
-				1E58B5000B4A452C6167B7292B2560CB /* View.swift */,
-				E5D9C0317F66B15C70FD3C49ADC62F25 /* ViewProxy.swift */,
-				DDC0063DA81335A17D950A8F3A16A008 /* Support Files */,
-			);
-			name = Cartography;
-			path = Cartography;
-			sourceTree = "<group>";
-		};
-		0D48E710F4308AD0A9630B6A89553FA7 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				EEBA603A8C144AD7066F536B1FE837CC /* DatePickerDialog.modulemap */,
-				ABCC51B66276F15624C5D7199955281C /* DatePickerDialog.xcconfig */,
-				DD877921B49702A73FF647CB157BCAF4 /* DatePickerDialog-dummy.m */,
-				4132AAFF20F1D0B9D96DCA956256A410 /* DatePickerDialog-prefix.pch */,
-				233920B95B728D7AA9B425EABED0C7D7 /* DatePickerDialog-umbrella.h */,
-				8D52E61D4DF5D2371ADA87FB332D1397 /* Info.plist */,
+				0EE73BB267058A15C9EDC05546DDC0C3 /* Info.plist */,
+				76963CACCCAF4E71BB800C76AC2A90EA /* SCLAlertView.modulemap */,
+				7E553CF633C6FC87296655D9B7376050 /* SCLAlertView.xcconfig */,
+				D648E3C0EE91275F5F187D4D114B52A7 /* SCLAlertView-dummy.m */,
+				819DBD2B3DDA16D86937E94994981F40 /* SCLAlertView-prefix.pch */,
+				0BE5163E210341C71A400058CD116A78 /* SCLAlertView-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/DatePickerDialog";
-			sourceTree = "<group>";
-		};
-		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FF1CA95E532A8F990E19506982FA04EE /* iOS */,
-			);
-			name = Frameworks;
+			path = "../Target Support Files/SCLAlertView";
 			sourceTree = "<group>";
 		};
 		1E37F0F00D7262829B1F2AEFCFD7199C /* Pods-myApp2 */ = {
@@ -456,18 +400,34 @@
 			path = "Target Support Files/Pods-myApp2";
 			sourceTree = "<group>";
 		};
-		2FB67B063CA35323215AC96D624B6D9E /* Support Files */ = {
+		20B56609144CE204DFA8221F742B2D76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A98B305DE6BA7FFF542952568366196C /* Info.plist */,
-				0DA7623AF93636AE1346B38D7732187F /* Instructions.modulemap */,
-				3678AE62CE57B5AA77B7B128B6213499 /* Instructions.xcconfig */,
-				225C5E4A6210DA8BC3E4276B140AB569 /* Instructions-dummy.m */,
-				C64CB227FCCA6309925BF8BA57E20BB6 /* Instructions-prefix.pch */,
-				8EE32C9F1180AF949F860A23423F834D /* Instructions-umbrella.h */,
+				FD3B6667F06509663DDD01426DEE151E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		269DBE3B5BEB554C2AB8AC1FE0398935 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7A1B435377A1C316B99E8C91D16A7DD3 /* Info.plist */,
+				FE061EAA66DB0DCF3098B298823F8610 /* IQKeyboardManagerSwift.modulemap */,
+				E846D5D18A82D76EF13953EDDF992A81 /* IQKeyboardManagerSwift.xcconfig */,
+				721349452F7BC7F00D0B213C4B0560C0 /* IQKeyboardManagerSwift-dummy.m */,
+				7C72AB685FDED2D0AC0D3FB46276B78F /* IQKeyboardManagerSwift-prefix.pch */,
+				3C058DD29120BD01E08C916CE2C63FAD /* IQKeyboardManagerSwift-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/Instructions";
+			path = "../Target Support Files/IQKeyboardManagerSwift";
+			sourceTree = "<group>";
+		};
+		27AEAB618D808CBC3A836D02C49D6AF3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8340BF7F2B0DCFEFCFEF4BA666440646 /* FontAwesome.otf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		36F8EC179C770566E43F6A6D7592106B /* Targets Support Files */ = {
@@ -478,223 +438,251 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		49145616C5CF0A085D8033006C3A7E70 /* Support Files */ = {
+		4D8207808BC0AB0C32696825E0BF173E /* IQKeyboardManagerSwift */ = {
 			isa = PBXGroup;
 			children = (
-				CAC83AF2B26FA5105E9CB3C116CF0F8C /* Info.plist */,
-				63E3E2B28EC8802352ECD7A488EB3883 /* SCLAlertView.modulemap */,
-				10BB73CF2945AC8BDD20122F62784B14 /* SCLAlertView.xcconfig */,
-				5B42D0026D2A8C9F8AB00C04118E7971 /* SCLAlertView-dummy.m */,
-				293C2AD4C943A2C99C383B15354F6D93 /* SCLAlertView-prefix.pch */,
-				987AF3C6D93B3C881D52151E57EA026C /* SCLAlertView-umbrella.h */,
+				87C59A40F88EA9A139AEC70600B9A378 /* IQBarButtonItem.swift */,
+				03F5FABB787C3CA81332B19AD6DB5532 /* IQKeyboardManager.swift */,
+				9026476014BE8B45BABDDA1FAE932C13 /* IQKeyboardManagerConstants.swift */,
+				EF7976C2DACB0260DE57B65B99C825D8 /* IQKeyboardManagerConstantsInternal.swift */,
+				112F06B286D9DBD8816510E2DF18702A /* IQKeyboardReturnKeyHandler.swift */,
+				BF5BE2B5977F952E472A26BEE61A8BF5 /* IQNSArray+Sort.swift */,
+				150B9B04FA5E1A3D192E357B03D132DD /* IQPreviousNextView.swift */,
+				AA2C6648CF5295B12C839A62A00FB266 /* IQTextView.swift */,
+				FFC1D5D629EFADEABAD9743133CF2C60 /* IQTitleBarButtonItem.swift */,
+				762DFE729B748D9D87D645AC2B2706BC /* IQToolbar.swift */,
+				1670DA34681D6B638FEF0DEE389B9C2E /* IQUIScrollView+Additions.swift */,
+				1DA5A280AAB132FCB4EB77A5DD527FC8 /* IQUITextFieldView+Additions.swift */,
+				CA4B1AD21CF8B1DBF3F766EC017DDCBB /* IQUIView+Hierarchy.swift */,
+				05662BC86960707CFC80ED46D305CEA4 /* IQUIView+IQKeyboardToolbar.swift */,
+				0A8A0D860B3DA464F271F09571A231F5 /* IQUIViewController+Additions.swift */,
+				4818294CB6EF6F38D99222706F25F5B9 /* IQUIWindow+Hierarchy.swift */,
+				AF82025822B1F8809BF9CEA1490AEB75 /* Resources */,
+				269DBE3B5BEB554C2AB8AC1FE0398935 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/SCLAlertView";
+			name = IQKeyboardManagerSwift;
+			path = IQKeyboardManagerSwift;
 			sourceTree = "<group>";
 		};
-		55CFF227259479C050104430795AC05F /* SCLAlertView */ = {
+		5D75F6A95136BCCF2A59A59C116250F7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8FFD15A49F9DDFF1F7A012BE21965813 /* SCLAlertView.swift */,
-				FFDFA0C5C5D0C2DED50082C250FAD15C /* SCLExtensions.swift */,
-				49145616C5CF0A085D8033006C3A7E70 /* Support Files */,
+				842811A8AE1BD441627F994266EFDC42 /* DatePickerDialog */,
+				DA412337C4E9F6A96FF924BE3C65F311 /* FontAwesome.swift */,
+				BAF7EB8E8F856B0C14E676E210C9FA8F /* Hue */,
+				E14AE36A351B795BA8556F1026D2D7F2 /* Instructions */,
+				4D8207808BC0AB0C32696825E0BF173E /* IQKeyboardManagerSwift */,
+				6CEC4FCFD5F594722D76265B34698323 /* SCLAlertView */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6CEC4FCFD5F594722D76265B34698323 /* SCLAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				B06D14D11BC358D59DC1893D10FC89DC /* SCLAlertView.swift */,
+				FB972712E5A04BB61E6259912D3BEE02 /* SCLExtensions.swift */,
+				1B5FFDA884DB6DD382D041309FE1A14F /* Support Files */,
 			);
 			name = SCLAlertView;
 			path = SCLAlertView;
 			sourceTree = "<group>";
 		};
-		56E42EA231BC45217266B3D826C73C18 /* Hue */ = {
+		79D1A460D746A6E7A5E6C6E49239C118 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				7326544C260C60ACF5CB0850575C0D0D /* UIColor+Hue.swift */,
-				167CBA0430B5A24907C31C9FCC405237 /* UIImage+Hue.swift */,
-				AE170F00DB1F79AA454F6A9FADC95A53 /* Support Files */,
+				41ABA3E243F78E68408B80D2EAC62C92 /* FontAwesome.swift.modulemap */,
+				D84AC268335F792F0DFD78C831DE1CE6 /* FontAwesome.swift.xcconfig */,
+				BCE89A505D7D898FAB40A77B324BF145 /* FontAwesome.swift-dummy.m */,
+				E1CD6989174E141EB8B8C47B7F4FEFEC /* FontAwesome.swift-prefix.pch */,
+				60A5893F031A10D8C2212716EECC3126 /* FontAwesome.swift-umbrella.h */,
+				EB7D2B6D8BBB583DDA7A718302C30E64 /* Info.plist */,
+				782037AEA49042C48440D7725DF38FC8 /* ResourceBundle-FontAwesome.swift-Info.plist */,
 			);
-			name = Hue;
-			path = Hue;
-			sourceTree = "<group>";
-		};
-		5D9A274014CA3FED99547794CB45441D /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				96378182609835A57FC1867BA9581B80 /* FontAwesome.otf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		60DD916A5D67CA2A962729838F423BB7 /* DatePickerDialog */ = {
-			isa = PBXGroup;
-			children = (
-				856C6F75820B51D145C389F840475F73 /* DatePickerDialog.swift */,
-				0D48E710F4308AD0A9630B6A89553FA7 /* Support Files */,
-			);
-			name = DatePickerDialog;
-			path = DatePickerDialog;
-			sourceTree = "<group>";
-		};
-		6BBA80A24F6FE9CE64898AEAE131AF64 /* FontAwesome.swift */ = {
-			isa = PBXGroup;
-			children = (
-				719B13F388F1614073153BC446EB5190 /* Enum.swift */,
-				C4D9CC07F4F9123A6F7A46091544E6D4 /* FontAwesome.swift */,
-				656C4B7A71D2FA9F6B342F031CF632C5 /* FontAwesomeBarButtonItem.swift */,
-				42A1B83721628BA764CD06F70CA5C7FA /* FontAwesomeImageRepresentable.swift */,
-				008F538B0AA3FB6D9E98330C831C903B /* FontAwesomeImageView.swift */,
-				7BE57E7F5383E849EF694F085BDC3816 /* FontAwesomeSegmentedControl.swift */,
-				F2A990192956A1E767D956C091852098 /* FontAwesomeStateRequirement.swift */,
-				6F62CAB95F250497DB942DC8DF2FEA8B /* FontAwesomeTabBarItem.swift */,
-				E7844A71F6A37413F3603C05E16E39BF /* FontAwesomeTextRepresentable.swift */,
-				3CF67AD854E02AC146CA9B230683A130 /* FontAwesomeView.swift */,
-				5D9A274014CA3FED99547794CB45441D /* Resources */,
-				ED89D4940ECAC8D2B7CD375D38FDE3BE /* Support Files */,
-			);
-			name = FontAwesome.swift;
-			path = FontAwesome.swift;
+			name = "Support Files";
+			path = "../Target Support Files/FontAwesome.swift";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
-				AFBE943B381EE27C81E304FF27D09AD7 /* Pods */,
-				A213C59429C04716E42E3C479E361276 /* Products */,
+				20B56609144CE204DFA8221F742B2D76 /* Frameworks */,
+				5D75F6A95136BCCF2A59A59C116250F7 /* Pods */,
+				FBE172ABE9BF1F1D6F446D36814A8679 /* Products */,
 				36F8EC179C770566E43F6A6D7592106B /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		A213C59429C04716E42E3C479E361276 /* Products */ = {
+		842811A8AE1BD441627F994266EFDC42 /* DatePickerDialog */ = {
 			isa = PBXGroup;
 			children = (
-				C7C837E149BCEA46962BD8B221BA9CD0 /* Cartography.framework */,
-				21C2FCA130FAD596F16A22DA149FB77B /* DatePickerDialog.framework */,
-				04D9A16CA004030311052DF7DC1B5341 /* FontAwesome.swift.bundle */,
-				88D4606A37B052322C4417245852C4C2 /* FontAwesome_swift.framework */,
-				D711EA2E5C7F021B8836BA9E255851C2 /* Hue.framework */,
-				A68BACB765D0DD5FA9F887A627BE1543 /* Instructions.framework */,
-				B5D0430E2CCC57B285C38DADC8AF0D97 /* Pods_myApp2.framework */,
-				B3F7FAD0082C4DC5B59ED1A7A5776E0C /* SCLAlertView.framework */,
+				2FFABA4768E2772AAF101AFA015D7CB3 /* DatePickerDialog.swift */,
+				FB40F7C6A95767C69F2A9E619E07C0B4 /* Support Files */,
 			);
-			name = Products;
+			name = DatePickerDialog;
+			path = DatePickerDialog;
 			sourceTree = "<group>";
 		};
-		AA91A8ACC737EDD857AC7387E66255CF /* Instructions */ = {
+		87E338602CA970839F8ACBB9DAC6B6CE /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				DA75A289D2A77F7B90EBDAC36637378B /* BlurringOverlayStyleManager.swift */,
-				C6D399C18FDF2D5D33A17E93D1FF5B99 /* CoachMark.swift */,
-				A237230AC7DF21B333F1C9215423E786 /* CoachMarkArrowDefaultView.swift */,
-				6AD7CE331315736DE8A8A5891FCB84E6 /* CoachMarkArrowOrientation.swift */,
-				B5753879CCF35633905A503C9E484A69 /* CoachMarkArrowView.swift */,
-				B1396CECAF60045C9717980EE1183E78 /* CoachMarkBodyDefaultView.swift */,
-				41C275E6E3C78BFA8AD821A56EEB5DD9 /* CoachMarkBodyDefaultViewHelper.swift */,
-				74E639B4AD1E77D35B16A821F23C995F /* CoachMarkBodyHighlightArrowDelegate.swift */,
-				38DAC8D4123F922183D1D8BACC7BA2D3 /* CoachMarkBodyView.swift */,
-				E45B34EE14E075D4067D2712C1F50994 /* CoachMarkDisplayManager.swift */,
-				79618CF84ECB80205A65CF9EF0E7E8D2 /* CoachMarkHelper.swift */,
-				9370F58506D90973B77BD68E090CCB0D /* CoachMarkInnerLayoutHelper.swift */,
-				CF1C320934DAE1E07BB5906839176E80 /* CoachMarkLayoutHelper.swift */,
-				775B32CAE7057A0C1A821484190A340E /* CoachMarkPosition.swift */,
-				E6889DF2556F98407A7D133BB50FACE9 /* CoachMarksController.swift */,
-				39FEEF019467F044348673C3A77F26FB /* CoachMarksController+Proxy.swift */,
-				03811484DAB2A44CAF736580B0AF67B3 /* CoachMarksControllerDataSource.swift */,
-				49DE57FE1A170944B185B809E65A3929 /* CoachMarksControllerDelegate.swift */,
-				F0A09E9D53C13AC0261EAD13249D0685 /* CoachMarkSkipDefaultView.swift */,
-				8C6AC58DF5333ECFFF8768CD2EEE2C2D /* CoachMarkSkipView.swift */,
-				3F81B4B7BFC02B8C614A1E26E0669E30 /* CoachMarksViewController.swift */,
-				4B0132C88534D8076C2DF33D6BFC8AF0 /* CoachMarkView.swift */,
-				D01121314F812731D18EE73E1ED429A9 /* CoachMarkViewControllerDelegate.swift */,
-				4F063DD5BAF281B71AEFB23D877E5FDA /* DummyView.swift */,
-				53D56DEEE7AB0AE266827666F75D20F5 /* FlowManager.swift */,
-				7B064DB85F77B0CFE6630835425042A8 /* Instructions.swift */,
-				2F93A97B964DF41F2372ACA7A4289558 /* InstructionsRootView.swift */,
-				8B1F37B796F940A97F7C0FE3F4EA8CA3 /* InstructionsWindow.swift */,
-				1190FD2D06521971C936B8B238CF2C18 /* MaskView.swift */,
-				91A29DBB6521AC90EC2A58C3D827625D /* OverlayManager.swift */,
-				DBABD3BA4F464F8351705EC029421EBD /* OverlaySnapshotView.swift */,
-				2E063F0001AA02B4C25A091EC046F326 /* OverlayStyleManager.swift */,
-				13A68AD7037FF7F86719774D6875D80A /* OverlayView.swift */,
-				A534C774DF4556619A5D4AC896813F6B /* SkipViewDisplayManager.swift */,
-				EED2BCD4773624E650D10FB29B4C480E /* TranslucentOverlayStyleManager.swift */,
-				6B735762837DA6945E9093CAAFE851B2 /* UIImage+Bundle.swift */,
-				E40BCE0BC739AA36F6E982BBFC50051E /* UIView+Layout.swift */,
-				CFCC6778C546B33A6DFA333CA90A2379 /* Resources */,
-				2FB67B063CA35323215AC96D624B6D9E /* Support Files */,
+				0F9232048EB2CA26873BE40D03534AB1 /* Info.plist */,
+				27DBE7E01C26A50F9033FE837BABC769 /* Instructions.modulemap */,
+				94C17ED15DE703ED46637F6B703D660C /* Instructions.xcconfig */,
+				20F7AA6BEED26C2895CE6616634A1E6A /* Instructions-dummy.m */,
+				0C5E9D57BB2C751E929757E91B833604 /* Instructions-prefix.pch */,
+				C000C59A82F15F64A8B63CC34D6E9C93 /* Instructions-umbrella.h */,
 			);
-			name = Instructions;
-			path = Instructions;
+			name = "Support Files";
+			path = "../Target Support Files/Instructions";
 			sourceTree = "<group>";
 		};
-		AE170F00DB1F79AA454F6A9FADC95A53 /* Support Files */ = {
+		9DBDAA2C69ECDE2AE2FB538765AAB2DE /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				037916E2128C28DC672CC85E8984F8A4 /* Hue.modulemap */,
-				D9F034C83097A049013B95534F6A8EEF /* Hue.xcconfig */,
-				D3AE038FE354D01835888314B5BBE82A /* Hue-dummy.m */,
-				23480D7130ACE7C04001B3232E12726D /* Hue-prefix.pch */,
-				026E3ABD8960472A0194358A943CF162 /* Hue-umbrella.h */,
-				BAA4EEA6D62EAD8DE5D7731ED3668999 /* Info.plist */,
+				CE35B54C71E8D61E12D500A5F15B160D /* Hue.modulemap */,
+				279BC62F2DBE5428B7E78D3B09E13FED /* Hue.xcconfig */,
+				DB5C7E4312EB34BAA9C46EC5C4649158 /* Hue-dummy.m */,
+				BA039EF130032BC668AA4DA3705E8267 /* Hue-prefix.pch */,
+				88CC224A682348AB2EC90C83FAA3CD85 /* Hue-umbrella.h */,
+				D3338DAF1E7A71C8EB4D8D85E3860180 /* Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Hue";
 			sourceTree = "<group>";
 		};
-		AFBE943B381EE27C81E304FF27D09AD7 /* Pods */ = {
+		AF82025822B1F8809BF9CEA1490AEB75 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				00EF18C50BF553B3E73E19AB4D8544F9 /* Cartography */,
-				60DD916A5D67CA2A962729838F423BB7 /* DatePickerDialog */,
-				6BBA80A24F6FE9CE64898AEAE131AF64 /* FontAwesome.swift */,
-				56E42EA231BC45217266B3D826C73C18 /* Hue */,
-				AA91A8ACC737EDD857AC7387E66255CF /* Instructions */,
-				55CFF227259479C050104430795AC05F /* SCLAlertView */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		CFCC6778C546B33A6DFA333CA90A2379 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				E79A0C46049A0047CB3E287A38934EDB /* Images.xcassets */,
+				46B2BEEF35FE4FC3930DBCC8FD3D5E29 /* IQKeyboardManager.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		DDC0063DA81335A17D950A8F3A16A008 /* Support Files */ = {
+		BAF7EB8E8F856B0C14E676E210C9FA8F /* Hue */ = {
 			isa = PBXGroup;
 			children = (
-				E18DCE0E833DF63FB2FE0CBE8F034752 /* Cartography.modulemap */,
-				8B343026DE11B2BB89741A7D4928284B /* Cartography.xcconfig */,
-				3C8FF23C45E73ECB8E78B56D0BF56ABE /* Cartography-dummy.m */,
-				F715690E3910D539CFF718A7E83A513E /* Cartography-prefix.pch */,
-				D5B189964170525A779DAA21009B1D2B /* Cartography-umbrella.h */,
-				8009031CD1529AC89F9398D4874BDD2D /* Info.plist */,
+				20CAF1960AF45CD51EC744FE6F243D23 /* UIColor+Hue.swift */,
+				DC13E6499896E8F2A590373D0E3237BB /* UIImage+Hue.swift */,
+				9DBDAA2C69ECDE2AE2FB538765AAB2DE /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Cartography";
+			name = Hue;
+			path = Hue;
 			sourceTree = "<group>";
 		};
-		ED89D4940ECAC8D2B7CD375D38FDE3BE /* Support Files */ = {
+		C16D50E6A026AA7F556A638175CDB782 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A08593129B26E223E5219F704DA5F916 /* FontAwesome.swift.modulemap */,
-				426D4AA4CC9DB11305231D7330D4E585 /* FontAwesome.swift.xcconfig */,
-				22B06A39486A6563DB5E968366D0BBBD /* FontAwesome.swift-dummy.m */,
-				D026FE9C071CDE11BE5F979047B17594 /* FontAwesome.swift-prefix.pch */,
-				2BD27DE0CB12AA690771E88F6B02BB79 /* FontAwesome.swift-umbrella.h */,
-				B0C2269A49A68FBCF294BAD9B9EDC25F /* Info.plist */,
-				BF15EF1FFBD8BA0EA97AD58498C21573 /* ResourceBundle-FontAwesome.swift-Info.plist */,
+				57D2614F883D499955E78D2E4AD8B2E5 /* Images.xcassets */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/FontAwesome.swift";
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		FF1CA95E532A8F990E19506982FA04EE /* iOS */ = {
+		DA412337C4E9F6A96FF924BE3C65F311 /* FontAwesome.swift */ = {
 			isa = PBXGroup;
 			children = (
-				C55C580E1FC5B6E9F442FE42A9553FEA /* CoreText.framework */,
-				A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */,
-				27BE1AF8CEE8818CBCFD0010AE8BEE51 /* UIKit.framework */,
+				A20F493072B03AF79D12FAE06371C653 /* Enum.swift */,
+				F64A967086362C3D1D31D585CD81FF7C /* FontAwesome.swift */,
+				FC77F158F438E61FB55C33C3E51F82A2 /* FontAwesomeBarButtonItem.swift */,
+				C85E66F75A3AA4065D66DCFF4BE75795 /* FontAwesomeImageRepresentable.swift */,
+				CDC95B7E2C3F303402DCD49F94A5EE0B /* FontAwesomeImageView.swift */,
+				B3B54E5AF57CA4243AAE10F6FBF0AE1A /* FontAwesomeSegmentedControl.swift */,
+				8411F4BAFFCBF27B0E935FA02747A7B3 /* FontAwesomeStateRequirement.swift */,
+				3AD1F79A4E4F845A395ECE6AEC488F3E /* FontAwesomeTabBarItem.swift */,
+				0AF41F2E5D97BA6EE4CE2F42F0482DA2 /* FontAwesomeTextRepresentable.swift */,
+				2509BB8FCC72D6205DCA0D9A6017473E /* FontAwesomeView.swift */,
+				27AEAB618D808CBC3A836D02C49D6AF3 /* Resources */,
+				79D1A460D746A6E7A5E6C6E49239C118 /* Support Files */,
+			);
+			name = FontAwesome.swift;
+			path = FontAwesome.swift;
+			sourceTree = "<group>";
+		};
+		E14AE36A351B795BA8556F1026D2D7F2 /* Instructions */ = {
+			isa = PBXGroup;
+			children = (
+				AA77A22994C0C5069CE28EF5D20343E9 /* BlurringOverlayStyleManager.swift */,
+				6A46D57BE7687C1BC39D83BF84480A08 /* CoachMark.swift */,
+				A1147A4E70F8A2518B82EE166CAEE8B7 /* CoachMarkArrowDefaultView.swift */,
+				31184806FB3FF41CA806EF94CC02ADCD /* CoachMarkArrowOrientation.swift */,
+				029D4582C54643B870D8F3C99CCB5293 /* CoachMarkArrowView.swift */,
+				6D78B8E52CDC42CF35FA497EC1827AF3 /* CoachMarkBodyDefaultView.swift */,
+				28A299F959D85C8586598571CC5A2D2B /* CoachMarkBodyDefaultViewHelper.swift */,
+				AEF850F5D791E01DAD884AE5FEFE8CF8 /* CoachMarkBodyHighlightArrowDelegate.swift */,
+				E9B6863E4B469AF989D8880E8B88A6CC /* CoachMarkBodyView.swift */,
+				02E52A4301BDF79F79509947976EB200 /* CoachMarkDisplayManager.swift */,
+				F592FD68BE005E5605C1BFA1E3D8C7AE /* CoachMarkHelper.swift */,
+				C60C37F79B4B5935C468271ECBC1789E /* CoachMarkInnerLayoutHelper.swift */,
+				2A351B83BA9B89B22A6BDED9F30C35FE /* CoachMarkLayoutHelper.swift */,
+				A0835FC09F3A8C300FF10DAF4DF0C3C9 /* CoachMarkPosition.swift */,
+				728CBCB196CC7BB5B5670B40D52E4440 /* CoachMarksController.swift */,
+				98147DC78A101028D3F9F9EC3CDA279F /* CoachMarksController+Proxy.swift */,
+				467D2882DBDA9F59C09A9B0778E54E13 /* CoachMarksControllerDataSource.swift */,
+				DBD75A5E4A40736EA40E85A45CF350F1 /* CoachMarksControllerDelegate.swift */,
+				290E5434D14C47CB05F48E2B60DAE37A /* CoachMarkSkipDefaultView.swift */,
+				0026A12B8A15C737C7D213D99730BDE1 /* CoachMarkSkipView.swift */,
+				64B14ABEAA07721EA88EA40F32DD84CB /* CoachMarksViewController.swift */,
+				6EA622634BDBD7E9D1FF8CF6EC0C83CB /* CoachMarkView.swift */,
+				E07AF82AE37556709DD3D9154EF22D90 /* CoachMarkViewControllerDelegate.swift */,
+				F3A5AA8239ED875BB43A5C05C3FC62ED /* DummyView.swift */,
+				51F92CB8B81D5BC5B54865EEED50C43E /* FlowManager.swift */,
+				F6DF590543DEEFA767E115562D0737BC /* Instructions.swift */,
+				A55A280A9DEFBC8DA3A8D0FB50021E2D /* InstructionsRootView.swift */,
+				836E4817D58F824B681766A9EE9A9E78 /* InstructionsWindow.swift */,
+				BA2D875B31EA50D17A9FD3A3DB712BC1 /* MaskView.swift */,
+				17A1E1E5607A63C1B96CC16506B22120 /* OverlayManager.swift */,
+				7EE8C1D5F8BD5AC6BF0102CD6A5A27E3 /* OverlaySnapshotView.swift */,
+				3CAA8B6C3CC84FB083A1D2502C07A23B /* OverlayStyleManager.swift */,
+				9B2D60292CC92E3A7736A323194A3005 /* OverlayView.swift */,
+				0FF39617AC75104661A07D958900CB02 /* SkipViewDisplayManager.swift */,
+				6B7687C5E1EC5D989CC820B0EFD86497 /* TranslucentOverlayStyleManager.swift */,
+				96655B9C2FB89CA14B069EFD694ED966 /* UIImage+Bundle.swift */,
+				31E61FA610FDF06A913447935749225C /* UIView+Layout.swift */,
+				C16D50E6A026AA7F556A638175CDB782 /* Resources */,
+				87E338602CA970839F8ACBB9DAC6B6CE /* Support Files */,
+			);
+			name = Instructions;
+			path = Instructions;
+			sourceTree = "<group>";
+		};
+		FB40F7C6A95767C69F2A9E619E07C0B4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DFDD0C2DA4BB66B9A73604E42564ADBB /* DatePickerDialog.modulemap */,
+				C11A97A6C01532154BBFC9DB689F19C7 /* DatePickerDialog.xcconfig */,
+				FC6216825655C62A0ECD74C7088A87EF /* DatePickerDialog-dummy.m */,
+				8CB39A2C92FC2BA051658C311258ED40 /* DatePickerDialog-prefix.pch */,
+				6B77A7996D681DA3093684242D1457D1 /* DatePickerDialog-umbrella.h */,
+				E144C428F025709FA314873642036EE0 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/DatePickerDialog";
+			sourceTree = "<group>";
+		};
+		FBE172ABE9BF1F1D6F446D36814A8679 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3FD45C8A248ACEAD3D70DB4818EEA1D4 /* DatePickerDialog.framework */,
+				1E6510510C19CEBA118493DB9E0AD60D /* FontAwesome.swift.bundle */,
+				124253EC9CDA6A2EE92F4FF4905E86B8 /* FontAwesome_swift.framework */,
+				881DB819594115EACFC814544618E03A /* Hue.framework */,
+				69AEE9698F56F78F9026BD6178F6B740 /* Instructions.framework */,
+				776380A2F6FB0204FDEE84549C4963C7 /* IQKeyboardManagerSwift.framework */,
+				0548A0B90E8C407CCB473F7E471334D1 /* Pods_myApp2.framework */,
+				3959AF4CE7A56C03AB9B6074151766EC /* SCLAlertView.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FD3B6667F06509663DDD01426DEE151E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				7E4EE262349108144307D042F49DE193 /* CoreGraphics.framework */,
+				F59D694A9020F0959A3D1601E40BACC9 /* CoreText.framework */,
+				FF58CC92310C0395FBA5E5C639C12F03 /* Foundation.framework */,
+				75724AFC8DB229902C200CFD229B7576 /* QuartzCore.framework */,
+				32E2B04BC1935A86EB34129AA71C7D83 /* UIKit.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -718,27 +706,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3B7909E5BB787E89429A35A7198AC199 /* Headers */ = {
+		46E59F3A866A68CAB990F53B3B020C61 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22C18133E55CC4E0633B633F3912F097 /* Cartography-umbrella.h in Headers */,
+				DF01DCB21854764AEC542DC41EFE59EA /* Pods-myApp2-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5041AEAE5E04B3E9923BC39BFD90C477 /* Headers */ = {
+		51D27F7D5A770F95BD7C8E9836845EC2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BEBE5C5B7683BF31CC3B364CB9F02BA /* SCLAlertView-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6091231EDF2F16F358A078F69972EB30 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2DA4B9C356AB324AB526C892976C4CA0 /* Pods-myApp2-umbrella.h in Headers */,
+				BC86BA3E19BD74C54386A6239BC6073A /* SCLAlertView-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -747,6 +727,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				517354331702F525836ED4E675283B1A /* Instructions-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C82B5F04767CB991E84734A54D0ABA5B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87AD9D97F0F94C85720FC018235CD8A9 /* IQKeyboardManagerSwift-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,21 +749,21 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		05B5E6B6BF53C2C31E616E4C5644E8BB /* Cartography */ = {
+		119DF566994076B600582D90BB9B34F6 /* SCLAlertView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A9BAA343D12FE6672E7011D9FB12285B /* Build configuration list for PBXNativeTarget "Cartography" */;
+			buildConfigurationList = 8AE07B3ECA112B5D8AADD7187A22E478 /* Build configuration list for PBXNativeTarget "SCLAlertView" */;
 			buildPhases = (
-				43377B59D0D68F9FC09F2D7CA5D04AC4 /* Sources */,
-				66F11910B4682C55BD5811F333E55F89 /* Frameworks */,
-				3B7909E5BB787E89429A35A7198AC199 /* Headers */,
+				C02C3E7EB43A9988AEA8244BB67426F6 /* Sources */,
+				7F803C16E342B84027E37A192971039E /* Frameworks */,
+				51D27F7D5A770F95BD7C8E9836845EC2 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Cartography;
-			productName = Cartography;
-			productReference = C7C837E149BCEA46962BD8B221BA9CD0 /* Cartography.framework */;
+			name = SCLAlertView;
+			productName = SCLAlertView;
+			productReference = 3959AF4CE7A56C03AB9B6074151766EC /* SCLAlertView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		184A1650DC0B648BD756068E60BF2C59 /* DatePickerDialog */ = {
@@ -792,7 +780,7 @@
 			);
 			name = DatePickerDialog;
 			productName = DatePickerDialog;
-			productReference = 21C2FCA130FAD596F16A22DA149FB77B /* DatePickerDialog.framework */;
+			productReference = 3FD45C8A248ACEAD3D70DB4818EEA1D4 /* DatePickerDialog.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		6991F49AED797519343B1F4591001691 /* FontAwesome.swift-FontAwesome.swift */ = {
@@ -809,7 +797,7 @@
 			);
 			name = "FontAwesome.swift-FontAwesome.swift";
 			productName = "FontAwesome.swift-FontAwesome.swift";
-			productReference = 04D9A16CA004030311052DF7DC1B5341 /* FontAwesome.swift.bundle */;
+			productReference = 1E6510510C19CEBA118493DB9E0AD60D /* FontAwesome.swift.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		6FFF9A0488BA9FA46CAC0F6F1BA0A397 /* Instructions */ = {
@@ -827,30 +815,30 @@
 			);
 			name = Instructions;
 			productName = Instructions;
-			productReference = A68BACB765D0DD5FA9F887A627BE1543 /* Instructions.framework */;
+			productReference = 69AEE9698F56F78F9026BD6178F6B740 /* Instructions.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		7D866910AF2D606A3D8229EFB4E86FE6 /* Pods-myApp2 */ = {
+		7DAD4222DBCC365E2792DCF3E34AF9E4 /* Pods-myApp2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6D3C6597A57A509D479E4A230A6C7C14 /* Build configuration list for PBXNativeTarget "Pods-myApp2" */;
+			buildConfigurationList = 5C6273CBBBA02A06599B5287850D3E00 /* Build configuration list for PBXNativeTarget "Pods-myApp2" */;
 			buildPhases = (
-				0596743B7F0F7D928D0135125CDE9D86 /* Sources */,
-				8D7B50762F1BAFDA3BF5E557E2D57677 /* Frameworks */,
-				6091231EDF2F16F358A078F69972EB30 /* Headers */,
+				275907309FAD8EEE40795D19AA331548 /* Sources */,
+				90C3282C49D15B34B60E5CA6D29308BE /* Frameworks */,
+				46E59F3A866A68CAB990F53B3B020C61 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9D86E880CC579BC7C20F4B65E1C5EF3B /* PBXTargetDependency */,
-				72BF1B10D29097796CD949D0985E6505 /* PBXTargetDependency */,
-				11EAA9CE26B616CB82EF9C7DED6317E8 /* PBXTargetDependency */,
-				F16FEAE42FE3EEE2A76387A1CCBAC7E7 /* PBXTargetDependency */,
-				49758C4F50AF736EDBE3547B4BCE6316 /* PBXTargetDependency */,
-				6EA1449DA4C06C8F54597A7ED31FC554 /* PBXTargetDependency */,
+				CBEB3A90690CE1B7F723406C41EA8178 /* PBXTargetDependency */,
+				806AD9EE17B3286ECDC8119C9F6058B5 /* PBXTargetDependency */,
+				37A671EC8B9C8392670AFECCA58C6AD1 /* PBXTargetDependency */,
+				7FACFFB910CBE6F4477674B531E55E35 /* PBXTargetDependency */,
+				3B8CB825ACB0AE846CC2971E80870283 /* PBXTargetDependency */,
+				A4BD0D14E4422BC7866F9DE0CF7CFB3E /* PBXTargetDependency */,
 			);
 			name = "Pods-myApp2";
 			productName = "Pods-myApp2";
-			productReference = B5D0430E2CCC57B285C38DADC8AF0D97 /* Pods_myApp2.framework */;
+			productReference = 0548A0B90E8C407CCB473F7E471334D1 /* Pods_myApp2.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		B2542602E50EDF091ADB18B4688DF34F /* Hue */ = {
@@ -867,7 +855,25 @@
 			);
 			name = Hue;
 			productName = Hue;
-			productReference = D711EA2E5C7F021B8836BA9E255851C2 /* Hue.framework */;
+			productReference = 881DB819594115EACFC814544618E03A /* Hue.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C235F77E101E742652CCF98FFDFA5182 /* IQKeyboardManagerSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8C5CE05A712EF50BB123A41D8EFC0CB /* Build configuration list for PBXNativeTarget "IQKeyboardManagerSwift" */;
+			buildPhases = (
+				B0CAA73D50E134E589B648ABF6682839 /* Sources */,
+				81A5C814ACEB86CB06CD6C51383982FE /* Frameworks */,
+				918D58E08AC7FD6CC66B75FF048005F7 /* Resources */,
+				C82B5F04767CB991E84734A54D0ABA5B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IQKeyboardManagerSwift;
+			productName = IQKeyboardManagerSwift;
+			productReference = 776380A2F6FB0204FDEE84549C4963C7 /* IQKeyboardManagerSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		CD11672B6619C297B6AEE3DFB8213C59 /* FontAwesome.swift */ = {
@@ -886,24 +892,7 @@
 			);
 			name = FontAwesome.swift;
 			productName = FontAwesome.swift;
-			productReference = 88D4606A37B052322C4417245852C4C2 /* FontAwesome_swift.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		F7829A96C2428F44204E752A2157A02A /* SCLAlertView */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E66384CEA106869B550E1A0AED528579 /* Build configuration list for PBXNativeTarget "SCLAlertView" */;
-			buildPhases = (
-				20585F9446BCE61179053E191DB30F7D /* Sources */,
-				EC0400FCA6C921EC54A535CB85F7917B /* Frameworks */,
-				5041AEAE5E04B3E9923BC39BFD90C477 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SCLAlertView;
-			productName = SCLAlertView;
-			productReference = B3F7FAD0082C4DC5B59ED1A7A5776E0C /* SCLAlertView.framework */;
+			productReference = 124253EC9CDA6A2EE92F4FF4905E86B8 /* FontAwesome_swift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -923,18 +912,18 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = A213C59429C04716E42E3C479E361276 /* Products */;
+			productRefGroup = FBE172ABE9BF1F1D6F446D36814A8679 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				05B5E6B6BF53C2C31E616E4C5644E8BB /* Cartography */,
 				184A1650DC0B648BD756068E60BF2C59 /* DatePickerDialog */,
 				CD11672B6619C297B6AEE3DFB8213C59 /* FontAwesome.swift */,
 				6991F49AED797519343B1F4591001691 /* FontAwesome.swift-FontAwesome.swift */,
 				B2542602E50EDF091ADB18B4688DF34F /* Hue */,
 				6FFF9A0488BA9FA46CAC0F6F1BA0A397 /* Instructions */,
-				7D866910AF2D606A3D8229EFB4E86FE6 /* Pods-myApp2 */,
-				F7829A96C2428F44204E752A2157A02A /* SCLAlertView */,
+				C235F77E101E742652CCF98FFDFA5182 /* IQKeyboardManagerSwift */,
+				7DAD4222DBCC365E2792DCF3E34AF9E4 /* Pods-myApp2 */,
+				119DF566994076B600582D90BB9B34F6 /* SCLAlertView */,
 			);
 		};
 /* End PBXProject section */
@@ -945,6 +934,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				59BB7C15DE2EFEFDE268E3D2BE58B161 /* FontAwesome.swift.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		918D58E08AC7FD6CC66B75FF048005F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A2FE216328BFC23AF9D30EAEFAA2303 /* IQKeyboardManager.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -967,14 +964,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0596743B7F0F7D928D0135125CDE9D86 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C228934AD348C503A08494A224800B42 /* Pods-myApp2-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1D432F1231D861C3C85333A043376EAE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -984,13 +973,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		20585F9446BCE61179053E191DB30F7D /* Sources */ = {
+		275907309FAD8EEE40795D19AA331548 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66D819B972BFA6AFA3FDCEB9F4BF9D36 /* SCLAlertView-dummy.m in Sources */,
-				AC5CEA74552ADEC4638BA1C759165E58 /* SCLAlertView.swift in Sources */,
-				F4D9E7D8F49216DDD343B8A64789C046 /* SCLExtensions.swift in Sources */,
+				AE6E6F49F4AE8751F3033A0271E6D99B /* Pods-myApp2-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1012,41 +999,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		43377B59D0D68F9FC09F2D7CA5D04AC4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				58B00C7BCF27BE64587847CA77E9DD11 /* Align.swift in Sources */,
-				869BF762B9D0699ABF4024F1DED0AD0E /* AutoresizingMaskLayoutProxy.swift in Sources */,
-				1C92A98E34D0E29E787071F0B75401E5 /* Cartography-dummy.m in Sources */,
-				33E91E78F43301F168B42DB67C04CDC4 /* Coefficients.swift in Sources */,
-				DB9F3857E166A3EAC8EC5646023E7B8E /* Compound.swift in Sources */,
-				0739B8BF39538E41B6C747EDE71114F3 /* Constrain.swift in Sources */,
-				F435B4C2D5E6E7B34471B69DAC6D5E51 /* Constraint.swift in Sources */,
-				551EDA7C2AEF5DBDE54A1E04D3B66DEF /* ConstraintGroup.swift in Sources */,
-				6F4FE3B61F3F4136F1C403AD21C331D7 /* Context.swift in Sources */,
-				B4DBC3F172AFEA9A0F86A1428D235BAB /* Dimension.swift in Sources */,
-				078D75FC8795FA3EBD22377BC890520B /* Distribute.swift in Sources */,
-				94C7D2A64168F83FDD3F1FDD86309462 /* Edge.swift in Sources */,
-				75A09744CB87DB237A3D3FA76FC9AB9A /* Edges.swift in Sources */,
-				9C6E1370B7332CEA8408E407F24570B5 /* Expression.swift in Sources */,
-				E2F636932DC549ECAC060149AE2925A8 /* Extensions.swift in Sources */,
-				64C1C1BBD53C2B17073E4473687A853A /* LayoutGuide.swift in Sources */,
-				27BEB6D60B638B2F7E7086598B419CB3 /* LayoutGuideProxy.swift in Sources */,
-				BAA82517E186455BBE3B74D44E5EDD5D /* LayoutItem.swift in Sources */,
-				033E20123508ACA1151479485BEC8D90 /* LayoutProxy+TypeErasure.swift in Sources */,
-				6303953B4072C1B9B5BE9038CD1A5858 /* LayoutProxy.swift in Sources */,
-				9DE7AC7E9424287CE00664C9EA68D2D2 /* LayoutSupport.swift in Sources */,
-				E79C8C2851495884D91FEFFFC53FAB45 /* LayoutSupportProxy.swift in Sources */,
-				44279488206961A71665C70FD3BD9FCD /* Point.swift in Sources */,
-				F14347E3AC3A254F7A424CCB7FCF512B /* Priority.swift in Sources */,
-				370EA4B00C3E1F71C87314271179D06D /* Property.swift in Sources */,
-				26D9D26B1D4A7C48E1DFE6C4697A7EB3 /* Size.swift in Sources */,
-				7BBAA7D5001ABB0D1516ACAF7F51F4B5 /* View.swift in Sources */,
-				52C3E8081BB80AA34FEF1659F24533C2 /* ViewProxy.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5447F17F074A6885C2DE5EA00B620E76 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1054,6 +1006,40 @@
 				70CBCB67007D356F14B8EC15118BA9E3 /* Hue-dummy.m in Sources */,
 				83790D4473D3F8965A7705C0EE1ADFC6 /* UIColor+Hue.swift in Sources */,
 				F85030977A6D1BAC697812B41A5905C7 /* UIImage+Hue.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0CAA73D50E134E589B648ABF6682839 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F48DD4AF7C254B7A2F67A690AF8EF143 /* IQBarButtonItem.swift in Sources */,
+				4882783C5576C5D43CE79C03DE33C3DD /* IQKeyboardManager.swift in Sources */,
+				9B9C1A095D68E3B91BD38F910C6F2E7F /* IQKeyboardManagerConstants.swift in Sources */,
+				EC2CCB07B8CCEF669FAF345D29691030 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
+				B0EF72D8E2CB6594FEE4DB2600B32650 /* IQKeyboardManagerSwift-dummy.m in Sources */,
+				C40F6D2FE20755C045864C23F73260C8 /* IQKeyboardReturnKeyHandler.swift in Sources */,
+				CC93854C66A808596F5A3B58FDB49BF8 /* IQNSArray+Sort.swift in Sources */,
+				CB29E86F679E9DDC5C5A1C89482701CA /* IQPreviousNextView.swift in Sources */,
+				88A25F661A4435D57041D21700515CC6 /* IQTextView.swift in Sources */,
+				1F0F49D029C4471F2AE3712D1FCB1D8A /* IQTitleBarButtonItem.swift in Sources */,
+				02A8CD406255AE081E99A62241BAC587 /* IQToolbar.swift in Sources */,
+				2384AC373E752D55842F37DE4F2CE2A7 /* IQUIScrollView+Additions.swift in Sources */,
+				B1A7ADAE2CAEDA5D703CE5C6A6DA405B /* IQUITextFieldView+Additions.swift in Sources */,
+				3077B4186B916A8DB980BBB72DF7FFB9 /* IQUIView+Hierarchy.swift in Sources */,
+				9C178A996A6A0F14CF4B1F1D1BA4B2EB /* IQUIView+IQKeyboardToolbar.swift in Sources */,
+				866952184CCB9236E8D567A97A7C3224 /* IQUIViewController+Additions.swift in Sources */,
+				64FFC1F647245F61C405AE7AC1DA9D31 /* IQUIWindow+Hierarchy.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C02C3E7EB43A9988AEA8244BB67426F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93AC098AF1027212568B1E1E05BAF952 /* SCLAlertView-dummy.m in Sources */,
+				2A329E9F33CB2B637B1450534D4D73D4 /* SCLAlertView.swift in Sources */,
+				502885F116DE78AEAFDE711362F43176 /* SCLExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1118,48 +1104,48 @@
 			target = 6991F49AED797519343B1F4591001691 /* FontAwesome.swift-FontAwesome.swift */;
 			targetProxy = A1E7ADA9414728070F39599079B02152 /* PBXContainerItemProxy */;
 		};
-		11EAA9CE26B616CB82EF9C7DED6317E8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = FontAwesome.swift;
-			target = CD11672B6619C297B6AEE3DFB8213C59 /* FontAwesome.swift */;
-			targetProxy = BC2CEC3D4E171A49489A0BDB9C89E41D /* PBXContainerItemProxy */;
-		};
-		49758C4F50AF736EDBE3547B4BCE6316 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Instructions;
-			target = 6FFF9A0488BA9FA46CAC0F6F1BA0A397 /* Instructions */;
-			targetProxy = 0691F6FDAB00FEBB6B8537640E8FC0C0 /* PBXContainerItemProxy */;
-		};
-		6EA1449DA4C06C8F54597A7ED31FC554 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SCLAlertView;
-			target = F7829A96C2428F44204E752A2157A02A /* SCLAlertView */;
-			targetProxy = DA8B786EDFADB266F5BEF3AAFB58DC3F /* PBXContainerItemProxy */;
-		};
-		72BF1B10D29097796CD949D0985E6505 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = DatePickerDialog;
-			target = 184A1650DC0B648BD756068E60BF2C59 /* DatePickerDialog */;
-			targetProxy = 23968B0A923646FC1BB519A5F129FA86 /* PBXContainerItemProxy */;
-		};
-		9D86E880CC579BC7C20F4B65E1C5EF3B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Cartography;
-			target = 05B5E6B6BF53C2C31E616E4C5644E8BB /* Cartography */;
-			targetProxy = 4C4ECFB54FF5166B04CDF088427AC07D /* PBXContainerItemProxy */;
-		};
-		F16FEAE42FE3EEE2A76387A1CCBAC7E7 /* PBXTargetDependency */ = {
+		37A671EC8B9C8392670AFECCA58C6AD1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Hue;
 			target = B2542602E50EDF091ADB18B4688DF34F /* Hue */;
-			targetProxy = F09F0FD6D979922193F3E9457A4D17F3 /* PBXContainerItemProxy */;
+			targetProxy = 8F6072F1AF970D42EE6793886C881809 /* PBXContainerItemProxy */;
+		};
+		3B8CB825ACB0AE846CC2971E80870283 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Instructions;
+			target = 6FFF9A0488BA9FA46CAC0F6F1BA0A397 /* Instructions */;
+			targetProxy = 8061C1BA17BB1182632D3320DF346FA4 /* PBXContainerItemProxy */;
+		};
+		7FACFFB910CBE6F4477674B531E55E35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IQKeyboardManagerSwift;
+			target = C235F77E101E742652CCF98FFDFA5182 /* IQKeyboardManagerSwift */;
+			targetProxy = 38D56542BA82C613B727249876BFA1B1 /* PBXContainerItemProxy */;
+		};
+		806AD9EE17B3286ECDC8119C9F6058B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FontAwesome.swift;
+			target = CD11672B6619C297B6AEE3DFB8213C59 /* FontAwesome.swift */;
+			targetProxy = B28C226C1283C14D96681052372F2E5B /* PBXContainerItemProxy */;
+		};
+		A4BD0D14E4422BC7866F9DE0CF7CFB3E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SCLAlertView;
+			target = 119DF566994076B600582D90BB9B34F6 /* SCLAlertView */;
+			targetProxy = 1F6759BECA67ABFD3A116DAF4A9E8B0B /* PBXContainerItemProxy */;
+		};
+		CBEB3A90690CE1B7F723406C41EA8178 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DatePickerDialog;
+			target = 184A1650DC0B648BD756068E60BF2C59 /* DatePickerDialog */;
+			targetProxy = 365E83F792DB452AB7E7CE75F10549F0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		222A5960BDD29DEB20B10F4A8DFAF46E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 426D4AA4CC9DB11305231D7330D4E585 /* FontAwesome.swift.xcconfig */;
+			baseConfigurationReference = D84AC268335F792F0DFD78C831DE1CE6 /* FontAwesome.swift.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FontAwesome.swift";
@@ -1170,6 +1156,37 @@
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		314362E8707D72D034FEC8CFBFB11726 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E846D5D18A82D76EF13953EDDF992A81 /* IQKeyboardManagerSwift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IQKeyboardManagerSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift.modulemap";
+				PRODUCT_NAME = IQKeyboardManagerSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
@@ -1236,9 +1253,9 @@
 			};
 			name = Debug;
 		};
-		32681F99B0980155D86F5F7C7AB52066 /* Release */ = {
+		34707B324BDA36B929B4C44C68AC564F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4B63AED8609B3DEB171BF3BC7998B221 /* Pods-myApp2.release.xcconfig */;
+			baseConfigurationReference = 7E553CF633C6FC87296655D9B7376050 /* SCLAlertView.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1249,28 +1266,25 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-myApp2/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SCLAlertView/SCLAlertView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SCLAlertView/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-myApp2/Pods-myApp2.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_myApp2;
+				MODULEMAP_FILE = "Target Support Files/SCLAlertView/SCLAlertView.modulemap";
+				PRODUCT_NAME = SCLAlertView;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		32C6CE822E1AC6DD0456F9C8E4B31FFE /* Debug */ = {
+		34D932F0EB53AF2FFBD2465470E0B1C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 88C41401E6909469A845870870D410C1 /* Pods-myApp2.debug.xcconfig */;
 			buildSettings = {
@@ -1304,40 +1318,9 @@
 			};
 			name = Debug;
 		};
-		36FF446DE0ED1E94C219D7F715DE13FA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8B343026DE11B2BB89741A7D4928284B /* Cartography.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Cartography/Cartography-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Cartography/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Cartography/Cartography.modulemap";
-				PRODUCT_NAME = Cartography;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		4181C58E1B926984BF5B8C4567FD18EE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 426D4AA4CC9DB11305231D7330D4E585 /* FontAwesome.swift.xcconfig */;
+			baseConfigurationReference = D84AC268335F792F0DFD78C831DE1CE6 /* FontAwesome.swift.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1366,72 +1349,9 @@
 			};
 			name = Debug;
 		};
-		4826C0A81C5092813083E7A090054B13 /* Debug */ = {
+		87D4C6A11D6AC8CA7821981AA4535F13 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 10BB73CF2945AC8BDD20122F62784B14 /* SCLAlertView.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SCLAlertView/SCLAlertView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SCLAlertView/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SCLAlertView/SCLAlertView.modulemap";
-				PRODUCT_NAME = SCLAlertView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		6234E30423B84368C3AD2A4834167B91 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8B343026DE11B2BB89741A7D4928284B /* Cartography.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Cartography/Cartography-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Cartography/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Cartography/Cartography.modulemap";
-				PRODUCT_NAME = Cartography;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		A313A6BDFE1CA2B87AD5762808BC2C6C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 10BB73CF2945AC8BDD20122F62784B14 /* SCLAlertView.xcconfig */;
+			baseConfigurationReference = 7E553CF633C6FC87296655D9B7376050 /* SCLAlertView.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1463,7 +1383,7 @@
 		};
 		A3EBCA6CE0895F0913A20BFB9D9821DD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3678AE62CE57B5AA77B7B128B6213499 /* Instructions.xcconfig */;
+			baseConfigurationReference = 94C17ED15DE703ED46637F6B703D660C /* Instructions.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1495,7 +1415,7 @@
 		};
 		B0F556D946E1C0C17D66E041657252F7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ABCC51B66276F15624C5D7199955281C /* DatePickerDialog.xcconfig */;
+			baseConfigurationReference = C11A97A6C01532154BBFC9DB689F19C7 /* DatePickerDialog.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1527,7 +1447,7 @@
 		};
 		B96871B2B17592B404D6D32C1AD9A17B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3678AE62CE57B5AA77B7B128B6213499 /* Instructions.xcconfig */;
+			baseConfigurationReference = 94C17ED15DE703ED46637F6B703D660C /* Instructions.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1616,7 +1536,7 @@
 		};
 		D0D43AD66A76D56480713AFF68346245 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9F034C83097A049013B95534F6A8EEF /* Hue.xcconfig */;
+			baseConfigurationReference = 279BC62F2DBE5428B7E78D3B09E13FED /* Hue.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1648,7 +1568,7 @@
 		};
 		D49B009CD5EF3ABAAF87B30EFA3B5F25 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9F034C83097A049013B95534F6A8EEF /* Hue.xcconfig */;
+			baseConfigurationReference = 279BC62F2DBE5428B7E78D3B09E13FED /* Hue.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1679,7 +1599,7 @@
 		};
 		D6EE27F3DEF0DCD54A3411368103C46F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 426D4AA4CC9DB11305231D7330D4E585 /* FontAwesome.swift.xcconfig */;
+			baseConfigurationReference = D84AC268335F792F0DFD78C831DE1CE6 /* FontAwesome.swift.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1709,9 +1629,41 @@
 			};
 			name = Release;
 		};
+		DDCD46C296262746A887ADB55B1EFAC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E846D5D18A82D76EF13953EDDF992A81 /* IQKeyboardManagerSwift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IQKeyboardManagerSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift.modulemap";
+				PRODUCT_NAME = IQKeyboardManagerSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		E98E92354E51D0E27544837AB2D0A260 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ABCC51B66276F15624C5D7199955281C /* DatePickerDialog.xcconfig */;
+			baseConfigurationReference = C11A97A6C01532154BBFC9DB689F19C7 /* DatePickerDialog.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1740,9 +1692,43 @@
 			};
 			name = Debug;
 		};
+		F80892119C503B6B0F46546143E8CDED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B63AED8609B3DEB171BF3BC7998B221 /* Pods-myApp2.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-myApp2/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-myApp2/Pods-myApp2.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_myApp2;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		FEE81985885E3F6B115EFBC0EB182EA3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 426D4AA4CC9DB11305231D7330D4E585 /* FontAwesome.swift.xcconfig */;
+			baseConfigurationReference = D84AC268335F792F0DFD78C831DE1CE6 /* FontAwesome.swift.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FontAwesome.swift";
@@ -1768,11 +1754,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6D3C6597A57A509D479E4A230A6C7C14 /* Build configuration list for PBXNativeTarget "Pods-myApp2" */ = {
+		5C6273CBBBA02A06599B5287850D3E00 /* Build configuration list for PBXNativeTarget "Pods-myApp2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				32C6CE822E1AC6DD0456F9C8E4B31FFE /* Debug */,
-				32681F99B0980155D86F5F7C7AB52066 /* Release */,
+				34D932F0EB53AF2FFBD2465470E0B1C1 /* Debug */,
+				F80892119C503B6B0F46546143E8CDED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8AE07B3ECA112B5D8AADD7187A22E478 /* Build configuration list for PBXNativeTarget "SCLAlertView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34707B324BDA36B929B4C44C68AC564F /* Debug */,
+				87D4C6A11D6AC8CA7821981AA4535F13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1795,15 +1790,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A9BAA343D12FE6672E7011D9FB12285B /* Build configuration list for PBXNativeTarget "Cartography" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				36FF446DE0ED1E94C219D7F715DE13FA /* Debug */,
-				6234E30423B84368C3AD2A4834167B91 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		C7517784A4541FCDE27289AB3A48C7E6 /* Build configuration list for PBXNativeTarget "Hue" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1813,11 +1799,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E66384CEA106869B550E1A0AED528579 /* Build configuration list for PBXNativeTarget "SCLAlertView" */ = {
+		E8C5CE05A712EF50BB123A41D8EFC0CB /* Build configuration list for PBXNativeTarget "IQKeyboardManagerSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4826C0A81C5092813083E7A090054B13 /* Debug */,
-				A313A6BDFE1CA2B87AD5762808BC2C6C /* Release */,
+				314362E8707D72D034FEC8CFBFB11726 /* Debug */,
+				DDCD46C296262746A887ADB55B1EFAC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

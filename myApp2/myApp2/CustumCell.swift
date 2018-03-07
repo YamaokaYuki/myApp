@@ -8,7 +8,7 @@
 
 import UIKit
 import FontAwesome_swift
-import Cartography
+import SCLAlertView//褒めるポップアップ用
 
 class CustumCell: UITableViewCell {
  
@@ -32,19 +32,19 @@ class CustumCell: UITableViewCell {
     }
     
     @IBAction func checkChangeColor(_ sender: UIButton) {
+        
         print("push1")
         if checkBtn.tintColor == UIColor.lightGray{
             checkBtn.tintColor = UIColor.blue
+            
+            //褒めるポップアップを表示
+            if myDefault.bool(forKey: "commentSwitchFlag") == true{
+                let r = Int(arc4random()) % functionAlerts.count
+                SCLAlertView().showSuccess("おつかれさま！",subTitle:functionAlerts[r] )
+            }
         }else if checkBtn.tintColor == UIColor.blue{
             checkBtn.tintColor = UIColor.lightGray
         }
-        print("sample")
-//        if sender.tintColor == UIColor.lightGray{
-//            sender.tintColor = UIColor.blue
-//        }else if sender.tintColor == UIColor.blue{
-//            sender.tintColor = UIColor.lightGray
-//        }
-//
     }
     
     

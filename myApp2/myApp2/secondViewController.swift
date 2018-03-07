@@ -11,6 +11,7 @@ import CoreData //CoreData使う時絶対に必要
 import DatePickerDialog
 import Hue
 import UserNotifications//期日アラーム用
+import IQKeyboardManagerSwift//キーボード用
 
 class secondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate{
     
@@ -156,13 +157,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     }//viewDidLoad終わり
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        testNotificationForViewwillAppear()
-    }
-    
-    
     //(2)テキストフィールドの入力イベントを監視し、変更があった場合に指定文字数(ここでは20文字)を超えた文字の入力をさせいない
     @objc private func textFieldDidChange(notification: NSNotification) {
         let textFieldString = notification.object as! UITextField
@@ -173,66 +167,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
     }
     
-    //    ==================================
-    //　　　　　　　MARK: キーボード観察
-    //    ==================================
-    func testNotificationForViewwillAppear() {
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(secondViewController.keyboardWillShow(_:)),
-                                               name: NSNotification.Name.UIKeyboardWillShow,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(secondViewController.keyboardWillHide(_:)) ,
-                                               name: NSNotification.Name.UIKeyboardWillHide,
-                                               object: nil)
-    }
-    
-    func testNotificationForViewwillDisAppear(){
-        NotificationCenter.default.removeObserver(self,
-                                                  name: .UIKeyboardWillShow,
-                                                  object: self.view.window)
-        NotificationCenter.default.removeObserver(self,
-                                                  name: .UIKeyboardDidHide,
-                                                  object: self.view.window)
-    }
-    
-    
-
-    
-    //TODO:やることリスト
-    //CusCatogoryTableの高さを取得する
-    //その高さとキーボードの高さの差
-    
-    @objc func keyboardWillShow(_ notification: Notification) {
-        print(#function)
-        let info = notification.userInfo!
-        
-        let keyboardFrame = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        
-        let テーブルビューのY座標 = newTableView.frame.origin.y
-        let キーボードのY座標 = keyboardFrame.origin.y
-        
-        let セルの下側のY座標 = テーブルビューのY座標 + cellHeight
-        
-        let topKeyboard = newTableView.frame.origin.y - keyboardFrame.size.height
-        
-        // 重なり
-        let distance = セルの下側のY座標 - キーボードのY座標
-        
-        
-        //テーブルのscrollView内に余分な高さ(contentOffset)をセット
-        if distance >= 0 {
-            newTableView.contentOffset.y = distance
-        }
-    }
-    
-    @objc func keyboardWillHide(_ notification: Notification) {
-        
-        print(#function)
-        newTableView.contentOffset.y = 0
-        
-    }
     
     // BarButtonItemキャンセルの前画面に戻す処理.
     @objc func backButton(sender: UIBarButtonItem){
@@ -440,10 +374,10 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         let viewContext = appD.persistentContainer.viewContext
 
         //データを取得するエンティティの指定
-//        <>の中はモデルファイルで指定したエンティティ名
+        //<>の中はモデルファイルで指定したエンティティ名
        let query:NSFetchRequest<Memo> = Memo.fetchRequest()
 
-//        //===== 絞り込み =====
+        ////===== 絞り込み =====
         let r_idPredicate = NSPredicate(format: "titleId = %@",passedTitleId)
         query.predicate = r_idPredicate
 
@@ -457,10 +391,8 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
                 
                 let memo :String = result.value(forKey: "content") as! String
                 let memoTitle :String = result.value(forKey: "titleId") as! String
-                //ここにdueDate追加の処理を書いてあげる？
                 memos.append(memo)
             }
-//            memos.append("")
             newTableView.reloadData()
         } catch  {
         }
@@ -468,7 +400,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //行数の決定
-        // readMemoData()
         return memos.count + 1
     }
     
@@ -576,9 +507,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         if TextField == self.dateTextField {
             createDatePicker()
         }
-        //スクロール
-        cellHeight = (TextField.superview?.frame.height)! * CGFloat(TextField.tag + 1)
-        print("セルの高さ")
     }
     
     
@@ -590,7 +518,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             // cellのtagとmemos.countが一致　→ 新規の詳細メモ
             if memos.count == textField.tag {
-//                 self.memos.append(textField.text!)
             }else{
             
                 self.memos[textField.tag] = textField.text!
@@ -606,11 +533,19 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
        
         // 詳細メモが空のとき、復活
         if textField.text == "" && textField.tag != titleTag  {
-
-//            print(titleTag)
             cells = []
             newTableView.reloadData()
         }
+        
+        // Try to find next responder
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            // Not found, so remove keyboard.
+            textField.resignFirstResponder()
+        }
+        // Do not add a line break
+        //return false
         return true
     }
 
@@ -653,9 +588,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             //詳細メモが空のままフォーカスが外れた時に復活
-
-//            let cell:NewCustumCell = tableView.cellForRow(at: indexPath) as! NewCustumCell
-
             
             newTableView.reloadData()
             self.memos.remove(at: indexPath.row)
@@ -684,8 +616,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     override func viewWillDisappear(_ animated: Bool) {
         passedTitleId = ""
-        
-        testNotificationForViewwillDisAppear()
     }
     
     

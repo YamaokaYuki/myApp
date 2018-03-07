@@ -12,12 +12,12 @@ import Instructions
 import CoreData
 import Hue//色変える
 import SCLAlertView//褒めるポップアップ用
-import Cartography//オートレイアウト
+
+var functionAlerts:[String] = []
 
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchResultsUpdating {
     
-    var functionAlerts:[String] = []
     var titles:[Dictionary<String,Any>] = []
     var selectedTitleId:String!
     var selectedTitle:String!
