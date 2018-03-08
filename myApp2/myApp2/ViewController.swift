@@ -14,6 +14,7 @@ import Hue//色変える
 import SCLAlertView//褒めるポップアップ用
 
 var functionAlerts:[String] = []
+//var checkNum:Int!
 
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchResultsUpdating {
@@ -33,7 +34,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var selectedNum:Int!
     
     //検索バーに関わるもの
-//    let PPAP:[String] = []
     var searchResults:[Dictionary<String,Any>] = []
     var tableView: UITableView!
     var searchController = UISearchController()
@@ -50,6 +50,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         readPlist()
         readTitle()
         setupSearchBar()
+//        saveCheck()
         
         setButton.image = UIImage.fontAwesomeIcon(
             name: .cog,
@@ -61,6 +62,34 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         toDoListTableView.rowHeight = 70.0;
        
     }// viewDidRoad終了
+    
+    //✓ボタン状態保存
+//    func saveCheck() {
+//        
+//            //AppDelegateを使う準備をしておく
+//            let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
+//            
+//            //エンティティを操作するためのオブジェクトを作成
+//            let viewContext = appD.persistentContainer.viewContext
+//            
+//            //ToDoエンティティオブジェクトを作成
+//            //forEntityNameは、モデルファイルで決めたエンティティ名（大文字小文字合わせる）
+//            let ToDo = NSEntityDescription.entity(forEntityName: "ToDo", in: viewContext)
+//            
+//            //ToDoエンティティにレコード（行）を挿入するためのオブジェクトを作成
+//            let newRecord = NSManagedObject(entity: ToDo!, insertInto: viewContext)
+//            
+//            //レコードオブジェクトに値のセット
+//            newRecord.setValue(checkNum, forKey: "check")
+//            //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
+//            do {
+//                //レコード（行）の即時保存
+//                try viewContext.save()
+//            } catch  {
+//                print("DBへの保存に失敗しました")
+//            }
+//    }
+    
     
     func readPlist() {
         //ファイルのパスを取得
@@ -302,11 +331,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             
         }
         //<削除後コメント>
-        if myDefault.bool(forKey: "commentSwitchFlag") == true{
-        let r = Int(arc4random()) % functionAlerts.count
-        //褒めるポップアップを表示
-        SCLAlertView().showSuccess("おつかれさま！",subTitle:functionAlerts[r] )
-    }
+//        if myDefault.bool(forKey: "commentSwitchFlag") == true{
+//        let r = Int(arc4random()) % functionAlerts.count
+//        //褒めるポップアップを表示
+//        SCLAlertView().showSuccess("おつかれさま！",subTitle:functionAlerts[r] )
+//    }
 
     }
     

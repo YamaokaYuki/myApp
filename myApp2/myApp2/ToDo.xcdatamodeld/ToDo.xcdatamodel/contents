@@ -5,6 +5,7 @@
         <attribute name="titleId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="ToDo" representedClassName=".ToDo" syncable="YES">
+        <attribute name="check" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="dueDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="priority" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -13,6 +14,6 @@
     </entity>
     <elements>
         <element name="Memo" positionX="-54" positionY="27" width="128" height="75"/>
-        <element name="ToDo" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="ToDo" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>

@@ -8,8 +8,6 @@ class setViewController: UIViewController {
     
     @IBOutlet weak var commentSwitch: UISwitch!
     
-//    let myDefault = UserDefaults.standard
-    
     //画面が表示された時、設定値を反映させる
     override func viewWillAppear(_ animated: Bool){
         // はじめの状態をtrueにしておく.

@@ -44,7 +44,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     var cells:[NewCustumCell] = []
     var saveBtn:UIBarButtonItem!
     let colorDefault = UserDefaults.standard
-    var cellHeight:CGFloat = 0.0
     
     
     
@@ -71,7 +70,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             }else if priorityNum == 3{
                 oneBtn.backgroundColor = oneBtnColor
             }
-            
+              //------優先ボタン状態保存処理 終了----------------
             //dueDateを表示し保存するためのコード
             //dueDateをDate型として指定する
             if dueDate != nil {
@@ -86,7 +85,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             
         }
         
-        //------優先ボタン状態保存処理 終了----------------
+      
         newTableView.delegate = self
         newTextField.delegate = self
         newTextField.tag = titleTag
@@ -126,6 +125,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.setRightBarButton(saveBtn, animated: true)
         saveBtn.isEnabled = false
+        
         if newTextField.text == "" {
             saveBtn.isEnabled = false
         }else{
@@ -157,12 +157,12 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     }//viewDidLoad終わり
     
     
-    //(2)テキストフィールドの入力イベントを監視し、変更があった場合に指定文字数(ここでは20文字)を超えた文字の入力をさせいない
+    //(2)テキストフィールドの入力イベントを監視し、変更があった場合に指定文字数(ここでは15文字)を超えた文字の入力をさせいない
     @objc private func textFieldDidChange(notification: NSNotification) {
         let textFieldString = notification.object as! UITextField
         if let text = textFieldString.text {
-            if text.characters.count > 15 {
-                newTextField.text = text.substring(to: text.index(text.startIndex, offsetBy: 15))
+            if text.characters.count > 10 {
+                newTextField.text = text.substring(to: text.index(text.startIndex, offsetBy: 10))
             }
         }
     }
@@ -351,7 +351,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
                 self.dueDate = dt
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy年MM月dd日HH時mm分"
-//                print(formatter.string(from: dt))
                 self.dateTextField.text = "\(formatter.string(from: dt))"
                 
                 
@@ -413,9 +412,9 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         if indexPath.row == memos.count {
             cell.newTextFieldCell.text = ""
             
-            if memos.count != 0 {
-                cell.newTextFieldCell.becomeFirstResponder()
-            }
+//            if memos.count != 0 {
+//                cell.newTextFieldCell.becomeFirstResponder()
+//            }
             
         }else {
             cell.newTextFieldCell.text = memos[indexPath.row]
@@ -538,12 +537,20 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
         
         // Try to find next responder
-        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
-            nextField.becomeFirstResponder()
-        } else {
-            // Not found, so remove keyboard.
-            textField.resignFirstResponder()
-        }
+        if let newcell = newTableView.cellForRow(at: IndexPath(row: textField.tag+1, section: 0)){
+            
+            (newcell as! NewCustumCell).newTextFieldCell.becomeFirstResponder()
+        }else {
+                        // Not found, so remove keyboard.
+                        textField.resignFirstResponder()
+                    }
+        
+//        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+//            nextField.becomeFirstResponder()
+//        } else {
+//            // Not found, so remove keyboard.
+//            textField.resignFirstResponder()
+//        }
         // Do not add a line break
         //return false
         return true

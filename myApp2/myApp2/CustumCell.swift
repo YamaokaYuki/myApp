@@ -32,17 +32,16 @@ class CustumCell: UITableViewCell {
     }
     
     @IBAction func checkChangeColor(_ sender: UIButton) {
-        
-        print("push1")
         if checkBtn.tintColor == UIColor.lightGray{
             checkBtn.tintColor = UIColor.blue
-            
+//            checkNum = 1
             //褒めるポップアップを表示
             if myDefault.bool(forKey: "commentSwitchFlag") == true{
                 let r = Int(arc4random()) % functionAlerts.count
                 SCLAlertView().showSuccess("おつかれさま！",subTitle:functionAlerts[r] )
             }
         }else if checkBtn.tintColor == UIColor.blue{
+//            checkNum  = 0
             checkBtn.tintColor = UIColor.lightGray
         }
     }
