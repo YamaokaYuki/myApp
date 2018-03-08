@@ -14,7 +14,7 @@ import Hue//色変える
 import SCLAlertView//褒めるポップアップ用
 
 var functionAlerts:[String] = []
-//var checkNum:Int!
+var checkNum:Int!
 
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchResultsUpdating {
@@ -46,11 +46,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         readPlist()
         readTitle()
         setupSearchBar()
-//        saveCheck()
         
         setButton.image = UIImage.fontAwesomeIcon(
             name: .cog,
@@ -63,32 +63,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
        
     }// viewDidRoad終了
     
-    //✓ボタン状態保存
-//    func saveCheck() {
-//        
-//            //AppDelegateを使う準備をしておく
-//            let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
-//            
-//            //エンティティを操作するためのオブジェクトを作成
-//            let viewContext = appD.persistentContainer.viewContext
-//            
-//            //ToDoエンティティオブジェクトを作成
-//            //forEntityNameは、モデルファイルで決めたエンティティ名（大文字小文字合わせる）
-//            let ToDo = NSEntityDescription.entity(forEntityName: "ToDo", in: viewContext)
-//            
-//            //ToDoエンティティにレコード（行）を挿入するためのオブジェクトを作成
-//            let newRecord = NSManagedObject(entity: ToDo!, insertInto: viewContext)
-//            
-//            //レコードオブジェクトに値のセット
-//            newRecord.setValue(checkNum, forKey: "check")
-//            //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
-//            do {
-//                //レコード（行）の即時保存
-//                try viewContext.save()
-//            } catch  {
-//                print("DBへの保存に失敗しました")
-//            }
-//    }
+    
     
     
     func readPlist() {
@@ -116,6 +91,49 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             navigationItem.titleView = searchController.searchBar
         }
     }
+    
+//    //✓状態保存
+//    func saveCheck() {
+//
+//            //AppDelegateを使う準備をしておく
+//            let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
+//
+//            //エンティティを操作するためのオブジェクトを作成
+//            let viewContext = appD.persistentContainer.viewContext
+//
+//        //どのエンティティからdataを取得してくるか設定
+//        //全部取得する
+//        let query:NSFetchRequest<ToDo> = ToDo.fetchRequest()
+//
+//        //絞り込み検索（更新したいデータを取得する）
+//        //ここで取得したいデータをとるためのコードを書く
+//        let  r_idPredicate = NSPredicate(format: "id = %@", passedTitleId)
+//        query.predicate = r_idPredicate
+//
+//
+//        do {
+//            //データを一括取得
+//            let fetchResults = try viewContext.fetch(query)
+//
+//            //データの取得
+//            for result: AnyObject in fetchResults {
+//
+//                //更新する準備（NSManagedObjectにダウンキャスト型変換)
+//                //recordがひとつのセット
+//                let record = result as! NSManagedObject
+//
+//                //更新したいデータのセット
+//                record.setValue(checkNum, forKey: "check")
+//
+//            //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
+//            do {
+//
+//                //レコード（行）の即時保存
+//                try viewContext.save()
+//            } catch  {
+//                print("DBへの保存に失敗しました")
+//            }
+//        }
     
     
     //＜タイトルを読むための関数＞
@@ -146,7 +164,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     "title": result.title!,
                     "id":result.id!,
                     "priority":result.priority,
-                    "dueDate":result.dueDate
+                    "dueDate":result.dueDate,
+//                    "check":result.check
                     ] as [String : Any]
                 titles.append(titleData)
                 
@@ -155,7 +174,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             }
             let orderedSet = NSOrderedSet(array: array)
             priorityArray = orderedSet.array as! [Int]
-            print(priorityArray)
             self.toDoListTableView.reloadData()
             
         } catch  {
@@ -167,7 +185,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //表示する個数の設定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return titles.count
         
         //検索バー
         if searchController.isActive {
@@ -196,7 +213,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //priorityNumの番号によって色を変更する
         //そのセルだけ
         let priority:Int = Int(titles[indexPath.row]["priority"] as! Int16)
-        print("in cell",priorityArray)
         
         for n in 0...priorityArray.count - 1 {
             if priority == priorityArray[n] {
@@ -215,11 +231,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             cell.contentView.backgroundColor = UIColor.white
         }
     
-        //作成したcellオブジェクトを戻り値として返す
-//        return cell
-        
-        //検索バーに関わるもの
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
         if searchController.isActive {
             cell.toDoTitle!.text = "\(searchResults[indexPath.row]["title"]!)"
         }else{
@@ -271,7 +282,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //<セルの削除>
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print(indexPath.row)
             let titleData = titles[indexPath.row]
             self.titles.remove(at: indexPath.row)
             toDoListTableView.deleteRows(at: [indexPath], with: .fade)
@@ -316,13 +326,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                             flag = true
                         }
                     }
-                    print(flag)
                     
                     if flag == false {
                         // 色変える
-                        print("change color")
                         readTitle()
-                        print(titles)
                         toDoListTableView.reloadData()
                         break
                     }
@@ -330,13 +337,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             }
             
         }
-        //<削除後コメント>
-//        if myDefault.bool(forKey: "commentSwitchFlag") == true{
-//        let r = Int(arc4random()) % functionAlerts.count
-//        //褒めるポップアップを表示
-//        SCLAlertView().showSuccess("おつかれさま！",subTitle:functionAlerts[r] )
-//    }
-
     }
     
     // 文字が入力される度に呼ばれる
@@ -378,7 +378,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 let titleData = [
                     "title": result.title!,
                     "id":result.id!,
-                    "priority":result.priority
+                    "priority":result.priority,
+                    "check":result.check
                     ] as [String : Any]
                 titles.append(titleData)
                 

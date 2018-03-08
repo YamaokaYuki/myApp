@@ -362,7 +362,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     // coreDataの読み込み memoにappendしてる
     func readMemoData(){
-        print(#function)
         //配列の初期化
         memos = []
 
@@ -412,10 +411,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         if indexPath.row == memos.count {
             cell.newTextFieldCell.text = ""
             
-//            if memos.count != 0 {
-//                cell.newTextFieldCell.becomeFirstResponder()
-//            }
-            
         }else {
             cell.newTextFieldCell.text = memos[indexPath.row]
         }
@@ -449,6 +444,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             newRecord.setValue(uuid, forKey: "id")
             newRecord.setValue(Date(), forKey: "saveDate")
             newRecord.setValue(priorityNum, forKey: "priority")
+            newRecord.setValue(checkNum, forKey: "check")
 
             if dateTextField.text != "" {
                 newRecord.setValue(dueDate, forKey: "dueDate")
