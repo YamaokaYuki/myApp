@@ -9,6 +9,8 @@
 import UIKit
 import FontAwesome_swift
 import SCLAlertView//褒めるポップアップ用
+import CoreData //CoreData使う時絶対に必要
+
 
 class CustumCell: UITableViewCell {
  
@@ -17,8 +19,9 @@ class CustumCell: UITableViewCell {
     @IBOutlet weak var fontAwesomeLabel: UILabel!
     
     @IBOutlet weak var checkBtn: UIButton!
-    
 
+    var toDoId:String!
+    var checkNum:Int!
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -27,15 +30,19 @@ class CustumCell: UITableViewCell {
         self.toDoTitle.layer.cornerRadius = 5
         self.toDoTitle.layer.masksToBounds = true
         
-        checkBtn.tintColor = UIColor.lightGray
+//        checkBtn.tintColor = UIColor.lightGray
+        
+        
         
     
         
     }
     
     @IBAction func checkChangeColor(_ sender: UIButton) {
+        
+        
         if checkBtn.tintColor == UIColor.lightGray{
-//            checkNum = 1
+            checkNum = 1
             checkBtn.tintColor = UIColor.blue
             //褒めるポップアップを表示
             if myDefault.bool(forKey: "commentSwitchFlag") == true{
@@ -43,57 +50,59 @@ class CustumCell: UITableViewCell {
                 SCLAlertView().showSuccess("おつかれさま！",subTitle:functionAlerts[r] )
             }
         }else if checkBtn.tintColor == UIColor.blue{
-//            checkNum = 0
+            checkNum = 0
             checkBtn.tintColor = UIColor.lightGray
         }
+        
+        updateCheck()
     }
     
     //✓状態保存
-//    func saveCheck() {
-//        
-//        //AppDelegateを使う準備をしておく
-//        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
-//        
-//        //エンティティを操作するためのオブジェクトを作成
-//        let viewContext = appD.persistentContainer.viewContext
-//        
-//        //どのエンティティからdataを取得してくるか設定
-//        //全部取得する
-//        let query:NSFetchRequest<ToDo> = ToDo.fetchRequest()
-//        
-//        //絞り込み検索（更新したいデータを取得する）
-//        //ここで取得したいデータをとるためのコードを書く
-//        let  r_idPredicate = NSPredicate(format: "id = %@", checkTitleId)
-//        query.predicate = r_idPredicate
-//        
-//        
-//        do {
-//            //データを一括取得
-//            let fetchResults = try viewContext.fetch(query)
-//            
-//            //データの取得
-//            for result: AnyObject in fetchResults {
-//                
-//                //更新する準備（NSManagedObjectにダウンキャスト型変換)
-//                //recordがひとつのセット
-//                let record = result as! NSManagedObject
-//                
-//                //更新したいデータのセット
-//                record.setValue(checkNum, forKey: "check")
-//                
-//                //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
-//                do {
-//                    
-//                    //レコード（行）の即時保存
-//                    try viewContext.save()
-//                } catch  {
-//                    print("DBへの保存に失敗しました")
-//                }
-//            }
-//    
-    
-    
-    
+    func updateCheck() {
+        
+        //AppDelegateを使う準備をしておく
+        let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
+        
+        //エンティティを操作するためのオブジェクトを作成
+        let viewContext = appD.persistentContainer.viewContext
+        
+        //どのエンティティからdataを取得してくるか設定
+        //全部取得する
+        let query:NSFetchRequest<ToDo> = ToDo.fetchRequest()
+        
+        //絞り込み検索（更新したいデータを取得する）
+        //ここで取得したいデータをとるためのコードを書く
+        let  r_idPredicate = NSPredicate(format: "id = %@", toDoId)
+        query.predicate = r_idPredicate
+        
+        
+        do {
+            //データを一括取得
+            let fetchResults = try viewContext.fetch(query)
+            
+            //データの取得
+            for result: AnyObject in fetchResults {
+                
+                //更新する準備（NSManagedObjectにダウンキャスト型変換)
+                //recordがひとつのセット
+                let record = result as! NSManagedObject
+                
+                //更新したいデータのセット
+                record.setValue(checkNum, forKey: "check")
+                
+                //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
+                do {
+                    
+                    //レコード（行）の即時保存
+                    try viewContext.save()
+                } catch  {
+                    print("DBへの保存に失敗しました")
+                }
+            }
+        }catch{
+            
+        }
+    }
     
 
 }

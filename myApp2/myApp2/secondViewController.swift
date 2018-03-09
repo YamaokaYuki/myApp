@@ -106,8 +106,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
 
             newTextField.text = passedTitle
             
-            let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            print(urls[urls.count-1] as URL)
 
         }
 
@@ -458,7 +456,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             newRecord.setValue(uuid, forKey: "id")
             newRecord.setValue(Date(), forKey: "saveDate")
             newRecord.setValue(priorityNum, forKey: "priority")
-            newRecord.setValue(checkNum, forKey: "check")
+            newRecord.setValue(0, forKey: "check")
 
             if dateTextField.text != "" {
                 newRecord.setValue(dueDate, forKey: "dueDate")

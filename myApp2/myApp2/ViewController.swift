@@ -14,7 +14,6 @@ import Hue//色変える
 import SCLAlertView//褒めるポップアップ用
 
 var functionAlerts:[String] = []
-var checkNum:Int!
 
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchResultsUpdating {
@@ -64,6 +63,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         if myDefault.object(forKey: "commentSwitchFlag") == nil{
             myDefault.set(true,forKey: "commentSwitchFlag")
         }
+        
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        print(urls[urls.count-1] as URL)
+
     
        
     }// viewDidRoad終了
@@ -126,8 +129,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     "title": result.title!,
                     "id":result.id!,
                     "priority":result.priority,
-                    "dueDate":result.dueDate
-//                    "check":result.check
+                    "dueDate":result.dueDate,
+                    "check":result.check
                     ] as [String : Any]
                 titles.append(titleData)
                 
@@ -162,6 +165,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let cell:CustumCell = tableView.dequeueReusableCell(withIdentifier: "cell", for:indexPath) as! CustumCell
         //各プロパティに値を設定
         cell.toDoTitle.text = titles[indexPath.row]["title"] as? String
+        let checkNum = titles[indexPath.row]["check"] as? Int16
+        cell.toDoId = titles[indexPath.row]["id"] as? String
+        print(cell.toDoId)
+        
+        if checkNum == 0{
+            cell.checkBtn.tintColor = UIColor.lightGray
+        } else if checkNum == 1{
+            cell.checkBtn.tintColor = UIColor.blue
+        }
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.firstLineHeadIndent = 35
@@ -341,8 +353,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     "title": result.title!,
                     "id":result.id!,
                     "priority":result.priority,
-                    "dueDate":result.dueDate
-//                    "check":result.check
+                    "dueDate":result.dueDate,
+                    "check":result.check
                     ] as [String : Any]
                 titles.append(titleData)
                 
