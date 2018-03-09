@@ -29,6 +29,8 @@ class CustumCell: UITableViewCell {
         
         checkBtn.tintColor = UIColor.lightGray
         
+    
+        
     }
     
     @IBAction func checkChangeColor(_ sender: UIButton) {

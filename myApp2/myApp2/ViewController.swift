@@ -60,6 +60,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         toDoListTableView.separatorColor = UIColor.white
         toDoListTableView.rowHeight = 70.0;
+        
+        if myDefault.object(forKey: "commentSwitchFlag") == nil{
+            myDefault.set(true,forKey: "commentSwitchFlag")
+        }
+    
        
     }// viewDidRoad終了
     
@@ -92,49 +97,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
     }
     
-//    //✓状態保存
-//    func saveCheck() {
-//
-//            //AppDelegateを使う準備をしておく
-//            let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
-//
-//            //エンティティを操作するためのオブジェクトを作成
-//            let viewContext = appD.persistentContainer.viewContext
-//
-//        //どのエンティティからdataを取得してくるか設定
-//        //全部取得する
-//        let query:NSFetchRequest<ToDo> = ToDo.fetchRequest()
-//
-//        //絞り込み検索（更新したいデータを取得する）
-//        //ここで取得したいデータをとるためのコードを書く
-//        let  r_idPredicate = NSPredicate(format: "id = %@", passedTitleId)
-//        query.predicate = r_idPredicate
-//
-//
-//        do {
-//            //データを一括取得
-//            let fetchResults = try viewContext.fetch(query)
-//
-//            //データの取得
-//            for result: AnyObject in fetchResults {
-//
-//                //更新する準備（NSManagedObjectにダウンキャスト型変換)
-//                //recordがひとつのセット
-//                let record = result as! NSManagedObject
-//
-//                //更新したいデータのセット
-//                record.setValue(checkNum, forKey: "check")
-//
-//            //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
-//            do {
-//
-//                //レコード（行）の即時保存
-//                try viewContext.save()
-//            } catch  {
-//                print("DBへの保存に失敗しました")
-//            }
-//        }
-    
     
     //＜タイトルを読むための関数＞
     func readTitle(){
@@ -164,7 +126,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     "title": result.title!,
                     "id":result.id!,
                     "priority":result.priority,
-                    "dueDate":result.dueDate,
+                    "dueDate":result.dueDate
 //                    "check":result.check
                     ] as [String : Any]
                 titles.append(titleData)
@@ -379,7 +341,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     "title": result.title!,
                     "id":result.id!,
                     "priority":result.priority,
-                    "check":result.check
+                    "dueDate":result.dueDate
+//                    "check":result.check
                     ] as [String : Any]
                 titles.append(titleData)
                 

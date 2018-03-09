@@ -57,6 +57,8 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
 
             let num = (todoData["priority"]!) as! Int16
             priorityNum = Int(num)
+            
+
 
             allGray()
             if priorityNum == 0{
@@ -70,17 +72,23 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             }else if priorityNum == 3{
                 oneBtn.backgroundColor = oneBtnColor
             }
-              //------優先ボタン状態保存処理 終了----------------
+        //------優先ボタン状態保存処理 終了----------------
+            
+            
             //dueDateを表示し保存するためのコード
             //dueDateをDate型として指定する
-            if dueDate != nil {
-                let dueDate = todoData["dueDate"] as! Date
+            //  3000年のときは、nilじゃなくて3000年じゃなかったら？という処理になる
+            print(todoData["dueDate"].debugDescription)
+            let df = DateFormatter()
+            df.dateFormat = "yyyy/MM/dd"
+            if todoData["dueDate"] as! Date != df.date(from: "3000/01/01") {
+                let displayDueDate = todoData["dueDate"] as! Date
                 //dueDateを表示するためにdate型からstring型に直してあげるのがdateformatter
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy年MM月dd日HH時mm分"
-                self.dateTextField.text = "\(formatter.string(from: dueDate))"
+                self.dateTextField.text = "\(formatter.string(from: displayDueDate))"
                 //編集がされなかったときのために予め保存されている物を残しておく
-                self.dueDate = dueDate
+                self.dueDate = displayDueDate
             }
             
         }
@@ -192,7 +200,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             //リターンキーが押されたとき及びカーソルが外れた時(キーボードが下がった時)に発動する処理をすべてのセルで行ってあげる処理
             for n in 0...cells.count - 1{
-//                cells[n].newTextFieldCell.becomeFirstResponder()
                 textFieldDidEndEditing(cells[n].newTextFieldCell)
             }
             titleUpdate()
@@ -235,8 +242,15 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
                 record.setValue(newTextField.text, forKey: "title")
                 record.setValue(Date(), forKey: "saveDate")
                 
+                
+                
                 if dateTextField.text != "" {
                     record.setValue(dueDate, forKey: "dueDate")
+                }else{
+                    // 3000年
+                    let df = DateFormatter()
+                    df.dateFormat = "yyyy/MM/dd"
+                    record.setValue(df.date(from: "3000/01/01"), forKey: "dueDate")
                 }
                 record.setValue(priorityNum, forKey: "priority")
 
@@ -448,6 +462,11 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
 
             if dateTextField.text != "" {
                 newRecord.setValue(dueDate, forKey: "dueDate")
+            }else{
+                // 3000年
+                let df = DateFormatter()
+                df.dateFormat = "yyyy/MM/dd"
+                newRecord.setValue(df.date(from: "3000/01/01"), forKey: "dueDate")
             }
             
             //docatch エラーの多い処理はこの中に書くという文法ルールなので必要
