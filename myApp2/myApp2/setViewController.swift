@@ -32,8 +32,6 @@ class setViewController: UIViewController {
         }
         
         commentSwitch.isOn = commentSwitchFlag
-        
-        
     }
 
     

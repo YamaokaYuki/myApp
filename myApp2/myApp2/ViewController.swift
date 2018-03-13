@@ -46,7 +46,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         readPlist()
         readTitle()
         setupSearchBar()
@@ -66,9 +65,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         print(urls[urls.count-1] as URL)
+        
 
-    
-       
     }// viewDidRoad終了
     
     
@@ -85,7 +83,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         for(_,value) in dic!{
             functionAlerts.append(value as! String)
         }
-
     }
     
     //<サーチバー作成>
@@ -115,7 +112,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //<>の中はモデルファイルで指定したエンティティ名
         let query: NSFetchRequest<ToDo> = ToDo.fetchRequest()
         
-        let sortDescripter = NSSortDescriptor(key: "priority", ascending: false)//ascendind:true 昇順、false 降順です
+        let sortDescripter = NSSortDescriptor(key: "priority", ascending: false)//ascendind:true 昇順、false 降順
         query.sortDescriptors = [sortDescripter]
 
         do {
@@ -135,29 +132,24 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 titles.append(titleData)
                 
                 array.append(Int(result.priority))
-                
-            }
+                }
             let orderedSet = NSOrderedSet(array: array)
             priorityArray = orderedSet.array as! [Int]
             self.toDoListTableView.reloadData()
             
         } catch  {
         }
-        
-        
     }
 
     
     //表示する個数の設定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         //検索バー
         if searchController.isActive {
             return searchResults.count
         } else {
             return titles.count
         }
-
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -185,7 +177,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         
         //priorityNumの番号によって色を変更する
-        //そのセルだけ
         let priority:Int = Int(titles[indexPath.row]["priority"] as! Int16)
         
         for n in 0...priorityArray.count - 1 {
@@ -212,8 +203,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
         
         return cell
-        
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -238,7 +227,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         searchController.searchBar.resignFirstResponder()
 
         //複数セグエがある場合、segue.identifierで判別可能
-
         //移動先の画面のインスタンスを取得
         //segue.destination セグエが持っている、目的地（移動先の画面）
         //as ダウンキャスト変換 広い範囲から限定したデータ型へ型変換するときに使用
@@ -373,7 +361,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
 
 

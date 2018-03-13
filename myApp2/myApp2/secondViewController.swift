@@ -51,15 +51,11 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         super.viewDidLoad()
         
         //------優先ボタン状態保存処理----------------
-      
-
-        if todoData != nil {
+            if todoData != nil {
 
             let num = (todoData["priority"]!) as! Int16
             priorityNum = Int(num)
             
-
-
             allGray()
             if priorityNum == 0{
                 oneBtn.backgroundColor = oneBtnColor
@@ -72,12 +68,12 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             }else if priorityNum == 3{
                 oneBtn.backgroundColor = oneBtnColor
             }
-        //------優先ボタン状態保存処理 終了----------------
+            //------優先ボタン状態保存処理 終了----------------
             
             
             //dueDateを表示し保存するためのコード
             //dueDateをDate型として指定する
-            //  3000年のときは、nilじゃなくて3000年じゃなかったら？という処理になる
+            //3000年のときは、nilじゃなくて3000年じゃなかったらという処理になる
             print(todoData["dueDate"].debugDescription)
             let df = DateFormatter()
             df.dateFormat = "yyyy/MM/dd"
@@ -93,22 +89,17 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             
         }
         
-      
         newTableView.delegate = self
         newTextField.delegate = self
         newTextField.tag = titleTag
         dateTextField.delegate = self
         
-
         // タイトルと詳細メモに値をいれる
         if passedTitleId != "" {
             readMemoData()
-
             newTextField.text = passedTitle
-            
-
         }
-
+        
         // newTextFieldにプレスフォルダーを設定
         newTextField.placeholder = "タイトル入力"
         if newTextField.text == "" {
@@ -132,6 +123,8 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.navigationItem.setRightBarButton(saveBtn, animated: true)
         saveBtn.isEnabled = false
         
+        
+        //ここ？
         if newTextField.text == "" {
             saveBtn.isEnabled = false
         }else{
@@ -163,13 +156,19 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     }//viewDidLoad終わり
     
     
-    //(2)テキストフィールドの入力イベントを監視し、変更があった場合に指定文字数(ここでは15文字)を超えた文字の入力をさせいない
+    //(2)テキストフィールドの入力イベントを監視し、変更があった場合に指定文字数(ここでは10文字)を超えた文字の入力をさせいない
     @objc private func textFieldDidChange(notification: NSNotification) {
         let textFieldString = notification.object as! UITextField
         if let text = textFieldString.text {
             if text.characters.count > 10 {
                 newTextField.text = text.substring(to: text.index(text.startIndex, offsetBy: 10))
             }
+        }
+        
+        if newTextField.text == "" {
+            saveBtn.isEnabled = false
+        }else{
+            saveBtn.isEnabled = true
         }
     }
     
@@ -186,7 +185,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         //ここで区別するidがある無し
         if passedTitleId == ""{
             
-        
             for n in 0...cells.count - 1{
                 textFieldDidEndEditing(cells[n].newTextFieldCell)
             }
@@ -204,7 +202,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             memoDelete()
             memoEditCreate()
             setDueDate()
-
         }
     }
 
@@ -344,10 +341,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     }//memoEditCreate
     
     
-
-    
-    
-    
     //日時表示欄
     func createDatePicker(){
         
@@ -364,12 +357,8 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy年MM月dd日HH時mm分"
                 self.dateTextField.text = "\(formatter.string(from: dt))"
-                
-                
-            }
+                }
         }
-        
-        
     }
     
     // coreDataの読み込み memoにappendしてる
@@ -434,7 +423,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     func saveTitle() {
         
-        
         if newTextField.text != "" {
             //AppDelegateを使う準備をしておく
             let appD:AppDelegate = UIApplication.shared.delegate as!AppDelegate
@@ -461,7 +449,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             if dateTextField.text != "" {
                 newRecord.setValue(dueDate, forKey: "dueDate")
             }else{
-                // 3000年
+                //3000に設定
                 let df = DateFormatter()
                 df.dateFormat = "yyyy/MM/dd"
                 newRecord.setValue(df.date(from: "3000/01/01"), forKey: "dueDate")
@@ -511,7 +499,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         }else{
             newTextField.text = tmpText
         }
-        
     }
     
 
@@ -522,19 +509,18 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     
+    
+    
     //textFieldのリターンキーが押された時に発動
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // タイトルのテキストフィールドではなく、テキストフィールドが空ではないとき
         if textField.tag != titleTag && textField.text != "" {
            
-            
             // cellのtagとmemos.countが一致　→ 新規の詳細メモ
             if memos.count == textField.tag {
             }else{
-            
                 self.memos[textField.tag] = textField.text!
             }
-            
             
             //memosとtitleタグの番号があってない　表示用の配列を別で作る
 
@@ -557,15 +543,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
                         // Not found, so remove keyboard.
                         textField.resignFirstResponder()
                     }
-        
-//        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
-//            nextField.becomeFirstResponder()
-//        } else {
-//            // Not found, so remove keyboard.
-//            textField.resignFirstResponder()
-//        }
-        // Do not add a line break
-        //return false
         return true
     }
 
@@ -599,7 +576,16 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
         }else{
             saveBtn.isEnabled = true
         }
+    }
+    
+
+    @IBAction func touchUPTextField(_ sender: UITextField) {
         
+        if newTextField.text == "" {
+            saveBtn.isEnabled = false
+        }else{
+            saveBtn.isEnabled = true
+        }
     }
     
     
@@ -612,8 +598,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             newTableView.reloadData()
             self.memos.remove(at: indexPath.row)
             newTableView.deleteRows(at: [indexPath], with: .fade)
-            
-        }
+            }
     }
     
     
@@ -628,9 +613,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             }else{
                 return true
             }
-            
         }
-        
         return false
     }
     
@@ -653,7 +636,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
 
     @IBAction func secondBtn(_ sender: UIButton) {
         
-        
         allGray()
         if priorityNum == 2{
             resetColorBtn()
@@ -665,7 +647,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     @IBAction func thirdBtn(_ sender: UIButton) {
 
-        
         allGray()
         if priorityNum == 1 {
             resetColorBtn()
@@ -733,7 +714,7 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
 
 
             let calendarTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-            //
+            
             // Requestを生成する。idには通知IDを設定する
             let request = UNNotificationRequest.init(identifier: "ID_SetDayAndTime", content: content, trigger: calendarTrigger)
 
@@ -741,8 +722,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             let center = UNUserNotificationCenter.current()
             center.add(request) { (error) in
                 print(error ?? "\(setDateComponents.year!)年\(setDateComponents.month!)月\(setDateComponents.day!)日\(setDateComponents.hour!)時\(setDateComponents.minute!)分発動！")
-
-
             }
         }
 

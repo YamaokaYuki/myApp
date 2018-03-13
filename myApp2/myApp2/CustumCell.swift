@@ -29,17 +29,9 @@ class CustumCell: UITableViewCell {
         self.toDoTitle.layer.borderWidth = 3
         self.toDoTitle.layer.cornerRadius = 5
         self.toDoTitle.layer.masksToBounds = true
-        
-//        checkBtn.tintColor = UIColor.lightGray
-        
-        
-        
-    
-        
     }
     
     @IBAction func checkChangeColor(_ sender: UIButton) {
-        
         
         if checkBtn.tintColor == UIColor.lightGray{
             checkNum = 1
