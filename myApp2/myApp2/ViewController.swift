@@ -242,6 +242,48 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     //<セルの削除>
+    func memoDelete(titleId:String){
+        
+        //AppDelegateを使う用意をしておく
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        //エンティティを操作するためのオブジェクトを作成
+        let viewContext = appDelegate.persistentContainer.viewContext
+        
+        //どのエンティティからdataを取得してくるか設定
+        //全部取得する
+        let query:NSFetchRequest<Memo> = Memo.fetchRequest()
+        
+        //絞り込み検索（更新したいデータを取得する）
+        //ここで取得したいデータをとるためのコードを書く
+        let  r_idPredicate = NSPredicate(format: "titleId = %@", titleId)
+        query.predicate = r_idPredicate
+        
+        do {
+            //データを一括取得
+            let fetchResults = try viewContext.fetch(query)
+            
+            //データの取得
+            for result: AnyObject in fetchResults {
+                
+                //更新する準備（NSManagedObjectにダウンキャスト型変換)
+                //recordがひとつのセット
+                let record = result as! NSManagedObject
+                //削除したいデータのセット
+                //ここが問題
+                if record.value(forKey: "titleId") as! String == titleId {
+                    viewContext.delete(record)
+                }
+                
+            }
+            //レコード（行）の即時保存
+            try viewContext.save()
+            
+        } catch {
+            print("DBへの保存に失敗しました")
+        }
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let titleData = titles[indexPath.row]
@@ -270,7 +312,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                         viewContext.delete(record)
                     }
                 }
-                
+                memoDelete(titleId: titleData["id"] as! String)
                 //削除した状態を保存
                 try viewContext.save()
                 
