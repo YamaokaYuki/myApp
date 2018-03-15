@@ -12,6 +12,7 @@ import Instructions
 import CoreData
 import Hue//色変える
 import SCLAlertView//褒めるポップアップ用
+import UserNotifications//期日アラーム用
 
 var functionAlerts:[String] = []
 
@@ -313,6 +314,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     }
                 }
                 memoDelete(titleId: titleData["id"] as! String)
+                
+                let identifiers = [titleData["id"] as! String]
+                UNUserNotificationCenter.current().removeNotificationsCompletely(withIdentifiers: identifiers)
+                    
+                
+                
                 //削除した状態を保存
                 try viewContext.save()
                 
@@ -405,7 +412,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         super.didReceiveMemoryWarning()
 
     }
-
-
 }
+
+extension UNUserNotificationCenter {
+    func removeNotificationsCompletely(withIdentifiers identifiers: [String]) {
+        self.removePendingNotificationRequests(withIdentifiers: identifiers)
+        self.removeDeliveredNotifications(withIdentifiers: identifiers)
+    }
+}
+
+
 

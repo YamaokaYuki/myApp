@@ -715,8 +715,9 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
 
             let calendarTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
             
+            
             // Requestを生成する。idには通知IDを設定する
-            let request = UNNotificationRequest.init(identifier: "ID_SetDayAndTime", content: content, trigger: calendarTrigger)
+            let request = UNNotificationRequest.init(identifier: passedTitleId, content: content, trigger: calendarTrigger)
 
             // Noticationを発行する.
             let center = UNUserNotificationCenter.current()
