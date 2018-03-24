@@ -30,7 +30,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
     let colorlist = [UIColor(hex: "#0084ff"),UIColor(hex: "#85c8ff"),UIColor(hex: "#bfe2ff"),UIColor.white]
 
-    
     var selectedNum:Int!
     
     //検索バーに関わるもの
@@ -160,7 +159,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         cell.toDoTitle.text = titles[indexPath.row]["title"] as? String
         let checkNum = titles[indexPath.row]["check"] as? Int16
         cell.toDoId = titles[indexPath.row]["id"] as? String
-        print(cell.toDoId)
         
         if checkNum == 0{
             cell.checkBtn.tintColor = UIColor.lightGray
@@ -346,12 +344,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     }
                 }
             }
-            
         }
     }
     
     // 文字が入力される度に呼ばれる
     func updateSearchResults(for searchController: UISearchController) {
+        
         self.searchResults = titles.filter{
             // 大文字と小文字を区別せずに検索
             ($0["title"] as! String).lowercased().contains(searchController.searchBar.text!.lowercased())

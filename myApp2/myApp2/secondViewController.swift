@@ -462,7 +462,6 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             } catch  {
                 print("DBへの保存に失敗しました")
             }
-            print(#function,"メモのセーブ")
             if memos.count != 0 {
                 for n in 0...memos.count - 1 {
                     //Memoエンティティオブジェクトを作成
