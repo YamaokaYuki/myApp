@@ -13,11 +13,17 @@ import CoreData
 import Hue//色変える
 import SCLAlertView//褒めるポップアップ用
 import UserNotifications//期日アラーム用
+import GoogleMobileAds//広告用
 
 var functionAlerts:[String] = []
 
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchResultsUpdating {
+    
+    let AdMobID = "ca-app-pub-3806778369088919~3748921710" //バナーのID
+    let TEST_DEVICE_ID = "ca-app-pub-3806778369088919~3748921710" //個別のiphoneのID入れますAdMobID
+    let AdMobTest:Bool = true//切り替え用のフラグ
+    let SimulatorTest:Bool = true //切り替え用のフラグ
     
     var titles:[Dictionary<String,Any>] = []
     var selectedTitleId:String!
@@ -66,8 +72,35 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         print(urls[urls.count-1] as URL)
         
-
+        //広告
+        admobDisplay()
     }// viewDidRoad終了
+    
+    
+    
+    //広告
+    func admobDisplay(){
+        var admobView:GADBannerView = GADBannerView()
+        admobView = GADBannerView(adSize: kGADAdSizeBanner)
+        print("バナーのサイズ",admobView)
+        admobView.frame.origin = CGPoint(x:0, y: self.view.frame.size.height - admobView.frame.height)
+        admobView.frame.size = CGSize(width: self.view.frame.width, height: admobView.frame.height)
+        admobView.adUnitID = AdMobID
+        admobView.rootViewController = self
+        
+        let admobRequest:GADRequest = GADRequest()
+        
+        if AdMobTest{
+            if SimulatorTest{
+                admobRequest.testDevices = [kGADSimulatorID]
+            }else{
+                admobRequest.testDevices = [TEST_DEVICE_ID]
+            }
+        }
+        
+        admobView.load(admobRequest)
+        self.view.addSubview(admobView)
+        }
     
     
     

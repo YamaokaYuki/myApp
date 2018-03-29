@@ -12,6 +12,7 @@ target 'myApp2' do
 	pod 'Hue'
 	pod 'SCLAlertView'
 	pod 'IQKeyboardManagerSwift'
+	pod 'Google-Mobile-Ads-SDK'
 
 	
 end

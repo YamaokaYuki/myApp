@@ -7,13 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		616B83DD3EA69BCAEE8FEFA2 /* Pods_myApp2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810EED72ADCC89AA5A1B8D1C /* Pods_myApp2.framework */; };
+		6912E9062065F5AC00AD5987 /* Pods_myApp2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6912E9072065F5AC00AD5987 /* Pods_myApp2.framework */; };
+		6912E9092065F75400AD5987 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6912E9082065F75400AD5987 /* AudioToolbox.framework */; };
+		6912E90B2065F76400AD5987 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6912E90A2065F76400AD5987 /* AVFoundation.framework */; };
+		6912E90D2065F79300AD5987 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6912E90C2065F79300AD5987 /* CoreGraphics.framework */; };
+		6912E90F2065F7A700AD5987 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6912E90E2065F7A700AD5987 /* CoreTelephony.framework */; };
+		6912E9122065F7C000AD5987 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6912E9102065F7C000AD5987 /* EventKit.framework */; };
+		6912E9132065F7C000AD5987 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6912E9112065F7C000AD5987 /* EventKitUI.framework */; };
+		6912E9152065F7D400AD5987 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6912E9142065F7D400AD5987 /* MessageUI.framework */; };
+		6912E9172065F7E300AD5987 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6912E9162065F7E300AD5987 /* StoreKit.framework */; };
+		6912E9192065F7F100AD5987 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6912E9182065F7F100AD5987 /* SystemConfiguration.framework */; };
+		6912E91B2065FB0400AD5987 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6912E91A2065FB0400AD5987 /* GoogleMobileAds.framework */; };
 		692D3A5120503C540044C13C /* ToDo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692D3A4D20503C540044C13C /* ToDo+CoreDataClass.swift */; };
 		692D3A5220503C540044C13C /* Memo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692D3A4E20503C540044C13C /* Memo+CoreDataProperties.swift */; };
 		692D3A5320503C540044C13C /* ToDo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692D3A4F20503C540044C13C /* ToDo+CoreDataProperties.swift */; };
 		692D3A5420503C540044C13C /* Memo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692D3A5020503C540044C13C /* Memo+CoreDataClass.swift */; };
 		694E5A6620259FB10025F85F /* setViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694E5A6520259FB10025F85F /* setViewController.swift */; };
 		694E5A6A2025F35C0025F85F /* NewCustumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694E5A692025F35C0025F85F /* NewCustumCell.swift */; };
+		695636C82065F4C100716C8A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 695636C72065F4C100716C8A /* AdSupport.framework */; };
 		6965E2F82026A2AD00F246F7 /* functionAlert.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6965E2F72026A2AD00F246F7 /* functionAlert.plist */; };
 		6987FBD9202153AE00650394 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6987FBD8202153AE00650394 /* AppDelegate.swift */; };
 		6987FBDB202153AE00650394 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6987FBDA202153AE00650394 /* ViewController.swift */; };
@@ -26,12 +37,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6912E9072065F5AC00AD5987 /* Pods_myApp2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_myApp2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6912E9082065F75400AD5987 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6912E90A2065F76400AD5987 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6912E90C2065F79300AD5987 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6912E90E2065F7A700AD5987 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		6912E9102065F7C000AD5987 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		6912E9112065F7C000AD5987 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		6912E9142065F7D400AD5987 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		6912E9162065F7E300AD5987 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		6912E9182065F7F100AD5987 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6912E91A2065FB0400AD5987 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		692D3A4D20503C540044C13C /* ToDo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ToDo+CoreDataClass.swift"; path = "../ToDo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		692D3A4E20503C540044C13C /* Memo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Memo+CoreDataProperties.swift"; path = "../Memo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		692D3A4F20503C540044C13C /* ToDo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ToDo+CoreDataProperties.swift"; path = "../ToDo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		692D3A5020503C540044C13C /* Memo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Memo+CoreDataClass.swift"; path = "../Memo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		694E5A6520259FB10025F85F /* setViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setViewController.swift; sourceTree = "<group>"; };
 		694E5A692025F35C0025F85F /* NewCustumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCustumCell.swift; sourceTree = "<group>"; };
+		695636C72065F4C100716C8A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		6965E2F72026A2AD00F246F7 /* functionAlert.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = functionAlert.plist; sourceTree = "<group>"; };
 		6987FBD5202153AE00650394 /* myApp2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myApp2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6987FBD8202153AE00650394 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,7 +76,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				616B83DD3EA69BCAEE8FEFA2 /* Pods_myApp2.framework in Frameworks */,
+				6912E9192065F7F100AD5987 /* SystemConfiguration.framework in Frameworks */,
+				6912E9172065F7E300AD5987 /* StoreKit.framework in Frameworks */,
+				6912E9152065F7D400AD5987 /* MessageUI.framework in Frameworks */,
+				6912E9122065F7C000AD5987 /* EventKit.framework in Frameworks */,
+				6912E9132065F7C000AD5987 /* EventKitUI.framework in Frameworks */,
+				6912E90F2065F7A700AD5987 /* CoreTelephony.framework in Frameworks */,
+				6912E91B2065FB0400AD5987 /* GoogleMobileAds.framework in Frameworks */,
+				6912E90D2065F79300AD5987 /* CoreGraphics.framework in Frameworks */,
+				6912E90B2065F76400AD5987 /* AVFoundation.framework in Frameworks */,
+				6912E9092065F75400AD5987 /* AudioToolbox.framework in Frameworks */,
+				6912E9062065F5AC00AD5987 /* Pods_myApp2.framework in Frameworks */,
+				695636C82065F4C100716C8A /* AdSupport.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +115,7 @@
 		6987FBD7202153AE00650394 /* myApp2 */ = {
 			isa = PBXGroup;
 			children = (
+				6912E91A2065FB0400AD5987 /* GoogleMobileAds.framework */,
 				692D3A5020503C540044C13C /* Memo+CoreDataClass.swift */,
 				692D3A4E20503C540044C13C /* Memo+CoreDataProperties.swift */,
 				692D3A4D20503C540044C13C /* ToDo+CoreDataClass.swift */,
@@ -113,6 +148,17 @@
 		E05602784B8B6C46E44EC44C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6912E9182065F7F100AD5987 /* SystemConfiguration.framework */,
+				6912E9162065F7E300AD5987 /* StoreKit.framework */,
+				6912E9142065F7D400AD5987 /* MessageUI.framework */,
+				6912E9102065F7C000AD5987 /* EventKit.framework */,
+				6912E9112065F7C000AD5987 /* EventKitUI.framework */,
+				6912E90E2065F7A700AD5987 /* CoreTelephony.framework */,
+				6912E90C2065F79300AD5987 /* CoreGraphics.framework */,
+				6912E90A2065F76400AD5987 /* AVFoundation.framework */,
+				6912E9082065F75400AD5987 /* AudioToolbox.framework */,
+				6912E9072065F5AC00AD5987 /* Pods_myApp2.framework */,
+				695636C72065F4C100716C8A /* AdSupport.framework */,
 				810EED72ADCC89AA5A1B8D1C /* Pods_myApp2.framework */,
 			);
 			name = Frameworks;
@@ -408,6 +454,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9W748H9Y64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/myApp2",
+				);
 				INFOPLIST_FILE = myApp2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yukiyamaoka.PriorityMemo;
@@ -424,6 +474,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9W748H9Y64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/myApp2",
+				);
 				INFOPLIST_FILE = myApp2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yukiyamaoka.PriorityMemo;

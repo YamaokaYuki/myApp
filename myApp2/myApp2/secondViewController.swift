@@ -13,7 +13,9 @@ import Hue
 import UserNotifications//期日アラーム用
 import IQKeyboardManagerSwift//キーボード用
 
+
 class secondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate{
+    
     
     @IBOutlet weak var newTableView: UITableView!
     @IBOutlet weak var newTextField: UITextField!
@@ -154,6 +156,8 @@ class secondViewController: UIViewController,UITableViewDelegate,UITableViewData
             name: NSNotification.Name.UITextFieldTextDidChange,
             object: newTextField)
     }//viewDidLoad終わり
+    
+    
     
     
     //(2)テキストフィールドの入力イベントを監視し、変更があった場合に指定文字数(ここでは10文字)を超えた文字の入力をさせいない
