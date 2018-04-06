@@ -20,11 +20,6 @@ var functionAlerts:[String] = []
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchResultsUpdating {
     
-    let AdMobID = "ca-app-pub-3806778369088919~3748921710" //バナーのID
-    let TEST_DEVICE_ID = "ca-app-pub-3806778369088919~3748921710" //個別のiphoneのID入れますAdMobID
-    let AdMobTest:Bool = true//切り替え用のフラグ
-    let SimulatorTest:Bool = true //切り替え用のフラグ
-    
     var titles:[Dictionary<String,Any>] = []
     var selectedTitleId:String!
     var selectedTitle:String!
@@ -79,6 +74,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     //広告
+    
+    let AdMobID = "ca-app-pub-3806778369088919/3745407506" //バナーのID
+    let TEST_DEVICE_ID = "" //個別のiphoneのID入れますAdMobID
+    let AdMobTest:Bool = false//切り替え用のフラグ
+    let SimulatorTest:Bool = true //切り替え用のフラグ
+    
+    
     func admobDisplay(){
         var admobView:GADBannerView = GADBannerView()
         admobView = GADBannerView(adSize: kGADAdSizeBanner)
